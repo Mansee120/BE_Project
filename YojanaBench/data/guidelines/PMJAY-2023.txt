@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)
+SCHEME ID: PMJAY-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: HEALTH
+==============================================================================
+
+1. OBJECTIVE
+   Health insurance providing cover of Rs. 5,00,000 per family per year for secondary and tertiary care hospitalisation to eligible poor and vulnerable families.
+
+2. ELIGIBILITY CRITERIA
+   [PMJAY-C1] (MANDATORY) The family must be identified as an eligible household under the SECC deprivation criteria or an eligible occupational category.
+   [PMJAY-C2] (MANDATORY) The applicant must be a resident household of the concerned State/UT.
+   [PMJAY-C3] (MANDATORY) There is no cap on family size or age of members under the scheme.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMJAY-E1] Eligible families receive an annual health cover of Rs. 5,00,000 per family (shared across members) for hospitalisation.
+
+4. DOCUMENTS REQUIRED
+   [PMJAY-D1] (MANDATORY) Ayushman Card / SECC Eligibility Proof
+   [PMJAY-D2] (MANDATORY) Aadhaar Card
+   [PMJAY-D3] (OPTIONAL) Ration Card
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMJAY-APL1] Level 1: Ayushman Mitra / Hospital Grievance Desk - within 15 days. Raise a grievance at the empanelled hospital.
+   [PMJAY-APL2] Level 2: State Health Agency (SHA) - within 30 days. Escalation to the State Health Agency grievance cell.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

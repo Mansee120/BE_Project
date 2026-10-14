@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice Diagnostic — YojanaBench</title>
+  <style>
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f4f6fb; color: #16202f;
+           margin: 0; padding: 28px; line-height: 1.6; }
+    h1 { font-size: 20px; margin-bottom: 4px; }
+    .sub { color: #6b7280; margin-bottom: 20px; font-size: 13px; }
+    .card { background: #fff; border: 1px solid #e6e9f2; border-radius: 14px;
+            padding: 18px 20px; margin-bottom: 18px; box-shadow: 0 8px 24px rgba(15,52,96,.06); }
+    button { font: inherit; font-weight: 700; font-size: 15px; padding: 14px 22px;
+             border: none; border-radius: 10px; background: #0f3460; color: #fff;
+             cursor: pointer; margin: 6px 10px 6px 0; }
+    button:hover { background: #1c2c52; }
+    button.alt { background: #e94560; }
+    button.alt:hover { background: #d13b56; }
+    #log { background: #0f172a; color: #a7f3d0; font-family: Consolas, monospace;
+           font-size: 12.5px; padding: 12px 14px; border-radius: 10px; min-height: 40px;
+           white-space: pre-wrap; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid #e6e9f2; }
+    th { background: #eaf1fd; color: #0f3460; }
+    .yes { color: #15803d; font-weight: 700; }
+    .no { color: #b91c1c; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Voice Diagnostic</h1>
+  <div class="sub">Checks what speech voices your browser can use. Click a test button and listen.</div>
+
+  <div class="card">
+    <button class="alt" onclick="test('hi')">Test Hindi — नमस्ते</button>
+    <button onclick="test('en')">Test English — Hello</button>
+    <button onclick="test('mr')">Test Marathi</button>
+    <button onclick="test('ta')">Test Tamil</button>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:8px">Event log</div>
+    <div id="log">(waiting…)</div>
+  </div>
+
+  <div class="card">
+    <div style="font-weight:700;margin-bottom:8px">Voices this browser reports</div>
+    <div id="summary" class="sub"></div>
+    <table id="voices"><thead><tr><th>#</th><th>Name</th><th>Language</th><th>Default</th></tr></thead>
+      <tbody></tbody></table>
+  </div>
+
+  <script>
+    const logEl = document.getElementById("log");
+    const lines = [];
+    function log(msg, cls) {
+      const t = new Date().toLocaleTimeString();
+      lines.push("[" + t + "] " + msg);
+      logEl.innerHTML = lines.map((l) => escapeHtml(l)).join("\n");
+      if (cls === "err") logEl.style.color = "#fca5a5";
+    }
+    function escapeHtml(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    const WELCOME = {
+      hi: { text: "नमस्ते! योजना बेंच में आपका स्वागत है। मैं आपकी आज मदद करूँगी।", lang: "hi-IN" },
+      en: { text: "Hello, welcome to Yojana Bench. I am here to help you.", lang: "en-IN" },
+      mr: { text: "नमस्कार! योजना बेंच मध्ये आपले स्वागत आहे.", lang: "mr-IN" },
+      ta: { text: "வணக்கம்! யோஜனா பெஞ்சுக்கு வரவேற்கிறோம்.", lang: "ta-IN" },
+    };
+
+    function voiceFor(lang) {
+      const base = lang.split("-")[0];
+      const voices = speechSynthesis.getVoices() || [];
+      return voices.find((v) => v.lang && v.lang.toLowerCase() === lang.toLowerCase())
+        || voices.find((v) => v.lang && v.lang.toLowerCase().startsWith(base))
+        || null;
+    }
+
+    function test(key) {
+      const w = WELCOME[key];
+      if (!window.speechSynthesis) { log("speechSynthesis NOT supported", "err"); return; }
+      const v = voiceFor(w.lang);
+      const u = new SpeechSynthesisUtterance(w.text);
+      if (v) { u.voice = v; u.lang = v.lang; log("Using voice: " + v.name + " [" + v.lang + "]"); }
+      else { u.lang = w.lang; log("No matching voice for " + w.lang + " — using browser default", "err"); }
+      u.rate = 0.95; u.volume = 1;
+      u.onstart = () => log("START " + key + " utterance (" + w.lang + ")");
+      u.onend = () => log("END " + key);
+      u.onerror = (e) => log("ERROR " + key + ": " + (e && e.error), "err");
+      speechSynthesis.cancel();
+      speechSynthesis.speak(u);
+    }
+
+    function renderVoices() {
+      if (!window.speechSynthesis) {
+        log("speechSynthesis NOT supported in this browser", "err");
+        document.getElementById("summary").textContent = "Not supported.";
+        return;
+      }
+      const voices = speechSynthesis.getVoices() || [];
+      const tbody = document.querySelector("#voices tbody");
+      tbody.innerHTML = voices.map((v, i) =>
+        "<tr><td>" + i + "</td><td>" + escapeHtml(v.name) + "</td><td>" +
+        escapeHtml(v.lang) + "</td><td>" + (v.default ? "yes" : "") + "</td></tr>").join("");
+      const hasHi = !!voiceFor("hi-IN");
+      const hasEn = !!voiceFor("en-IN") || !!voiceFor("en-US");
+      document.getElementById("summary").innerHTML =
+        "Total voices: <b>" + voices.length + "</b> &nbsp;|&nbsp; " +
+        "Hindi voice: <span class='" + (hasHi ? "yes'>YES" : "no'>NO") + "</span> &nbsp;|&nbsp; " +
+        "English voice: <span class='" + (hasEn ? "yes'>YES" : "no'>NO") + "</span>";
+      log("Loaded " + voices.length + " voices (Hindi=" + hasHi + ", English=" + hasEn + ")");
+    }
+
+    if (window.speechSynthesis) {
+      speechSynthesis.onvoiceschanged = renderVoices;
+      renderVoices();
+      setTimeout(renderVoices, 800);
+      setTimeout(renderVoices, 2500);
+    } else {
+      renderVoices();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Post-Matric Scholarship for Scheduled Caste Students
+SCHEME ID: PMS-SC-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: SCHOLARSHIP
+==============================================================================
+
+1. OBJECTIVE
+   Financial assistance to Scheduled Caste students studying at the post-matriculation level. Includes maintenance allowance (hosteller/day-scholar) and reimbursement of non-refundable fees, subject to parental income limits.
+
+2. ELIGIBILITY CRITERIA
+   [PMS-C1] (MANDATORY) The applicant must belong to a Scheduled Caste (SC) category.
+   [PMS-C2] (MANDATORY) The applicant must have passed matriculation (Class 10) and be pursuing post-matriculation studies.
+   [PMS-C3] (MANDATORY) Parental/guardian annual income must not exceed Rs. 2,50,000.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMS-E1] Hostellers receive a maintenance allowance of Rs. 1,200 per month (Rs. 13,500 per year including book grant).
+   [PMS-E2] Day scholars receive a maintenance allowance of Rs. 700 per month (Rs. 7,500 per year including book grant).
+
+4. DOCUMENTS REQUIRED
+   [PMS-D1] (MANDATORY) Caste Certificate (SC)
+   [PMS-D2] (MANDATORY) Income Certificate
+   [PMS-D3] (MANDATORY) Class 10 Marksheet
+   [PMS-D4] (MANDATORY) Fee Receipt / Admission Proof
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMS-APL1] Level 1: Institute Scholarship Nodal Officer - within 15 days. First-level grievance at the educational institute.
+   [PMS-APL2] Level 2: State Scheduled Caste Development Department - within 45 days. Escalation to the state welfare department.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

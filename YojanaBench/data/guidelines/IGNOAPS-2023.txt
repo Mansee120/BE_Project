@@ -1,0 +1,32 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Indira Gandhi National Old Age Pension Scheme
+SCHEME ID: IGNOAPS-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: PENSION
+==============================================================================
+
+1. OBJECTIVE
+   Monthly pension for persons aged 60 years and above belonging to Below Poverty Line (BPL) households. Higher amount for persons aged 80 years and above.
+
+2. ELIGIBILITY CRITERIA
+   [IGNOAPS-C1] (MANDATORY) The applicant must be 60 years of age or older.
+   [IGNOAPS-C2] (MANDATORY) The applicant must belong to a Below Poverty Line (BPL) household.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [IGNOAPS-E1] Persons aged 80 years and above receive a pension of Rs. 500 per month.
+   [IGNOAPS-E2] Persons aged 60 to 79 years receive a pension of Rs. 200 per month.
+
+4. DOCUMENTS REQUIRED
+   [IGNOAPS-D1] (MANDATORY) Age Proof (Birth Certificate/School Certificate)
+   [IGNOAPS-D2] (MANDATORY) BPL Card
+   [IGNOAPS-D3] (MANDATORY) Aadhaar Card
+   [IGNOAPS-D4] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [IGNOAPS-APL1] Level 1: Block Development Officer (BDO) - within 30 days. First appeal at block level.
+   [IGNOAPS-APL2] Level 2: District Social Welfare Officer - within 60 days. Second appeal at district level.
+   [IGNOAPS-APL3] Level 3: State Social Welfare Commission - within 90 days. Final appeal at state level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

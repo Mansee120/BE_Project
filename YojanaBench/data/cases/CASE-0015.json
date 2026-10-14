@@ -1,0 +1,15 @@
+{
+  "case_id": "CASE-0015",
+  "scheme_id": "PMJAY-2023",
+  "label": "APL family - should be INELIGIBLE",
+  "applicant": {
+    "age": 33,
+    "bpl": false,
+    "region": "urban",
+    "family_size": 3
+  },
+  "submitted_documents": [
+    "Ayushman Card / SECC Eligibility Proof",
+    "Aadhaar Card"
+  ]
+}

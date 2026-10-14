@@ -1,0 +1,10 @@
+{
+  "case_id": "CASE-0004",
+  "scheme_id": "PMKISAN-2023",
+  "label": "Farmer who is an income-tax payer - should be REJECTED",
+  "applicant": {
+    "age": 40, "is_farmer": true, "is_institutional_landholder": false,
+    "is_income_tax_payer": true, "region": "rural"
+  },
+  "submitted_documents": ["Land Ownership Records (Khatauni/7-12 Extract)", "Aadhaar Card", "Bank Account Passbook"]
+}

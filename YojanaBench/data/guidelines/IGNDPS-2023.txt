@@ -1,0 +1,34 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Indira Gandhi National Disability Pension Scheme
+SCHEME ID: IGNDPS-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: PENSION
+==============================================================================
+
+1. OBJECTIVE
+   Monthly pension for persons aged 18 years and above with severe or multiple disabilities (80% or more) belonging to Below Poverty Line (BPL) households.
+
+2. ELIGIBILITY CRITERIA
+   [IGNDPS-C1] (MANDATORY) The applicant must be 18 years of age or older.
+   [IGNDPS-C2] (MANDATORY) The applicant must be below 80 years of age.
+   [IGNDPS-C3] (MANDATORY) The applicant must have a disability of 80% or more.
+   [IGNDPS-C4] (MANDATORY) The applicant must belong to a Below Poverty Line (BPL) household.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [IGNDPS-E1] Eligible beneficiaries receive a pension of Rs. 300 per month.
+
+4. DOCUMENTS REQUIRED
+   [IGNDPS-D1] (MANDATORY) Disability Certificate (80% or more)
+   [IGNDPS-D2] (MANDATORY) Age Proof (Birth Certificate/School Certificate)
+   [IGNDPS-D3] (MANDATORY) BPL Card
+   [IGNDPS-D4] (MANDATORY) Aadhaar Card
+   [IGNDPS-D5] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [IGNDPS-APL1] Level 1: Block Development Officer (BDO) - within 30 days. First appeal at block level.
+   [IGNDPS-APL2] Level 2: District Social Welfare Officer - within 60 days. Second appeal at district level.
+   [IGNDPS-APL3] Level 3: State Social Welfare Commission - within 90 days. Final appeal at state level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

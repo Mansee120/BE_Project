@@ -1,0 +1,63 @@
+{
+  "scheme_id": "IGNDPS-2023",
+  "name": "Indira Gandhi National Disability Pension Scheme",
+  "level": "central",
+  "state": "All India",
+  "category": "pension",
+  "summary": "Monthly pension for persons aged 18 years and above with severe or multiple disabilities (80% or more) belonging to Below Poverty Line (BPL) households.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "IGNDPS-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    },
+    {
+      "clause_id": "IGNDPS-C2",
+      "text": "The applicant must be below 80 years of age.",
+      "field": "age",
+      "operator": "lt",
+      "value": 80,
+      "mandatory": true
+    },
+    {
+      "clause_id": "IGNDPS-C3",
+      "text": "The applicant must have a disability of 80% or more.",
+      "field": "disability_percent",
+      "operator": "gte",
+      "value": 80,
+      "mandatory": true
+    },
+    {
+      "clause_id": "IGNDPS-C4",
+      "text": "The applicant must belong to a Below Poverty Line (BPL) household.",
+      "field": "bpl",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "IGNDPS-E1",
+      "text": "Eligible beneficiaries receive a pension of Rs. 300 per month.",
+      "when": { "field": "disability_percent", "operator": "gte", "value": 80 },
+      "compute": { "type": "fixed_amount", "value": 300, "unit": "INR/month", "per_period": "month" },
+      "clause_ids": ["IGNDPS-C3", "IGNDPS-E1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "IGNDPS-D1", "name": "Disability Certificate (80% or more)", "mandatory": true },
+    { "doc_id": "IGNDPS-D2", "name": "Age Proof (Birth Certificate/School Certificate)", "mandatory": true },
+    { "doc_id": "IGNDPS-D3", "name": "BPL Card", "mandatory": true },
+    { "doc_id": "IGNDPS-D4", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "IGNDPS-D5", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Block Development Officer (BDO)", "deadline_days": 30, "description": "First appeal at block level." },
+    { "level": 2, "authority": "District Social Welfare Officer", "deadline_days": 60, "description": "Second appeal at district level." },
+    { "level": 3, "authority": "State Social Welfare Commission", "deadline_days": 90, "description": "Final appeal at state level." }
+  ]
+}

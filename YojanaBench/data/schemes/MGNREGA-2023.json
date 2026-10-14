@@ -1,0 +1,43 @@
+{
+  "scheme_id": "MGNREGA-2023",
+  "name": "Mahatma Gandhi National Rural Employment Guarantee Act",
+  "level": "central",
+  "state": "All India",
+  "category": "employment",
+  "summary": "Guarantees at least 100 days of unskilled wage employment in a financial year to every rural household whose adult members volunteer to do unskilled manual work.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "MGNREGA-C1",
+      "text": "The applicant must be a member of a rural household.",
+      "field": "region",
+      "operator": "eq",
+      "value": "rural",
+      "mandatory": true
+    },
+    {
+      "clause_id": "MGNREGA-C2",
+      "text": "The applicant must be an adult (18 years or older) willing to do unskilled manual work.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "MGNREGA-E1",
+      "text": "Each rural household is guaranteed up to 100 days of wage employment per financial year, paid at the notified daily wage rate.",
+      "compute": { "type": "wage_days", "value": 221, "days": 100, "unit": "INR/day", "per_period": "year" },
+      "clause_ids": ["MGNREGA-C2", "MGNREGA-E1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "MGNREGA-D1", "name": "Job Card", "mandatory": true },
+    { "doc_id": "MGNREGA-D2", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "MGNREGA-D3", "name": "Bank/Post Office Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Gram Panchayat / Programme Officer", "deadline_days": 15, "description": "Complaint to the Programme Officer at block level." },
+    { "level": 2, "authority": "District Programme Coordinator", "deadline_days": 30, "description": "Escalation to the District Programme Coordinator." }
+  ]
+}

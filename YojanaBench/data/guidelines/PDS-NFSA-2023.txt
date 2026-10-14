@@ -1,0 +1,31 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Public Distribution System (National Food Security Act, 2013)
+SCHEME ID: PDS-NFSA-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: FOOD
+==============================================================================
+
+1. OBJECTIVE
+   Provides subsidised foodgrains to eligible households through Fair Price Shops under the National Food Security Act, 2013. Priority Households (PHH) and Antyodaya Anna Yojana (AAY) families receive monthly entitlements.
+
+2. ELIGIBILITY CRITERIA
+   [PDS-C1] (MANDATORY) The household must hold a valid ration card classified as either Antyodaya Anna Yojana (AAY) or Priority Household (PHH).
+   [PDS-C2] (MANDATORY) The applicant must be a resident of the State/UT where the ration card is issued.
+   [PDS-C3] (MANDATORY) A household that pays income tax or is covered under a statutory income-tax category is excluded from Priority Household coverage.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PDS-E1] Antyodaya Anna Yojana (AAY) households receive 35 kg of foodgrains per household per month.
+   [PDS-E2] Priority Household (PHH) families receive 5 kg of foodgrains per person per month.
+
+4. DOCUMENTS REQUIRED
+   [PDS-D1] (MANDATORY) Ration Card
+   [PDS-D2] (MANDATORY) Aadhaar Card
+   [PDS-D3] (MANDATORY) Residence/Address Proof
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PDS-APL1] Level 1: District Supply Officer (DSO) - within 30 days. First appeal against rejection or card correction at the district level.
+   [PDS-APL2] Level 2: State Food Commission - within 60 days. Second appeal to the State Food Commission if the district decision is unsatisfactory.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

@@ -1,0 +1,17 @@
+{
+  "case_id": "CASE-0027",
+  "scheme_id": "IGNDPS-2023",
+  "label": "Eligible applicant (missing disability certificate) - should be NEEDS_INFO at 300 INR/month",
+  "applicant": {
+    "age": 30,
+    "disability_percent": 85,
+    "bpl": true,
+    "category": "SC"
+  },
+  "submitted_documents": [
+    "Age Proof (Birth Certificate/School Certificate)",
+    "BPL Card",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

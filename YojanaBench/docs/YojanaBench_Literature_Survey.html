@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Literature Survey — YojanaBench</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a2e; background: #fff;
+    line-height: 1.45; font-size: 12px; padding: 36px 40px;
+  }
+  h1 { font-size: 22px; color: #0f3460; text-align: center; letter-spacing: 0.5px; margin-bottom: 16px; }
+  table { border-collapse: collapse; width: 100%; font-size: 10.5px; }
+  th { background: #0f3460; color: #fff; text-align: left; padding: 7px 8px; border: 1px solid #9aa5b5; font-size: 11px; }
+  td { border: 1px solid #b8c0cc; padding: 7px 8px; vertical-align: top; text-align: justify; }
+  tr:nth-child(even) td { background: #f4f7fb; }
+  .num { text-align: center; width: 4%; }
+  .paper { width: 17%; font-weight: 600; }
+  .authors { width: 15%; }
+  .year { text-align: center; width: 6%; }
+  .gap { width: 28%; }
+  .sol { width: 30%; }
+  .note { text-align: center; color: #555; font-size: 10.5px; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<h1>LITERATURE SURVEY</h1>
+
+<table>
+  <tr>
+    <th>Sr. No.</th>
+    <th>Paper Name</th>
+    <th>Authors</th>
+    <th>Year</th>
+    <th>Gap in Existing Solution</th>
+    <th>Proposed Solution in YOJANABENCH</th>
+  </tr>
+
+  <tr>
+    <td class="num">1</td>
+    <td class="paper">GAIA: A Benchmark for General AI Assistants</td>
+    <td class="authors">Gr&eacute;goire Mialon, Cl&eacute;mentine Fourrier, Craig Swift, Thomas Wolf, Yann LeCun, Thomas Scialom</td>
+    <td class="year">2023</td>
+    <td class="gap">General-purpose English assistant benchmark with 466 real-world questions; tests reasoning, multimodality and tool use, but has no domain documents, no eligibility or entitlement reasoning, no verdict ground truth, and is not India-specific.</td>
+    <td class="sol">YojanaBench is a domain-specific benchmark built on real Indian welfare-scheme guideline PDFs with human-verified QA pairs, eligible/ineligible verdict references, and numerical entitlement targets — a task class GAIA does not cover.</td>
+  </tr>
+
+  <tr>
+    <td class="num">2</td>
+    <td class="paper">LawBench: Benchmarking Legal Knowledge of Large Language Models</td>
+    <td class="authors">Zhiwei Fei, Xiaoyu Shen, Dawei Zhu, Fengzhe Zhou, Zhuo Han, Alan Huang, Songyang Zhang, Kai Chen, Zhixin Yin, Zongwen Shen, Jidong Ge, Vincent Ng</td>
+    <td class="year">2024</td>
+    <td class="gap">Covers 20 Chinese legal tasks across Bloom&rsquo;s cognitive levels, but is limited to Chinese law; contains no welfare-scheme documents, no benefit-amount computation, no counterfactual eligibility scenarios, and no multi-agent evaluation pipeline.</td>
+    <td class="sol">YojanaBench targets Indian welfare-scheme document reasoning: eligibility clauses, entitlement formulas, document checklists and appeal steps with counterfactual edge cases, evaluated through a multi-agent audit pipeline rather than single-model prompting.</td>
+  </tr>
+
+  <tr>
+    <td class="num">3</td>
+    <td class="paper">DocVQA: A Dataset for VQA on Document Images</td>
+    <td class="authors">Minesh Mathew, Dimosthenis Karatzas, C.V. Jawahar</td>
+    <td class="year">2021</td>
+    <td class="gap">Provides 50,000 extractive QA pairs over 12,000+ document images, but answers are span extractions only — no eligibility verdicts, no numerical entitlement computation, no counterfactual scenarios, and no clause-level ground-truth evidence.</td>
+    <td class="sol">YojanaBench moves beyond extraction to reasoning: every QA item carries a verdict (eligible / ineligible / needs_info), an entitlement value, cited evidence clause IDs, and perturbed counterfactual variants that test boundary conditions.</td>
+  </tr>
+
+  <tr>
+    <td class="num">4</td>
+    <td class="paper">LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models</td>
+    <td class="authors">Neel Guha, Julian Nyarko, Daniel E. Ho, Christopher R&eacute;, Adam Chilton, Alex Chohlas-Wood, Austin Peters, Brandon Waldon, Daniel Rockmore, Diego Zambrano, et al.</td>
+    <td class="year">2024</td>
+    <td class="gap">Measures US legal reasoning through 162 tasks, but is confined to American case law and contracts; it does not address government benefit rules, document-compliance checklists, or numeric entitlement calculation.</td>
+    <td class="sol">YojanaBench supplies what LegalBench lacks for the governance domain: scheme-rule reasoning with required-document verification, benefit computation accuracy, and an appeal-routing task tied to Indian administrative hierarchies.</td>
+  </tr>
+
+  <tr>
+    <td class="num">5</td>
+    <td class="paper">Retrieval-Augmented Generation for Large Language Models: A Survey</td>
+    <td class="authors">Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi Dai, Jiawei Sun, Meng Wang, Haofen Wang</td>
+    <td class="year">2023</td>
+    <td class="gap">Surveys Naive, Advanced and Modular RAG paradigms and their evaluation, but offers no domain benchmark for governance documents; evaluation lacks verdict-level and computation-level metrics needed for high-stakes compliance decisions.</td>
+    <td class="sol">YojanaBench applies section-aware, schema-structured RAG over scheme PDFs and defines compliance-specific metrics (verdict accuracy, entitlement error, document F1, confidence calibration) that go beyond standard RAG answer-similarity scores.</td>
+  </tr>
+
+  <tr>
+    <td class="num">6</td>
+    <td class="paper">Large Language Model based Multi-Agents: A Survey of Progress and Challenges</td>
+    <td class="authors">Taicheng Guo, Xiuying Chen, Yaqi Wang, Ruidi Chang, Shichao Pei, Nitesh V. Chawla, Olaf Wiest, Xiangliang Zhang</td>
+    <td class="year">2024</td>
+    <td class="gap">Systematically surveys LLM multi-agent profiling, communication and capability acquisition, but lists no welfare-governance application and no verified benchmark on which an audit-style agent pipeline can be scored against ground truth.</td>
+    <td class="sol">YojanaBench instantiates a concrete 8-agent audit pipeline (Corpus, Intake, RAG, Entitlement, Verification, Orchestrator, Evaluation, Appeal) with a human-approval gate, and releases the benchmark needed to reproducibly score multi-agent compliance systems.</td>
+  </tr>
+
+  <tr>
+    <td class="num">7</td>
+    <td class="paper">Need of Retrieval Augmented Generation for Conversational Assistants for Government Social Welfare Scheme Popularization</td>
+    <td class="authors">Vaidheeswaran Vaishnav, Guru Omkar Nathan</td>
+    <td class="year">2024</td>
+    <td class="gap">Builds a RAG chatbot over 2,980 scraped government schemes and measures similarity, uncertainty and hallucination — but has no human-verified QA ground truth, no eligibility verdict labels, no entitlement computation checks, and no counterfactual/edge-case evaluation.</td>
+    <td class="sol">YojanaBench provides the missing evaluation standard: human-verified QA pairs and verdict references over 10&ndash;15 curated scheme guideline PDFs, with EM / F1 / verdict-accuracy / entitlement-error scoring and ablation of each agent.</td>
+  </tr>
+
+  <tr>
+    <td class="num">8</td>
+    <td class="paper">First Impressions from Comparing Form-Based and Conversational Interfaces for Public Service Access in India</td>
+    <td class="authors">Chaitra C R, Pranathi Voora, Bhaskar Ruthvik Bikkina, Bharghavaram Boddapati, Srivant Vishnuvajjala, Vivan Jain, Prajna Upadhyay, Dipanjan Chakraborty</td>
+    <td class="year">2025</td>
+    <td class="gap">Compares the myScheme form app with a RAG conversational prototype (Prabodhini) on usability with 15 users — evaluates interface preference and task time, but not whether the scheme information returned is correct against official guideline documents.</td>
+    <td class="sol">YojanaBench evaluates correctness rather than usability: every response is scored against document-derived ground truth (eligibility, entitlement, documents, appeal), so a fast but wrong answer scores zero — the audit standard missing in interface-only studies.</td>
+  </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "scheme_id": "IGNOAPS-2023",
+  "name": "Indira Gandhi National Old Age Pension Scheme",
+  "level": "central",
+  "state": "All India",
+  "category": "pension",
+  "summary": "Monthly pension for persons aged 60 years and above belonging to Below Poverty Line (BPL) households. Higher amount for persons aged 80 years and above.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "IGNOAPS-C1",
+      "text": "The applicant must be 60 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 60,
+      "mandatory": true
+    },
+    {
+      "clause_id": "IGNOAPS-C2",
+      "text": "The applicant must belong to a Below Poverty Line (BPL) household.",
+      "field": "bpl",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "IGNOAPS-E1",
+      "text": "Persons aged 80 years and above receive a pension of Rs. 500 per month.",
+      "when": { "field": "age", "operator": "gte", "value": 80 },
+      "compute": { "type": "fixed_amount", "value": 500, "unit": "INR/month", "per_period": "month" },
+      "clause_ids": ["IGNOAPS-C1", "IGNOAPS-E1"]
+    },
+    {
+      "rule_id": "IGNOAPS-E2",
+      "text": "Persons aged 60 to 79 years receive a pension of Rs. 200 per month.",
+      "when": { "field": "age", "operator": "and", "clauses": [ { "field": "age", "operator": "gte", "value": 60 }, { "field": "age", "operator": "lt", "value": 80 } ] },
+      "compute": { "type": "fixed_amount", "value": 200, "unit": "INR/month", "per_period": "month" },
+      "clause_ids": ["IGNOAPS-C1", "IGNOAPS-E2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "IGNOAPS-D1", "name": "Age Proof (Birth Certificate/School Certificate)", "mandatory": true },
+    { "doc_id": "IGNOAPS-D2", "name": "BPL Card", "mandatory": true },
+    { "doc_id": "IGNOAPS-D3", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "IGNOAPS-D4", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Block Development Officer (BDO)", "deadline_days": 30, "description": "First appeal at block level." },
+    { "level": 2, "authority": "District Social Welfare Officer", "deadline_days": 60, "description": "Second appeal at district level." },
+    { "level": 3, "authority": "State Social Welfare Commission", "deadline_days": 90, "description": "Final appeal at state level." }
+  ]
+}

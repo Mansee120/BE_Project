@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YojanaBench — Full Detailed Project Description</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a2e; background: #fff;
+    line-height: 1.6; font-size: 13px; padding: 42px 56px;
+  }
+  .band { height: 8px; background: linear-gradient(90deg,#0f3460,#16213e,#e94560); border-radius: 6px; margin-bottom: 26px; }
+  h1 { font-size: 26px; color: #0f3460; letter-spacing: -0.3px; }
+  .subtitle { font-size: 15px; color: #444; margin-top: 6px; }
+  .tagline { display: inline-block; background: #e94560; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-top: 12px; }
+  .meta { margin: 16px 0 6px; color: #555; font-size: 12.5px; }
+  .meta b { color: #0f3460; }
+  h2 { font-size: 17px; color: #0f3460; margin: 28px 0 10px; padding-left: 10px; border-left: 4px solid #e94560; page-break-after: avoid; }
+  h3 { font-size: 14px; color: #0f3460; margin: 16px 0 6px; page-break-after: avoid; }
+  h4 { font-size: 12.5px; color: #16213e; margin: 10px 0 4px; }
+  p { margin: 7px 0; text-align: justify; }
+  ul, ol { margin: 7px 0 7px 24px; }
+  li { margin: 4px 0; }
+  .abstract { background: #f6f8fb; border: 1px solid #dfe5ee; border-left: 4px solid #0f3460; border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+  .flow { background: #f6f8fb; border: 1px solid #dfe5ee; border-radius: 8px; padding: 14px 16px; font-family: Consolas, monospace; font-size: 11.5px; color: #0f3460; line-height: 1.75; white-space: pre; margin: 10px 0; page-break-inside: avoid; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 12px; page-break-inside: avoid; }
+  th { background: #0f3460; color: #fff; text-align: left; padding: 7px 9px; }
+  td { border: 1px solid #dfe5ee; padding: 7px 9px; vertical-align: top; }
+  tr:nth-child(even) td { background: #f6f8fb; }
+  .card { border: 1px solid #dfe5ee; border-radius: 8px; padding: 14px 18px; margin: 12px 0; background: #fafbfd; page-break-inside: avoid; }
+  .ok { color: #1b7f3b; font-weight: 700; }
+  .warn { color: #b45309; font-weight: 700; }
+  .rej { color: #b91c1c; font-weight: 700; }
+  .section { page-break-before: always; }
+  .footer { margin-top: 30px; padding-top: 10px; border-top: 1px solid #dfe5ee; color: #555; font-size: 11px; }
+  .toc td { border: none; padding: 3px 6px; font-size: 12.5px; }
+  .note { background: #fff7ed; border: 1px solid #fcd9a4; border-radius: 6px; padding: 10px 14px; margin: 10px 0; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div class="band"></div>
+
+<h1>YojanaBench</h1>
+<div class="subtitle">The First Benchmark for India Welfare-Scheme Document Reasoning + a Multi-Agent Audit Pipeline</div>
+<span class="tagline">FULL DETAILED PROJECT DESCRIPTION &middot; FINAL YEAR ENGINEERING PROJECT</span>
+
+<div class="meta">
+  <b>Team Members:</b> [Member 1], [Member 2], [Member 3] &nbsp;|&nbsp; <b>Guide:</b> [Guide Name, Department]<br>
+  <b>College:</b> [College Name] &nbsp;|&nbsp; <b>Duration:</b> 4&ndash;5 months (19 weeks) &nbsp;|&nbsp; <b>Domain:</b> Agentic AI / NLP / E-Governance
+</div>
+
+<div class="abstract">
+<b>Abstract:</b> India runs ~950+ central and state welfare schemes governed by dense PDF guideline documents, yet no structured benchmark exists to test whether AI agents can reason correctly over these documents. YojanaBench addresses this gap with two deliverables: (1) a human-verified benchmark of real scheme guideline PDFs with QA pairs, counterfactual/edge-case scenarios, and verdict references, and (2) a reproducible multi-agent audit pipeline (Corpus, Intake, RAG, Entitlement, Verification, Orchestrator, Evaluation, and Appeal agents) built on LangGraph + Ollama with zero API cost, evaluated using Exact Match, F1, verdict accuracy, entitlement error, and ablation studies.
+</div>
+
+<h2>Table of Contents</h2>
+<table class="toc">
+  <tr><td>1.</td><td>Introduction &amp; Background</td></tr>
+  <tr><td>2.</td><td>Problem Statement</td></tr>
+  <tr><td>3.</td><td>Research Gap &amp; Novelty (Verified Uniqueness)</td></tr>
+  <tr><td>4.</td><td>Objectives</td></tr>
+  <tr><td>5.</td><td>System Architecture</td></tr>
+  <tr><td>6.</td><td>Detailed Agent Descriptions</td></tr>
+  <tr><td>7.</td><td>Benchmark Dataset Design (Deliverable 1)</td></tr>
+  <tr><td>8.</td><td>Evaluation Protocol &amp; Metrics (Deliverable 2)</td></tr>
+  <tr><td>9.</td><td>Technology Stack</td></tr>
+  <tr><td>10.</td><td>Work Plan &amp; Timeline (19 Weeks)</td></tr>
+  <tr><td>11.</td><td>Expected Outcomes &amp; Deliverables</td></tr>
+  <tr><td>12.</td><td>Novelty, Paper Potential &amp; Comparisons</td></tr>
+  <tr><td>13.</td><td>Risk Analysis &amp; Mitigation</td></tr>
+  <tr><td>14.</td><td>Feasibility &amp; FYP Suitability</td></tr>
+  <tr><td>15.</td><td>Possible Extensions &amp; Future Work</td></tr>
+</table>
+
+<!-- ================= 1. INTRODUCTION ================= -->
+<div class="section"></div>
+<h2>1. Introduction &amp; Background</h2>
+
+<h3>1.1 Welfare-Scheme Landscape in India</h3>
+<p>The Government of India and state governments together run approximately <b>950+ welfare schemes</b> covering food security (ration/PDS), old-age/widow/disability pensions, scholarships, employment guarantee (MGNREGA), housing (PMAY), farmer aid (PM-KISAN), health insurance (Ayushman Bharat), and beneficiary assistance programs. Each scheme is defined and operated through official <b>guideline documents</b> — typically long PDFs issued by the relevant ministry or department.</p>
+
+<h3>1.2 Role of Guideline Documents</h3>
+<p>These guideline PDFs are the legal and administrative source of truth for:</p>
+<ul>
+  <li><b>Eligibility criteria</b> — age limits, income ceilings, category (SC/ST/OBC/General), residency, family income, landholding.</li>
+  <li><b>Entitlement formulas</b> — exact benefit amounts: pension tiers, ration quantum per member, scholarship fee waivers, wage rates.</li>
+  <li><b>Document requirements</b> — Aadhaar, income certificate, caste certificate, Ration card, bank passbook, domicile proof.</li>
+  <li><b>Application &amp; appeal procedure</b> — filing steps, timelines, revision/appeal hierarchy (Block &rarr; District &rarr; State Commission).</li>
+</ul>
+
+<h3>1.3 Real-World Failure Modes</h3>
+<table>
+  <tr><th>Failure</th><th>Consequence</th></tr>
+  <tr><td>Eligibility misreading</td><td>Wrongly approved (leakage) or wrongly rejected (exclusion) applications</td></tr>
+  <tr><td>Wrong entitlement calculation</td><td>Incorrect benefit amounts paid to crores of beneficiaries</td></tr>
+  <tr><td>Mis-routing of applications</td><td>Cases sent to wrong department/channel; months of delay</td></tr>
+  <tr><td>No quality test for AI systems</td><td>Any deployed AI tool is untested against a ground standard</td></tr>
+</table>
+
+<h3>1.4 Why Now</h3>
+<p>LLM-based assistants and RAG systems are being proposed for citizen-facing governance. Without a benchmark, there is <b>no way to measure</b> whether such a system reasons correctly over scheme rules. YojanaBench provides that measuring instrument — for our own pipeline and for any future research in this space.</p>
+
+<!-- ================= 2. PROBLEM ================= -->
+<h2>2. Problem Statement</h2>
+<p>India runs ~950+ central/state welfare schemes (ration, pensions, scholarships, employment, beneficiary aid) governed by dense PDF guideline documents. Every year, <b>eligibility errors, wrong entitlement calculation, and mis-routing of applications cause huge delays</b>. Yet there is <b>no structured benchmark</b> to test whether AI agents can reason correctly over these real documents — existing benchmarks are English-general (GAIA) or Chinese-law (LawBench). Consequently:</p>
+<ol>
+  <li>Researchers cannot compare document-reasoning methods on Indian welfare documents.</li>
+  <li>Deployed AI tools cannot be validated for eligibility and entitlement correctness.</li>
+  <li>Citizens bear the cost of errors in the form of rejected claims, wrong payments, and delayed appeals.</li>
+</ol>
+<p><b>Project goal:</b> build the missing benchmark (dataset + protocol) <i>and</i> a multi-agent audit pipeline that performs the full application-audit workflow — intake, retrieval, entitlement computation, verification, verdict, evaluation, and appeal routing — and demonstrate its correctness against the benchmark.</p>
+
+<!-- ================= 3. GAP ================= -->
+<h2>3. Research Gap &amp; Novelty (Verified Uniqueness)</h2>
+
+<h3>3.1 Existing Benchmarks and Their Limits</h3>
+<table>
+  <tr><th>Benchmark</th><th>Domain</th><th>Why Not Sufficient</th></tr>
+  <tr><td>GAIA</td><td>General AI assistant tasks (English)</td><td>No domain documents; no eligibility/entitlement reasoning; not India-specific</td></tr>
+  <tr><td>LawBench</td><td>Chinese legal reasoning</td><td>Chinese law; different legal structure; no welfare schemes</td></tr>
+  <tr><td>SQuAD / doc-QA benchmarks</td><td>Reading comprehension</td><td>Extractive only; no verdicts, entitlement math, or counterfactuals</td></tr>
+  <tr><td>Indian NLP work (PDS/nutrition)</td><td>Government MIS portals</td><td>Operates on portal data, not guideline-PDF reasoning; no QA benchmark</td></tr>
+  <tr><td><b>YojanaBench (ours)</b></td><td><b>India welfare-scheme guideline PDFs</b></td><td class="ok"><b>First benchmark: QA + counterfactuals + verdict ground truth + evaluation protocol</b></td></tr>
+</table>
+
+<h3>3.2 Verification Statement</h3>
+<p>Literature search (2025&ndash;26) across NLP/agent venues found <b>no India-specific welfare-scheme document-compliance benchmark</b>. This makes the dataset itself a contribution that nobody can dismiss as &ldquo;already existing.&rdquo;</p>
+
+<h3>3.3 Three Novel Contributions</h3>
+<table>
+  <tr><th>#</th><th>Contribution</th><th>Type</th></tr>
+  <tr><td>(a)</td><td>YojanaBench dataset — real scheme PDFs, human-verified QA, counterfactuals, verdict references</td><td>Data contribution</td></tr>
+  <tr><td>(b)</td><td>Evaluation protocol/metrics — EM, F1, verdict accuracy, entitlement error, calibration, ablation design</td><td>Methodological</td></tr>
+  <tr><td>(c)</td><td>Reproducible open-source multi-agent audit pipeline (Ollama + LangGraph, zero API cost)</td><td>Systems</td></tr>
+</table>
+
+<!-- ================= 4. OBJECTIVES ================= -->
+<h2>4. Objectives</h2>
+<ol>
+  <li>Shortlist and collect <b>10&ndash;15 high-volume scheme guideline PDFs</b> (central + state; PDS, pensions, scholarships, employment, beneficiary aid).</li>
+  <li>Build a structured <b>scheme schema</b> (eligibility clauses, entitlement formulas, document checklist, appeal hierarchy) per scheme.</li>
+  <li>Create <b>human-verified QA pairs</b> across 4 categories: eligibility, entitlement, documents, appeal steps.</li>
+  <li>Design <b>counterfactual and edge-case scenarios</b> (boundary incomes, missing documents, overlapping schemes) with ground-truth verdicts.</li>
+  <li>Implement the <b>multi-agent audit pipeline</b> (Corpus, Intake, RAG, Entitlement, Verification, Orchestrator, Evaluation, Appeal agents).</li>
+  <li>Define and run the <b>evaluation protocol</b> (EM, F1, verdict accuracy, entitlement error, confidence calibration).</li>
+  <li>Run <b>baselines and ablations</b> (single-LLM vs multi-agent; agent-removal studies).</li>
+  <li>Build a <b>dashboard + demo scenarios</b> showing approve / reject / appeal flows.</li>
+  <li>Release the benchmark and pipeline with documentation, licenses, and statistics.</li>
+</ol>
+
+<!-- ================= 5. ARCHITECTURE ================= -->
+<div class="section"></div>
+<h2>5. System Architecture</h2>
+
+<h3>5.1 End-to-End Workflow</h3>
+<div class="flow">Scheme PDFs (public)
+    -> [Corpus Agent]  chunking + schema extraction  ->  vector store
+
+A case application
+    -> [Intake Agent]      extract fields + identify needed documents
+    -> [RAG Agent]         fetch eligibility / entitlement clauses
+    -> [Entitlement Agent] compute benefit (amount / ration / fee)
+    -> [Verification Agent] missing docs / ineligible flags (cross-check)
+    -> [Orchestrator]      verdict + explanation + confidence
+                              (human-approval gate for low-confidence cases)
+    -> [Evaluation Agent]  score vs YojanaBench ground truth
+                           (EM / F1 / verdict accuracy / entitlement error)
+    -> [Appeal Agent]      route rejection/dispute to correct appeal channel</div>
+
+<h3>5.2 Two-Phase Design</h3>
+<table>
+  <tr><th>Phase</th><th>Trigger</th><th>Agents Involved</th></tr>
+  <tr><td><b>Offline corpus phase</b></td><td>One-time + when a new scheme is added</td><td>Corpus Agent &rarr; vector store</td></tr>
+  <tr><td><b>Online case phase</b></td><td>Each incoming application / benchmark question</td><td>Intake &rarr; RAG &rarr; Entitlement &rarr; Verification &rarr; Orchestrator &rarr; (Evaluation / Appeal)</td></tr>
+</table>
+
+<h3>5.3 Data Structures Passed Between Agents</h3>
+<table>
+  <tr><th>Object</th><th>Fields</th></tr>
+  <tr><td>SchemeSchema</td><td>scheme_id, name, state/central, eligibility_clauses[], entitlement_rules[], required_documents[], appeal_hierarchy[], source_pdf_pages</td></tr>
+  <tr><td>CaseRecord</td><td>case_id, applicant fields (age, income, category, region, family size, landholding), submitted_documents[], scheme_id</td></tr>
+  <tr><td>Verdict</td><td>decision (eligible / ineligible / needs_info), explanation, evidence_clause_ids[], computed_entitlement, confidence (0&ndash;1), missing_documents[]</td></tr>
+  <tr><td>ScoreReport</td><td>em, f1, verdict_accuracy, entitlement_error, calibration_delta, agent_trace</td></tr>
+</table>
+
+<!-- ================= 6. AGENTS ================= -->
+<h2>6. Detailed Agent Descriptions</h2>
+
+<div class="card">
+<h3>6.1 Corpus Agent (Ingestion)</h3>
+<ul>
+  <li><b>Input:</b> scheme guideline PDF files (public government documents).</li>
+  <li><b>Functions:</b> PDF text extraction (PyMuPDF/pdfplumber) &rarr; section-aware chunking (by clause/section headers, not fixed tokens) &rarr; schema extraction using LLM (eligibility clause, entitlement rule, document item, appeal step) &rarr; embedding into vector store with metadata (scheme_id, section type, page).</li>
+  <li><b>Output:</b> vector store + structured SchemeSchema JSON per scheme.</li>
+  <li><b>Why special chunking:</b> scheme rules are clause-structured; naive chunking splits a rule from its condition — section-aware chunking preserves rule integrity.</li>
+</ul>
+
+<h3>6.2 Case-Intake Agent</h3>
+<ul>
+  <li><b>Input:</b> a case application (form fields or unstructured text) + attached document list.</li>
+  <li><b>Functions:</b> field extraction (age, income, category, region, family size) with validation; detect target scheme; identify the document checklist the case <i>should</i> have; flag missing submissions early.</li>
+  <li><b>Output:</b> CaseRecord (structured fields + needed_documents vs submitted_documents diff).</li>
+  <li><b>Edge handling:</b> ambiguous values (e.g., income in &ldquo;lakhs&rdquo; vs rupees) normalised; unknown fields marked, not guessed.</li>
+</ul>
+
+<h3>6.3 RAG Retrieval Agent</h3>
+<ul>
+  <li><b>Input:</b> CaseRecord + scheme_id.</li>
+  <li><b>Functions:</b> hybrid retrieval (dense vector + keyword/BM25) over scheme chunks; re-ranking to top-k clauses; returns eligibility clauses relevant to the applicant's profile and entitlement rules for the scheme.</li>
+  <li><b>Output:</b> evidence set: clause IDs + text + source pages.</li>
+  <li><b>Why it matters:</b> verdicts must be grounded in retrieved clauses (explainability + citation), not model memory.</li>
+</ul>
+
+<h3>6.4 Entitlement-Calculator Agent</h3>
+<ul>
+  <li><b>Input:</b> evidence clauses + applicant fields.</li>
+  <li><b>Functions:</b> convert retrieved benefit rules into executable computations (e.g., pension = tier(amount by age+category); ration = quantum per member &times; family size; scholarship = fee &minus; waiver%). Applies conditions (income ceiling, BPL/APL status) and computes the exact benefit.</li>
+  <li><b>Output:</b> computed_entitlement (amount/quantity) + the formula + clause IDs used.</li>
+  <li><b>Design rule:</b> arithmetic is done by deterministic code where possible; LLM only maps rule &rarr; formula (reduces hallucinated math).</li>
+</ul>
+
+<h3>6.5 Verification Agent</h3>
+<ul>
+  <li><b>Input:</b> CaseRecord + retrieved clauses + computed entitlement.</li>
+  <li><b>Functions:</b> (a) document completeness check against required checklist; (b) eligibility condition check (age/income/category/residency) per clause; (c) cross-check: re-derive eligibility independently from clauses and compare with Entitlement Agent's result (multi-agent disagreement forces &ldquo;needs_info&rdquo;).</li>
+  <li><b>Output:</b> missing_documents[], ineligible_flags[], cross-check status (agree/disagree).</li>
+</ul>
+
+<h3>6.6 Orchestrator (+ Human-Approval Gate)</h3>
+<ul>
+  <li><b>Framework:</b> LangGraph state machine controlling agent order, retries, and conditional branches.</li>
+  <li><b>Functions:</b> merges agent outputs into a final <b>Verdict</b> (decision + explanation + evidence + confidence); enforces a <b>human-approval gate</b> when confidence &lt; threshold or when Verification reports disagreement.</li>
+  <li><b>Output:</b> Verdict object; full agent trace stored for auditability.</li>
+</ul>
+
+<h3>6.7 Evaluation Agent</h3>
+<ul>
+  <li><b>Input:</b> Verdict + YojanaBench ground truth.</li>
+  <li><b>Functions:</b> computes EM, token-F1, verdict accuracy, entitlement error (absolute/relative), confidence calibration; aggregates per scheme, per QA category; produces results tables/plots and ablation comparisons.</li>
+  <li><b>Output:</b> ScoreReport (per item + aggregate).</li>
+</ul>
+
+<h3>6.8 Dispute / Appeal-Routing Agent</h3>
+<ul>
+  <li><b>Input:</b> rejection Verdict + scheme's appeal hierarchy.</li>
+  <li><b>Functions:</b> determine correct appeal channel (e.g., Block Development Officer &rarr; District Magistrate &rarr; State Social Welfare Commission), generate draft appeal text citing the rejected clause, note deadlines.</li>
+  <li><b>Output:</b> appeal routing instruction + draft appeal letter for human review.</li>
+</ul>
+</div>
+
+<!-- ================= 7. DATASET ================= -->
+<div class="section"></div>
+<h2>7. Benchmark Dataset Design (Deliverable 1)</h2>
+
+<h3>7.1 Corpus Composition</h3>
+<table>
+  <tr><th>Attribute</th><th>Plan</th></tr>
+  <tr><td>Schemes</td><td>10&ndash;15 high-volume schemes (mix of central + state; PDS/ration, pensions, scholarships, employment, beneficiary aid)</td></tr>
+  <tr><td>Source documents</td><td>Real, publicly available guideline PDFs (govt websites); licenses noted</td></tr>
+  <tr><td>Schema per scheme</td><td>eligibility clauses, entitlement rules, document checklist, appeal hierarchy</td></tr>
+  <tr><td>Statistics to report</td><td>#schemes, #PDFs, #pages, #chunks, #QA pairs, category distribution, inter-annotator agreement</td></tr>
+</table>
+
+<h3>7.2 QA Pair Categories (with examples)</h3>
+<table>
+  <tr><th>Category</th><th>Question Type</th><th>Example</th></tr>
+  <tr><td>Eligibility</td><td>Is X eligible under condition Y?</td><td>&ldquo;A 58-year-old widow with annual income &#8377;95,000 — eligible for X pension scheme?&rdquo;</td></tr>
+  <tr><td>Entitlement</td><td>Compute the exact benefit</td><td>&ldquo;Family of 5, APL card — how many kg rice per month at what price?&rdquo;</td></tr>
+  <tr><td>Documents</td><td>List required documents</td><td>&ldquo;Which certificates must accompany a scholarship application for Category-Z students?&rdquo;</td></tr>
+  <tr><td>Appeal</td><td>Procedure/steps/deadlines</td><td>&ldquo;Application rejected at Block level — what is the next appeal step and time limit?&rdquo;</td></tr>
+</table>
+
+<h3>7.3 Counterfactual &amp; Edge Cases</h3>
+<ul>
+  <li><b>Boundary values:</b> income exactly at the ceiling (₹1.00 lakh vs ₹1,00,001); age exactly at cut-off (59 vs 60).</li>
+  <li><b>Missing documents:</b> eligible on criteria but lacks one mandatory certificate &rarr; correct verdict is &ldquo;needs_info,&rdquo; not &ldquo;eligible.&rdquo;</li>
+  <li><b>Category swaps:</b> same profile under SC vs General quota changes entitlement tier.</li>
+  <li><b>Overlapping schemes:</b> applicant eligible for two benefits; benchmark expects correct identification.</li>
+  <li><b>Distractor schemes:</b> question about scheme A answered using scheme B's rules &rarr; tests retrieval precision.</li>
+  <li><b>Negation/trick phrasing:</b> &ldquo;not exceeding,&rdquo; &ldquo;at least,&rdquo; double negatives in clauses.</li>
+</ul>
+
+<h3>7.4 Ground Truth Format</h3>
+<div class="flow">{
+  "id": "YB-PDS-0042",
+  "scheme_id": "PDS-APL-2023",
+  "category": "entitlement" | "eligibility" | "documents" | "appeal",
+  "question": "...",
+  "reference_answer": "...",
+  "verdict": "eligible" | "ineligible" | "needs_info",
+  "entitlement_value": 5.0,
+  "entitlement_unit": "kg/month",
+  "evidence_clause_ids": ["PDS-APL-C12", "PDS-APL-C14"],
+  "counterfactual_of": null,
+  "edge_case": "boundary_income" | null,
+  "annotator_agreement": true
+}</div>
+
+<h3>7.5 QA Production &amp; Verification Process</h3>
+<ol>
+  <li><b>Authoring:</b> team members draft QA pairs directly from scheme PDFs, citing page/clause.</li>
+  <li><b>Independent check:</b> second member verifies answer against the source clause.</li>
+  <li><b>Adjudication:</b> disagreements resolved jointly with the guide; only agreed items enter the benchmark.</li>
+  <li><b>Agreement metric:</b> report % inter-annotator agreement as a dataset-quality statistic.</li>
+  <li><b>Counterfactual generation:</b> each base QA item gets &ge;1 perturbed variant with updated ground truth.</li>
+</ol>
+
+<!-- ================= 8. METRICS ================= -->
+<h2>8. Evaluation Protocol &amp; Metrics (Deliverable 2)</h2>
+
+<table>
+  <tr><th>Metric</th><th>Applies To</th><th>Definition</th></tr>
+  <tr><td><b>Exact Match (EM)</b></td><td>QA answers</td><td>1 if predicted answer matches reference after normalisation, else 0</td></tr>
+  <tr><td><b>Token-level F1</b></td><td>QA answers</td><td>Harmonic mean of token precision/recall vs reference</td></tr>
+  <tr><td><b>Verdict Accuracy</b></td><td>Eligibility decisions</td><td>% of cases where (eligible/ineligible/needs_info) matches ground truth — <b>primary metric</b></td></tr>
+  <tr><td><b>Entitlement Error</b></td><td>Computed benefits</td><td>|predicted &minus; correct| (absolute) and relative % error on amounts/quantities</td></tr>
+  <tr><td><b>Document F1</b></td><td>Checklist outputs</td><td>F1 over the set of required documents identified</td></tr>
+  <tr><td><b>Confidence Calibration</b></td><td>All verdicts</td><td>Gap between stated confidence and observed accuracy (ECE-style)</td></tr>
+</table>
+
+<h3>8.1 Experimental Design</h3>
+<table>
+  <tr><th>Experiment</th><th>Setup</th><th>Purpose</th></tr>
+  <tr><td>Baseline: single LLM</td><td>One prompt, full document context, no agents</td><td>Show value of the multi-agent pipeline</td></tr>
+  <tr><td>Baseline: naive RAG</td><td>Standard fixed-chunk RAG + answer</td><td>Show value of schema/specialised agents</td></tr>
+  <tr><td>Full pipeline</td><td>All 8 agents</td><td>Main result</td></tr>
+  <tr><td>Ablation: no Verification</td><td>Remove cross-check agent</td><td>Measure contribution of verification step</td></tr>
+  <tr><td>Ablation: no Entitlement (LLM-only math)</td><td>Let LLM compute directly</td><td>Measure hallucinated-math reduction</td></tr>
+  <tr><td>Ablation: no counterfactuals in analysis</td><td>Score only base QA</td><td>Show models fail disproportionately on edge cases</td></tr>
+  <tr><td>Per-category breakdown</td><td>Scores by eligibility/entitlement/documents/appeal</td><td>Identify weakest reasoning type</td></tr>
+</table>
+
+<h3>8.2 Expected Result Tables/Plots</h3>
+<ul>
+  <li>Bar chart: EM / F1 / Verdict Accuracy — baseline vs naive RAG vs full pipeline.</li>
+  <li>Ablation drop chart (percentage-point loss per removed agent).</li>
+  <li>Entitlement error distribution (histogram).</li>
+  <li>Per-scheme and per-category heat map.</li>
+  <li>Calibration curve (stated confidence vs accuracy).</li>
+</ul>
+
+<!-- ================= 9. TECH STACK ================= -->
+<div class="section"></div>
+<h2>9. Technology Stack</h2>
+<table>
+  <tr><th>Layer</th><th>Choice</th><th>Reason</th></tr>
+  <tr><td>Agent orchestration</td><td><b>LangGraph</b></td><td>Stateful graphs, conditional branches, human-in-the-loop interrupts</td></tr>
+  <tr><td>LLM</td><td><b>Ollama</b> (Llama 3 / Qwen, 7&ndash;8B)</td><td>Local, free, reproducible — <b>zero API cost</b></td></tr>
+  <tr><td>PDF processing</td><td>PyMuPDF / pdfplumber</td><td>Reliable text + table extraction from govt PDFs</td></tr>
+  <tr><td>Vector store</td><td>Chroma / FAISS</td><td>Lightweight local embedding store</td></tr>
+  <tr><td>Retrieval</td><td>Dense + BM25 hybrid, re-ranker</td><td>Clause names &amp; section numbers favour keyword search; semantics favour dense</td></tr>
+  <tr><td>Entitlement math</td><td>Python deterministic functions</td><td>Prevents LLM arithmetic hallucination</td></tr>
+  <tr><td>Backend</td><td>Python + FastAPI</td><td>Serves pipeline to dashboard</td></tr>
+  <tr><td>Frontend</td><td>React dashboard</td><td>Case entry, verdict display, metrics view, demo scenarios</td></tr>
+  <tr><td>Storage</td><td>PostgreSQL / JSON files</td><td>Ground truth, agent traces, score reports</td></tr>
+  <tr><td>Versioning</td><td>Git + DVC-style data manifests</td><td>Reproducibility for defence</td></tr>
+</table>
+
+<!-- ================= 10. TIMELINE ================= -->
+<h2>10. Work Plan &amp; Timeline (19 Weeks)</h2>
+<table>
+  <tr><th>Phase</th><th>Weeks</th><th>Activities</th><th>Deliverable</th></tr>
+  <tr><td>1. Scheme shortlist &amp; doc collection</td><td>1&ndash;3</td><td>Choose 10&ndash;15 schemes; download official PDFs; extract schema; build corpus pipeline</td><td>Curated PDF corpus + SchemeSchema JSONs</td></tr>
+  <tr><td>2. QA + human verification + edge cases</td><td>4&ndash;8</td><td>Draft QA across 4 categories; independent verification; counterfactual generation; agreement stats</td><td>Benchmark v1 with ground truth</td></tr>
+  <tr><td>3. Agent development</td><td>6&ndash;11</td><td>Corpus, Intake, RAG, Entitlement, Verification, Orchestrator (overlaps QA phase)</td><td>Working end-to-end pipeline</td></tr>
+  <tr><td>4. Evaluation &amp; metrics</td><td>10&ndash;14</td><td>Evaluation Agent, baselines, ablations, plots</td><td>Results tables + ablation charts</td></tr>
+  <tr><td>5. Dashboard + demo scenarios</td><td>14&ndash;16</td><td>React UI, 3&ndash;5 showcase cases (approve/reject/appeal)</td><td>Live demo</td></tr>
+  <tr><td>6. Report &amp; defence</td><td>17&ndash;19</td><td>Robustness testing, documentation, final report, PPT, rehearsal</td><td>Final report + defence</td></tr>
+</table>
+<p><b>Team allocation (3 students):</b> Member A — dataset/corpus + QA coordination; Member B — agents (Intake/RAG/Entitlement); Member C — Verification/Orchestrator + evaluation + dashboard. QA drafting shared by all three.</p>
+
+<!-- ================= 11. OUTCOMES ================= -->
+<h2>11. Expected Outcomes &amp; Deliverables</h2>
+<ol>
+  <li><b>YojanaBench dataset:</b> 10&ndash;15 scheme corpus, human-verified QA pairs, counterfactual/edge cases, verdict ground truth, agreement statistics, documented licenses.</li>
+  <li><b>Multi-agent audit pipeline:</b> 8 agents working end-to-end with agent traces and confidence-scored verdicts.</li>
+  <li><b>Quantitative results:</b> baseline vs pipeline comparison, ablation tables, per-category breakdowns, calibration analysis.</li>
+  <li><b>Dashboard + demo:</b> case entry &rarr; verdict &rarr; appeal routing walkthrough.</li>
+  <li><b>Documentation:</b> report, PPT, reproducibility instructions (run with Ollama only).</li>
+</ol>
+
+<!-- ================= 12. NOVELTY ================= -->
+<h2>12. Novelty, Paper Potential &amp; Comparisons</h2>
+<table>
+  <tr><th>Aspect</th><th>YojanaBench</th><th>GAIA</th><th>LawBench</th></tr>
+  <tr><td>Domain</td><td>India welfare-scheme PDFs</td><td>General assistant tasks</td><td>Chinese law</td></tr>
+  <tr><td>Verdict ground truth</td><td class="ok">Yes (eligible/ineligible/needs_info)</td><td>No</td><td>Partially</td></tr>
+  <tr><td>Numerical entitlement tasks</td><td class="ok">Yes</td><td>No</td><td>No</td></tr>
+  <tr><td>Counterfactual/edge cases</td><td class="ok">Yes (built-in)</td><td>Limited</td><td>Limited</td></tr>
+  <tr><td>Multi-agent evaluation pipeline</td><td class="ok">Included</td><td>No</td><td>No</td></tr>
+  <tr><td>Zero-cost reproducibility</td><td class="ok">Yes (Ollama)</td><td>Varies</td><td>Varies</td></tr>
+</table>
+<p><b>Paper-ability:</b> results are strongly examinable — dataset statistics, metric tables, ablation studies, and qualitative error analysis form a complete empirical paper. Suitable for NLP/agent workshops and student research venues.</p>
+
+<!-- ================= 13. RISKS ================= -->
+<h2>13. Risk Analysis &amp; Mitigation</h2>
+<table>
+  <tr><th>Risk</th><th>Impact</th><th>Mitigation</th></tr>
+  <tr><td>Document ambiguity / contradictory clauses</td><td>Wrong ground truth</td><td>Scope to 10&ndash;15 high-volume, well-documented schemes; tightened QA with independent verification and adjudication</td></tr>
+  <tr><td>Licensing of government PDFs</td><td>Release blocked</td><td>All sources public govt documents; licenses explicitly noted in dataset card</td></tr>
+  <tr><td>LLM hallucination on arithmetic</td><td>Wrong entitlements</td><td>Entitlement Agent uses deterministic code; LLM only maps rule&rarr;formula; Verification cross-check</td></tr>
+  <tr><td>Scope creep (950+ schemes)</td><td>Timeline overrun</td><td>Strict MVP boundary of 10&ndash;15 schemes; Corpus agent designed to scale later</td></tr>
+  <tr><td>QA phase labour-intensive</td><td>Delay</td><td>Parallelised across 3 members; agent development overlaps from week 6</td></tr>
+  <tr><td>Local LLM (7&ndash;8B) weak reasoning</td><td>Low scores</td><td>Acceptable — benchmark is meant to expose limits; report per-model comparison; hybrid clause-grounding</td></tr>
+  <tr><td>Retrieval misses the right clause</td><td>Incorrect verdicts</td><td>Hybrid retrieval + re-ranking; evidence-clause recall reported as a diagnostic metric</td></tr>
+</table>
+
+<!-- ================= 14. FEASIBILITY ================= -->
+<h2>14. Feasibility &amp; FYP Suitability</h2>
+<ul>
+  <li class="ok"><b>Zero API cost:</b> Ollama + LangGraph + open-source vector store — fully reproducible on a normal laptop.</li>
+  <li class="ok"><b>Data accessibility:</b> all scheme PDFs are public; no private/government API access needed.</li>
+  <li class="ok"><b>Strong examinability:</b> dataset statistics, metric tables, ablation charts, live demo — ideal defence material.</li>
+  <li class="ok"><b>Team fit:</b> 3 students / 19 weeks with clear parallel workstreams (dataset / agents / evaluation-dashboard).</li>
+  <li class="ok"><b>Clear two-deliverable structure:</b> data contribution + systems contribution; both independently gradeable.</li>
+</ul>
+
+<!-- ================= 15. EXTENSIONS ================= -->
+<h2>15. Possible Extensions &amp; Future Work</h2>
+<ul>
+  <li><b>Multilingual QA:</b> questions/answers in Hindi + regional languages (tests cross-lingual document reasoning).</li>
+  <li><b>Scale the corpus:</b> add schemes incrementally; measure benchmark growth effects.</li>
+  <li><b>Vision modality:</b> handle scanned PDFs and application-form images (VLM + OCR).</li>
+  <li><b>Human study:</b> compare agent verdicts with actual welfare-officer decisions.</li>
+  <li><b>Model comparison:</b> benchmark across larger open models and closed APIs (optional, reported separately).</li>
+  <li><b>Deployment pathway:</b> integrate with citizen-facing portals as a decision-support (not decision-making) tool with the human-approval gate.</li>
+</ul>
+
+<div class="footer">
+  Prepared by: [Members] &bull; Guide: [Guide] &bull; [College/Department] &bull; Version 1.0 &bull; YojanaBench — Full Detailed Project Description for BE Report &amp; PPT
+</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "case_id": "CASE-0013",
+  "scheme_id": "PMKISAN-2023",
+  "label": "Farmer who pays income tax - should be INELIGIBLE",
+  "applicant": {
+    "age": 52,
+    "is_farmer": true,
+    "is_institutional_landholder": false,
+    "is_income_tax_payer": true,
+    "region": "rural"
+  },
+  "submitted_documents": [
+    "Land Ownership Records (Khatauni/7-12 Extract)",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

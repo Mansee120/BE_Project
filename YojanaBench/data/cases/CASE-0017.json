@@ -1,0 +1,17 @@
+{
+  "case_id": "CASE-0017",
+  "scheme_id": "NSP-PREMATRIC-2023",
+  "label": "General category student - should be INELIGIBLE",
+  "applicant": {
+    "age": 15,
+    "category": "General",
+    "class_level": 9,
+    "annual_income": 150000
+  },
+  "submitted_documents": [
+    "Caste Certificate (SC/ST)",
+    "Income Certificate",
+    "Previous Class Marksheet",
+    "Bank Account Passbook"
+  ]
+}

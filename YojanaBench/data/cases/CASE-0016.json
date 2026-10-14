@@ -1,0 +1,17 @@
+{
+  "case_id": "CASE-0016",
+  "scheme_id": "NSP-PREMATRIC-2023",
+  "label": "SC girl in class 9 within income limit - should be ELIGIBLE",
+  "applicant": {
+    "age": 14,
+    "category": "SC",
+    "class_level": 9,
+    "annual_income": 150000
+  },
+  "submitted_documents": [
+    "Caste Certificate (SC/ST)",
+    "Income Certificate",
+    "Previous Class Marksheet",
+    "Bank Account Passbook"
+  ]
+}

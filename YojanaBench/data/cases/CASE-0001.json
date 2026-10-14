@@ -1,0 +1,10 @@
+{
+  "case_id": "CASE-0001",
+  "scheme_id": "PDS-NFSA-2023",
+  "label": "AAY household, no income-tax payer - should be ELIGIBLE at 35 kg/month",
+  "applicant": {
+    "age": 35, "category": "SC", "region": "rural", "family_size": 4,
+    "card_type": "AAY", "bpl": true, "is_income_tax_payer": false
+  },
+  "submitted_documents": ["Ration Card", "Aadhaar Card", "Residence/Address Proof"]
+}

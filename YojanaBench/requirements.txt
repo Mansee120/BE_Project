@@ -1,0 +1,13 @@
+# YojanaBench runtime dependencies
+fastapi>=0.110
+uvicorn>=0.27
+requests>=2.31
+pydantic>=2.0
+
+# Multilingual voice assistant (optional; replies fall back to English without
+# it, and the assistant keeps working fully offline)
+deep_translator>=1.11
+
+# Testing (optional)
+pytest>=7.4
+httpx>=0.27

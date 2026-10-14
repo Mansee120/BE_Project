@@ -1,0 +1,9 @@
+{
+  "case_id": "CASE-0002",
+  "scheme_id": "IGNOAPS-2023",
+  "label": "Eligible 65y BPL senior but bank passbook missing - should be NEEDS_INFO",
+  "applicant": {
+    "age": 65, "gender": "male", "category": "General", "bpl": true, "state": "UP"
+  },
+  "submitted_documents": ["Age Proof (Birth Certificate/School Certificate)", "BPL Card", "Aadhaar Card"]
+}

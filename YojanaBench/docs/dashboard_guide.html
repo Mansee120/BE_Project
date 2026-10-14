@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<title>YojanaBench — Dashboard Guide (हिंदी + English)</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Nirmala UI", "Mangal", "Segoe UI", sans-serif;
+    color: #1c2333; font-size: 12px; line-height: 1.62; margin: 0;
+  }
+  h1 { font-size: 24px; color: #0f3460; margin: 0 0 2px; }
+  h2 { font-size: 16px; color: #fff; background: #0f3460; padding: 8px 12px;
+       border-radius: 6px; margin: 24px 0 10px; }
+  h3 { font-size: 13.5px; color: #0f3460; margin: 16px 0 6px; border-left: 4px solid #2b6cb0;
+       padding-left: 8px; }
+  p { margin: 6px 0; }
+  .sub { color: #4a5568; font-size: 12.5px; }
+  .cover { border: 2px solid #0f3460; border-radius: 10px; padding: 26px 24px; margin-bottom: 8px;
+           background: linear-gradient(135deg,#f4f7ff,#ffffff); }
+  .tag { display: inline-block; background: #0f3460; color: #fff; font-size: 10.5px;
+         padding: 3px 10px; border-radius: 20px; letter-spacing: .5px; margin-bottom: 10px; }
+  .hi { color: #14213d; }
+  .hi::before { content: "हिंदी: "; font-weight: 700; color: #b83232; }
+  .en { color: #2d3748; }
+  .en::before { content: "English: "; font-weight: 700; color: #2b6cb0; }
+  ul { margin: 6px 0 6px 18px; padding: 0; }
+  li { margin: 3px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 11.5px; }
+  th { background: #0f3460; color: #fff; text-align: left; padding: 6px 9px; }
+  td { border-bottom: 1px solid #d7dceb; padding: 6px 9px; vertical-align: top; }
+  tr:nth-child(even) td { background: #f6f8ff; }
+  code { background: #eef2fb; color: #b83232; padding: 1px 5px; border-radius: 4px;
+         font-family: Consolas, monospace; font-size: 11px; }
+  .note { background: #fff8e6; border-left: 4px solid #e0a800; padding: 8px 12px;
+          border-radius: 4px; margin: 10px 0; }
+  .step { background: #eef7ee; border-left: 4px solid #2f855a; padding: 8px 12px;
+          border-radius: 4px; margin: 6px 0; }
+  .footer { margin-top: 26px; border-top: 1px solid #d7dceb; padding-top: 8px;
+            font-size: 10.5px; color: #718096; text-align: center; }
+  .avoid { break-inside: avoid; }
+  .pagebreak { break-before: page; }
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<div class="cover">
+  <span class="tag">FINAL YEAR ENGINEERING PROJECT · DEMO GUIDE</span>
+  <h1>YojanaBench Dashboard — Explanation Guide</h1>
+  <p class="sub">India Welfare-Scheme Document Reasoning &amp; Multi-Agent Audit Pipeline</p>
+  <p class="hi">यह गाइड बताती है कि YojanaBench के dashboard को किसी presentation या viva
+     में step-by-step कैसे समझाना है। नarration हिंदी में है और सभी technical terms,
+     metrics तथा widget names English में दिए गए हैं।</p>
+  <p class="en">This document explains how to walk someone through the YojanaBench
+     dashboard. The narration is in Hindi; all technical terms, metrics and widget
+     names are kept in English.</p>
+</div>
+
+<!-- ===================== OVERVIEW ===================== -->
+<h2>1. Overview — यह project क्या करता है?</h2>
+<p class="hi">YojanaBench भारत की कल्याणकारी योजनाओं (welfare schemes) के लिए एक
+   benchmark और audit system है। यह user की situation और documents को देखकर बताता है
+   कि वह योजना के लिए eligible है या नहीं, कितना benefit मिलेगा, कौन-से documents चाहिए,
+   और अगर appeal करनी हो तो कहाँ करनी है।</p>
+<p class="en">YojanaBench is a benchmark plus a multi-agent audit pipeline. Given an
+   applicant's situation and documents, it decides eligibility
+   (<code>eligible</code> / <code>ineligible</code> / <code>needs_info</code>),
+   computes the entitlement, lists required documents and routes an appeal.</p>
+
+<h3>8-Agent Pipeline (order में)</h3>
+<p class="hi">नीचे दिए 8 agents एक के बाद एक चलते हैं; हर agent को अलग से inspect किया जा सकता है।</p>
+<table class="avoid">
+  <tr><th>#</th><th>Agent</th><th>काम / Role</th></tr>
+  <tr><td>1</td><td>Corpus</td><td>Scheme schemas और guideline clauses load करता है।</td></tr>
+  <tr><td>2</td><td>Intake</td><td>Applicant data और submitted documents को normalize करता है।</td></tr>
+  <tr><td>3</td><td>RAG</td><td>Hybrid retrieval (BM25 + TF-IDF) से relevant clauses निकालता है।</td></tr>
+  <tr><td>4</td><td>Entitlement</td><td>Rules से eligibility और benefit amount calculate करता है।</td></tr>
+  <tr><td>5</td><td>Verification</td><td>Independent cross-check; disagreement पर <code>needs_info</code>।</td></tr>
+  <tr><td>6</td><td>Orchestrator</td><td>Final verdict + confidence + human-approval gate।</td></tr>
+  <tr><td>7</td><td>Evaluation</td><td>EM, Token-F1, verdict accuracy, ECE आदि metrics।</td></tr>
+  <tr><td>8</td><td>Appeal</td><td>Grievance hierarchy से appeal draft बनाता है।</td></tr>
+</table>
+
+<!-- ===================== NAVIGATION ===================== -->
+<h2>2. Navigation — left sidebar</h2>
+<p class="hi">बाईं तरफ sidebar में छह tabs हैं। किसी भी tab पर click करने से उसका page खुलता है;
+   ऊपर title और subtitle बदल जाते हैं।</p>
+<ul>
+  <li><b>Dashboard</b> — statistics, benchmark metrics, agent pipeline, accuracy report</li>
+  <li><b>Audit a Case</b> — एक application पर पूरा pipeline चलाना</li>
+  <li><b>Benchmark</b> — 56 QA pairs पर pipeline को score करना</li>
+  <li><b>Ablations</b> — हर component का contribution मापना</li>
+  <li><b>Scheme Corpus</b> — 10 schemes का structured data</li>
+  <li><b>Appeal Routing</b> — grievance hierarchy और appeal letter</li>
+</ul>
+
+<!-- ===================== DASHBOARD PAGE ===================== -->
+<h2>3. Dashboard page — सबसे पहला और main page</h2>
+
+<h3>3.1 Hero section</h3>
+<p class="hi">सबसे ऊपर project का एक-line introduction और <b>“Run full benchmark”</b> button होता है।
+   यह button पूरे 56 QA pairs पर pipeline चलाकर metrics भर देता है।</p>
+<p class="en">The hero band shows the project tagline and a <b>Run full benchmark</b>
+   button that scores all 56 human-verified QA pairs.</p>
+
+<h3>3.2 Corpus statistics (stat cards)</h3>
+<p class="hi">यहाँ dataset की size दिखती है — कितनी schemes, guidelines, clauses,
+   और QA pairs हैं। इसे बोलते समय कहें कि यह dataset का proof-of-scale है।</p>
+<table class="avoid">
+  <tr><th>Stat card</th><th>Meaning</th></tr>
+  <tr><td>Schemes in corpus</td><td>कुल कल्याणकारी योजनाएँ (10)</td></tr>
+  <tr><td>Guideline documents</td><td>Scheme guideline files (10)</td></tr>
+  <tr><td>Indexed clauses / chunks</td><td>Retrieval index में clauses</td></tr>
+  <tr><td>Estimated PDF pages</td><td>Guideline pages का अनुमान</td></tr>
+  <tr><td>Human-verified QA pairs</td><td>Benchmark items (56)</td></tr>
+  <tr><td>Counterfactual / edge cases</td><td>Boundary &amp; tricky cases की संख्या</td></tr>
+</table>
+
+<h3>3.3 Benchmark metrics + “Accuracy by QA category” chart</h3>
+<p class="hi">“Run full benchmark” दबाने पर यहाँ 10 metric cards भर जाते हैं और नीचे
+   category-wise bar chart बनता है। बोलते समय सबसे important metric — <b>Verdict accuracy</b> —
+   पहले बताएं, फिर document F1 और entitlement error।</p>
+<table class="avoid">
+  <tr><th>Metric</th><th>क्या मापता है</th></tr>
+  <tr><td>Verdict accuracy</td><td>eligible / ineligible / needs_info सही पहचानने का %</td></tr>
+  <tr><td>Answer accuracy</td><td>जिन items का Token-F1 ≥ 0.5</td></tr>
+  <tr><td>Token F1</td><td>Predicted text और reference का overlap</td></tr>
+  <tr><td>Exact match (EM)</td><td>पूरा जवाब word-to-word match</td></tr>
+  <tr><td>Entitlement error</td><td>राशि में औसत गलती (₹)</td></tr>
+  <tr><td>Document F1</td><td>Required documents की सही list</td></tr>
+  <tr><td>Calibration (ECE)</td><td>Confidence कितना honest है (कम = बेहतर)</td></tr>
+  <tr><td>Edge / Base accuracy</td><td>मुश्किल cases और साधारण cases पर accuracy</td></tr>
+</table>
+
+<h3>3.4 Agent pipeline diagram</h3>
+<p class="hi">यहाँ 8 agents के chips दिखते हैं। बताएं कि हर agent independent है और
+   Orchastrator low confidence या cross-check disagreement पर <b>human-approval gate</b> खोल देता है।</p>
+
+<h3>3.5 Accuracy report card (new)</h3>
+<p class="hi"><b>“Generate report”</b> button दबाने पर चार tables बनती हैं। यह wahi report है
+   जो <code>python report.py</code> CSV में निकालता है। Viva में इसे “evidence” के रूप में दिखाएं।</p>
+<ul>
+  <li><b>Overall metrics</b> — सभी headline numbers एक table में</li>
+  <li><b>Per-scheme accuracy</b> — हर scheme का verdict accuracy और mean F1</li>
+  <li><b>Edge-case vs base-case</b> — मुश्किल vs साधारण cases की तुलना</li>
+  <li><b>Ablation study</b> — हर component हटाने पर performance में गिरावट</li>
+</ul>
+<div class="note"><b>मुख्य बात:</b> यह project deterministic maths use करता है, इसलिए
+   entitlement error almost 0 आता है। LLM सिर्फ explanation सुधारने के लिए optional है।</div>
+
+<!-- ===================== AUDIT PAGE ===================== -->
+<div class="pagebreak"></div>
+<h2>4. Audit a Case page</h2>
+<p class="hi">यह page एक असली application पर पूरा pipeline चलाता है। बाएँ form में applicant की
+   details भरें, documents tick करें, और <b>“Run audit”</b> दबाएँ।</p>
+<div class="step"><b>Demo flow:</b> Sample case चुनें → Target scheme चुनें → fields auto-fill
+   → documents tick करें → Run audit → result देखें।</div>
+<table class="avoid">
+  <tr><th>Result element</th><th>अर्थ</th></tr>
+  <tr><td>Verdict card</td><td>Final decision + confidence bar</td></tr>
+  <tr><td>Computed entitlement</td><td>निकाली गई benefit राशि (₹)</td></tr>
+  <tr><td>Evidence citations</td><td>हर verdict के पीछे clause IDs</td></tr>
+  <tr><td>Agent trace timeline</td><td>हर agent ने क्या किया</td></tr>
+  <tr><td>Appeal letter</td><td>Auto-generated appeal draft</td></tr>
+</table>
+<p class="hi"><b>“Polish explanation with local LLM”</b> checkbox optional है — Ollama न मिले तो
+   system deterministic explanation देता है।</p>
+
+<!-- ===================== BENCHMARK PAGE ===================== -->
+<h2>5. Benchmark page</h2>
+<p class="hi">यहाँ scheme और category filter लगाकर benchmark चल सकते हैं। नीचे हर QA item
+   की row दिखती है — question, ground truth, prediction, EM और F1। इसे “full transparency” के
+   रूप में बताएँ कि model का हर जवाब inspect किया जा सकता है।</p>
+<ul>
+  <li><b>Filters:</b> All schemes / category (eligibility, entitlement, documents, appeal)</li>
+  <li><b>Per-category breakdown chart</b> — किस category में accuracy कैसी है</li>
+  <li><b>Results table</b> — ID, Category, Question, Ground, Predicted, EM, F1</li>
+</ul>
+
+<!-- ===================== ABLATIONS PAGE ===================== -->
+<h2>6. Ablation Study page</h2>
+<p class="hi">यह project का research contribution है। हम एक-एक component हटाकर देखते हैं कि
+   performance कितनी गिरती है। <b>“Run ablation study”</b> दबाएँ।</p>
+<table class="avoid">
+  <tr><th>Variant</th><th>क्या बदला</th></tr>
+  <tr><td>full</td><td>पूरा 8-agent pipeline (baseline)</td></tr>
+  <tr><td>no_verification</td><td>Verification cross-check हटाया गया</td></tr>
+  <tr><td>llm_math</td><td>Deterministic maths की जगह naive estimation</td></tr>
+  <tr><td>no_counterfactuals</td><td>सिर्फ base items (edge cases हटाए)</td></tr>
+</table>
+<p class="hi">Result से सिद्ध होता है: Verification हटाने पर verdict accuracy लगभग
+   <b>6% गिरती</b> है, और naive maths पर entitlement error बहुत बढ़ जाता है।</p>
+
+<!-- ===================== SCHEMES PAGE ===================== -->
+<h2>7. Scheme Corpus page</h2>
+<p class="hi">इस page पर 10 schemes के cards हैं। हर card खोलकर eligibility criteria,
+   entitlement rules, required documents और appeal hierarchy देख सकते हैं। यह
+   “structured corpus” को दर्शाता है।</p>
+
+<!-- ===================== APPEAL PAGE ===================== -->
+<h2>8. Appeal Routing page</h2>
+<p class="hi">Scheme चुनने पर उसकी grievance hierarchy दिखती है — कौन-सा authority,
+   किस level पर, और कितने दिन की deadline। यह बताएँ कि verdict के बाद citizen को
+   appeal का रास्ता भी दिखाते हैं।</p>
+
+<!-- ===================== VIVA TIPS ===================== -->
+<div class="pagebreak"></div>
+<h2>9. Viva / Demo — कैसे explain करें (60-second script)</h2>
+<div class="step"><b>Step 1 (10s):</b> “YojanaBench welfare schemes के लिए India का पहला
+   document-reasoning benchmark और audit pipeline है।”</div>
+<div class="step"><b>Step 2 (15s):</b> Dashboard → corpus stats दिखाएँ → 10 schemes, 56 QA pairs।</div>
+<div class="step"><b>Step 3 (15s):</b> “Run full benchmark” → metric cards → Verdict accuracy,
+   Document F1, Entitlement error।</div>
+<div class="step"><b>Step 4 (10s):</b> Accuracy report → चार tables दिखाएँ।</div>
+<div class="step"><b>Step 5 (10s):</b> Ablations → “Verification हटाने पर accuracy गिरती है।”</div>
+<div class="step"><b>Step 6 (10s):</b> Audit a Case → एक live example चलाएँ।</div>
+
+<h2>10. Glossary — technical terms (English)</h2>
+<table class="avoid">
+  <tr><th>Term</th><th>Meaning</th></tr>
+  <tr><td>Verdict accuracy</td><td>Primary metric — correct eligible/ineligible/needs_info decisions.</td></tr>
+  <tr><td>Entitlement</td><td>Computed benefit amount in rupees.</td></tr>
+  <tr><td>Evidence clause</td><td>Source guideline clause that supports a decision.</td></tr>
+  <tr><td>Counterfactual / edge case</td><td>Boundary or adversarially-changed scenario.</td></tr>
+  <tr><td>Calibration (ECE)</td><td>How well confidence matches actual correctness.</td></tr>
+  <tr><td>Human-approval gate</td><td>Flag telling a human to review a low-confidence case.</td></tr>
+  <tr><td>Ablation</td><td>Removing a component to measure its contribution.</td></tr>
+</table>
+
+<div class="footer">
+  YojanaBench · Dashboard Explanation Guide · Hindi narration with English content ·
+  Generated automatically from the project.
+</div>
+
+</body>
+</html>

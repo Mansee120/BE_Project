@@ -1,0 +1,51 @@
+{
+  "scheme_id": "PMKISAN-2023",
+  "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+  "level": "central",
+  "state": "All India",
+  "category": "agriculture",
+  "summary": "Income support of Rs. 6,000 per year to eligible landholding farmer families, paid in three equal instalments of Rs. 2,000 every four months.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMKISAN-C1",
+      "text": "The applicant must be a landholding farmer family with cultivable land.",
+      "field": "is_farmer",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMKISAN-C2",
+      "text": "Institutional landholders and persons holding constitutional posts are excluded.",
+      "field": "is_institutional_landholder",
+      "operator": "eq",
+      "value": false,
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMKISAN-C3",
+      "text": "Income-tax payers are excluded from the scheme.",
+      "field": "is_income_tax_payer",
+      "operator": "eq",
+      "value": false,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMKISAN-E1",
+      "text": "Eligible farmer families receive Rs. 2,000 per instalment, three instalments per year (total Rs. 6,000 per year).",
+      "compute": { "type": "fixed_amount", "value": 2000, "unit": "INR/instalment", "per_period": "instalment", "instalments_per_year": 3, "annual_total": 6000 },
+      "clause_ids": ["PMKISAN-C1", "PMKISAN-E1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMKISAN-D1", "name": "Land Ownership Records (Khatauni/7-12 Extract)", "mandatory": true },
+    { "doc_id": "PMKISAN-D2", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMKISAN-D3", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "District Agriculture Officer", "deadline_days": 30, "description": "Grievance redressal at district agriculture office." },
+    { "level": 2, "authority": "State Nodal Officer (PM-KISAN)", "deadline_days": 60, "description": "Escalation to the state nodal department." }
+  ]
+}

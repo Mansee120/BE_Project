@@ -1,0 +1,61 @@
+{
+  "scheme_id": "IGNWPS-2023",
+  "name": "Indira Gandhi National Widow Pension Scheme",
+  "level": "central",
+  "state": "All India",
+  "category": "pension",
+  "summary": "Monthly pension for widows aged between 40 and 79 years belonging to Below Poverty Line (BPL) households. Enhanced amount for widows aged 80 years and above.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "IGNWPS-C1",
+      "text": "The applicant must be a widow.",
+      "field": "is_widow",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    },
+    {
+      "clause_id": "IGNWPS-C2",
+      "text": "The applicant must be 40 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 40,
+      "mandatory": true
+    },
+    {
+      "clause_id": "IGNWPS-C3",
+      "text": "The applicant must belong to a Below Poverty Line (BPL) household.",
+      "field": "bpl",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "IGNWPS-E1",
+      "text": "Widows aged 80 years and above receive a pension of Rs. 500 per month.",
+      "when": { "field": "age", "operator": "gte", "value": 80 },
+      "compute": { "type": "fixed_amount", "value": 500, "unit": "INR/month", "per_period": "month" },
+      "clause_ids": ["IGNWPS-C2", "IGNWPS-E1"]
+    },
+    {
+      "rule_id": "IGNWPS-E2",
+      "text": "Widows aged 40 to 79 years receive a pension of Rs. 300 per month.",
+      "when": { "field": "age", "operator": "and", "clauses": [ { "field": "age", "operator": "gte", "value": 40 }, { "field": "age", "operator": "lt", "value": 80 } ] },
+      "compute": { "type": "fixed_amount", "value": 300, "unit": "INR/month", "per_period": "month" },
+      "clause_ids": ["IGNWPS-C2", "IGNWPS-E2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "IGNWPS-D1", "name": "Death Certificate of Husband", "mandatory": true },
+    { "doc_id": "IGNWPS-D2", "name": "BPL Card", "mandatory": true },
+    { "doc_id": "IGNWPS-D3", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "IGNWPS-D4", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Block Development Officer (BDO)", "deadline_days": 30, "description": "First appeal at block level." },
+    { "level": 2, "authority": "District Social Welfare Officer", "deadline_days": 60, "description": "Second appeal at district level." },
+    { "level": 3, "authority": "State Social Welfare Commission", "deadline_days": 90, "description": "Final appeal at state level." }
+  ]
+}

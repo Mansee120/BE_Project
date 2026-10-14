@@ -1,0 +1,32 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pre-Matric Scholarship for SC/ST Students
+SCHEME ID: NSP-PREMATRIC-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: SCHOLARSHIP
+==============================================================================
+
+1. OBJECTIVE
+   Scholarship for SC/ST students studying in Classes 9 and 10, covering admission fees, tuition fees and a monthly maintenance allowance, subject to parental income limits.
+
+2. ELIGIBILITY CRITERIA
+   [NSP-C1] (MANDATORY) The applicant must belong to the Scheduled Caste (SC) or Scheduled Tribe (ST) category.
+   [NSP-C2] (MANDATORY) The applicant must be studying in Class 9 or Class 10.
+   [NSP-C3] (MANDATORY) Parental/guardian annual income must not exceed Rs. 2,50,000.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [NSP-E1] Hostellers receive a maintenance allowance of Rs. 3,500 per year in addition to fee reimbursement.
+   [NSP-E2] Day scholars receive a maintenance allowance of Rs. 7,000 per year including ad-hoc grant.
+
+4. DOCUMENTS REQUIRED
+   [NSP-D1] (MANDATORY) Caste Certificate (SC/ST)
+   [NSP-D2] (MANDATORY) Income Certificate
+   [NSP-D3] (MANDATORY) Previous Class Marksheet
+   [NSP-D4] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [NSP-APL1] Level 1: School Scholarship Nodal Officer - within 15 days. First-level grievance at the school/institute.
+   [NSP-APL2] Level 2: State Education Department (SC/ST Welfare) - within 45 days. Escalation to the state education welfare department.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

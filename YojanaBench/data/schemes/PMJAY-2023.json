@@ -1,0 +1,51 @@
+{
+  "scheme_id": "PMJAY-2023",
+  "name": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)",
+  "level": "central",
+  "state": "All India",
+  "category": "health",
+  "summary": "Health insurance providing cover of Rs. 5,00,000 per family per year for secondary and tertiary care hospitalisation to eligible poor and vulnerable families.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMJAY-C1",
+      "text": "The family must be identified as an eligible household under the SECC deprivation criteria or an eligible occupational category.",
+      "field": "bpl",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMJAY-C2",
+      "text": "The applicant must be a resident household of the concerned State/UT.",
+      "field": "region",
+      "operator": "in",
+      "value": ["rural", "urban"],
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMJAY-C3",
+      "text": "There is no cap on family size or age of members under the scheme.",
+      "field": "family_size",
+      "operator": "gte",
+      "value": 1,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMJAY-E1",
+      "text": "Eligible families receive an annual health cover of Rs. 5,00,000 per family (shared across members) for hospitalisation.",
+      "compute": { "type": "coverage", "value": 500000, "unit": "INR/family/year", "per_period": "year" },
+      "clause_ids": ["PMJAY-C1", "PMJAY-E1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMJAY-D1", "name": "Ayushman Card / SECC Eligibility Proof", "mandatory": true },
+    { "doc_id": "PMJAY-D2", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMJAY-D3", "name": "Ration Card", "mandatory": false }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Ayushman Mitra / Hospital Grievance Desk", "deadline_days": 15, "description": "Raise a grievance at the empanelled hospital." },
+    { "level": 2, "authority": "State Health Agency (SHA)", "deadline_days": 30, "description": "Escalation to the State Health Agency grievance cell." }
+  ]
+}

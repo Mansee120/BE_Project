@@ -1,0 +1,17 @@
+{
+  "case_id": "CASE-0010",
+  "scheme_id": "PMAYG-2023",
+  "label": "Houseless SECC-listed family - should be ELIGIBLE",
+  "applicant": {
+    "age": 38,
+    "family_size": 5,
+    "house_type": "houseless",
+    "owns_pucca_house": false,
+    "secc_listed": true
+  },
+  "submitted_documents": [
+    "SECC 2011 Registration / Gram Sabha Approval",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

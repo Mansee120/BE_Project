@@ -1,0 +1,15 @@
+{
+  "case_id": "CASE-0014",
+  "scheme_id": "PMJAY-2023",
+  "label": "BPL family seeking health cover - should be ELIGIBLE at 500000 INR/family/year",
+  "applicant": {
+    "age": 55,
+    "bpl": true,
+    "region": "rural",
+    "family_size": 4
+  },
+  "submitted_documents": [
+    "Ayushman Card / SECC Eligibility Proof",
+    "Aadhaar Card"
+  ]
+}

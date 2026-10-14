@@ -1,0 +1,10 @@
+{
+  "case_id": "CASE-0003",
+  "scheme_id": "PMS-SC-2023",
+  "label": "SC hosteller, income above ceiling - should be REJECTED then appealed",
+  "applicant": {
+    "age": 19, "category": "SC", "education_level": "UG",
+    "annual_income": 300000, "hosteller": true
+  },
+  "submitted_documents": ["Caste Certificate (SC)", "Income Certificate", "Class 10 Marksheet", "Fee Receipt / Admission Proof"]
+}

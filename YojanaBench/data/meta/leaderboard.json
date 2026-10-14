@@ -1,0 +1,44 @@
+{
+  "benchmark_version": null,
+  "entries": [
+    {
+      "name": "YojanaBench (built-in)",
+      "note": "built-in deterministic pipeline",
+      "date": "2026-10-10",
+      "metrics": {
+        "verdict_accuracy": 1.0,
+        "answer_accuracy": 0.1964,
+        "token_f1": 0.2634,
+        "entitlement_error_abs": 0.0,
+        "document_f1": 1.0,
+        "calibration_ece": 0.0463
+      }
+    },
+    {
+      "name": "Baseline: always eligible",
+      "note": "trivial baseline: always eligible",
+      "date": "2026-10-10",
+      "metrics": {
+        "verdict_accuracy": 0.6122,
+        "answer_accuracy": 0.0,
+        "token_f1": 0.0,
+        "entitlement_error_abs": null,
+        "document_f1": 0.0,
+        "calibration_ece": 0.0
+      }
+    },
+    {
+      "name": "Baseline: always ineligible",
+      "note": "trivial baseline: always ineligible",
+      "date": "2026-10-10",
+      "metrics": {
+        "verdict_accuracy": 0.3265,
+        "answer_accuracy": 0.0,
+        "token_f1": 0.0,
+        "entitlement_error_abs": null,
+        "document_f1": 0.0,
+        "calibration_ece": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "CASE-0019",
+  "scheme_id": "PMS-SC-2023",
+  "label": "SC student above income ceiling - should be INELIGIBLE",
+  "applicant": {
+    "age": 21,
+    "category": "SC",
+    "education_level": "PG",
+    "annual_income": 400000,
+    "hosteller": false
+  },
+  "submitted_documents": [
+    "Caste Certificate (SC)",
+    "Income Certificate",
+    "Class 10 Marksheet",
+    "Fee Receipt / Admission Proof"
+  ]
+}

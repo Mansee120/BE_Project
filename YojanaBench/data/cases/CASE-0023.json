@@ -1,0 +1,18 @@
+{
+  "case_id": "CASE-0023",
+  "scheme_id": "IGNWPS-2023",
+  "label": "BPL widow aged 45 - should be ELIGIBLE at 300 INR/month",
+  "applicant": {
+    "age": 45,
+    "gender": "female",
+    "is_widow": true,
+    "bpl": true,
+    "category": "OBC"
+  },
+  "submitted_documents": [
+    "Death Certificate of Husband",
+    "BPL Card",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

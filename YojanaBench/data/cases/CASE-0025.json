@@ -1,0 +1,18 @@
+{
+  "case_id": "CASE-0025",
+  "scheme_id": "IGNDPS-2023",
+  "label": "BPL person with 85% disability - should be ELIGIBLE at 300 INR/month",
+  "applicant": {
+    "age": 30,
+    "disability_percent": 85,
+    "bpl": true,
+    "category": "SC"
+  },
+  "submitted_documents": [
+    "Disability Certificate (80% or more)",
+    "Age Proof (Birth Certificate/School Certificate)",
+    "BPL Card",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

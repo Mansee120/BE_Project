@@ -1,0 +1,29 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Mahatma Gandhi National Rural Employment Guarantee Act
+SCHEME ID: MGNREGA-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: EMPLOYMENT
+==============================================================================
+
+1. OBJECTIVE
+   Guarantees at least 100 days of unskilled wage employment in a financial year to every rural household whose adult members volunteer to do unskilled manual work.
+
+2. ELIGIBILITY CRITERIA
+   [MGNREGA-C1] (MANDATORY) The applicant must be a member of a rural household.
+   [MGNREGA-C2] (MANDATORY) The applicant must be an adult (18 years or older) willing to do unskilled manual work.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [MGNREGA-E1] Each rural household is guaranteed up to 100 days of wage employment per financial year, paid at the notified daily wage rate.
+
+4. DOCUMENTS REQUIRED
+   [MGNREGA-D1] (MANDATORY) Job Card
+   [MGNREGA-D2] (MANDATORY) Aadhaar Card
+   [MGNREGA-D3] (MANDATORY) Bank/Post Office Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [MGNREGA-APL1] Level 1: Gram Panchayat / Programme Officer - within 15 days. Complaint to the Programme Officer at block level.
+   [MGNREGA-APL2] Level 2: District Programme Coordinator - within 30 days. Escalation to the District Programme Coordinator.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

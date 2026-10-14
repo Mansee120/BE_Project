@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)
+SCHEME ID: PMKISAN-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: AGRICULTURE
+==============================================================================
+
+1. OBJECTIVE
+   Income support of Rs. 6,000 per year to eligible landholding farmer families, paid in three equal instalments of Rs. 2,000 every four months.
+
+2. ELIGIBILITY CRITERIA
+   [PMKISAN-C1] (MANDATORY) The applicant must be a landholding farmer family with cultivable land.
+   [PMKISAN-C2] (MANDATORY) Institutional landholders and persons holding constitutional posts are excluded.
+   [PMKISAN-C3] (MANDATORY) Income-tax payers are excluded from the scheme.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMKISAN-E1] Eligible farmer families receive Rs. 2,000 per instalment, three instalments per year (total Rs. 6,000 per year).
+
+4. DOCUMENTS REQUIRED
+   [PMKISAN-D1] (MANDATORY) Land Ownership Records (Khatauni/7-12 Extract)
+   [PMKISAN-D2] (MANDATORY) Aadhaar Card
+   [PMKISAN-D3] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMKISAN-APL1] Level 1: District Agriculture Officer - within 30 days. Grievance redressal at district agriculture office.
+   [PMKISAN-APL2] Level 2: State Nodal Officer (PM-KISAN) - within 60 days. Escalation to the state nodal department.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

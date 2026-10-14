@@ -1,0 +1,11 @@
+# Repository-level ignores for the BE_Project submission.
+
+# Vendored ffmpeg binaries (large; download separately if needed)
+YojanaBench/tools/
+
+# Video build scratch space (headless Chrome profiles / caches)
+YojanaBench/docs/video/work/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db

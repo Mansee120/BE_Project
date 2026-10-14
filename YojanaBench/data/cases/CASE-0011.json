@@ -1,0 +1,17 @@
+{
+  "case_id": "CASE-0011",
+  "scheme_id": "PMAYG-2023",
+  "label": "Family already owning a pucca house - should be INELIGIBLE",
+  "applicant": {
+    "age": 45,
+    "family_size": 4,
+    "house_type": "pucca",
+    "owns_pucca_house": true,
+    "secc_listed": true
+  },
+  "submitted_documents": [
+    "SECC 2011 Registration / Gram Sabha Approval",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

@@ -1,0 +1,2282 @@
+{
+  "benchmark_version": "1.0",
+  "description": "YojanaBench QA benchmark - human-verified question/answer pairs across eligibility, entitlement, documents and appeal categories, including counterfactual and edge-case variants. Amounts are simplified/illustrative for the benchmark demo (see docs/DATASET_README.md).",
+  "items": [
+    {
+      "id": "YB-PDS-0001",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "eligibility",
+      "question": "A rural household in Bihar holds an Antyodaya (AAY) ration card and no member pays income tax. Is the household eligible for foodgrains under PDS?",
+      "reference_answer": "Eligible. An AAY household resident in the state and not an income-tax payer qualifies under the National Food Security Act.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PDS-C1",
+        "PDS-C2",
+        "PDS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 45,
+        "gender": "female",
+        "category": "SC",
+        "annual_income": 60000,
+        "region": "rural",
+        "state": "Bihar",
+        "family_size": 5,
+        "card_type": "AAY",
+        "bpl": true,
+        "is_income_tax_payer": false
+      }
+    },
+    {
+      "id": "YB-PDS-0002",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "entitlement",
+      "question": "How many kg of foodgrains per month is an Antyodaya (AAY) household entitled to?",
+      "reference_answer": "35 kg of foodgrains per household per month.",
+      "verdict": "eligible",
+      "entitlement_value": 35,
+      "entitlement_unit": "kg/month",
+      "evidence_clause_ids": [
+        "PDS-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 45,
+        "category": "SC",
+        "annual_income": 60000,
+        "region": "rural",
+        "family_size": 5,
+        "card_type": "AAY",
+        "bpl": true,
+        "is_income_tax_payer": false
+      }
+    },
+    {
+      "id": "YB-PDS-0003",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "entitlement",
+      "question": "A Priority Household (PHH) with a family of 5 - how much foodgrain is it entitled to per month?",
+      "reference_answer": "25 kg per month (5 kg per person x 5 members).",
+      "verdict": "eligible",
+      "entitlement_value": 25,
+      "entitlement_unit": "kg/month",
+      "evidence_clause_ids": [
+        "PDS-E2"
+      ],
+      "counterfactual_of": "YB-PDS-0002",
+      "edge_case": "category_swap",
+      "applicant": {
+        "age": 45,
+        "category": "SC",
+        "annual_income": 60000,
+        "region": "rural",
+        "family_size": 5,
+        "card_type": "PHH",
+        "bpl": true,
+        "is_income_tax_payer": false
+      }
+    },
+    {
+      "id": "YB-PDS-0004",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "eligibility",
+      "question": "An AAY household where one member is an income-tax payer - are they still eligible for PDS?",
+      "reference_answer": "Ineligible. Income-tax payers are excluded from Priority Household coverage under the Act.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PDS-C3"
+      ],
+      "counterfactual_of": "YB-PDS-0001",
+      "edge_case": "exclusion",
+      "applicant": {
+        "age": 45,
+        "category": "SC",
+        "annual_income": 60000,
+        "region": "rural",
+        "family_size": 5,
+        "card_type": "AAY",
+        "bpl": true,
+        "is_income_tax_payer": true
+      }
+    },
+    {
+      "id": "YB-PDS-0005",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a new PDS ration card application?",
+      "reference_answer": "Ration Card, Aadhaar Card and Residence/Address Proof.",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PDS-D1",
+        "PDS-D2",
+        "PDS-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 45,
+        "category": "SC",
+        "region": "rural",
+        "family_size": 5,
+        "card_type": "AAY",
+        "bpl": true,
+        "is_income_tax_payer": false
+      }
+    },
+    {
+      "id": "YB-PDS-0006",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "eligibility",
+      "question": "An AAY household meets all eligibility criteria but has not submitted its ration card. What is the correct verdict?",
+      "reference_answer": "Needs information - the mandatory Ration Card is missing, so eligibility cannot be confirmed yet.",
+      "verdict": "needs_info",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PDS-C1",
+        "PDS-D1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": "missing_document",
+      "applicant": {
+        "age": 45,
+        "category": "SC",
+        "region": "rural",
+        "family_size": 5,
+        "card_type": "AAY",
+        "bpl": true,
+        "is_income_tax_payer": false
+      },
+      "submitted_documents": [
+        "Aadhaar Card",
+        "Residence/Address Proof"
+      ]
+    },
+    {
+      "id": "YB-IGNOAPS-0001",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "eligibility",
+      "question": "A 65-year-old person from a BPL household - eligible for old age pension?",
+      "reference_answer": "Eligible. The applicant is 60+ years and belongs to a BPL household.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNOAPS-C1",
+        "IGNOAPS-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 65,
+        "gender": "male",
+        "bpl": true,
+        "category": "General",
+        "state": "UP"
+      }
+    },
+    {
+      "id": "YB-IGNOAPS-0002",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "entitlement",
+      "question": "How much monthly pension does a 65-year-old BPL beneficiary receive under IGNOAPS?",
+      "reference_answer": "Rs. 200 per month.",
+      "verdict": "eligible",
+      "entitlement_value": 200,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNOAPS-E2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 65,
+        "gender": "male",
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNOAPS-0003",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "entitlement",
+      "question": "How much monthly pension does an 82-year-old BPL beneficiary receive under IGNOAPS?",
+      "reference_answer": "Rs. 500 per month (enhanced rate for 80+ years).",
+      "verdict": "eligible",
+      "entitlement_value": 500,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNOAPS-E1"
+      ],
+      "counterfactual_of": "YB-IGNOAPS-0002",
+      "edge_case": "boundary_age",
+      "applicant": {
+        "age": 82,
+        "gender": "male",
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNOAPS-0004",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "eligibility",
+      "question": "A 58-year-old BPL person applies for old age pension. Eligible?",
+      "reference_answer": "Ineligible. The applicant is below the minimum age of 60 years.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNOAPS-C1"
+      ],
+      "counterfactual_of": "YB-IGNOAPS-0001",
+      "edge_case": "boundary_age",
+      "applicant": {
+        "age": 58,
+        "gender": "male",
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNOAPS-0005",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "entitlement",
+      "question": "A BPL person is exactly 79 years old. What pension amount applies?",
+      "reference_answer": "Rs. 200 per month - the enhanced Rs. 500 rate applies only from age 80.",
+      "verdict": "eligible",
+      "entitlement_value": 200,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNOAPS-E2"
+      ],
+      "counterfactual_of": "YB-IGNOAPS-0003",
+      "edge_case": "boundary_age",
+      "applicant": {
+        "age": 79,
+        "gender": "female",
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNOAPS-0006",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "eligibility",
+      "question": "A BPL person aged 79 applies; the pension is otherwise admissible but the bank passbook is missing. Verdict?",
+      "reference_answer": "Needs information - the mandatory bank passbook is missing.",
+      "verdict": "needs_info",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNOAPS-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": "missing_document",
+      "applicant": {
+        "age": 79,
+        "gender": "female",
+        "bpl": true,
+        "category": "General"
+      },
+      "submitted_documents": [
+        "Age Proof (Birth Certificate/School Certificate)",
+        "BPL Card",
+        "Aadhaar Card"
+      ]
+    },
+    {
+      "id": "YB-IGNOAPS-0007",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "appeal",
+      "question": "An old age pension application is rejected at the Block level. What is the next appeal authority and the time limit?",
+      "reference_answer": "The first appeal lies with the District Social Welfare Officer within 60 days, and thereafter with the State Social Welfare Commission within 90 days.",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNOAPS-APL1",
+        "IGNOAPS-APL2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 65,
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNWPS-0001",
+      "scheme_id": "IGNWPS-2023",
+      "category": "eligibility",
+      "question": "A 45-year-old widow from a BPL household - eligible for widow pension?",
+      "reference_answer": "Eligible. She is a widow aged 40+ and belongs to a BPL household.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNWPS-C1",
+        "IGNWPS-C2",
+        "IGNWPS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 45,
+        "gender": "female",
+        "is_widow": true,
+        "bpl": true,
+        "category": "OBC"
+      }
+    },
+    {
+      "id": "YB-IGNWPS-0002",
+      "scheme_id": "IGNWPS-2023",
+      "category": "entitlement",
+      "question": "How much monthly pension does a 45-year-old BPL widow receive?",
+      "reference_answer": "Rs. 300 per month.",
+      "verdict": "eligible",
+      "entitlement_value": 300,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNWPS-E2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 45,
+        "gender": "female",
+        "is_widow": true,
+        "bpl": true,
+        "category": "OBC"
+      }
+    },
+    {
+      "id": "YB-IGNWPS-0003",
+      "scheme_id": "IGNWPS-2023",
+      "category": "eligibility",
+      "question": "A 45-year-old married woman from a BPL household applies for widow pension. Eligible?",
+      "reference_answer": "Ineligible. The applicant is not a widow, which is a mandatory criterion.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNWPS-C1"
+      ],
+      "counterfactual_of": "YB-IGNWPS-0001",
+      "edge_case": "category_swap",
+      "applicant": {
+        "age": 45,
+        "gender": "female",
+        "is_widow": false,
+        "bpl": true,
+        "category": "OBC"
+      }
+    },
+    {
+      "id": "YB-IGNWPS-0004",
+      "scheme_id": "IGNWPS-2023",
+      "category": "eligibility",
+      "question": "A 35-year-old widow from a BPL household applies. Eligible?",
+      "reference_answer": "Ineligible. The applicant is below the minimum age of 40 years.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNWPS-C2"
+      ],
+      "counterfactual_of": "YB-IGNWPS-0001",
+      "edge_case": "boundary_age",
+      "applicant": {
+        "age": 35,
+        "gender": "female",
+        "is_widow": true,
+        "bpl": true,
+        "category": "OBC"
+      }
+    },
+    {
+      "id": "YB-IGNWPS-0005",
+      "scheme_id": "IGNWPS-2023",
+      "category": "entitlement",
+      "question": "How much monthly pension does an 85-year-old BPL widow receive?",
+      "reference_answer": "Rs. 500 per month (enhanced rate for 80+ years).",
+      "verdict": "eligible",
+      "entitlement_value": 500,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNWPS-E1"
+      ],
+      "counterfactual_of": "YB-IGNWPS-0002",
+      "edge_case": "boundary_age",
+      "applicant": {
+        "age": 85,
+        "gender": "female",
+        "is_widow": true,
+        "bpl": true,
+        "category": "OBC"
+      }
+    },
+    {
+      "id": "YB-IGNWPS-0006",
+      "scheme_id": "IGNWPS-2023",
+      "category": "appeal",
+      "question": "A widow pension claim is rejected at the Block level. Where should the applicant appeal first and within what time?",
+      "reference_answer": "The first appeal lies with the District Social Welfare Officer within 60 days; a further appeal lies with the State Social Welfare Commission within 90 days.",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNWPS-APL1",
+        "IGNWPS-APL2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 45,
+        "is_widow": true,
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-IGNDPS-0001",
+      "scheme_id": "IGNDPS-2023",
+      "category": "eligibility",
+      "question": "A 30-year-old with 85% disability from a BPL household - eligible for disability pension?",
+      "reference_answer": "Eligible. Disability is 80% or more, age is 18+ and the household is BPL.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNDPS-C1",
+        "IGNDPS-C2",
+        "IGNDPS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "gender": "male",
+        "disability_percent": 85,
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNDPS-0002",
+      "scheme_id": "IGNDPS-2023",
+      "category": "entitlement",
+      "question": "How much monthly pension does a 30-year-old with 85% disability receive?",
+      "reference_answer": "Rs. 300 per month.",
+      "verdict": "eligible",
+      "entitlement_value": 300,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNDPS-E2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "gender": "male",
+        "disability_percent": 85,
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNDPS-0003",
+      "scheme_id": "IGNDPS-2023",
+      "category": "eligibility",
+      "question": "A 30-year-old with 60% disability from a BPL household applies. Eligible?",
+      "reference_answer": "Ineligible. Disability must be 80% or more.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNDPS-C1"
+      ],
+      "counterfactual_of": "YB-IGNDPS-0001",
+      "edge_case": "boundary_disability",
+      "applicant": {
+        "age": 30,
+        "gender": "male",
+        "disability_percent": 60,
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNDPS-0004",
+      "scheme_id": "IGNDPS-2023",
+      "category": "entitlement",
+      "question": "How much monthly pension does an 82-year-old with 90% disability receive?",
+      "reference_answer": "Rs. 500 per month (enhanced rate for 80+ years).",
+      "verdict": "eligible",
+      "entitlement_value": 500,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNDPS-E1"
+      ],
+      "counterfactual_of": "YB-IGNDPS-0002",
+      "edge_case": "boundary_age",
+      "applicant": {
+        "age": 82,
+        "gender": "female",
+        "disability_percent": 90,
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNDPS-0005",
+      "scheme_id": "IGNDPS-2023",
+      "category": "documents",
+      "question": "Which documents are required for the disability pension scheme?",
+      "reference_answer": "Disability Certificate (80%+), BPL Card, Aadhaar Card and Bank Account Passbook.",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNDPS-D1",
+        "IGNDPS-D2",
+        "IGNDPS-D3",
+        "IGNDPS-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "disability_percent": 85,
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-PMKISAN-0001",
+      "scheme_id": "PMKISAN-2023",
+      "category": "eligibility",
+      "question": "A small landholding farmer who is not an income-tax payer - eligible for PM-KISAN?",
+      "reference_answer": "Eligible. The applicant is a landholding farmer, not an institutional landholder and not an income-tax payer.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKISAN-C1",
+        "PMKISAN-C2",
+        "PMKISAN-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "is_farmer": true,
+        "is_institutional_landholder": false,
+        "is_income_tax_payer": false,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMKISAN-0002",
+      "scheme_id": "PMKISAN-2023",
+      "category": "entitlement",
+      "question": "How much does an eligible farmer family receive under PM-KISAN per instalment and per year?",
+      "reference_answer": "Rs. 2,000 per instalment, three times a year - Rs. 6,000 per year.",
+      "verdict": "eligible",
+      "entitlement_value": 2000,
+      "entitlement_unit": "INR/instalment",
+      "evidence_clause_ids": [
+        "PMKISAN-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "is_farmer": true,
+        "is_institutional_landholder": false,
+        "is_income_tax_payer": false
+      }
+    },
+    {
+      "id": "YB-PMKISAN-0003",
+      "scheme_id": "PMKISAN-2023",
+      "category": "eligibility",
+      "question": "A landholding farmer who pays income tax applies for PM-KISAN. Eligible?",
+      "reference_answer": "Ineligible. Income-tax payers are excluded from the scheme.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKISAN-C3"
+      ],
+      "counterfactual_of": "YB-PMKISAN-0001",
+      "edge_case": "exclusion",
+      "applicant": {
+        "age": 40,
+        "is_farmer": true,
+        "is_institutional_landholder": false,
+        "is_income_tax_payer": true,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMKISAN-0004",
+      "scheme_id": "PMKISAN-2023",
+      "category": "eligibility",
+      "question": "A non-farmer applies for PM-KISAN. Eligible?",
+      "reference_answer": "Ineligible. The applicant is not a landholding farmer family.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKISAN-C1"
+      ],
+      "counterfactual_of": "YB-PMKISAN-0001",
+      "edge_case": "category_swap",
+      "applicant": {
+        "age": 40,
+        "is_farmer": false,
+        "is_institutional_landholder": false,
+        "is_income_tax_payer": false,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMKISAN-0005",
+      "scheme_id": "PMKISAN-2023",
+      "category": "appeal",
+      "question": "A PM-KISAN application is rejected. Where should the farmer escalate the grievance?",
+      "reference_answer": "The grievance lies first with the District Agriculture Officer within 30 days, and can be escalated to the State Nodal Officer (PM-KISAN) within 60 days.",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKISAN-APL1",
+        "PMKISAN-APL2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "is_farmer": true
+      }
+    },
+    {
+      "id": "YB-PMS-0001",
+      "scheme_id": "PMS-SC-2023",
+      "category": "eligibility",
+      "question": "An SC student pursuing an undergraduate course, parental income Rs. 2,00,000, staying in a hostel - eligible for post-matric scholarship?",
+      "reference_answer": "Eligible. The student is SC, at post-matric level and parental income is within the Rs. 2,50,000 ceiling.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-C1",
+        "PMS-C2",
+        "PMS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "category": "SC",
+        "education_level": "UG",
+        "annual_income": 200000,
+        "hosteller": true,
+        "age": 19
+      }
+    },
+    {
+      "id": "YB-PMS-0002",
+      "scheme_id": "PMS-SC-2023",
+      "category": "entitlement",
+      "question": "How much annual scholarship does an SC hosteller (parental income Rs. 2 lakh) receive under the post-matric scheme?",
+      "reference_answer": "Rs. 13,500 per year (hosteller maintenance allowance including book grant).",
+      "verdict": "eligible",
+      "entitlement_value": 13500,
+      "entitlement_unit": "INR/year",
+      "evidence_clause_ids": [
+        "PMS-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "category": "SC",
+        "education_level": "UG",
+        "annual_income": 200000,
+        "hosteller": true,
+        "age": 19
+      }
+    },
+    {
+      "id": "YB-PMS-0003",
+      "scheme_id": "PMS-SC-2023",
+      "category": "entitlement",
+      "question": "How much annual scholarship does an SC day-scholar (parental income Rs. 2 lakh) receive under the post-matric scheme?",
+      "reference_answer": "Rs. 7,500 per year (day-scholar maintenance allowance including book grant).",
+      "verdict": "eligible",
+      "entitlement_value": 7500,
+      "entitlement_unit": "INR/year",
+      "evidence_clause_ids": [
+        "PMS-E2"
+      ],
+      "counterfactual_of": "YB-PMS-0002",
+      "edge_case": "category_swap",
+      "applicant": {
+        "category": "SC",
+        "education_level": "UG",
+        "annual_income": 200000,
+        "hosteller": false,
+        "age": 19
+      }
+    },
+    {
+      "id": "YB-PMS-0004",
+      "scheme_id": "PMS-SC-2023",
+      "category": "eligibility",
+      "question": "An SC student with parental income Rs. 3,00,000 applies for post-matric scholarship. Eligible?",
+      "reference_answer": "Ineligible. Parental income exceeds the Rs. 2,50,000 ceiling.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-C3"
+      ],
+      "counterfactual_of": "YB-PMS-0001",
+      "edge_case": "boundary_income",
+      "applicant": {
+        "category": "SC",
+        "education_level": "UG",
+        "annual_income": 300000,
+        "hosteller": true,
+        "age": 19
+      }
+    },
+    {
+      "id": "YB-PMS-0005",
+      "scheme_id": "PMS-SC-2023",
+      "category": "eligibility",
+      "question": "A General category student applies for the SC post-matric scholarship. Eligible?",
+      "reference_answer": "Ineligible. The scheme is restricted to Scheduled Caste students.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-C1"
+      ],
+      "counterfactual_of": "YB-PMS-0001",
+      "edge_case": "category_swap",
+      "applicant": {
+        "category": "General",
+        "education_level": "UG",
+        "annual_income": 200000,
+        "hosteller": true,
+        "age": 19
+      }
+    },
+    {
+      "id": "YB-PMS-0006",
+      "scheme_id": "PMS-SC-2023",
+      "category": "eligibility",
+      "question": "An eligible SC student has not submitted the caste certificate. What is the verdict?",
+      "reference_answer": "Needs information - the mandatory caste certificate is missing.",
+      "verdict": "needs_info",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-D1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": "missing_document",
+      "applicant": {
+        "category": "SC",
+        "education_level": "UG",
+        "annual_income": 200000,
+        "hosteller": true,
+        "age": 19
+      },
+      "submitted_documents": [
+        "Income Certificate",
+        "Class 10 Marksheet",
+        "Fee Receipt / Admission Proof"
+      ]
+    },
+    {
+      "id": "YB-PMS-0007",
+      "scheme_id": "PMS-SC-2023",
+      "category": "documents",
+      "question": "Which certificates must accompany a post-matric SC scholarship application?",
+      "reference_answer": "Caste Certificate (SC), Income Certificate, Class 10 Marksheet and Fee Receipt / Admission Proof.",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-D1",
+        "PMS-D2",
+        "PMS-D3",
+        "PMS-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "category": "SC",
+        "education_level": "UG",
+        "annual_income": 200000,
+        "hosteller": true
+      }
+    },
+    {
+      "id": "YB-MGNREGA-0001",
+      "scheme_id": "MGNREGA-2023",
+      "category": "eligibility",
+      "question": "A 30-year-old adult in a rural household wants to do manual work - eligible for MGNREGA employment?",
+      "reference_answer": "Eligible. The applicant is an adult member of a rural household willing to do unskilled manual work.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MGNREGA-C1",
+        "MGNREGA-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "region": "rural",
+        "gender": "male"
+      }
+    },
+    {
+      "id": "YB-MGNREGA-0002",
+      "scheme_id": "MGNREGA-2023",
+      "category": "entitlement",
+      "question": "How much wage can a rural household earn under MGNREGA in a year at Rs. 221/day for the full guaranteed period?",
+      "reference_answer": "100 days x Rs. 221 = Rs. 22,100 per year.",
+      "verdict": "eligible",
+      "entitlement_value": 22100,
+      "entitlement_unit": "INR/year",
+      "evidence_clause_ids": [
+        "MGNREGA-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "region": "rural",
+        "gender": "male"
+      }
+    },
+    {
+      "id": "YB-MGNREGA-0003",
+      "scheme_id": "MGNREGA-2023",
+      "category": "eligibility",
+      "question": "An urban household applies for MGNREGA employment. Eligible?",
+      "reference_answer": "Ineligible. MGNREGA applies to rural households only.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MGNREGA-C1"
+      ],
+      "counterfactual_of": "YB-MGNREGA-0001",
+      "edge_case": "category_swap",
+      "applicant": {
+        "age": 30,
+        "region": "urban",
+        "gender": "male"
+      }
+    },
+    {
+      "id": "YB-MGNREGA-0004",
+      "scheme_id": "MGNREGA-2023",
+      "category": "eligibility",
+      "question": "A 16-year-old in a rural household applies for MGNREGA work. Eligible?",
+      "reference_answer": "Ineligible. Only adults aged 18 years or older are eligible.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MGNREGA-C2"
+      ],
+      "counterfactual_of": "YB-MGNREGA-0001",
+      "edge_case": "boundary_age",
+      "applicant": {
+        "age": 16,
+        "region": "rural",
+        "gender": "male"
+      }
+    },
+    {
+      "id": "YB-PMJAY-0001",
+      "scheme_id": "PMJAY-2023",
+      "category": "eligibility",
+      "question": "A BPL rural family of 6 applies for Ayushman Bharat. Eligible?",
+      "reference_answer": "Eligible. The family is an eligible BPL household and there is no cap on family size.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJAY-C1",
+        "PMJAY-C2",
+        "PMJAY-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "bpl": true,
+        "region": "rural",
+        "family_size": 6,
+        "category": "SC"
+      }
+    },
+    {
+      "id": "YB-PMJAY-0002",
+      "scheme_id": "PMJAY-2023",
+      "category": "entitlement",
+      "question": "What is the annual health cover provided to an eligible family under Ayushman Bharat?",
+      "reference_answer": "Rs. 5,00,000 per family per year for secondary and tertiary hospitalisation.",
+      "verdict": "eligible",
+      "entitlement_value": 500000,
+      "entitlement_unit": "INR/family/year",
+      "evidence_clause_ids": [
+        "PMJAY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "bpl": true,
+        "region": "rural",
+        "family_size": 6,
+        "category": "SC"
+      }
+    },
+    {
+      "id": "YB-PMJAY-0003",
+      "scheme_id": "PMJAY-2023",
+      "category": "eligibility",
+      "question": "A family that is not in the SECC eligibility list applies for Ayushman Bharat. Eligible?",
+      "reference_answer": "Ineligible. The family is not identified as an eligible household under SECC criteria.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJAY-C1"
+      ],
+      "counterfactual_of": "YB-PMJAY-0001",
+      "edge_case": "exclusion",
+      "applicant": {
+        "age": 40,
+        "bpl": false,
+        "region": "rural",
+        "family_size": 6,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-PMJAY-0004",
+      "scheme_id": "PMJAY-2023",
+      "category": "documents",
+      "question": "Which documents are needed to avail Ayushman Bharat benefits?",
+      "reference_answer": "Ayushman Card / SECC eligibility proof and Aadhaar Card are required; a Ration Card is optional.",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJAY-D1",
+        "PMJAY-D2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "bpl": true,
+        "region": "rural",
+        "family_size": 6
+      }
+    },
+    {
+      "id": "YB-PMAYG-0001",
+      "scheme_id": "PMAYG-2023",
+      "category": "eligibility",
+      "question": "A rural household living in a kutcha house, listed in SECC and not owning a pucca house - eligible for PMAY-G?",
+      "reference_answer": "Eligible. The household is houseless/kutcha, does not own a pucca house and is SECC-listed.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYG-C1",
+        "PMAYG-C2",
+        "PMAYG-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 50,
+        "region": "rural",
+        "house_type": "kutcha",
+        "owns_pucca_house": false,
+        "secc_listed": true,
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-PMAYG-0002",
+      "scheme_id": "PMAYG-2023",
+      "category": "entitlement",
+      "question": "How much housing assistance does an eligible plain-area rural household receive under PMAY-G?",
+      "reference_answer": "Rs. 1,20,000 per unit in plain areas.",
+      "verdict": "eligible",
+      "entitlement_value": 120000,
+      "entitlement_unit": "INR/unit",
+      "evidence_clause_ids": [
+        "PMAYG-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 50,
+        "region": "rural",
+        "house_type": "kutcha",
+        "owns_pucca_house": false,
+        "secc_listed": true
+      }
+    },
+    {
+      "id": "YB-PMAYG-0003",
+      "scheme_id": "PMAYG-2023",
+      "category": "eligibility",
+      "question": "A rural household that already owns a pucca house applies for PMAY-G. Eligible?",
+      "reference_answer": "Ineligible. The household owns a pucca house, which is a mandatory exclusion.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYG-C2"
+      ],
+      "counterfactual_of": "YB-PMAYG-0001",
+      "edge_case": "exclusion",
+      "applicant": {
+        "age": 50,
+        "region": "rural",
+        "house_type": "pucca",
+        "owns_pucca_house": true,
+        "secc_listed": true
+      }
+    },
+    {
+      "id": "YB-PMAYG-0004",
+      "scheme_id": "PMAYG-2023",
+      "category": "eligibility",
+      "question": "A rural kutcha-house household not included in the SECC list applies for PMAY-G. Eligible?",
+      "reference_answer": "Ineligible. The household is not SECC-listed (or Gram Sabha verified).",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYG-C3"
+      ],
+      "counterfactual_of": "YB-PMAYG-0001",
+      "edge_case": "exclusion",
+      "applicant": {
+        "age": 50,
+        "region": "rural",
+        "house_type": "kutcha",
+        "owns_pucca_house": false,
+        "secc_listed": false
+      }
+    },
+    {
+      "id": "YB-NSP-0001",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "eligibility",
+      "question": "An ST student in Class 9 with parental income Rs. 1,00,000 - eligible for pre-matric scholarship?",
+      "reference_answer": "Eligible. The student is ST, in Class 9 and parental income is within the Rs. 2,50,000 ceiling.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NSP-C1",
+        "NSP-C2",
+        "NSP-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "category": "ST",
+        "class_level": 9,
+        "annual_income": 100000,
+        "hosteller": false,
+        "age": 14
+      }
+    },
+    {
+      "id": "YB-NSP-0002",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "entitlement",
+      "question": "How much annual allowance does an ST day-scholar in Class 9 (income Rs. 1 lakh) receive under the pre-matric scheme?",
+      "reference_answer": "Rs. 7,000 per year including ad-hoc grant (day scholar).",
+      "verdict": "eligible",
+      "entitlement_value": 7000,
+      "entitlement_unit": "INR/year",
+      "evidence_clause_ids": [
+        "NSP-E2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "category": "ST",
+        "class_level": 9,
+        "annual_income": 100000,
+        "hosteller": false,
+        "age": 14
+      }
+    },
+    {
+      "id": "YB-NSP-0003",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "entitlement",
+      "question": "How much annual allowance does an ST hosteller in Class 10 (income Rs. 1 lakh) receive under the pre-matric scheme?",
+      "reference_answer": "Rs. 3,500 per year (hosteller maintenance allowance) plus fee reimbursement.",
+      "verdict": "eligible",
+      "entitlement_value": 3500,
+      "entitlement_unit": "INR/year",
+      "evidence_clause_ids": [
+        "NSP-E1"
+      ],
+      "counterfactual_of": "YB-NSP-0002",
+      "edge_case": "category_swap",
+      "applicant": {
+        "category": "ST",
+        "class_level": 10,
+        "annual_income": 100000,
+        "hosteller": true,
+        "age": 15
+      }
+    },
+    {
+      "id": "YB-NSP-0004",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "eligibility",
+      "question": "An SC student in Class 11 applies for the pre-matric scholarship. Eligible?",
+      "reference_answer": "Ineligible. The pre-matric scheme covers only Classes 9 and 10.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NSP-C2"
+      ],
+      "counterfactual_of": "YB-NSP-0001",
+      "edge_case": "boundary_class",
+      "applicant": {
+        "category": "SC",
+        "class_level": 11,
+        "annual_income": 100000,
+        "hosteller": false,
+        "age": 16
+      }
+    },
+    {
+      "id": "YB-NSP-0005",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "eligibility",
+      "question": "A General category Class 9 student applies for the pre-matric scholarship. Eligible?",
+      "reference_answer": "Ineligible. The scheme is restricted to SC/ST students.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NSP-C1"
+      ],
+      "counterfactual_of": "YB-NSP-0001",
+      "edge_case": "category_swap",
+      "applicant": {
+        "category": "General",
+        "class_level": 9,
+        "annual_income": 100000,
+        "hosteller": false,
+        "age": 14
+      }
+    },
+    {
+      "id": "YB-EDGE-0001",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "entitlement",
+      "question": "A BPL person turns exactly 80 years old this year. Which pension rate applies?",
+      "reference_answer": "Rs. 500 per month - the enhanced rate applies from age 80 (boundary inclusive).",
+      "verdict": "eligible",
+      "entitlement_value": 500,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNOAPS-E1"
+      ],
+      "counterfactual_of": "YB-IGNOAPS-0005",
+      "edge_case": "boundary_age",
+      "applicant": {
+        "age": 80,
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-EDGE-0002",
+      "scheme_id": "PMS-SC-2023",
+      "category": "eligibility",
+      "question": "An SC student's parental income is exactly Rs. 2,50,000. Is the student eligible for post-matric scholarship?",
+      "reference_answer": "Eligible. The ceiling is income not exceeding Rs. 2,50,000, so the boundary value is included.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-C3"
+      ],
+      "counterfactual_of": "YB-PMS-0004",
+      "edge_case": "boundary_income",
+      "applicant": {
+        "category": "SC",
+        "education_level": "UG",
+        "annual_income": 250000,
+        "hosteller": true,
+        "age": 19
+      }
+    },
+    {
+      "id": "YB-EDGE-0003",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "eligibility",
+      "question": "A 65-year-old BPL widow is eligible for both the old-age pension and the widow pension. What should the audit report?",
+      "reference_answer": "Both schemes are applicable - the applicant qualifies for IGNOAPS and IGNWPS; overlapping entitlements must be flagged for the officer.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNOAPS-C1",
+        "IGNWPS-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": "overlapping_schemes",
+      "applicant": {
+        "age": 65,
+        "gender": "female",
+        "is_widow": true,
+        "bpl": true,
+        "category": "General"
+      },
+      "secondary_scheme_id": "IGNWPS-2023"
+    },
+    {
+      "id": "YB-IGNDPS-S001",
+      "scheme_id": "IGNDPS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Indira Gandhi National Disability Pension Scheme? (BPL applicant with 90% disability)",
+      "reference_answer": "Eligible. Entitlement: 300 INR/month. 300 INR/month (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNDPS-C1",
+        "IGNDPS-C2",
+        "IGNDPS-C3",
+        "IGNDPS-C4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 34,
+        "disability_percent": 90,
+        "bpl": true,
+        "category": "SC"
+      }
+    },
+    {
+      "id": "YB-IGNDPS-S002",
+      "scheme_id": "IGNDPS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Indira Gandhi National Disability Pension Scheme? (BPL applicant with 80% disability)",
+      "reference_answer": "Eligible. Entitlement: 300 INR/month. 300 INR/month (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNDPS-C1",
+        "IGNDPS-C2",
+        "IGNDPS-C3",
+        "IGNDPS-C4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "disability_percent": 80,
+        "bpl": true,
+        "category": "OBC"
+      }
+    },
+    {
+      "id": "YB-IGNDPS-S003",
+      "scheme_id": "IGNDPS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Indira Gandhi National Disability Pension Scheme? (Applicant with 55% disability)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNDPS-C1",
+        "IGNDPS-C2",
+        "IGNDPS-C3",
+        "IGNDPS-C4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 34,
+        "disability_percent": 55,
+        "bpl": true,
+        "category": "SC"
+      }
+    },
+    {
+      "id": "YB-IGNDPS-E004",
+      "scheme_id": "IGNDPS-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Indira Gandhi National Disability Pension Scheme? (BPL applicant with 90% disability)",
+      "reference_answer": "Entitlement: 300 INR/month.",
+      "verdict": "eligible",
+      "entitlement_value": 300,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNDPS-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 34,
+        "disability_percent": 90,
+        "bpl": true,
+        "category": "SC"
+      }
+    },
+    {
+      "id": "YB-IGNOAPS-S005",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Indira Gandhi National Old Age Pension Scheme? (BPL senior aged 71)",
+      "reference_answer": "Eligible. Entitlement: 200 INR/month. 200 INR/month (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNOAPS-C1",
+        "IGNOAPS-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 71,
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNOAPS-S006",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Indira Gandhi National Old Age Pension Scheme? (BPL senior aged 88)",
+      "reference_answer": "Eligible. Entitlement: 500 INR/month. 500 INR/month (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNOAPS-C1",
+        "IGNOAPS-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 88,
+        "bpl": true,
+        "category": "OBC"
+      }
+    },
+    {
+      "id": "YB-IGNOAPS-S007",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Indira Gandhi National Old Age Pension Scheme? (Senior above the poverty line)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNOAPS-C1",
+        "IGNOAPS-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 67,
+        "bpl": false,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNOAPS-E008",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Indira Gandhi National Old Age Pension Scheme? (BPL senior aged 71)",
+      "reference_answer": "Entitlement: 200 INR/month.",
+      "verdict": "eligible",
+      "entitlement_value": 200,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNOAPS-E1",
+        "IGNOAPS-E2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 71,
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNWPS-S009",
+      "scheme_id": "IGNWPS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Indira Gandhi National Widow Pension Scheme? (BPL widow aged 52)",
+      "reference_answer": "Eligible. Entitlement: 300 INR/month. 300 INR/month (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNWPS-C1",
+        "IGNWPS-C2",
+        "IGNWPS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 52,
+        "gender": "female",
+        "is_widow": true,
+        "bpl": true,
+        "category": "SC"
+      }
+    },
+    {
+      "id": "YB-IGNWPS-S010",
+      "scheme_id": "IGNWPS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Indira Gandhi National Widow Pension Scheme? (BPL widow aged 85)",
+      "reference_answer": "Eligible. Entitlement: 500 INR/month. 500 INR/month (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNWPS-C1",
+        "IGNWPS-C2",
+        "IGNWPS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 85,
+        "gender": "female",
+        "is_widow": true,
+        "bpl": true,
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-IGNWPS-S011",
+      "scheme_id": "IGNWPS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Indira Gandhi National Widow Pension Scheme? (Married woman in a BPL home)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNWPS-C1",
+        "IGNWPS-C2",
+        "IGNWPS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 44,
+        "gender": "female",
+        "is_widow": false,
+        "bpl": true,
+        "category": "OBC"
+      }
+    },
+    {
+      "id": "YB-IGNWPS-E012",
+      "scheme_id": "IGNWPS-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Indira Gandhi National Widow Pension Scheme? (BPL widow aged 52)",
+      "reference_answer": "Entitlement: 300 INR/month.",
+      "verdict": "eligible",
+      "entitlement_value": 300,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "IGNWPS-E1",
+        "IGNWPS-E2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 52,
+        "gender": "female",
+        "is_widow": true,
+        "bpl": true,
+        "category": "SC"
+      }
+    },
+    {
+      "id": "YB-MGNREGA-S013",
+      "scheme_id": "MGNREGA-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Mahatma Gandhi National Rural Employment Guarantee Act? (Rural adult seeking work)",
+      "reference_answer": "Eligible. Entitlement: 22100 INR/day. 221 INR/day x 100 days = 22100 INR/year",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MGNREGA-C1",
+        "MGNREGA-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 31,
+        "region": "rural",
+        "category": "OBC"
+      }
+    },
+    {
+      "id": "YB-MGNREGA-S014",
+      "scheme_id": "MGNREGA-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Mahatma Gandhi National Rural Employment Guarantee Act? (Rural adult aged 18)",
+      "reference_answer": "Eligible. Entitlement: 22100 INR/day. 221 INR/day x 100 days = 22100 INR/year",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MGNREGA-C1",
+        "MGNREGA-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 18,
+        "region": "rural",
+        "category": "SC"
+      }
+    },
+    {
+      "id": "YB-MGNREGA-S015",
+      "scheme_id": "MGNREGA-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Mahatma Gandhi National Rural Employment Guarantee Act? (Urban adult resident)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MGNREGA-C1",
+        "MGNREGA-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 27,
+        "region": "urban",
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-MGNREGA-E016",
+      "scheme_id": "MGNREGA-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Mahatma Gandhi National Rural Employment Guarantee Act? (Rural adult seeking work)",
+      "reference_answer": "Entitlement: 22100 INR/day.",
+      "verdict": "eligible",
+      "entitlement_value": 22100,
+      "entitlement_unit": "INR/day",
+      "evidence_clause_ids": [
+        "MGNREGA-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 31,
+        "region": "rural",
+        "category": "OBC"
+      }
+    },
+    {
+      "id": "YB-NSP-S017",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pre-Matric Scholarship for SC/ST Students? (SC day-scholar in class 9)",
+      "reference_answer": "Eligible. Entitlement: 7000 INR/year. 7000 INR/year (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NSP-C1",
+        "NSP-C2",
+        "NSP-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 14,
+        "category": "SC",
+        "class_level": 9,
+        "annual_income": 120000,
+        "hosteller": false
+      }
+    },
+    {
+      "id": "YB-NSP-S018",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pre-Matric Scholarship for SC/ST Students? (ST hosteller in class 10)",
+      "reference_answer": "Eligible. Entitlement: 3500 INR/year. 3500 INR/year (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NSP-C1",
+        "NSP-C2",
+        "NSP-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 15,
+        "category": "ST",
+        "class_level": 10,
+        "annual_income": 180000,
+        "hosteller": true
+      }
+    },
+    {
+      "id": "YB-NSP-S019",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pre-Matric Scholarship for SC/ST Students? (General-category student)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NSP-C1",
+        "NSP-C2",
+        "NSP-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 15,
+        "category": "General",
+        "class_level": 9,
+        "annual_income": 150000
+      }
+    },
+    {
+      "id": "YB-NSP-E020",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pre-Matric Scholarship for SC/ST Students? (SC day-scholar in class 9)",
+      "reference_answer": "Entitlement: 7000 INR/year.",
+      "verdict": "eligible",
+      "entitlement_value": 7000,
+      "entitlement_unit": "INR/year",
+      "evidence_clause_ids": [
+        "NSP-E1",
+        "NSP-E2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 14,
+        "category": "SC",
+        "class_level": 9,
+        "annual_income": 120000,
+        "hosteller": false
+      }
+    },
+    {
+      "id": "YB-PDS-S021",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Public Distribution System (National Food Security Act, 2013)? (AAY rural household)",
+      "reference_answer": "Eligible. Entitlement: 35 kg/month. 35 kg/month (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PDS-C1",
+        "PDS-C2",
+        "PDS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 34,
+        "category": "SC",
+        "region": "rural",
+        "family_size": 4,
+        "card_type": "AAY",
+        "bpl": true,
+        "is_income_tax_payer": false
+      }
+    },
+    {
+      "id": "YB-PDS-S022",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Public Distribution System (National Food Security Act, 2013)? (Priority household (PHH) in a city)",
+      "reference_answer": "Eligible. Entitlement: 30 kg/person/month. 5 x 6 members = 30 kg/person/month (per-member entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PDS-C1",
+        "PDS-C2",
+        "PDS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 29,
+        "category": "OBC",
+        "region": "urban",
+        "family_size": 6,
+        "card_type": "PHH",
+        "bpl": true,
+        "is_income_tax_payer": false
+      }
+    },
+    {
+      "id": "YB-PDS-S023",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Public Distribution System (National Food Security Act, 2013)? (APL family of an income-tax payer)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PDS-C1",
+        "PDS-C2",
+        "PDS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 41,
+        "category": "General",
+        "region": "urban",
+        "family_size": 3,
+        "card_type": "APL",
+        "bpl": false,
+        "is_income_tax_payer": true
+      }
+    },
+    {
+      "id": "YB-PDS-E024",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Public Distribution System (National Food Security Act, 2013)? (AAY rural household)",
+      "reference_answer": "Entitlement: 35 kg/month.",
+      "verdict": "eligible",
+      "entitlement_value": 35,
+      "entitlement_unit": "kg/month",
+      "evidence_clause_ids": [
+        "PDS-E1",
+        "PDS-E2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 34,
+        "category": "SC",
+        "region": "rural",
+        "family_size": 4,
+        "card_type": "AAY",
+        "bpl": true,
+        "is_income_tax_payer": false
+      }
+    },
+    {
+      "id": "YB-PMAYG-S025",
+      "scheme_id": "PMAYG-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)? (Houseless SECC-listed family)",
+      "reference_answer": "Eligible. Entitlement: 120000 INR/unit. 120000 INR/unit (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYG-C1",
+        "PMAYG-C2",
+        "PMAYG-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 39,
+        "family_size": 5,
+        "house_type": "houseless",
+        "owns_pucca_house": false,
+        "secc_listed": true,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMAYG-S026",
+      "scheme_id": "PMAYG-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)? (Kutcha-house SECC-listed family)",
+      "reference_answer": "Eligible. Entitlement: 120000 INR/unit. 120000 INR/unit (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYG-C1",
+        "PMAYG-C2",
+        "PMAYG-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 47,
+        "family_size": 4,
+        "house_type": "kutcha",
+        "owns_pucca_house": false,
+        "secc_listed": true,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMAYG-S027",
+      "scheme_id": "PMAYG-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)? (Family already owning a pucca house)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYG-C1",
+        "PMAYG-C2",
+        "PMAYG-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 44,
+        "family_size": 4,
+        "house_type": "pucca",
+        "owns_pucca_house": true,
+        "secc_listed": true,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMAYG-E028",
+      "scheme_id": "PMAYG-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)? (Houseless SECC-listed family)",
+      "reference_answer": "Entitlement: 120000 INR/unit.",
+      "verdict": "eligible",
+      "entitlement_value": 120000,
+      "entitlement_unit": "INR/unit",
+      "evidence_clause_ids": [
+        "PMAYG-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 39,
+        "family_size": 5,
+        "house_type": "houseless",
+        "owns_pucca_house": false,
+        "secc_listed": true,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMJAY-S029",
+      "scheme_id": "PMJAY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)? (BPL rural family)",
+      "reference_answer": "Eligible. Entitlement: 500000 INR/family/year. 500000 INR/family/year (insurance coverage)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJAY-C1",
+        "PMJAY-C2",
+        "PMJAY-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 58,
+        "bpl": true,
+        "region": "rural",
+        "family_size": 4
+      }
+    },
+    {
+      "id": "YB-PMJAY-S030",
+      "scheme_id": "PMJAY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)? (BPL urban family of six)",
+      "reference_answer": "Eligible. Entitlement: 500000 INR/family/year. 500000 INR/family/year (insurance coverage)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJAY-C1",
+        "PMJAY-C2",
+        "PMJAY-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 36,
+        "bpl": true,
+        "region": "urban",
+        "family_size": 6
+      }
+    },
+    {
+      "id": "YB-PMJAY-S031",
+      "scheme_id": "PMJAY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)? (APL urban family)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJAY-C1",
+        "PMJAY-C2",
+        "PMJAY-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 44,
+        "bpl": false,
+        "region": "urban",
+        "family_size": 3
+      }
+    },
+    {
+      "id": "YB-PMJAY-E032",
+      "scheme_id": "PMJAY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)? (BPL rural family)",
+      "reference_answer": "Entitlement: 500000 INR/family/year.",
+      "verdict": "eligible",
+      "entitlement_value": 500000,
+      "entitlement_unit": "INR/family/year",
+      "evidence_clause_ids": [
+        "PMJAY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 58,
+        "bpl": true,
+        "region": "rural",
+        "family_size": 4
+      }
+    },
+    {
+      "id": "YB-PMKISAN-S033",
+      "scheme_id": "PMKISAN-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)? (Small farmer, not an income-tax payer)",
+      "reference_answer": "Eligible. Entitlement: 2000 INR/instalment. 2000 INR/instalment (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKISAN-C1",
+        "PMKISAN-C2",
+        "PMKISAN-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 43,
+        "is_farmer": true,
+        "is_institutional_landholder": false,
+        "is_income_tax_payer": false,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMKISAN-S034",
+      "scheme_id": "PMKISAN-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)? (Institutional landholder)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKISAN-C1",
+        "PMKISAN-C2",
+        "PMKISAN-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 50,
+        "is_farmer": true,
+        "is_institutional_landholder": true,
+        "is_income_tax_payer": false,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMKISAN-S035",
+      "scheme_id": "PMKISAN-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)? (Farmer who pays income tax)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKISAN-C1",
+        "PMKISAN-C2",
+        "PMKISAN-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 55,
+        "is_farmer": true,
+        "is_institutional_landholder": false,
+        "is_income_tax_payer": true,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMKISAN-E036",
+      "scheme_id": "PMKISAN-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)? (Small farmer, not an income-tax payer)",
+      "reference_answer": "Entitlement: 2000 INR/instalment.",
+      "verdict": "eligible",
+      "entitlement_value": 2000,
+      "entitlement_unit": "INR/instalment",
+      "evidence_clause_ids": [
+        "PMKISAN-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 43,
+        "is_farmer": true,
+        "is_institutional_landholder": false,
+        "is_income_tax_payer": false,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-PMS-S037",
+      "scheme_id": "PMS-SC-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Post-Matric Scholarship for Scheduled Caste Students? (SC hosteller in a UG course)",
+      "reference_answer": "Eligible. Entitlement: 13500 INR/year. 13500 INR/year (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-C1",
+        "PMS-C2",
+        "PMS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 19,
+        "category": "SC",
+        "education_level": "UG",
+        "annual_income": 150000,
+        "hosteller": true
+      }
+    },
+    {
+      "id": "YB-PMS-S038",
+      "scheme_id": "PMS-SC-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Post-Matric Scholarship for Scheduled Caste Students? (SC day-scholar in class 12)",
+      "reference_answer": "Eligible. Entitlement: 7500 INR/year. 7500 INR/year (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-C1",
+        "PMS-C2",
+        "PMS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 17,
+        "category": "SC",
+        "education_level": "12",
+        "annual_income": 200000,
+        "hosteller": false
+      }
+    },
+    {
+      "id": "YB-PMS-S039",
+      "scheme_id": "PMS-SC-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Post-Matric Scholarship for Scheduled Caste Students? (SC applicant above the income ceiling)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-C1",
+        "PMS-C2",
+        "PMS-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 21,
+        "category": "SC",
+        "education_level": "PG",
+        "annual_income": 400000,
+        "hosteller": false
+      }
+    },
+    {
+      "id": "YB-PMS-E040",
+      "scheme_id": "PMS-SC-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Post-Matric Scholarship for Scheduled Caste Students? (SC hosteller in a UG course)",
+      "reference_answer": "Entitlement: 13500 INR/year.",
+      "verdict": "eligible",
+      "entitlement_value": 13500,
+      "entitlement_unit": "INR/year",
+      "evidence_clause_ids": [
+        "PMS-E1",
+        "PMS-E2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 19,
+        "category": "SC",
+        "education_level": "UG",
+        "annual_income": 150000,
+        "hosteller": true
+      }
+    },
+    {
+      "id": "YB-IGNDPS-D001",
+      "scheme_id": "IGNDPS-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Indira Gandhi National Disability Pension Scheme application?",
+      "reference_answer": "Required documents: Disability Certificate (80% or more), Age Proof (Birth Certificate/School Certificate), BPL Card, Aadhaar Card, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNDPS-D1",
+        "IGNDPS-D2",
+        "IGNDPS-D3",
+        "IGNDPS-D4",
+        "IGNDPS-D5"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-IGNDPS-A001",
+      "scheme_id": "IGNDPS-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Indira Gandhi National Disability Pension Scheme application?",
+      "reference_answer": "Appeal procedure: Level 1: Block Development Officer (BDO) within 30 days; Level 2: District Social Welfare Officer within 60 days; Level 3: State Social Welfare Commission within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNDPS-APL1",
+        "IGNDPS-APL2",
+        "IGNDPS-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-IGNOAPS-D001",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Indira Gandhi National Old Age Pension Scheme application?",
+      "reference_answer": "Required documents: Age Proof (Birth Certificate/School Certificate), BPL Card, Aadhaar Card, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNOAPS-D1",
+        "IGNOAPS-D2",
+        "IGNOAPS-D3",
+        "IGNOAPS-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-IGNOAPS-A001",
+      "scheme_id": "IGNOAPS-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Indira Gandhi National Old Age Pension Scheme application?",
+      "reference_answer": "Appeal procedure: Level 1: Block Development Officer (BDO) within 30 days; Level 2: District Social Welfare Officer within 60 days; Level 3: State Social Welfare Commission within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNOAPS-APL1",
+        "IGNOAPS-APL2",
+        "IGNOAPS-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    }
+  ],
+  "num_items": 100
+}

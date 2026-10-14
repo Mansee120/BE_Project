@@ -1,0 +1,18 @@
+{
+  "case_id": "CASE-0024",
+  "scheme_id": "IGNWPS-2023",
+  "label": "BPL widow aged 82 (higher slab) - should be ELIGIBLE at 500 INR/month",
+  "applicant": {
+    "age": 82,
+    "gender": "female",
+    "is_widow": true,
+    "bpl": true,
+    "category": "General"
+  },
+  "submitted_documents": [
+    "Death Certificate of Husband",
+    "BPL Card",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

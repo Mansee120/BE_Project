@@ -1,0 +1,18 @@
+{
+  "case_id": "CASE-0018",
+  "scheme_id": "PMS-SC-2023",
+  "label": "SC degree student within income limit - should be ELIGIBLE at 13500 INR/year",
+  "applicant": {
+    "age": 19,
+    "category": "SC",
+    "education_level": "UG",
+    "annual_income": 120000,
+    "hosteller": true
+  },
+  "submitted_documents": [
+    "Caste Certificate (SC)",
+    "Income Certificate",
+    "Class 10 Marksheet",
+    "Fee Receipt / Admission Proof"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "scheme_id": "PDS-NFSA-2023",
+  "name": "Public Distribution System (National Food Security Act, 2013)",
+  "level": "central",
+  "state": "All India",
+  "category": "food",
+  "summary": "Provides subsidised foodgrains to eligible households through Fair Price Shops under the National Food Security Act, 2013. Priority Households (PHH) and Antyodaya Anna Yojana (AAY) families receive monthly entitlements.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PDS-C1",
+      "text": "The household must hold a valid ration card classified as either Antyodaya Anna Yojana (AAY) or Priority Household (PHH).",
+      "field": "card_type",
+      "operator": "in",
+      "value": ["AAY", "PHH"],
+      "mandatory": true
+    },
+    {
+      "clause_id": "PDS-C2",
+      "text": "The applicant must be a resident of the State/UT where the ration card is issued.",
+      "field": "region",
+      "operator": "in",
+      "value": ["rural", "urban"],
+      "mandatory": true
+    },
+    {
+      "clause_id": "PDS-C3",
+      "text": "A household that pays income tax or is covered under a statutory income-tax category is excluded from Priority Household coverage.",
+      "field": "is_income_tax_payer",
+      "operator": "eq",
+      "value": false,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PDS-E1",
+      "text": "Antyodaya Anna Yojana (AAY) households receive 35 kg of foodgrains per household per month.",
+      "when": { "field": "card_type", "operator": "eq", "value": "AAY" },
+      "compute": { "type": "fixed_amount", "value": 35, "unit": "kg/month", "per_period": "month" },
+      "clause_ids": ["PDS-C1", "PDS-E1"]
+    },
+    {
+      "rule_id": "PDS-E2",
+      "text": "Priority Household (PHH) families receive 5 kg of foodgrains per person per month.",
+      "when": { "field": "card_type", "operator": "eq", "value": "PHH" },
+      "compute": { "type": "per_member", "value": 5, "unit": "kg/person/month", "per_period": "month" },
+      "clause_ids": ["PDS-C1", "PDS-E2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PDS-D1", "name": "Ration Card", "mandatory": true },
+    { "doc_id": "PDS-D2", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PDS-D3", "name": "Residence/Address Proof", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "District Supply Officer (DSO)", "deadline_days": 30, "description": "First appeal against rejection or card correction at the district level." },
+    { "level": 2, "authority": "State Food Commission", "deadline_days": 60, "description": "Second appeal to the State Food Commission if the district decision is unsatisfactory." }
+  ]
+}

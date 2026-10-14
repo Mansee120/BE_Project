@@ -1,0 +1,16 @@
+{
+  "case_id": "CASE-0022",
+  "scheme_id": "IGNOAPS-2023",
+  "label": "Non-BPL senior - should be INELIGIBLE",
+  "applicant": {
+    "age": 66,
+    "bpl": false,
+    "category": "General"
+  },
+  "submitted_documents": [
+    "Age Proof (Birth Certificate/School Certificate)",
+    "BPL Card",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

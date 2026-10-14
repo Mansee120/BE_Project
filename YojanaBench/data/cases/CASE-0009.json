@@ -1,0 +1,15 @@
+{
+  "case_id": "CASE-0009",
+  "scheme_id": "MGNREGA-2023",
+  "label": "Urban adult - should be INELIGIBLE",
+  "applicant": {
+    "age": 28,
+    "region": "urban",
+    "category": "General"
+  },
+  "submitted_documents": [
+    "Job Card",
+    "Aadhaar Card",
+    "Bank/Post Office Account Passbook"
+  ]
+}

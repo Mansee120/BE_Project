@@ -1,0 +1,16 @@
+{
+  "case_id": "CASE-0021",
+  "scheme_id": "IGNOAPS-2023",
+  "label": "BPL senior aged 65 - should be ELIGIBLE at 200 INR/month",
+  "applicant": {
+    "age": 65,
+    "bpl": true,
+    "category": "OBC"
+  },
+  "submitted_documents": [
+    "Age Proof (Birth Certificate/School Certificate)",
+    "BPL Card",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

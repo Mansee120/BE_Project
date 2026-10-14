@@ -1,0 +1,15 @@
+{
+  "case_id": "CASE-0008",
+  "scheme_id": "MGNREGA-2023",
+  "label": "Rural adult demanding work - should be ELIGIBLE at 22100 INR/day",
+  "applicant": {
+    "age": 30,
+    "region": "rural",
+    "category": "OBC"
+  },
+  "submitted_documents": [
+    "Job Card",
+    "Aadhaar Card",
+    "Bank/Post Office Account Passbook"
+  ]
+}

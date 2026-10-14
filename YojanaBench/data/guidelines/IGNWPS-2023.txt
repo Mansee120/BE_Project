@@ -1,0 +1,33 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Indira Gandhi National Widow Pension Scheme
+SCHEME ID: IGNWPS-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: PENSION
+==============================================================================
+
+1. OBJECTIVE
+   Monthly pension for widows aged between 40 and 79 years belonging to Below Poverty Line (BPL) households. Enhanced amount for widows aged 80 years and above.
+
+2. ELIGIBILITY CRITERIA
+   [IGNWPS-C1] (MANDATORY) The applicant must be a widow.
+   [IGNWPS-C2] (MANDATORY) The applicant must be 40 years of age or older.
+   [IGNWPS-C3] (MANDATORY) The applicant must belong to a Below Poverty Line (BPL) household.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [IGNWPS-E1] Widows aged 80 years and above receive a pension of Rs. 500 per month.
+   [IGNWPS-E2] Widows aged 40 to 79 years receive a pension of Rs. 300 per month.
+
+4. DOCUMENTS REQUIRED
+   [IGNWPS-D1] (MANDATORY) Death Certificate of Husband
+   [IGNWPS-D2] (MANDATORY) BPL Card
+   [IGNWPS-D3] (MANDATORY) Aadhaar Card
+   [IGNWPS-D4] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [IGNWPS-APL1] Level 1: Block Development Officer (BDO) - within 30 days. First appeal at block level.
+   [IGNWPS-APL2] Level 2: District Social Welfare Officer - within 60 days. Second appeal at district level.
+   [IGNWPS-APL3] Level 3: State Social Welfare Commission - within 90 days. Final appeal at state level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

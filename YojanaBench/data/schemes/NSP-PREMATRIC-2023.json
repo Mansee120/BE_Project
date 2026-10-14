@@ -1,0 +1,60 @@
+{
+  "scheme_id": "NSP-PREMATRIC-2023",
+  "name": "Pre-Matric Scholarship for SC/ST Students",
+  "level": "central",
+  "state": "All India",
+  "category": "scholarship",
+  "summary": "Scholarship for SC/ST students studying in Classes 9 and 10, covering admission fees, tuition fees and a monthly maintenance allowance, subject to parental income limits.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "NSP-C1",
+      "text": "The applicant must belong to the Scheduled Caste (SC) or Scheduled Tribe (ST) category.",
+      "field": "category",
+      "operator": "in",
+      "value": ["SC", "ST"],
+      "mandatory": true
+    },
+    {
+      "clause_id": "NSP-C2",
+      "text": "The applicant must be studying in Class 9 or Class 10.",
+      "field": "class_level",
+      "operator": "in",
+      "value": [9, 10],
+      "mandatory": true
+    },
+    {
+      "clause_id": "NSP-C3",
+      "text": "Parental/guardian annual income must not exceed Rs. 2,50,000.",
+      "field": "annual_income",
+      "operator": "lte",
+      "value": 250000,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "NSP-E1",
+      "text": "Hostellers receive a maintenance allowance of Rs. 3,500 per year in addition to fee reimbursement.",
+      "when": { "field": "hosteller", "operator": "eq", "value": true },
+      "compute": { "type": "fixed_amount", "value": 3500, "unit": "INR/year", "per_period": "year" },
+      "clause_ids": ["NSP-C2", "NSP-E1"]
+    },
+    {
+      "rule_id": "NSP-E2",
+      "text": "Day scholars receive a maintenance allowance of Rs. 7,000 per year including ad-hoc grant.",
+      "when": { "field": "hosteller", "operator": "eq", "value": false },
+      "compute": { "type": "fixed_amount", "value": 7000, "unit": "INR/year", "per_period": "year" },
+      "clause_ids": ["NSP-C2", "NSP-E2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "NSP-D1", "name": "Caste Certificate (SC/ST)", "mandatory": true },
+    { "doc_id": "NSP-D2", "name": "Income Certificate", "mandatory": true },
+    { "doc_id": "NSP-D3", "name": "Previous Class Marksheet", "mandatory": true },
+    { "doc_id": "NSP-D4", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "School Scholarship Nodal Officer", "deadline_days": 15, "description": "First-level grievance at the school/institute." },
+    { "level": 2, "authority": "State Education Department (SC/ST Welfare)", "deadline_days": 45, "description": "Escalation to the state education welfare department." }
+  ]
+}

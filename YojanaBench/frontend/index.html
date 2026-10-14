@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YojanaBench — Welfare-Scheme Audit</title>
+  <link rel="stylesheet" href="/static/styles.css?v=2" />
+</head>
+<body>
+  <!-- ============================ LOGIN GATE ============================ -->
+  <div id="auth-gate" class="auth-gate">
+    <div class="auth-card">
+      <div class="brand-mark">YB</div>
+      <h1>YojanaBench</h1>
+      <p class="muted-line">Sign in to open the dashboard. Beneficiaries and officials share one login.</p>
+      <label class="field"><span>Username</span>
+        <input id="gate-user" type="text" autocomplete="username" placeholder="e.g. officer" /></label>
+      <label class="field"><span>Password</span>
+        <input id="gate-pass" type="password" autocomplete="current-password" placeholder="••••••" /></label>
+      <button class="btn btn-primary btn-block" id="gate-login">Sign in</button>
+      <p id="gate-error" class="form-error"></p>
+      <div class="demo-hint">
+        <strong>Demo accounts</strong>
+        <span>Official: <code>officer / officer123</code> · <code>admin / admin123</code></span>
+        <span>Beneficiary: <code>geeta / geeta123</code> · <code>ravi / ravi123</code></span>
+      </div>
+      <p class="muted-line" style="margin-top:14px">Tracing a missing payment? Use the
+        <a href="/grievance">Grievance &amp; Money-Trace</a> portal.</p>
+    </div>
+  </div>
+
+  <!-- ============================ SIDEBAR ============================ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">YB</div>
+      <div class="brand-text">
+        <h1>YojanaBench</h1>
+        <span>Welfare-scheme reasoning</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <button class="nav-item active" data-page="dashboard">
+        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        Dashboard
+      </button>
+      <button class="nav-item" data-page="audit">
+        <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+        Audit a Case
+      </button>
+      <button class="nav-item" data-page="benchmark">
+        <svg viewBox="0 0 24 24"><path d="M3 3h18v2H3V3zm2 4h14v12H5V7zm3 3v6h2V10H8zm4 0v6h2V10h-2z"/></svg>
+        Benchmark
+      </button>
+      <button class="nav-item" data-page="ablations">
+        <svg viewBox="0 0 24 24"><path d="M3 20h18v-2H3v2zM5 11h3v6H5v-6zm5.5-6h3v12h-3V5zM16 8h3v9h-3V8z"/></svg>
+        Ablations
+      </button>
+      <button class="nav-item" data-page="schemes">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16v4H4V4zm0 6h16v4H4v-4zm0 6h10v4H4v-4z"/></svg>
+        Schemes
+      </button>
+      <button class="nav-item" data-page="appeal">
+        <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm0 7.2L4.4 5.3 12 4l7.6 1.3L12 9.2zM2 17l10 5 10-5v-3l-10 5-10-5z"/></svg>
+        Appeal Routing
+      </button>
+      <button class="nav-item" data-page="notices">
+        <svg viewBox="0 0 24 24"><path d="M2 5h20v14H2V5zm2 2v.4l8 4.6 8-4.6V7H4zm0 2.9V17h16V9.9l-8 4.6-8-4.6z"/></svg>
+        Notices &amp; Email
+      </button>
+      <a class="nav-item" href="/grievance">
+        <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm0 7.2L4.4 5.3 12 4l7.6 1.3L12 9.2zM2 17l10 5 10-5v-3l-10 5-10-5z"/></svg>
+        Grievance &amp; Money-Trace
+      </a>
+    </nav>
+    <div class="sidebar-foot">
+      <span class="toc-badge">Offline · Zero-cost</span>
+      <p>Reproducible multi-agent audit pipeline.</p>
+    </div>
+  </aside>
+
+  <!-- ============================ MAIN ============================ -->
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h2 id="page-title">Dashboard</h2>
+        <p id="page-subtitle">India welfare-scheme reasoning benchmark &amp; multi-agent audit pipeline</p>
+      </div>
+      <div class="topbar-actions">
+        <span id="llm-pill" class="pill pill-muted">LLM: checking…</span>
+        <span id="dash-user" class="pill pill-muted">Not signed in</span>
+        <button class="btn btn-ghost" id="btn-dash-logout" style="display:none">Sign out</button>
+        <button class="btn btn-ghost" id="btn-refresh">Refresh</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- ----------------------- DASHBOARD ----------------------- -->
+      <section id="page-dashboard" class="page active">
+        <div class="hero">
+          <div class="hero-text">
+            <span class="tag">INDIA WELFARE-SCHEME REASONING BENCHMARK</span>
+            <h3>The first benchmark for India welfare-scheme document reasoning</h3>
+            <p>Human-verified QA pairs, counterfactual &amp; edge cases, verdict ground truth,
+              and a reproducible multi-agent audit pipeline (Corpus → Intake → RAG →
+              Entitlement → Verification → Orchestrator → Evaluation → Appeal).</p>
+          </div>
+          <button class="btn btn-primary" id="btn-quick-benchmark">Run full benchmark</button>
+        </div>
+
+        <div class="stat-grid" id="stat-grid"></div>
+
+        <div class="split">
+          <div class="card">
+            <div class="card-head">
+              <h4>Benchmark metrics</h4>
+              <span class="muted" id="metrics-run-note">Not run yet</span>
+            </div>
+            <div id="quick-metrics" class="metric-grid">
+              <div class="metric placeholder">Press “Run full benchmark”</div>
+            </div>
+            <div class="chart-block">
+              <div class="chart-title">Accuracy by QA category</div>
+              <div id="category-chart" class="bars"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h4>Agent pipeline</h4></div>
+            <div class="pipeline" id="pipeline-flow"></div>
+            <div class="pipeline-note">
+              Each agent is independently inspectable; the Orchestrator raises a
+              <strong>human-approval gate</strong> when confidence is low or the
+              Verification cross-check disagrees.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h4>Accuracy report</h4>
+            <button class="btn btn-primary" id="btn-accuracy-report">Generate report</button>
+          </div>
+          <p class="muted">Full accuracy breakdown — overall metrics, per-scheme
+            scores, edge-case vs base-case, and the ablation study — the same
+            tables exported to CSV by <code>python report.py</code>.</p>
+          <div id="report-body" class="report-body">
+            <div class="muted center">Click “Generate report” to build the accuracy tables.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h4>Open leaderboard</h4>
+            <button class="btn btn-primary" id="btn-leaderboard">Load leaderboard</button>
+          </div>
+          <p class="muted">Anyone can score a model on YojanaBench and compare with
+            the built-in pipeline — <code>python benchmark.py --name MyModel
+            --predictions preds.json</code>.</p>
+          <div id="leaderboard-body" class="report-body">
+            <div class="muted center">Click “Load leaderboard” to view rankings.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ----------------------- AUDIT ----------------------- -->
+      <section id="page-audit" class="page">
+        <div class="audit-layout">
+          <div class="card audit-form">
+            <div class="card-head"><h4>Application intake</h4></div>
+
+            <label class="field">
+              <span>Sample case</span>
+              <select id="sample-case"><option value="">— choose a demo case —</option></select>
+            </label>
+
+            <label class="field">
+              <span>Target scheme</span>
+              <select id="audit-scheme"></select>
+            </label>
+
+            <div id="applicant-fields" class="field-grid"></div>
+
+            <div class="field">
+              <span>Submitted documents</span>
+              <div id="doc-checklist" class="doc-checklist"></div>
+            </div>
+
+            <label class="switch">
+              <input type="checkbox" id="audit-use-llm" />
+              <span>Polish explanation with local LLM (Ollama, optional)</span>
+            </label>
+
+            <button class="btn btn-primary btn-block" id="btn-audit">Run audit</button>
+          </div>
+
+          <div class="card audit-result" id="audit-result">
+            <div class="empty-state">
+              <div class="empty-icon">§</div>
+              <p>Fill the application form and run an audit to see the verdict,
+                evidence citations, agent trace and appeal routing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ----------------------- BENCHMARK ----------------------- -->
+      <section id="page-benchmark" class="page">
+        <div class="card">
+          <div class="card-head">
+            <h4>Benchmark explorer &amp; runner</h4>
+            <div class="filter-row">
+              <select id="bench-scheme"><option value="">All schemes</option></select>
+              <select id="bench-category">
+                <option value="">All categories</option>
+                <option value="eligibility">eligibility</option>
+                <option value="entitlement">entitlement</option>
+                <option value="documents">documents</option>
+                <option value="appeal">appeal</option>
+              </select>
+              <button class="btn btn-primary" id="btn-run-benchmark">Run benchmark</button>
+            </div>
+          </div>
+          <div id="bench-metrics" class="metric-grid"></div>
+          <div class="chart-block">
+            <div class="chart-title">Per-category breakdown</div>
+            <div id="bench-category-chart" class="bars"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h4>Results</h4>
+            <span class="muted" id="bench-count">—</span>
+          </div>
+          <div class="table-wrap">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>ID</th><th>Category</th><th>Question</th>
+                  <th>Ground</th><th>Predicted</th><th>EM</th><th>F1</th>
+                </tr>
+              </thead>
+              <tbody id="bench-rows">
+                <tr><td colspan="7" class="muted center">Run the benchmark to populate results.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ----------------------- ABLATIONS ----------------------- -->
+      <section id="page-ablations" class="page">
+        <div class="card">
+          <div class="card-head">
+            <h4>Baselines &amp; ablation study</h4>
+            <button class="btn btn-primary" id="btn-run-ablation">Run ablation study</button>
+          </div>
+          <p class="muted">Each variant re-runs the full benchmark under a changed
+            configuration: the full 8-agent pipeline, without the Verification
+            cross-check, with naive “LLM-style” maths instead of deterministic
+            computation, and scoring only the base (non-counterfactual) items.</p>
+          <div class="table-wrap">
+            <table class="results-table">
+              <thead>
+                <tr><th>Variant</th><th>Items</th><th>Verdict accuracy</th>
+                  <th>Δ vs full</th><th>Entitlement error</th><th>Token F1</th><th>Calibration</th></tr>
+              </thead>
+              <tbody id="ablation-rows">
+                <tr><td colspan="7" class="muted center">Run the study to compare variants.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h4>Verdict accuracy by variant</h4></div>
+          <div id="ablation-chart" class="bars"></div>
+        </div>
+      </section>
+
+      <!-- ----------------------- SCHEMES ----------------------- -->
+      <section id="page-schemes" class="page">
+        <div class="scheme-grid" id="scheme-grid"></div>
+      </section>
+
+      <!-- ----------------------- APPEAL ----------------------- -->
+      <section id="page-appeal" class="page">
+        <div class="card">
+          <div class="card-head"><h4>Appeal routing</h4></div>
+          <p class="muted">When a verdict is <b>ineligible</b> or <b>needs_info</b>, the Appeal
+            agent maps the case to the correct grievance channel and drafts a letter.
+            Run a case on the <b>Audit a Case</b> page (try sample case 3) to see a full
+            generated appeal.</p>
+          <div class="field">
+            <span>Show appeal hierarchy for scheme</span>
+            <select id="appeal-scheme"></select>
+          </div>
+          <div id="appeal-hierarchy" class="hierarchy"></div>
+        </div>
+      </section>
+
+      <!-- ----------------------- NOTICES / EMAIL ----------------------- -->
+      <section id="page-notices" class="page">
+        <div class="card">
+          <div class="card-head">
+            <h4>Email settings</h4>
+            <span id="email-test-status" class="pill pill-muted">not tested</span>
+          </div>
+          <p class="muted">SMTP/IMAP credentials, stored in <code>runtime/email_config.json</code>
+            and applied immediately. Use the same mailbox settings as your EmailAutomation
+            project. If the password is left as <code>********</code> it is kept unchanged.</p>
+          <div class="field-grid">
+            <label class="field"><span>SMTP host</span>
+              <input type="text" id="set-smtp-host" placeholder="smtp.example.net" /></label>
+            <label class="field"><span>SMTP port</span>
+              <input type="number" id="set-smtp-port" placeholder="465" /></label>
+            <label class="field"><span>SMTP user / sender email</span>
+              <input type="text" id="set-smtp-user" placeholder="you@example.net" /></label>
+            <label class="field"><span>SMTP password</span>
+              <input type="password" id="set-smtp-pass" placeholder="app password" /></label>
+            <label class="field"><span>From display name</span>
+              <input type="text" id="set-smtp-name" placeholder="YojanaBench" /></label>
+            <label class="field"><span>Authority email (default cc)</span>
+              <input type="text" id="set-authority" placeholder="authority@example.gov.in" /></label>
+          </div>
+          <label class="switch"><input type="checkbox" id="set-smtp-ssl" /> Use SSL (port 465)</label>
+          <div class="section-label">IMAP (reply sync)</div>
+          <div class="field-grid">
+            <label class="field"><span>IMAP host</span>
+              <input type="text" id="set-imap-host" placeholder="smtp.example.net" /></label>
+            <label class="field"><span>IMAP port</span>
+              <input type="number" id="set-imap-port" placeholder="993" /></label>
+            <label class="field"><span>IMAP user</span>
+              <input type="text" id="set-imap-user" placeholder="you@example.net" /></label>
+            <label class="field"><span>IMAP password</span>
+              <input type="password" id="set-imap-pass" placeholder="app password" /></label>
+          </div>
+          <div class="notice-actions">
+            <span class="muted" id="email-test-note">Changes apply immediately and survive restarts.</span>
+            <div style="display:flex;gap:10px">
+              <button class="btn btn-ghost" id="btn-email-test">Test connection</button>
+              <button class="btn btn-primary" id="btn-email-save">Save settings</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h4>Compose &amp; send a notice / email</h4></div>
+          <p class="muted">Write to any citizen directly, or describe the notice and let
+            the local AI (Ollama) draft it. Offline, the draft falls back to a clean
+            template and the send lands in the outbox (dry-run) — set
+            <code>YOJANA_SMTP_*</code> to deliver for real.</p>
+          <div class="field-grid">
+            <label class="field"><span>To (recipient email)</span>
+              <input type="email" id="mail-to" placeholder="citizen@example.in" /></label>
+            <label class="field"><span>Recipient name</span>
+              <input type="text" id="mail-name" placeholder="e.g. Ramesh" /></label>
+          </div>
+          <label class="field"><span>Subject</span>
+            <input type="text" id="mail-subject" placeholder="Subject of the email" /></label>
+          <label class="field"><span>Message body</span>
+            <textarea id="mail-body" rows="7" placeholder="Type your message, or use Generate with AI below."></textarea></label>
+
+          <div class="section-label">AI-assisted drafting</div>
+          <div class="field-grid">
+            <label class="field"><span>Instruction for the AI</span>
+              <textarea id="mail-instruction" rows="2" placeholder="e.g. Remind the applicant their income certificate is still pending and they can upload it within 30 days."></textarea></label>
+            <label class="field"><span>Scheme (optional context)</span>
+              <select id="mail-scheme"></select></label>
+          </div>
+          <div class="field-grid">
+            <label class="field"><span>Tone</span>
+              <select id="mail-tone">
+                <option value="formal">Formal</option>
+                <option value="friendly">Friendly</option>
+                <option value="urgent">Urgent</option>
+                <option value="reminder">Reminder</option>
+              </select></label>
+            <label class="field"><span>Language</span>
+              <select id="mail-lang">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="mr">Marathi</option>
+                <option value="ta">Tamil</option>
+                <option value="bn">Bengali</option>
+              </select></label>
+          </div>
+          <div class="notice-actions">
+            <label class="switch"><input type="checkbox" id="mail-notify-auth" />
+              cc scheme authority</label>
+            <div style="display:flex;gap:10px">
+              <button class="btn btn-ghost" id="btn-mail-draft">Generate with AI</button>
+              <button class="btn btn-primary" id="btn-mail-send">Send email</button>
+            </div>
+          </div>
+          <div id="mail-status" class="muted" style="margin-top:10px"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h4>Email automation layer</h4>
+            <span id="notify-layer-status" class="pill pill-muted">checking…</span>
+          </div>
+          <p class="muted">Grounded citizen notices: every verdict can be turned into a
+            clause-cited email to the applicant, and rejected applicants get actionable,
+            multilingual advice. When no SMTP/IMAP credentials are set, notices are written
+            to the offline outbox (<code>runtime/outbox</code>) so the pipeline stays
+            zero-cost. Run an audit and press <b>Send notice</b> on the result to try it.</p>
+          <div class="field">
+            <span>Closed-loop re-audit — read applicant replies from the inbox (IMAP)</span>
+            <button class="btn btn-primary" id="btn-sync-replies">Sync inbox replies</button>
+          </div>
+          <div id="replies-body" class="report-body"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h4>Appeal register</h4>
+            <button class="btn btn-ghost" id="btn-load-appeals">Refresh</button>
+          </div>
+          <p class="muted">Each appeal attempt is recorded. A repeat appeal on the same case
+            triggers an official notice instead of a fresh citizen email.</p>
+          <div class="table-wrap">
+            <table class="results-table">
+              <thead><tr><th>Case</th><th>Attempt</th><th>Level</th><th>Decision</th><th>Date</th></tr></thead>
+              <tbody id="appeal-rows"><tr><td colspan="5" class="muted center">Click Refresh to load.</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ----------------------- VOICE ASSISTANT WIDGET ----------------------- -->
+  <button id="vb-launcher" class="vb-launcher" aria-haspopup="dialog"
+          aria-expanded="false" aria-label="Open voice assistant">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 14.5A3.5 3.5 0 0 0 15.5 11V5.5a3.5 3.5 0 0 0-7 0V11A3.5 3.5 0 0 0 12 14.5zM17 11a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/>
+    </svg>
+    <span id="vb-launcher-label">Voice Assistant</span>
+  </button>
+
+  <div id="vb-panel" class="vb-panel" role="dialog" aria-label="Voice assistant"
+       aria-hidden="true">
+    <div class="vb-header">
+      <div class="vb-title">
+        <span class="vb-live-dot"></span> Voice Assistant
+      </div>
+      <label class="vb-lang" for="vb-lang">Language
+        <select id="vb-lang" aria-label="Assistant language"></select>
+      </label>
+      <button id="vb-mute" class="vb-iconbtn" aria-label="Turn spoken replies off">Audio On</button>
+      <button id="vb-close" class="vb-iconbtn" aria-label="Close assistant"
+              title="Close">✕</button>
+    </div>
+
+    <div class="vb-messages" id="vb-messages" role="log" aria-live="polite"></div>
+
+    <div class="vb-chips" id="vb-chips" aria-label="Suggested questions"></div>
+
+    <div class="vb-footer">
+      <input id="vb-input" type="text" autocomplete="off"
+             aria-label="Type your question" placeholder="Or type a question…" />
+      <button id="vb-send" class="vb-send" aria-label="Send">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 23 12 2 3v7l15 2-15 2v7z"/></svg>
+      </button>
+      <button id="vb-mic" class="vb-mic" aria-label="Press and hold to talk, release to send">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zM12 14.5A3.5 3.5 0 0 0 15.5 11V5.5a3.5 3.5 0 0 0-7 0V11A3.5 3.5 0 0 0 12 14.5zM17 11a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/>
+        </svg>
+        <span id="vb-mic-label">Hold<br/>to talk</span>
+      </button>
+    </div>
+    <div class="vb-status" id="vb-status" aria-live="polite"></div>
+  </div>
+
+  <script src="/static/app.js?v=3"></script>
+  <script src="/static/voicebot.js?v=3"></script>
+</body>
+</html>

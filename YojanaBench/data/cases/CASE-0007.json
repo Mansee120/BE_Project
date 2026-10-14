@@ -1,0 +1,19 @@
+{
+  "case_id": "CASE-0007",
+  "scheme_id": "PDS-NFSA-2023",
+  "label": "APL household - should be INELIGIBLE",
+  "applicant": {
+    "age": 40,
+    "category": "General",
+    "region": "urban",
+    "family_size": 3,
+    "card_type": "APL",
+    "bpl": false,
+    "is_income_tax_payer": false
+  },
+  "submitted_documents": [
+    "Ration Card",
+    "Aadhaar Card",
+    "Residence/Address Proof"
+  ]
+}

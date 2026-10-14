@@ -1,0 +1,31 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)
+SCHEME ID: PMAYG-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: HOUSING
+==============================================================================
+
+1. OBJECTIVE
+   Financial assistance for construction of pucca houses with basic amenities for eligible rural households that are houseless or living in kutcha/dilapidated houses.
+
+2. ELIGIBILITY CRITERIA
+   [PMAYG-C1] (MANDATORY) The household must be a rural household without a pucca house (houseless or kutcha house).
+   [PMAYG-C2] (MANDATORY) The household must not own a pucca house in any part of the country.
+   [PMAYG-C3] (MANDATORY) The household must be included in the SECC 2011 housing deprivation list (or verified by the Gram Sabha).
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMAYG-E1] In plain areas, assistance is Rs. 1,20,000 per unit for house construction.
+
+4. DOCUMENTS REQUIRED
+   [PMAYG-D1] (MANDATORY) SECC 2011 Registration / Gram Sabha Approval
+   [PMAYG-D2] (MANDATORY) Aadhaar Card
+   [PMAYG-D3] (MANDATORY) Bank Account Passbook
+   [PMAYG-D4] (OPTIONAL) Job Card / Ration Card
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMAYG-APL1] Level 1: Gram Panchayat / Block Development Officer - within 30 days. First-level verification and grievance redressal at the block.
+   [PMAYG-APL2] Level 2: District Rural Development Agency (DRDA) - within 60 days. Escalation to the district rural development agency.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

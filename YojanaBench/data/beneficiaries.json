@@ -1,0 +1,138 @@
+{
+  "registry_version": "2026.1",
+  "description": "Beneficiary registry for the DBT money-trace module. Each record links a citizen to the bank/account where welfare benefits are expected to be credited. Synthetic data for the offline demo.",
+  "beneficiaries": [
+    {
+      "beneficiary_id": "B-0001",
+      "name": "Ravi Kumar",
+      "aadhaar_last4": "4821",
+      "mobile": "9876500001",
+      "state": "Bihar",
+      "bank_name": "State Bank of India",
+      "account_last4": "1122",
+      "ifsc": "SBIN0001234",
+      "scheme_ids": ["PMKISAN-2023"]
+    },
+    {
+      "beneficiary_id": "B-0002",
+      "name": "Sita Devi",
+      "aadhaar_last4": "3390",
+      "mobile": "9876500002",
+      "state": "Uttar Pradesh",
+      "bank_name": "Punjab National Bank",
+      "account_last4": "2087",
+      "ifsc": "PUNB0123456",
+      "scheme_ids": ["IGNOAPS-2023"]
+    },
+    {
+      "beneficiary_id": "B-0003",
+      "name": "Mohan Lal",
+      "aadhaar_last4": "7712",
+      "mobile": "9876500003",
+      "state": "Rajasthan",
+      "bank_name": "Bank of Baroda",
+      "account_last4": "5540",
+      "ifsc": "BARB0JODHPU",
+      "scheme_ids": ["MGNREGA-2023"]
+    },
+    {
+      "beneficiary_id": "B-0004",
+      "name": "Geeta Kumari",
+      "aadhaar_last4": "1890",
+      "mobile": "9876500004",
+      "state": "Jharkhand",
+      "bank_name": "Bank of India",
+      "account_last4": "6611",
+      "ifsc": "BKID0004567",
+      "scheme_ids": ["PMAYG-2023"]
+    },
+    {
+      "beneficiary_id": "B-0005",
+      "name": "Ramesh Yadav",
+      "aadhaar_last4": "2234",
+      "mobile": "9876500005",
+      "state": "Madhya Pradesh",
+      "bank_name": "State Bank of India",
+      "account_last4": "7788",
+      "ifsc": "SBIN0005678",
+      "scheme_ids": ["PMKISAN-2023"]
+    },
+    {
+      "beneficiary_id": "B-0006",
+      "name": "Shanti Bai",
+      "aadhaar_last4": "5566",
+      "mobile": "9876500006",
+      "state": "Chhattisgarh",
+      "bank_name": "Punjab National Bank",
+      "account_last4": "3344",
+      "ifsc": "PUNB0789012",
+      "scheme_ids": ["IGNOAPS-2023", "PMJAY-2023"]
+    },
+    {
+      "beneficiary_id": "B-0007",
+      "name": "Pooja Sharma",
+      "aadhaar_last4": "9901",
+      "mobile": "9876500007",
+      "state": "Maharashtra",
+      "bank_name": "Bank of Maharashtra",
+      "account_last4": "9012",
+      "ifsc": "MAHB0000123",
+      "scheme_ids": ["NSP-PREMATRIC-2023"]
+    },
+    {
+      "beneficiary_id": "B-0008",
+      "name": "Neha Kumari",
+      "aadhaar_last4": "4455",
+      "mobile": "9876500008",
+      "state": "Odisha",
+      "bank_name": "UCO Bank",
+      "account_last4": "2299",
+      "ifsc": "UCBA0000456",
+      "scheme_ids": ["PMS-SC-2023"]
+    },
+    {
+      "beneficiary_id": "B-0009",
+      "name": "Kanta Bai",
+      "aadhaar_last4": "6677",
+      "mobile": "9876500009",
+      "state": "Maharashtra",
+      "bank_name": "State Bank of India",
+      "account_last4": "5566",
+      "ifsc": "SBIN0009012",
+      "scheme_ids": ["IGNWPS-2023"]
+    },
+    {
+      "beneficiary_id": "B-0010",
+      "name": "Raju Prasad",
+      "aadhaar_last4": "1223",
+      "mobile": "9876500010",
+      "state": "West Bengal",
+      "bank_name": "Allahabad Bank",
+      "account_last4": "4410",
+      "ifsc": "ALLA0210321",
+      "scheme_ids": ["IGNDPS-2023"]
+    },
+    {
+      "beneficiary_id": "B-0011",
+      "name": "Laxmi Devi",
+      "aadhaar_last4": "8080",
+      "mobile": "9876500011",
+      "state": "Bihar",
+      "bank_name": "Punjab National Bank",
+      "account_last4": "7712",
+      "ifsc": "PUNB0456123",
+      "scheme_ids": ["PMAYG-2023"]
+    },
+    {
+      "beneficiary_id": "B-0012",
+      "name": "Deepak Verma",
+      "aadhaar_last4": "3434",
+      "mobile": "9876500012",
+      "state": "Gujarat",
+      "bank_name": "Bank of Baroda",
+      "account_last4": "8899",
+      "ifsc": "BARB0AHMEDA",
+      "scheme_ids": ["MGNREGA-2023"]
+    }
+  ]
+}

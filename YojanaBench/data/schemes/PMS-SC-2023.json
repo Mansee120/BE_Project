@@ -1,0 +1,60 @@
+{
+  "scheme_id": "PMS-SC-2023",
+  "name": "Post-Matric Scholarship for Scheduled Caste Students",
+  "level": "central",
+  "state": "All India",
+  "category": "scholarship",
+  "summary": "Financial assistance to Scheduled Caste students studying at the post-matriculation level. Includes maintenance allowance (hosteller/day-scholar) and reimbursement of non-refundable fees, subject to parental income limits.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMS-C1",
+      "text": "The applicant must belong to a Scheduled Caste (SC) category.",
+      "field": "category",
+      "operator": "eq",
+      "value": "SC",
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMS-C2",
+      "text": "The applicant must have passed matriculation (Class 10) and be pursuing post-matriculation studies.",
+      "field": "education_level",
+      "operator": "in",
+      "value": ["11", "12", "UG", "PG", "Diploma", "Professional"],
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMS-C3",
+      "text": "Parental/guardian annual income must not exceed Rs. 2,50,000.",
+      "field": "annual_income",
+      "operator": "lte",
+      "value": 250000,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMS-E1",
+      "text": "Hostellers receive a maintenance allowance of Rs. 1,200 per month (Rs. 13,500 per year including book grant).",
+      "when": { "field": "hosteller", "operator": "eq", "value": true },
+      "compute": { "type": "fixed_amount", "value": 13500, "unit": "INR/year", "per_period": "year" },
+      "clause_ids": ["PMS-C2", "PMS-E1"]
+    },
+    {
+      "rule_id": "PMS-E2",
+      "text": "Day scholars receive a maintenance allowance of Rs. 700 per month (Rs. 7,500 per year including book grant).",
+      "when": { "field": "hosteller", "operator": "eq", "value": false },
+      "compute": { "type": "fixed_amount", "value": 7500, "unit": "INR/year", "per_period": "year" },
+      "clause_ids": ["PMS-C2", "PMS-E2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMS-D1", "name": "Caste Certificate (SC)", "mandatory": true },
+    { "doc_id": "PMS-D2", "name": "Income Certificate", "mandatory": true },
+    { "doc_id": "PMS-D3", "name": "Class 10 Marksheet", "mandatory": true },
+    { "doc_id": "PMS-D4", "name": "Fee Receipt / Admission Proof", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Institute Scholarship Nodal Officer", "deadline_days": 15, "description": "First-level grievance at the educational institute." },
+    { "level": 2, "authority": "State Scheduled Caste Development Department", "deadline_days": 45, "description": "Escalation to the state welfare department." }
+  ]
+}

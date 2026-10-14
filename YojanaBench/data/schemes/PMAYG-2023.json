@@ -1,0 +1,53 @@
+{
+  "scheme_id": "PMAYG-2023",
+  "name": "Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)",
+  "level": "central",
+  "state": "All India",
+  "category": "housing",
+  "summary": "Financial assistance for construction of pucca houses with basic amenities for eligible rural households that are houseless or living in kutcha/dilapidated houses.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMAYG-C1",
+      "text": "The household must be a rural household without a pucca house (houseless or kutcha house).",
+      "field": "house_type",
+      "operator": "in",
+      "value": ["houseless", "kutcha"],
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMAYG-C2",
+      "text": "The household must not own a pucca house in any part of the country.",
+      "field": "owns_pucca_house",
+      "operator": "eq",
+      "value": false,
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMAYG-C3",
+      "text": "The household must be included in the SECC 2011 housing deprivation list (or verified by the Gram Sabha).",
+      "field": "secc_listed",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMAYG-E1",
+      "text": "In plain areas, assistance is Rs. 1,20,000 per unit for house construction.",
+      "when": { "field": "region", "operator": "eq", "value": "rural" },
+      "compute": { "type": "fixed_amount", "value": 120000, "unit": "INR/unit", "per_period": "one_time" },
+      "clause_ids": ["PMAYG-C1", "PMAYG-E1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMAYG-D1", "name": "SECC 2011 Registration / Gram Sabha Approval", "mandatory": true },
+    { "doc_id": "PMAYG-D2", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMAYG-D3", "name": "Bank Account Passbook", "mandatory": true },
+    { "doc_id": "PMAYG-D4", "name": "Job Card / Ration Card", "mandatory": false }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Gram Panchayat / Block Development Officer", "deadline_days": 30, "description": "First-level verification and grievance redressal at the block." },
+    { "level": 2, "authority": "District Rural Development Agency (DRDA)", "deadline_days": 60, "description": "Escalation to the district rural development agency." }
+  ]
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YojanaBench — Grievance &amp; Money-Trace</title>
+  <link rel="stylesheet" href="/static/styles.css?v=2" />
+</head>
+<body>
+  <!-- ============================ SIDEBAR ============================ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">YB</div>
+      <div class="brand-text">
+        <h1>YojanaBench</h1>
+        <span>Grievance &amp; money-trace</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <button class="nav-item active" data-view="home">
+        <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm0 7.2L4.4 5.3 12 4l7.6 1.3L12 9.2zM2 17l10 5 10-5v-3l-10 5-10-5z"/></svg>
+        My Grievances
+      </button>
+      <button class="nav-item" data-view="file">
+        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        Report Missing Money
+      </button>
+      <a class="nav-item" href="/">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        Benchmark Dashboard
+      </a>
+    </nav>
+    <div class="sidebar-foot">
+      <span class="toc-badge">DBT money-trace</span>
+      <p id="user-chip">Not signed in</p>
+      <button class="btn btn-ghost btn-block" id="btn-logout" style="display:none">Sign out</button>
+    </div>
+  </aside>
+
+  <!-- ============================ MAIN ============================ -->
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h2 id="page-title">Grievance &amp; Money-Trace</h2>
+        <p id="page-subtitle">Report a welfare payment that never arrived and trace where the money went.</p>
+      </div>
+      <div class="topbar-actions">
+        <span id="role-pill" class="pill pill-muted">Guest</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- ===================== LOGIN ===================== -->
+      <section id="view-login" class="gview active">
+        <div class="card login-card">
+          <div class="card-head"><h4>Sign in</h4></div>
+          <p class="muted-line">Beneficiaries file complaints; officials review and act on them.</p>
+          <label class="field"><span>Username</span>
+            <input id="login-user" type="text" autocomplete="username" placeholder="e.g. geeta" /></label>
+          <label class="field"><span>Password</span>
+            <input id="login-pass" type="password" autocomplete="current-password" placeholder="••••••" /></label>
+          <button class="btn btn-primary btn-block" id="btn-login">Sign in</button>
+          <p id="login-error" class="form-error"></p>
+          <div class="demo-hint">
+            <strong>Demo accounts</strong>
+            <span>Beneficiary: <code>geeta / geeta123</code> (a PMAY-G victim)</span>
+            <span>Beneficiary: <code>ravi / ravi123</code> (paid correctly)</span>
+            <span>Official: <code>officer / officer123</code></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== HOME ===================== -->
+      <section id="view-home" class="gview">
+        <div id="officer-summary" style="display:none">
+          <div class="stat-grid" id="summary-cards"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h4 id="list-title">My complaints</h4>
+            <button class="btn btn-ghost" id="btn-reload">Refresh</button>
+          </div>
+          <div class="table-wrap">
+            <table class="results-table" id="complaints-table">
+              <thead><tr>
+                <th>Complaint</th><th>Beneficiary</th><th>Scheme</th><th>UTR</th>
+                <th>Verdict</th><th>Status</th><th>Filed</th>
+              </tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p id="complaints-empty" class="muted-line" style="display:none">No complaints yet.</p>
+        </div>
+      </section>
+
+      <!-- ===================== FILE COMPLAINT ===================== -->
+      <section id="view-file" class="gview">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-head"><h4>Report missing money</h4></div>
+            <label class="field"><span>Scheme *</span>
+              <select id="f-scheme"></select></label>
+            <label class="field"><span>UTR / transaction reference (if you have it)</span>
+              <input id="f-utr" type="text" placeholder="e.g. UTR2026PMAYG0001" /></label>
+            <div class="field-grid">
+              <label class="field"><span>Beneficiary ID</span>
+                <input id="f-beneficiary" type="text" placeholder="e.g. B-0004" /></label>
+              <label class="field"><span>Amount you expected (₹)</span>
+                <input id="f-amount" type="number" placeholder="e.g. 120000" /></label>
+            </div>
+            <label class="field"><span>What happened?</span>
+              <textarea id="f-desc" rows="4" placeholder="In your own words, e.g. 'The housing instalment never reached my account.'"></textarea></label>
+            <button class="btn btn-primary btn-block" id="btn-file">File complaint &amp; trace money</button>
+            <p id="file-error" class="form-error"></p>
+          </div>
+          <div class="card">
+            <div class="card-head"><h4>Trace result</h4></div>
+            <div id="trace-result"><p class="muted-line">Results appear here after you file.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== COMPLAINT DETAIL (modal-ish) ===================== -->
+      <section id="view-detail" class="gview">
+        <button class="btn btn-ghost" id="btn-back">← Back</button>
+        <div id="detail-body" style="margin-top:16px"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/static/grievance.js"></script>
+</body>
+</html>
