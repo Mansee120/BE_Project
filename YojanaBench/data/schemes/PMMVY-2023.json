@@ -1,0 +1,44 @@
+{
+  "scheme_id": "PMMVY-2023",
+  "name": "Pradhan Mantri Matru Vandana Yojana",
+  "level": "central",
+  "state": "All India",
+  "category": "maternity",
+  "summary": "A maternity benefit scheme that provides a cash benefit of Rs. 5000 to pregnant and lactating mothers for their first living child, to partly compensate for wage loss and to promote health-seeking behaviour.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMMVY-C1",
+      "text": "The applicant must be 19 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 19,
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMMVY-C2",
+      "text": "The applicant must be a woman.",
+      "field": "gender",
+      "operator": "eq",
+      "value": "female",
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMMVY-E1",
+      "text": "An eligible mother receives a cash benefit of Rs. 5000 for the first living child.",
+      "compute": { "type": "fixed_amount", "value": 5000, "unit": "INR" },
+      "clause_ids": ["PMMVY-C1", "PMMVY-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMMVY-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMMVY-D2", "name": "Mother and Child Protection (MCP) Card", "mandatory": true },
+    { "doc_id": "PMMVY-D3", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Child Development Project Officer (CDPO)", "deadline_days": 30, "description": "First appeal at the block level." },
+    { "level": 2, "authority": "District Programme Officer", "deadline_days": 60, "description": "Second appeal at district level." },
+    { "level": 3, "authority": "State Health and Family Welfare Authority", "deadline_days": 90, "description": "Final appeal at state level." }
+  ]
+}

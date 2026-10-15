@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0033",
+  "scheme_id": "PMJJBY-2023",
+  "label": "Adult aged 30 - should be ELIGIBLE at 200000 INR",
+  "applicant": {
+    "age": 30
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Consent cum Declaration Form"
+  ]
+}

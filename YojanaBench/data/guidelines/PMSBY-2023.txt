@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri Suraksha Bima Yojana
+SCHEME ID: PMSBY-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: INSURANCE
+==============================================================================
+
+1. OBJECTIVE
+   An accidental death and disability insurance scheme offering cover of Rs. 2 lakh for accidental death or total disability and Rs. 1 lakh for partial disability, for a nominal annual premium.
+
+2. ELIGIBILITY CRITERIA
+   [PMSBY-C1] (MANDATORY) The applicant must be 18 years of age or older.
+   [PMSBY-C2] (MANDATORY) The applicant must be 70 years of age or younger.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMSBY-E1] Accidental death or total disability is covered up to Rs. 2 lakh.
+
+4. DOCUMENTS REQUIRED
+   [PMSBY-D1] (MANDATORY) Aadhaar Card
+   [PMSBY-D2] (MANDATORY) Bank Account Passbook
+   [PMSBY-D3] (MANDATORY) Consent cum Declaration Form
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMSBY-APL1] Level 1: Bank Branch Manager - within 15 days. First grievance at the bank branch.
+   [PMSBY-APL2] Level 2: Scheme Nodal Officer (Bank) - within 30 days. Escalation to the bank's scheme nodal officer.
+   [PMSBY-APL3] Level 3: Insurance Ombudsman - within 90 days. Final grievance before the Insurance Ombudsman.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

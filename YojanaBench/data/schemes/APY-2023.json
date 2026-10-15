@@ -1,0 +1,51 @@
+{
+  "scheme_id": "APY-2023",
+  "name": "Atal Pension Yojana",
+  "level": "central",
+  "state": "All India",
+  "category": "pension",
+  "summary": "A guaranteed pension scheme for unorganised sector workers, providing a fixed monthly pension between Rs. 1000 and Rs. 5000 after the age of 60, depending on the contribution chosen.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "APY-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    },
+    {
+      "clause_id": "APY-C2",
+      "text": "The applicant must be 40 years of age or younger.",
+      "field": "age",
+      "operator": "lte",
+      "value": 40,
+      "mandatory": true
+    },
+    {
+      "clause_id": "APY-C3",
+      "text": "The applicant must not be an income tax payer.",
+      "field": "is_income_tax_payer",
+      "operator": "is_false",
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "APY-E1",
+      "text": "The subscriber receives a guaranteed minimum monthly pension of Rs. 1000 after the age of 60.",
+      "compute": { "type": "fixed_amount", "value": 1000, "unit": "INR/month", "per_period": "month" },
+      "clause_ids": ["APY-C1", "APY-C2", "APY-C3"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "APY-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "APY-D2", "name": "Bank Account Passbook", "mandatory": true },
+    { "doc_id": "APY-D3", "name": "Mobile Number", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Bank Nodal Officer", "deadline_days": 30, "description": "First grievance at the bank." },
+    { "level": 2, "authority": "PFRDA Grievance Redressal Cell", "deadline_days": 60, "description": "Escalation to the pension regulator." },
+    { "level": 3, "authority": "Pension Ombudsman", "deadline_days": 90, "description": "Final grievance before the Pension Ombudsman." }
+  ]
+}

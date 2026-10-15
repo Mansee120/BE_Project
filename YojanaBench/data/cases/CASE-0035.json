@@ -1,0 +1,14 @@
+{
+  "case_id": "CASE-0035",
+  "scheme_id": "APY-2023",
+  "label": "Non-taxpaying worker aged 25 - should be ELIGIBLE at 1000 INR/month",
+  "applicant": {
+    "age": 25,
+    "is_income_tax_payer": false
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Mobile Number"
+  ]
+}

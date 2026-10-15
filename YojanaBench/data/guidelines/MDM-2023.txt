@@ -1,0 +1,29 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri POSHAN Shakti Nirman (Mid-Day Meal)
+SCHEME ID: MDM-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: NUTRITION
+==============================================================================
+
+1. OBJECTIVE
+   A school nutrition programme that provides hot cooked meals to children studying in classes one to eight in government and government-aided schools, improving enrolment, attendance and nutrition.
+
+2. ELIGIBILITY CRITERIA
+   [MDM-C1] (MANDATORY) The child must be 6 years of age or older.
+   [MDM-C2] (MANDATORY) The child must be 14 years of age or younger.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [MDM-E1] Each eligible child receives a free hot cooked meal on every school day; there is no cash benefit.
+
+4. DOCUMENTS REQUIRED
+   [MDM-D1] (MANDATORY) Aadhaar Card
+   [MDM-D2] (MANDATORY) School Enrolment Certificate
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [MDM-APL1] Level 1: School Headmaster - within 15 days. First grievance at the school level.
+   [MDM-APL2] Level 2: Block Education Officer - within 30 days. Escalation at block level.
+   [MDM-APL3] Level 3: District Education Officer - within 60 days. Final grievance at district level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

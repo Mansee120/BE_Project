@@ -1,0 +1,16 @@
+{
+  "case_id": "CASE-0029",
+  "scheme_id": "PMUY-2023",
+  "label": "Eligible BPL woman - should be ELIGIBLE at 1600 INR",
+  "applicant": {
+    "age": 32,
+    "gender": "female",
+    "bpl": true
+  },
+  "submitted_documents": [
+    "BPL Card",
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Address Proof"
+  ]
+}

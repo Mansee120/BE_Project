@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: eShram (National Database of Unorganised Workers)
+SCHEME ID: ESRAM-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: LABOUR
+==============================================================================
+
+1. OBJECTIVE
+   A national registry of unorganised workers, including migrant and gig workers, that issues an eShram card and links workers to social security and welfare benefits.
+
+2. ELIGIBILITY CRITERIA
+   [ESRAM-C1] (MANDATORY) The applicant must be 16 years of age or older.
+   [ESRAM-C2] (MANDATORY) The applicant must be 59 years of age or younger.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [ESRAM-E1] Registered workers receive an eShram card that gives access to social security and welfare schemes; there is no direct cash benefit.
+
+4. DOCUMENTS REQUIRED
+   [ESRAM-D1] (MANDATORY) Aadhaar Card
+   [ESRAM-D2] (MANDATORY) Bank Account Passbook
+   [ESRAM-D3] (MANDATORY) Mobile Number
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [ESRAM-APL1] Level 1: eShram Helpdesk - within 30 days. First grievance at the eShram helpdesk.
+   [ESRAM-APL2] Level 2: State Labour Commissioner - within 60 days. Escalation at state level.
+   [ESRAM-APL3] Level 3: Ministry of Labour and Employment - within 90 days. Final grievance at the Ministry.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

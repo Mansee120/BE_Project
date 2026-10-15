@@ -1,0 +1,29 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: PM Formalisation of Micro Food Processing Enterprises
+SCHEME ID: PMFME-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: FOOD
+==============================================================================
+
+1. OBJECTIVE
+   A scheme that provides credit-linked subsidy, branding and marketing support to micro food processing enterprises to help them formalise, upgrade technology and grow.
+
+2. ELIGIBILITY CRITERIA
+   [PMFME-C1] (MANDATORY) The applicant must be 18 years of age or older.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMFME-E1] An eligible micro enterprise receives a credit-linked subsidy of 35 percent of the project cost, up to a maximum of Rs. 10 lakh.
+
+4. DOCUMENTS REQUIRED
+   [PMFME-D1] (MANDATORY) Aadhaar Card
+   [PMFME-D2] (MANDATORY) Project Report
+   [PMFME-D3] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMFME-APL1] Level 1: District Food Processing Officer - within 30 days. First grievance at the district level.
+   [PMFME-APL2] Level 2: State Nodal Agency - within 60 days. Escalation at state level.
+   [PMFME-APL3] Level 3: Ministry of Food Processing Industries - within 90 days. Final grievance at the Ministry.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

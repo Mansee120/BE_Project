@@ -1,0 +1,29 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Integrated Child Development Services
+SCHEME ID: ICDS-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: NUTRITION
+==============================================================================
+
+1. OBJECTIVE
+   An early childhood care and development programme delivered through Anganwadi centres, providing supplementary nutrition, immunisation, health check-ups, referral services and pre-school education to children below six years and to mothers.
+
+2. ELIGIBILITY CRITERIA
+   [ICDS-C1] (MANDATORY) The child must be 6 years of age or younger.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [ICDS-E1] Eligible children and mothers receive supplementary nutrition and pre-school services free of cost at the Anganwadi centre; there is no cash benefit.
+
+4. DOCUMENTS REQUIRED
+   [ICDS-D1] (MANDATORY) Aadhaar Card of Child
+   [ICDS-D2] (MANDATORY) Immunization Card
+   [ICDS-D3] (MANDATORY) Address Proof
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [ICDS-APL1] Level 1: Anganwadi Worker - within 15 days. First grievance at the centre level.
+   [ICDS-APL2] Level 2: Child Development Project Officer (CDPO) - within 30 days. Escalation at block level.
+   [ICDS-APL3] Level 3: District Programme Officer - within 60 days. Final grievance at district level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

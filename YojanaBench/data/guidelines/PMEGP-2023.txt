@@ -1,0 +1,29 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Prime Minister's Employment Generation Programme
+SCHEME ID: PMEGP-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: EMPLOYMENT
+==============================================================================
+
+1. OBJECTIVE
+   A credit-linked subsidy programme that supports the setting up of micro-enterprises in manufacturing and service sectors, generating self-employment opportunities in rural and urban areas.
+
+2. ELIGIBILITY CRITERIA
+   [PMEGP-C1] (MANDATORY) The applicant must be 18 years of age or older.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMEGP-E1] An eligible beneficiary can set up a project with a maximum project cost of Rs. 10 lakh in the service sector.
+
+4. DOCUMENTS REQUIRED
+   [PMEGP-D1] (MANDATORY) Aadhaar Card
+   [PMEGP-D2] (MANDATORY) Project Report
+   [PMEGP-D3] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMEGP-APL1] Level 1: KVIC or KVIB District Officer - within 30 days. First grievance at the district office.
+   [PMEGP-APL2] Level 2: State Director (KVIC/KVIB) - within 60 days. Escalation at state level.
+   [PMEGP-APL3] Level 3: Ministry of Micro, Small and Medium Enterprises - within 90 days. Final grievance at the Ministry.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

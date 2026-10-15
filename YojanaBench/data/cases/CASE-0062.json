@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0062",
+  "scheme_id": "PMFME-2023",
+  "label": "Adult entrepreneur - should be ELIGIBLE at 1000000 INR",
+  "applicant": {
+    "age": 30
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Project Report",
+    "Bank Account Passbook"
+  ]
+}

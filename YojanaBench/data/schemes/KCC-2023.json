@@ -1,0 +1,44 @@
+{
+  "scheme_id": "KCC-2023",
+  "name": "Kisan Credit Card",
+  "level": "central",
+  "state": "All India",
+  "category": "credit",
+  "summary": "A credit scheme that gives farmers timely and hassle-free access to institutional credit through a Kisan Credit Card, covering crop cultivation, allied activities and consumption needs.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "KCC-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    },
+    {
+      "clause_id": "KCC-C2",
+      "text": "The applicant must be a farmer.",
+      "field": "is_farmer",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "KCC-E1",
+      "text": "An eligible farmer is sanctioned a credit limit of up to Rs. 3 lakh at a concessional interest rate.",
+      "compute": { "type": "coverage", "value": 300000, "unit": "INR" },
+      "clause_ids": ["KCC-C1", "KCC-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "KCC-D1", "name": "Land Records", "mandatory": true },
+    { "doc_id": "KCC-D2", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "KCC-D3", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Bank Branch Manager", "deadline_days": 15, "description": "First grievance at the bank branch." },
+    { "level": 2, "authority": "Lead District Manager", "deadline_days": 45, "description": "Escalation at district level." },
+    { "level": 3, "authority": "Banking Ombudsman", "deadline_days": 90, "description": "Final grievance before the Banking Ombudsman." }
+  ]
+}

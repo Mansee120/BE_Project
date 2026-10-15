@@ -1,0 +1,37 @@
+{
+  "scheme_id": "PMFBY-2023",
+  "name": "Pradhan Mantri Fasal Bima Yojana",
+  "level": "central",
+  "state": "All India",
+  "category": "agriculture",
+  "summary": "A crop insurance scheme that provides comprehensive risk cover to farmers against natural calamities, pests and diseases from pre-sowing to post-harvest, at a very low share of premium.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMFBY-C1",
+      "text": "The applicant must be a farmer with an insurable crop.",
+      "field": "is_farmer",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMFBY-E1",
+      "text": "An enrolled farmer receives a sum insured of up to Rs. 1 lakh against crop loss.",
+      "compute": { "type": "coverage", "value": 100000, "unit": "INR" },
+      "clause_ids": ["PMFBY-C1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMFBY-D1", "name": "Land Records", "mandatory": true },
+    { "doc_id": "PMFBY-D2", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMFBY-D3", "name": "Bank Account Passbook", "mandatory": true },
+    { "doc_id": "PMFBY-D4", "name": "Sowing Certificate", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Agriculture Officer", "deadline_days": 30, "description": "First grievance at the block level." },
+    { "level": 2, "authority": "District Agriculture Officer", "deadline_days": 60, "description": "Second grievance at district level." },
+    { "level": 3, "authority": "State Agriculture Commission", "deadline_days": 90, "description": "Final grievance at state level." }
+  ]
+}

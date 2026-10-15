@@ -1,0 +1,47 @@
+{
+  "scheme_id": "PMKMY-2023",
+  "name": "Pradhan Mantri Kisan Maandhan Yojana",
+  "level": "central",
+  "state": "All India",
+  "category": "pension",
+  "summary": "A voluntary contributory pension scheme for small and marginal farmers that provides a assured monthly pension of Rs. 3000 after the age of 60.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMKMY-C1",
+      "text": "The applicant must be a farmer.",
+      "field": "is_farmer",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMKMY-C2",
+      "text": "The applicant must be between 18 and 40 years of age.",
+      "field": "age",
+      "operator": "and",
+      "clauses": [
+        { "field": "age", "operator": "gte", "value": 18 },
+        { "field": "age", "operator": "lte", "value": 40 }
+      ],
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMKMY-E1",
+      "text": "The subscriber receives an assured monthly pension of Rs. 3000 after attaining the age of 60.",
+      "compute": { "type": "fixed_amount", "value": 3000, "unit": "INR/month", "per_period": "month" },
+      "clause_ids": ["PMKMY-C1", "PMKMY-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMKMY-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMKMY-D2", "name": "Bank Account Passbook", "mandatory": true },
+    { "doc_id": "PMKMY-D3", "name": "Land Records", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Common Service Centre Nodal Officer", "deadline_days": 30, "description": "First grievance at the enrolment centre." },
+    { "level": 2, "authority": "State Nodal Officer", "deadline_days": 60, "description": "Escalation at state level." },
+    { "level": 3, "authority": "Ministry of Agriculture and Farmers Welfare", "deadline_days": 90, "description": "Final grievance at the Ministry." }
+  ]
+}

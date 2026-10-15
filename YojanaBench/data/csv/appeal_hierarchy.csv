@@ -1,0 +1,99 @@
+﻿scheme_id,level,authority,deadline_days,description
+APY-2023,1,Bank Nodal Officer,30,First grievance at the bank.
+APY-2023,2,PFRDA Grievance Redressal Cell,60,Escalation to the pension regulator.
+APY-2023,3,Pension Ombudsman,90,Final grievance before the Pension Ombudsman.
+DDUGKY-2023,1,Block Programme Manager,30,First grievance at the block level.
+DDUGKY-2023,2,District Programme Manager,60,Escalation at district level.
+DDUGKY-2023,3,State Programme Director,90,Final grievance at state level.
+ESRAM-2023,1,eShram Helpdesk,30,First grievance at the eShram helpdesk.
+ESRAM-2023,2,State Labour Commissioner,60,Escalation at state level.
+ESRAM-2023,3,Ministry of Labour and Employment,90,Final grievance at the Ministry.
+ICDS-2023,1,Anganwadi Worker,15,First grievance at the centre level.
+ICDS-2023,2,Child Development Project Officer (CDPO),30,Escalation at block level.
+ICDS-2023,3,District Programme Officer,60,Final grievance at district level.
+IGNDPS-2023,1,Block Development Officer (BDO),30,First appeal at block level.
+IGNDPS-2023,2,District Social Welfare Officer,60,Second appeal at district level.
+IGNDPS-2023,3,State Social Welfare Commission,90,Final appeal at state level.
+IGNOAPS-2023,1,Block Development Officer (BDO),30,First appeal at block level.
+IGNOAPS-2023,2,District Social Welfare Officer,60,Second appeal at district level.
+IGNOAPS-2023,3,State Social Welfare Commission,90,Final appeal at state level.
+IGNWPS-2023,1,Block Development Officer (BDO),30,First appeal at block level.
+IGNWPS-2023,2,District Social Welfare Officer,60,Second appeal at district level.
+IGNWPS-2023,3,State Social Welfare Commission,90,Final appeal at state level.
+JJM-2023,1,Gram Panchayat,15,First grievance at the village level.
+JJM-2023,2,Block Development Officer (BDO),30,Escalation at block level.
+JJM-2023,3,District Water and Sanitation Mission,60,Final grievance at district level.
+KCC-2023,1,Bank Branch Manager,15,First grievance at the bank branch.
+KCC-2023,2,Lead District Manager,45,Escalation at district level.
+KCC-2023,3,Banking Ombudsman,90,Final grievance before the Banking Ombudsman.
+MDM-2023,1,School Headmaster,15,First grievance at the school level.
+MDM-2023,2,Block Education Officer,30,Escalation at block level.
+MDM-2023,3,District Education Officer,60,Final grievance at district level.
+MGNREGA-2023,1,Gram Panchayat / Programme Officer,15,Complaint to the Programme Officer at block level.
+MGNREGA-2023,2,District Programme Coordinator,30,Escalation to the District Programme Coordinator.
+MUDRA-2023,1,Bank Branch Manager,15,First grievance at the bank branch.
+MUDRA-2023,2,Zonal Head,45,Escalation to the zonal office.
+MUDRA-2023,3,Banking Ombudsman,90,Final grievance before the Banking Ombudsman.
+NRLM-2023,1,Block Mission Manager,30,First grievance at the block level.
+NRLM-2023,2,District Mission Manager,60,Escalation at district level.
+NRLM-2023,3,State Rural Livelihoods Mission,90,Final grievance at state level.
+NSP-PREMATRIC-2023,1,School Scholarship Nodal Officer,15,First-level grievance at the school/institute.
+NSP-PREMATRIC-2023,2,State Education Department (SC/ST Welfare),45,Escalation to the state education welfare department.
+PDS-NFSA-2023,1,District Supply Officer (DSO),30,First appeal against rejection or card correction at the district level.
+PDS-NFSA-2023,2,State Food Commission,60,Second appeal to the State Food Commission if the district decision is unsatisfactory.
+PMAYG-2023,1,Gram Panchayat / Block Development Officer,30,First-level verification and grievance redressal at the block.
+PMAYG-2023,2,District Rural Development Agency (DRDA),60,Escalation to the district rural development agency.
+PMAYU-2023,1,Municipal Commissioner,30,First grievance at the urban local body.
+PMAYU-2023,2,State Housing Board,60,Second grievance at state level.
+PMAYU-2023,3,Ministry of Housing and Urban Affairs,90,Final grievance at the Ministry.
+PMEGP-2023,1,KVIC or KVIB District Officer,30,First grievance at the district office.
+PMEGP-2023,2,State Director (KVIC/KVIB),60,Escalation at state level.
+PMEGP-2023,3,"Ministry of Micro, Small and Medium Enterprises",90,Final grievance at the Ministry.
+PMFBY-2023,1,Agriculture Officer,30,First grievance at the block level.
+PMFBY-2023,2,District Agriculture Officer,60,Second grievance at district level.
+PMFBY-2023,3,State Agriculture Commission,90,Final grievance at state level.
+PMFME-2023,1,District Food Processing Officer,30,First grievance at the district level.
+PMFME-2023,2,State Nodal Agency,60,Escalation at state level.
+PMFME-2023,3,Ministry of Food Processing Industries,90,Final grievance at the Ministry.
+PMJAY-2023,1,Ayushman Mitra / Hospital Grievance Desk,15,Raise a grievance at the empanelled hospital.
+PMJAY-2023,2,State Health Agency (SHA),30,Escalation to the State Health Agency grievance cell.
+PMJDY-2023,1,Bank Branch Manager,15,First grievance at the bank branch.
+PMJDY-2023,2,Lead District Manager,45,Escalation at district level.
+PMJDY-2023,3,Banking Ombudsman,90,Final grievance before the Banking Ombudsman.
+PMJJBY-2023,1,Bank Branch Manager,15,First grievance at the bank branch.
+PMJJBY-2023,2,Insurance Ombudsman,90,Grievance before the Insurance Ombudsman.
+PMJJBY-2023,3,Department of Financial Services,120,Final escalation to the Department of Financial Services.
+PMKISAN-2023,1,District Agriculture Officer,30,Grievance redressal at district agriculture office.
+PMKISAN-2023,2,State Nodal Officer (PM-KISAN),60,Escalation to the state nodal department.
+PMKMY-2023,1,Common Service Centre Nodal Officer,30,First grievance at the enrolment centre.
+PMKMY-2023,2,State Nodal Officer,60,Escalation at state level.
+PMKMY-2023,3,Ministry of Agriculture and Farmers Welfare,90,Final grievance at the Ministry.
+PMKUSUM-2023,1,DISCOM Officer,30,First grievance with the power distribution company.
+PMKUSUM-2023,2,State Nodal Agency,60,Escalation to the state renewable energy agency.
+PMKUSUM-2023,3,Ministry of New and Renewable Energy,90,Final grievance at the Ministry.
+PMMVY-2023,1,Child Development Project Officer (CDPO),30,First appeal at the block level.
+PMMVY-2023,2,District Programme Officer,60,Second appeal at district level.
+PMMVY-2023,3,State Health and Family Welfare Authority,90,Final appeal at state level.
+PMS-SC-2023,1,Institute Scholarship Nodal Officer,15,First-level grievance at the educational institute.
+PMS-SC-2023,2,State Scheduled Caste Development Department,45,Escalation to the state welfare department.
+PMSBY-2023,1,Bank Branch Manager,15,First grievance at the bank branch.
+PMSBY-2023,2,Scheme Nodal Officer (Bank),30,Escalation to the bank's scheme nodal officer.
+PMSBY-2023,3,Insurance Ombudsman,90,Final grievance before the Insurance Ombudsman.
+PMUY-2023,1,Block Development Officer (BDO),30,First appeal at block level.
+PMUY-2023,2,District Supply Officer,60,Second appeal at district level.
+PMUY-2023,3,State Food Commission,90,Final appeal at state level.
+PMVK-2023,1,Gram Panchayat or MSME-DI Office,30,First grievance at the local office.
+PMVK-2023,2,State Nodal Agency,60,Escalation at state level.
+PMVK-2023,3,"Ministry of Micro, Small and Medium Enterprises",90,Final grievance at the Ministry.
+SBMG-2023,1,Gram Panchayat,15,First grievance at the village level.
+SBMG-2023,2,Block Development Officer (BDO),30,Escalation at block level.
+SBMG-2023,3,District Panchayat,60,Final grievance at district level.
+SSY-2023,1,Bank or Post Office Manager,30,First grievance at the account office.
+SSY-2023,2,District Savings Officer,60,Escalation at district level.
+SSY-2023,3,Ministry of Finance (Savings Division),90,Final grievance at the Ministry.
+SUI-2023,1,Bank Branch Manager,15,First grievance at the bank branch.
+SUI-2023,2,Lead District Manager,45,Escalation at district level.
+SUI-2023,3,Banking Ombudsman,90,Final grievance before the Banking Ombudsman.
+SVA-2023,1,Urban Local Body Nodal Officer,30,First grievance at the urban local body.
+SVA-2023,2,Municipal Commissioner,60,Escalation at the municipal level.
+SVA-2023,3,Ministry of Housing and Urban Affairs,90,Final grievance at the Ministry.

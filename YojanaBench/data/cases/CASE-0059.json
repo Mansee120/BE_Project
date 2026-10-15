@@ -1,0 +1,14 @@
+{
+  "case_id": "CASE-0059",
+  "scheme_id": "PMKMY-2023",
+  "label": "Young farmer aged 28 - should be ELIGIBLE at 3000 INR/month",
+  "applicant": {
+    "age": 28,
+    "is_farmer": true
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Land Records"
+  ]
+}

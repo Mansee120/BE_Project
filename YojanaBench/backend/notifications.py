@@ -201,6 +201,8 @@ class MailClient:
             result["dry_run"] = False
         except Exception as exc:  # pragma: no cover - live network path
             result["error"] = str(exc)
+            # Never lose a notice: keep an outbox copy if live delivery fails.
+            result["outbox_path"] = self._write_outbox(msg)
         return result
 
     def _write_outbox(self, msg) -> str:
@@ -297,5 +299,98 @@ class MailClient:
             return text
 
 
-# Shared singleton used by the API layer.
+class MessageClient:
+    """Dependency-light SMS / message adapter for the notice layer.
+
+    Mirrors :class:`MailClient`'s design rule: YojanaBench stays offline and
+    zero-cost. With no gateway configured every message is written to
+    ``runtime/sms_outbox`` as a ``.txt`` file and reported as a dry run - and a
+    ``runtime/message_log.json`` entry is kept so sends are auditable.
+    """
+
+    _PHONE_RE = re.compile(r"^\+?\d{7,15}$")
+
+    @classmethod
+    def valid_phone(cls, phone) -> bool:
+        if not phone or not isinstance(phone, str):
+            return False
+        return bool(cls._PHONE_RE.match(re.sub(r"[\s\-()]", "", phone)))
+
+    def available(self) -> bool:
+        return bool(getattr(config, "SMS_GATEWAY_URL", ""))
+
+    def status(self) -> dict:
+        return {
+            "channel": "sms",
+            "mode": "live" if self.available() else "outbox (dry-run)",
+            "sender_id": getattr(config, "SMS_SENDER_ID", None),
+        }
+
+    def send(self, to, body, subject=None) -> dict:
+        """Send (or dry-run to the outbox). Never raises; returns a status dict."""
+        result = {"sent": False, "dry_run": True, "channel": "sms",
+                  "to": to, "subject": subject, "error": None}
+        if not self.valid_phone(to):
+            result["error"] = f"invalid phone number: {to!r}"
+            return result
+        if self.available():  # pragma: no cover - live gateway path
+            try:
+                import urllib.request
+                payload = json.dumps({"to": to, "message": body,
+                                      "sender": getattr(config, "SMS_SENDER_ID", None)}).encode()
+                req = urllib.request.Request(
+                    config.SMS_GATEWAY_URL, data=payload,
+                    headers={"Content-Type": "application/json"})
+                with urllib.request.urlopen(req, timeout=20) as resp:
+                    result["sent"] = resp.status < 300
+                    result["dry_run"] = False
+            except Exception as exc:
+                result["error"] = str(exc)
+                return result
+        else:
+            result["outbox_path"] = self._write_outbox(to, body, subject)
+        self.record(to, body, subject)
+        return result
+
+    def _write_outbox(self, to, body, subject=None) -> str:
+        os.makedirs(config.SMS_OUTBOX_DIR, exist_ok=True)
+        stamp = formatdate(localtime=True).replace(":", "").replace(",", "").replace(" ", "_")
+        safe = re.sub(r"[^A-Za-z0-9+_.-]", "_", str(to))[:40]
+        path = os.path.join(config.SMS_OUTBOX_DIR, f"{stamp}_{safe}.txt")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(f"To: {to}\nFrom: {getattr(config, 'SMS_SENDER_ID', 'YOJANABENCH')}\n")
+            if subject:
+                f.write(f"Subject: {subject}\n")
+            f.write("\n" + (body or ""))
+        return path
+
+    def record(self, to, body, subject=None) -> None:
+        log = self._load_log()
+        log.insert(0, {
+            "to": to,
+            "subject": subject,
+            "body": body,
+            "sender_id": getattr(config, "SMS_SENDER_ID", None),
+            "date": formatdate(localtime=True),
+        })
+        self._save_log(log[:500])
+
+    def _load_log(self):
+        if not os.path.exists(config.MESSAGE_LOG_PATH):
+            return []
+        try:
+            with open(config.MESSAGE_LOG_PATH, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            return data if isinstance(data, list) else []
+        except (json.JSONDecodeError, OSError):
+            return []
+
+    def _save_log(self, log):
+        os.makedirs(os.path.dirname(config.MESSAGE_LOG_PATH), exist_ok=True)
+        with open(config.MESSAGE_LOG_PATH, "w", encoding="utf-8") as f:
+            json.dump(log, f, indent=2, ensure_ascii=False)
+
+
+# Shared singletons used by the API layer.
 mail = MailClient()
+sms = MessageClient()

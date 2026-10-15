@@ -1,0 +1,36 @@
+{
+  "scheme_id": "PMVK-2023",
+  "name": "PM Vishwakarma",
+  "level": "central",
+  "state": "All India",
+  "category": "livelihood",
+  "summary": "A scheme that supports traditional artisans and craftspeople with skill training, modern toolkits, collateral-free credit and market linkages to improve the quality and reach of their products and services.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMVK-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMVK-E1",
+      "text": "An eligible artisan receives a toolkit incentive of Rs. 15000 along with skill training.",
+      "compute": { "type": "fixed_amount", "value": 15000, "unit": "INR" },
+      "clause_ids": ["PMVK-C1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMVK-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMVK-D2", "name": "Bank Account Passbook", "mandatory": true },
+    { "doc_id": "PMVK-D3", "name": "Proof of Trade or Profession", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Gram Panchayat or MSME-DI Office", "deadline_days": 30, "description": "First grievance at the local office." },
+    { "level": 2, "authority": "State Nodal Agency", "deadline_days": 60, "description": "Escalation at state level." },
+    { "level": 3, "authority": "Ministry of Micro, Small and Medium Enterprises", "deadline_days": 90, "description": "Final grievance at the Ministry." }
+  ]
+}

@@ -1,0 +1,31 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri Awas Yojana (Urban)
+SCHEME ID: PMAYU-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: HOUSING
+==============================================================================
+
+1. OBJECTIVE
+   An urban housing mission that provides central assistance and interest subsidy to economically weaker sections and lower income groups to enable them to build or buy a pucca house.
+
+2. ELIGIBILITY CRITERIA
+   [PMAYU-C1] (MANDATORY) The applicant's annual family income must not exceed Rs. 3 lakh.
+   [PMAYU-C2] (MANDATORY) The applicant must not already own a pucca house.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMAYU-E1] An eligible beneficiary receives central assistance of about Rs. 2.67 lakh towards the house.
+
+4. DOCUMENTS REQUIRED
+   [PMAYU-D1] (MANDATORY) Aadhaar Card
+   [PMAYU-D2] (MANDATORY) Income Certificate
+   [PMAYU-D3] (MANDATORY) Bank Account Passbook
+   [PMAYU-D4] (MANDATORY) Address Proof
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMAYU-APL1] Level 1: Municipal Commissioner - within 30 days. First grievance at the urban local body.
+   [PMAYU-APL2] Level 2: State Housing Board - within 60 days. Second grievance at state level.
+   [PMAYU-APL3] Level 3: Ministry of Housing and Urban Affairs - within 90 days. Final grievance at the Ministry.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

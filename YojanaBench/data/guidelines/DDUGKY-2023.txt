@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Deen Dayal Upadhyaya Grameen Kaushalya Yojana
+SCHEME ID: DDUGKY-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: SKILL
+==============================================================================
+
+1. OBJECTIVE
+   A placement-linked skill development programme for rural poor youth that provides free training in employable trades and guarantees placement in wage employment or self-employment.
+
+2. ELIGIBILITY CRITERIA
+   [DDUGKY-C1] (MANDATORY) The applicant must live in a rural area.
+   [DDUGKY-C2] (MANDATORY) The applicant must be 35 years of age or younger.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [DDUGKY-E1] Eligible rural youth receive free skill training with a guaranteed placement; there is no direct cash benefit.
+
+4. DOCUMENTS REQUIRED
+   [DDUGKY-D1] (MANDATORY) Aadhaar Card
+   [DDUGKY-D2] (MANDATORY) Age Proof
+   [DDUGKY-D3] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [DDUGKY-APL1] Level 1: Block Programme Manager - within 30 days. First grievance at the block level.
+   [DDUGKY-APL2] Level 2: District Programme Manager - within 60 days. Escalation at district level.
+   [DDUGKY-APL3] Level 3: State Programme Director - within 90 days. Final grievance at state level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

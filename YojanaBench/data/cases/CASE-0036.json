@@ -1,0 +1,14 @@
+{
+  "case_id": "CASE-0036",
+  "scheme_id": "APY-2023",
+  "label": "Income tax payer aged 30 - should be INELIGIBLE",
+  "applicant": {
+    "age": 30,
+    "is_income_tax_payer": true
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Mobile Number"
+  ]
+}

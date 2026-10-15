@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri Kisan Maandhan Yojana
+SCHEME ID: PMKMY-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: PENSION
+==============================================================================
+
+1. OBJECTIVE
+   A voluntary contributory pension scheme for small and marginal farmers that provides a assured monthly pension of Rs. 3000 after the age of 60.
+
+2. ELIGIBILITY CRITERIA
+   [PMKMY-C1] (MANDATORY) The applicant must be a farmer.
+   [PMKMY-C2] (MANDATORY) The applicant must be between 18 and 40 years of age.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMKMY-E1] The subscriber receives an assured monthly pension of Rs. 3000 after attaining the age of 60.
+
+4. DOCUMENTS REQUIRED
+   [PMKMY-D1] (MANDATORY) Aadhaar Card
+   [PMKMY-D2] (MANDATORY) Bank Account Passbook
+   [PMKMY-D3] (MANDATORY) Land Records
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMKMY-APL1] Level 1: Common Service Centre Nodal Officer - within 30 days. First grievance at the enrolment centre.
+   [PMKMY-APL2] Level 2: State Nodal Officer - within 60 days. Escalation at state level.
+   [PMKMY-APL3] Level 3: Ministry of Agriculture and Farmers Welfare - within 90 days. Final grievance at the Ministry.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

@@ -22,7 +22,7 @@ from . import composer
 from . import auth
 from . import complaints as complaints_mod
 from . import dbt
-from .notifications import mail
+from .notifications import mail, sms
 from .pipeline import pipeline
 from .ablation import AblationRunner
 from .report import build_report
@@ -72,6 +72,9 @@ class NotifyRequest(BaseModel):
     use_llm: bool = False
     send: bool = Field(False, description="Actually deliver the notice (else preview)")
     notify_authority: bool = Field(False, description="CC the scheme authority")
+    channel: str = Field("email", description="Delivery channel: 'email' or 'sms'")
+    to: Optional[str] = Field(None, description="Override email recipient")
+    phone: Optional[str] = Field(None, description="SMS recipient (channel='sms')")
 
 
 class AppealRequest(BaseModel):
@@ -265,6 +268,12 @@ def assistant_status():
     return assistant_mod.assistant.status()
 
 
+@app.get("/api/assistant/welcome")
+def assistant_welcome(lang: str = "en"):
+    """Localised greeting spoken when the assistant opens or the language changes."""
+    return assistant_mod.assistant.welcome(lang)
+
+
 @app.post("/api/assistant")
 def assistant_reply(req: AssistantRequest):
     """Natural-language answer for the voice assistant widget.
@@ -279,6 +288,16 @@ def assistant_reply(req: AssistantRequest):
 
 
 # -- notification / email-automation layer ------------------------------------
+def _sms_text(notice: dict, verdict: dict = None) -> str:
+    """Condense a grounded notice into a short SMS-friendly message (<= 480 chars)."""
+    import re as _re
+    subject = (notice.get("subject") or "YojanaBench notice").strip()
+    body = _re.sub(r"\s+", " ", (notice.get("body_text") or "").strip())
+    body = _re.sub(r"^(Dear [^,]+,?\s*)", "", body, flags=_re.I)
+    text = f"{subject} - {body}".strip(" -")
+    return text[:480]
+
+
 @app.get("/api/notifications/status")
 def notifications_status():
     """Whether the layer is live (SMTP/IMAP configured) or in outbox dry-run."""
@@ -300,17 +319,32 @@ def notify(req: NotifyRequest):
     notice = result["notification"]
     delivery = None
     if req.send:
-        if not mail.valid_recipient(notice["recipient"]):
-            delivery = {"sent": False, "dry_run": True, "to": notice["recipient"],
-                        "error": "no valid applicant email on file"}
+        channel = (req.channel or "email").lower()
+        if channel == "sms":
+            phone = (req.phone or req.applicant.get("phone")
+                     or req.applicant.get("mobile"))
+            delivery = sms.send(phone, _sms_text(notice, result["verdict"]),
+                                subject=notice.get("subject"))
         else:
-            cc = ([notice["authority_email"]]
-                  if req.notify_authority and notice["authority_email"] else None)
-            delivery = mail.send(notice["recipient"], notice["subject"],
-                                 notice["body_text"], notice["body_html"], cc=cc)
-            mail.record_outbound(result["case"], notice["recipient"],
-                                 notice["subject"], notice["notice_type"])
+            recipient = (req.to or notice["recipient"] or "").strip()
+            if not mail.valid_recipient(recipient):
+                delivery = {"sent": False, "dry_run": True, "channel": "email",
+                            "to": recipient,
+                            "error": "no valid applicant email on file"}
+            else:
+                cc = ([notice["authority_email"]]
+                      if req.notify_authority and notice["authority_email"] else None)
+                delivery = mail.send(recipient, notice["subject"],
+                                     notice["body_text"], notice["body_html"], cc=cc)
+                mail.record_outbound(result["case"], recipient,
+                                     notice["subject"], notice["notice_type"])
     return {"notification": notice, "delivery": delivery, "verdict": result["verdict"]}
+
+
+@app.get("/api/messages/status")
+def messages_status():
+    """Whether the SMS channel is live (gateway set) or in outbox dry-run."""
+    return sms.status()
 
 
 @app.get("/api/appeals")

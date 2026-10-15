@@ -1,0 +1,29 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri Jan Dhan Yojana
+SCHEME ID: PMJDY-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: BANKING
+==============================================================================
+
+1. OBJECTIVE
+   A financial inclusion mission that provides every household with a basic zero-balance savings bank account, a RuPay debit card, an overdraft facility and accident insurance cover.
+
+2. ELIGIBILITY CRITERIA
+   [PMJDY-C1] (MANDATORY) The applicant must be 10 years of age or older.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMJDY-E1] Account holders receive an accident insurance cover of Rs. 2 lakh on the RuPay debit card.
+
+4. DOCUMENTS REQUIRED
+   [PMJDY-D1] (MANDATORY) Aadhaar Card
+   [PMJDY-D2] (MANDATORY) Address Proof
+   [PMJDY-D3] (MANDATORY) Passport Size Photograph
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMJDY-APL1] Level 1: Bank Branch Manager - within 15 days. First grievance at the bank branch.
+   [PMJDY-APL2] Level 2: Lead District Manager - within 45 days. Escalation at district level.
+   [PMJDY-APL3] Level 3: Banking Ombudsman - within 90 days. Final grievance before the Banking Ombudsman.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

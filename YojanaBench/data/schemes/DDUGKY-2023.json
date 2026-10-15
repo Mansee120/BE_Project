@@ -1,0 +1,44 @@
+{
+  "scheme_id": "DDUGKY-2023",
+  "name": "Deen Dayal Upadhyaya Grameen Kaushalya Yojana",
+  "level": "central",
+  "state": "All India",
+  "category": "skill",
+  "summary": "A placement-linked skill development programme for rural poor youth that provides free training in employable trades and guarantees placement in wage employment or self-employment.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "DDUGKY-C1",
+      "text": "The applicant must live in a rural area.",
+      "field": "region",
+      "operator": "eq",
+      "value": "rural",
+      "mandatory": true
+    },
+    {
+      "clause_id": "DDUGKY-C2",
+      "text": "The applicant must be 35 years of age or younger.",
+      "field": "age",
+      "operator": "lte",
+      "value": 35,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "DDUGKY-E1",
+      "text": "Eligible rural youth receive free skill training with a guaranteed placement; there is no direct cash benefit.",
+      "compute": { "type": "fixed_amount", "value": 0, "unit": "INR (in-kind skill training and placement)" },
+      "clause_ids": ["DDUGKY-C1", "DDUGKY-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "DDUGKY-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "DDUGKY-D2", "name": "Age Proof", "mandatory": true },
+    { "doc_id": "DDUGKY-D3", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Block Programme Manager", "deadline_days": 30, "description": "First grievance at the block level." },
+    { "level": 2, "authority": "District Programme Manager", "deadline_days": 60, "description": "Escalation at district level." },
+    { "level": 3, "authority": "State Programme Director", "deadline_days": 90, "description": "Final grievance at state level." }
+  ]
+}

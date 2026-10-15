@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0058",
+  "scheme_id": "ESRAM-2023",
+  "label": "Senior aged 62 - should be INELIGIBLE",
+  "applicant": {
+    "age": 62
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Mobile Number"
+  ]
+}

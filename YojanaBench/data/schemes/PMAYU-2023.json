@@ -1,0 +1,45 @@
+{
+  "scheme_id": "PMAYU-2023",
+  "name": "Pradhan Mantri Awas Yojana (Urban)",
+  "level": "central",
+  "state": "All India",
+  "category": "housing",
+  "summary": "An urban housing mission that provides central assistance and interest subsidy to economically weaker sections and lower income groups to enable them to build or buy a pucca house.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMAYU-C1",
+      "text": "The applicant's annual family income must not exceed Rs. 3 lakh.",
+      "field": "annual_income",
+      "operator": "lte",
+      "value": 300000,
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMAYU-C2",
+      "text": "The applicant must not already own a pucca house.",
+      "field": "owns_pucca_house",
+      "operator": "eq",
+      "value": false,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMAYU-E1",
+      "text": "An eligible beneficiary receives central assistance of about Rs. 2.67 lakh towards the house.",
+      "compute": { "type": "fixed_amount", "value": 267000, "unit": "INR" },
+      "clause_ids": ["PMAYU-C1", "PMAYU-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMAYU-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMAYU-D2", "name": "Income Certificate", "mandatory": true },
+    { "doc_id": "PMAYU-D3", "name": "Bank Account Passbook", "mandatory": true },
+    { "doc_id": "PMAYU-D4", "name": "Address Proof", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Municipal Commissioner", "deadline_days": 30, "description": "First grievance at the urban local body." },
+    { "level": 2, "authority": "State Housing Board", "deadline_days": 60, "description": "Second grievance at state level." },
+    { "level": 3, "authority": "Ministry of Housing and Urban Affairs", "deadline_days": 90, "description": "Final grievance at the Ministry." }
+  ]
+}

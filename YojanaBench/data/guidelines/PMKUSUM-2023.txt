@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri Kisan Urja Suraksha evam Utthaan Mahabhiyan
+SCHEME ID: PMKUSUM-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: ENERGY
+==============================================================================
+
+1. OBJECTIVE
+   A solar energy scheme that provides subsidised standalone solar pumps and solarisation of existing agriculture pumps to farmers, giving reliable irrigation and an additional source of income.
+
+2. ELIGIBILITY CRITERIA
+   [PMKUSUM-C1] (MANDATORY) The applicant must be a farmer.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMKUSUM-E1] An eligible farmer receives a subsidy of up to Rs. 60000 towards the cost of a solar pump.
+
+4. DOCUMENTS REQUIRED
+   [PMKUSUM-D1] (MANDATORY) Land Records
+   [PMKUSUM-D2] (MANDATORY) Aadhaar Card
+   [PMKUSUM-D3] (MANDATORY) Bank Account Passbook
+   [PMKUSUM-D4] (MANDATORY) Electricity Bill
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMKUSUM-APL1] Level 1: DISCOM Officer - within 30 days. First grievance with the power distribution company.
+   [PMKUSUM-APL2] Level 2: State Nodal Agency - within 60 days. Escalation to the state renewable energy agency.
+   [PMKUSUM-APL3] Level 3: Ministry of New and Renewable Energy - within 90 days. Final grievance at the Ministry.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

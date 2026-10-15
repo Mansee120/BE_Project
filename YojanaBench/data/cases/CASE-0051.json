@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0051",
+  "scheme_id": "PMEGP-2023",
+  "label": "Adult applicant - should be ELIGIBLE at 1000000 INR",
+  "applicant": {
+    "age": 30
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Project Report",
+    "Bank Account Passbook"
+  ]
+}

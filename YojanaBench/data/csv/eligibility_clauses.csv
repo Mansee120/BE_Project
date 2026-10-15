@@ -1,0 +1,73 @@
+﻿scheme_id,clause_id,field,operator,value,mandatory,text
+APY-2023,APY-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+APY-2023,APY-C2,age,lte,40,True,The applicant must be 40 years of age or younger.
+APY-2023,APY-C3,is_income_tax_payer,is_false,,True,The applicant must not be an income tax payer.
+DDUGKY-2023,DDUGKY-C1,region,eq,rural,True,The applicant must live in a rural area.
+DDUGKY-2023,DDUGKY-C2,age,lte,35,True,The applicant must be 35 years of age or younger.
+ESRAM-2023,ESRAM-C1,age,gte,16,True,The applicant must be 16 years of age or older.
+ESRAM-2023,ESRAM-C2,age,lte,59,True,The applicant must be 59 years of age or younger.
+ICDS-2023,ICDS-C1,age,lte,6,True,The child must be 6 years of age or younger.
+IGNDPS-2023,IGNDPS-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+IGNDPS-2023,IGNDPS-C2,age,lt,80,True,The applicant must be below 80 years of age.
+IGNDPS-2023,IGNDPS-C3,disability_percent,gte,80,True,The applicant must have a disability of 80% or more.
+IGNDPS-2023,IGNDPS-C4,bpl,eq,True,True,The applicant must belong to a Below Poverty Line (BPL) household.
+IGNOAPS-2023,IGNOAPS-C1,age,gte,60,True,The applicant must be 60 years of age or older.
+IGNOAPS-2023,IGNOAPS-C2,bpl,eq,True,True,The applicant must belong to a Below Poverty Line (BPL) household.
+IGNWPS-2023,IGNWPS-C1,is_widow,eq,True,True,The applicant must be a widow.
+IGNWPS-2023,IGNWPS-C2,age,gte,40,True,The applicant must be 40 years of age or older.
+IGNWPS-2023,IGNWPS-C3,bpl,eq,True,True,The applicant must belong to a Below Poverty Line (BPL) household.
+JJM-2023,JJM-C1,region,eq,rural,True,The applicant must live in a rural area.
+KCC-2023,KCC-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+KCC-2023,KCC-C2,is_farmer,eq,True,True,The applicant must be a farmer.
+MDM-2023,MDM-C1,age,gte,6,True,The child must be 6 years of age or older.
+MDM-2023,MDM-C2,age,lte,14,True,The child must be 14 years of age or younger.
+MGNREGA-2023,MGNREGA-C1,region,eq,rural,True,The applicant must be a member of a rural household.
+MGNREGA-2023,MGNREGA-C2,age,gte,18,True,The applicant must be an adult (18 years or older) willing to do unskilled manual work.
+MUDRA-2023,MUDRA-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+NRLM-2023,NRLM-C1,region,eq,rural,True,The applicant must live in a rural area.
+NRLM-2023,NRLM-C2,bpl,eq,True,True,The applicant must belong to a Below Poverty Line (BPL) household.
+NSP-PREMATRIC-2023,NSP-C1,category,in,SC; ST,True,The applicant must belong to the Scheduled Caste (SC) or Scheduled Tribe (ST) category.
+NSP-PREMATRIC-2023,NSP-C2,class_level,in,9; 10,True,The applicant must be studying in Class 9 or Class 10.
+NSP-PREMATRIC-2023,NSP-C3,annual_income,lte,250000,True,"Parental/guardian annual income must not exceed Rs. 2,50,000."
+PDS-NFSA-2023,PDS-C1,card_type,in,AAY; PHH,True,The household must hold a valid ration card classified as either Antyodaya Anna Yojana (AAY) or Priority Household (PHH).
+PDS-NFSA-2023,PDS-C2,region,in,rural; urban,True,The applicant must be a resident of the State/UT where the ration card is issued.
+PDS-NFSA-2023,PDS-C3,is_income_tax_payer,eq,False,True,A household that pays income tax or is covered under a statutory income-tax category is excluded from Priority Household coverage.
+PMAYG-2023,PMAYG-C1,house_type,in,houseless; kutcha,True,The household must be a rural household without a pucca house (houseless or kutcha house).
+PMAYG-2023,PMAYG-C2,owns_pucca_house,eq,False,True,The household must not own a pucca house in any part of the country.
+PMAYG-2023,PMAYG-C3,secc_listed,eq,True,True,The household must be included in the SECC 2011 housing deprivation list (or verified by the Gram Sabha).
+PMAYU-2023,PMAYU-C1,annual_income,lte,300000,True,The applicant's annual family income must not exceed Rs. 3 lakh.
+PMAYU-2023,PMAYU-C2,owns_pucca_house,eq,False,True,The applicant must not already own a pucca house.
+PMEGP-2023,PMEGP-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+PMFBY-2023,PMFBY-C1,is_farmer,eq,True,True,The applicant must be a farmer with an insurable crop.
+PMFME-2023,PMFME-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+PMJAY-2023,PMJAY-C1,bpl,eq,True,True,The family must be identified as an eligible household under the SECC deprivation criteria or an eligible occupational category.
+PMJAY-2023,PMJAY-C2,region,in,rural; urban,True,The applicant must be a resident household of the concerned State/UT.
+PMJAY-2023,PMJAY-C3,family_size,gte,1,True,There is no cap on family size or age of members under the scheme.
+PMJDY-2023,PMJDY-C1,age,gte,10,True,The applicant must be 10 years of age or older.
+PMJJBY-2023,PMJJBY-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+PMJJBY-2023,PMJJBY-C2,age,lte,50,True,The applicant must be 50 years of age or younger at the time of enrolment.
+PMKISAN-2023,PMKISAN-C1,is_farmer,eq,True,True,The applicant must be a landholding farmer family with cultivable land.
+PMKISAN-2023,PMKISAN-C2,is_institutional_landholder,eq,False,True,Institutional landholders and persons holding constitutional posts are excluded.
+PMKISAN-2023,PMKISAN-C3,is_income_tax_payer,eq,False,True,Income-tax payers are excluded from the scheme.
+PMKMY-2023,PMKMY-C1,is_farmer,eq,True,True,The applicant must be a farmer.
+PMKMY-2023,PMKMY-C2,age,and,,True,The applicant must be between 18 and 40 years of age.
+PMKUSUM-2023,PMKUSUM-C1,is_farmer,eq,True,True,The applicant must be a farmer.
+PMMVY-2023,PMMVY-C1,age,gte,19,True,The applicant must be 19 years of age or older.
+PMMVY-2023,PMMVY-C2,gender,eq,female,True,The applicant must be a woman.
+PMS-SC-2023,PMS-C1,category,eq,SC,True,The applicant must belong to a Scheduled Caste (SC) category.
+PMS-SC-2023,PMS-C2,education_level,in,11; 12; UG; PG; Diploma; Professional,True,The applicant must have passed matriculation (Class 10) and be pursuing post-matriculation studies.
+PMS-SC-2023,PMS-C3,annual_income,lte,250000,True,"Parental/guardian annual income must not exceed Rs. 2,50,000."
+PMSBY-2023,PMSBY-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+PMSBY-2023,PMSBY-C2,age,lte,70,True,The applicant must be 70 years of age or younger.
+PMUY-2023,PMUY-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+PMUY-2023,PMUY-C2,gender,eq,female,True,The applicant must be a woman.
+PMUY-2023,PMUY-C3,bpl,eq,True,True,The applicant must belong to a Below Poverty Line (BPL) household.
+PMVK-2023,PMVK-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+SBMG-2023,SBMG-C1,region,eq,rural,True,The applicant must live in a rural area.
+SBMG-2023,SBMG-C2,bpl,eq,True,True,The applicant must belong to a Below Poverty Line (BPL) household.
+SSY-2023,SSY-C1,gender,eq,female,True,The account must be opened for a girl child.
+SSY-2023,SSY-C2,age,lte,10,True,The girl child must be below 10 years of age at the time of opening the account.
+SUI-2023,SUI-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+SUI-2023,SUI-C2,,or,,True,The applicant must be a woman or belong to a Scheduled Caste or Scheduled Tribe.
+SVA-2023,SVA-C1,age,gte,18,True,The applicant must be 18 years of age or older.
+SVA-2023,SVA-C2,region,eq,urban,True,The applicant must be an urban street vendor.

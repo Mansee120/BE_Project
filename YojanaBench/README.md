@@ -5,7 +5,7 @@
 Final-year engineering project (Agentic AI / NLP / E-Governance). It ships three
 deliverables:
 
-1. **The YojanaBench dataset** — 10 high-volume welfare schemes, human-verified
+1. **The YojanaBench dataset** — 35 high-volume welfare schemes, human-verified
    QA pairs across eligibility / entitlement / documents / appeal, plus
    counterfactual and edge cases with verdict ground truth.
 2. **A reproducible multi-agent audit pipeline** — eight cooperating agents that
@@ -113,14 +113,14 @@ YojanaBench/
 │   ├── grievance.html         Beneficiary/officer grievance portal
 │   └── grievance.js
 ├── data/                      Standalone, publishable benchmark dataset
-│   ├── schemes/               10 structured SchemeSchema JSON files
+│   ├── schemes/               35 structured SchemeSchema JSON files
 │   ├── guidelines/            Rendered guideline documents (clause-tagged)
 │   ├── cases/                 Sample applications for the demo (CASE-*.json)
 │   ├── beneficiaries.json     Synthetic beneficiary registry (B-0001..B-0012)
 │   ├── dbt/
 │   │   └── transactions.json  Mock DBT transaction ledger (money-trace ground truth)
 │   ├── qa/
-│   │   └── qa_benchmark.json  100 QA pairs (eligibility/entitlement/documents/appeal)
+│   │   └── qa_benchmark.json  241 QA pairs (eligibility/entitlement/documents/appeal)
 │   └── meta/
 │       └── leaderboard.json   Public leaderboard entries
 ├── scripts/                   Maintenance / dataset-build utilities

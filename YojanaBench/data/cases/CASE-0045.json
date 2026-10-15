@@ -1,0 +1,16 @@
+{
+  "case_id": "CASE-0045",
+  "scheme_id": "PMAYU-2023",
+  "label": "Low income household without a pucca house - should be ELIGIBLE at 267000 INR",
+  "applicant": {
+    "age": 38,
+    "annual_income": 250000,
+    "owns_pucca_house": false
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Income Certificate",
+    "Bank Account Passbook",
+    "Address Proof"
+  ]
+}

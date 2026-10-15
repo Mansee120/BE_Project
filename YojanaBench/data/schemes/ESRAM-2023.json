@@ -1,0 +1,44 @@
+{
+  "scheme_id": "ESRAM-2023",
+  "name": "eShram (National Database of Unorganised Workers)",
+  "level": "central",
+  "state": "All India",
+  "category": "labour",
+  "summary": "A national registry of unorganised workers, including migrant and gig workers, that issues an eShram card and links workers to social security and welfare benefits.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "ESRAM-C1",
+      "text": "The applicant must be 16 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 16,
+      "mandatory": true
+    },
+    {
+      "clause_id": "ESRAM-C2",
+      "text": "The applicant must be 59 years of age or younger.",
+      "field": "age",
+      "operator": "lte",
+      "value": 59,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "ESRAM-E1",
+      "text": "Registered workers receive an eShram card that gives access to social security and welfare schemes; there is no direct cash benefit.",
+      "compute": { "type": "fixed_amount", "value": 0, "unit": "INR (in-kind registration and benefits access)" },
+      "clause_ids": ["ESRAM-C1", "ESRAM-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "ESRAM-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "ESRAM-D2", "name": "Bank Account Passbook", "mandatory": true },
+    { "doc_id": "ESRAM-D3", "name": "Mobile Number", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "eShram Helpdesk", "deadline_days": 30, "description": "First grievance at the eShram helpdesk." },
+    { "level": 2, "authority": "State Labour Commissioner", "deadline_days": 60, "description": "Escalation at state level." },
+    { "level": 3, "authority": "Ministry of Labour and Employment", "deadline_days": 90, "description": "Final grievance at the Ministry." }
+  ]
+}

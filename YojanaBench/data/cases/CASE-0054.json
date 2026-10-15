@@ -1,0 +1,16 @@
+{
+  "case_id": "CASE-0054",
+  "scheme_id": "SUI-2023",
+  "label": "Woman entrepreneur - should be ELIGIBLE at 1000000 INR",
+  "applicant": {
+    "age": 30,
+    "gender": "female",
+    "category": "General"
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Business Plan",
+    "Category Certificate",
+    "Bank Account Passbook"
+  ]
+}

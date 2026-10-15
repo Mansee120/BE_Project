@@ -1,0 +1,53 @@
+{
+  "scheme_id": "PMUY-2023",
+  "name": "Pradhan Mantri Ujjwala Yojana",
+  "level": "central",
+  "state": "All India",
+  "category": "energy",
+  "summary": "Provides a free LPG cooking gas connection, with the first refill and a stove, to adult women from Below Poverty Line (BPL) households so that clean cooking fuel replaces firewood and other unhealthy fuels.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMUY-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMUY-C2",
+      "text": "The applicant must be a woman.",
+      "field": "gender",
+      "operator": "eq",
+      "value": "female",
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMUY-C3",
+      "text": "The applicant must belong to a Below Poverty Line (BPL) household.",
+      "field": "bpl",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMUY-E1",
+      "text": "An eligible woman receives a free LPG connection worth about Rs. 1600, including the security deposit, first refill and a stove.",
+      "compute": { "type": "fixed_amount", "value": 1600, "unit": "INR" },
+      "clause_ids": ["PMUY-C1", "PMUY-C2", "PMUY-C3"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMUY-D1", "name": "BPL Card", "mandatory": true },
+    { "doc_id": "PMUY-D2", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMUY-D3", "name": "Bank Account Passbook", "mandatory": true },
+    { "doc_id": "PMUY-D4", "name": "Address Proof", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Block Development Officer (BDO)", "deadline_days": 30, "description": "First appeal at block level." },
+    { "level": 2, "authority": "District Supply Officer", "deadline_days": 60, "description": "Second appeal at district level." },
+    { "level": 3, "authority": "State Food Commission", "deadline_days": 90, "description": "Final appeal at state level." }
+  ]
+}

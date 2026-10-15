@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Swachh Bharat Mission (Gramin)
+SCHEME ID: SBMG-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: SANITATION
+==============================================================================
+
+1. OBJECTIVE
+   A rural sanitation mission that provides a financial incentive to Below Poverty Line households in villages to construct and use an individual household toilet.
+
+2. ELIGIBILITY CRITERIA
+   [SBMG-C1] (MANDATORY) The applicant must live in a rural area.
+   [SBMG-C2] (MANDATORY) The applicant must belong to a Below Poverty Line (BPL) household.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [SBMG-E1] An eligible household receives an incentive of Rs. 12000 for constructing a toilet.
+
+4. DOCUMENTS REQUIRED
+   [SBMG-D1] (MANDATORY) Aadhaar Card
+   [SBMG-D2] (MANDATORY) BPL Card
+   [SBMG-D3] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [SBMG-APL1] Level 1: Gram Panchayat - within 15 days. First grievance at the village level.
+   [SBMG-APL2] Level 2: Block Development Officer (BDO) - within 30 days. Escalation at block level.
+   [SBMG-APL3] Level 3: District Panchayat - within 60 days. Final grievance at district level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

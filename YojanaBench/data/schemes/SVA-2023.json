@@ -1,0 +1,44 @@
+{
+  "scheme_id": "SVA-2023",
+  "name": "PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)",
+  "level": "central",
+  "state": "All India",
+  "category": "livelihood",
+  "summary": "A micro-credit scheme that provides collateral-free working capital loans to urban street vendors to help them resume their livelihoods, with interest subsidy and digital cashback on repayments.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "SVA-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    },
+    {
+      "clause_id": "SVA-C2",
+      "text": "The applicant must be an urban street vendor.",
+      "field": "region",
+      "operator": "eq",
+      "value": "urban",
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "SVA-E1",
+      "text": "An eligible street vendor receives a first working capital loan of Rs. 10000.",
+      "compute": { "type": "fixed_amount", "value": 10000, "unit": "INR" },
+      "clause_ids": ["SVA-C1", "SVA-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "SVA-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "SVA-D2", "name": "Letter of Recommendation from Urban Local Body", "mandatory": true },
+    { "doc_id": "SVA-D3", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Urban Local Body Nodal Officer", "deadline_days": 30, "description": "First grievance at the urban local body." },
+    { "level": 2, "authority": "Municipal Commissioner", "deadline_days": 60, "description": "Escalation at the municipal level." },
+    { "level": 3, "authority": "Ministry of Housing and Urban Affairs", "deadline_days": 90, "description": "Final grievance at the Ministry." }
+  ]
+}

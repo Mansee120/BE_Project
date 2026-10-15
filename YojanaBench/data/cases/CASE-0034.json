@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0034",
+  "scheme_id": "PMJJBY-2023",
+  "label": "Person aged 55 - should be INELIGIBLE",
+  "applicant": {
+    "age": 55
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Consent cum Declaration Form"
+  ]
+}

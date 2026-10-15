@@ -1,0 +1,15 @@
+{
+  "case_id": "CASE-0061",
+  "scheme_id": "NRLM-2023",
+  "label": "BPL rural household - should be ELIGIBLE at 15000 INR",
+  "applicant": {
+    "age": 35,
+    "region": "rural",
+    "bpl": true
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "BPL Card",
+    "Bank Account Passbook"
+  ]
+}

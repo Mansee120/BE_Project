@@ -1,0 +1,36 @@
+{
+  "scheme_id": "PMEGP-2023",
+  "name": "Prime Minister's Employment Generation Programme",
+  "level": "central",
+  "state": "All India",
+  "category": "employment",
+  "summary": "A credit-linked subsidy programme that supports the setting up of micro-enterprises in manufacturing and service sectors, generating self-employment opportunities in rural and urban areas.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMEGP-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMEGP-E1",
+      "text": "An eligible beneficiary can set up a project with a maximum project cost of Rs. 10 lakh in the service sector.",
+      "compute": { "type": "fixed_amount", "value": 1000000, "unit": "INR" },
+      "clause_ids": ["PMEGP-C1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMEGP-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMEGP-D2", "name": "Project Report", "mandatory": true },
+    { "doc_id": "PMEGP-D3", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "KVIC or KVIB District Officer", "deadline_days": 30, "description": "First grievance at the district office." },
+    { "level": 2, "authority": "State Director (KVIC/KVIB)", "deadline_days": 60, "description": "Escalation at state level." },
+    { "level": 3, "authority": "Ministry of Micro, Small and Medium Enterprises", "deadline_days": 90, "description": "Final grievance at the Ministry." }
+  ]
+}

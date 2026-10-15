@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0049",
+  "scheme_id": "ICDS-2023",
+  "label": "Toddler aged 3 - should be ELIGIBLE",
+  "applicant": {
+    "age": 3
+  },
+  "submitted_documents": [
+    "Aadhaar Card of Child",
+    "Immunization Card",
+    "Address Proof"
+  ]
+}

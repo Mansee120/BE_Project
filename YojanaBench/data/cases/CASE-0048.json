@@ -1,0 +1,12 @@
+{
+  "case_id": "CASE-0048",
+  "scheme_id": "MDM-2023",
+  "label": "Child aged 9 - should be ELIGIBLE",
+  "applicant": {
+    "age": 9
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "School Enrolment Certificate"
+  ]
+}

@@ -1,0 +1,116 @@
+﻿scheme_id,doc_id,name,mandatory
+APY-2023,APY-D1,Aadhaar Card,True
+APY-2023,APY-D2,Bank Account Passbook,True
+APY-2023,APY-D3,Mobile Number,True
+DDUGKY-2023,DDUGKY-D1,Aadhaar Card,True
+DDUGKY-2023,DDUGKY-D2,Age Proof,True
+DDUGKY-2023,DDUGKY-D3,Bank Account Passbook,True
+ESRAM-2023,ESRAM-D1,Aadhaar Card,True
+ESRAM-2023,ESRAM-D2,Bank Account Passbook,True
+ESRAM-2023,ESRAM-D3,Mobile Number,True
+ICDS-2023,ICDS-D1,Aadhaar Card of Child,True
+ICDS-2023,ICDS-D2,Immunization Card,True
+ICDS-2023,ICDS-D3,Address Proof,True
+IGNDPS-2023,IGNDPS-D1,Disability Certificate (80% or more),True
+IGNDPS-2023,IGNDPS-D2,Age Proof (Birth Certificate/School Certificate),True
+IGNDPS-2023,IGNDPS-D3,BPL Card,True
+IGNDPS-2023,IGNDPS-D4,Aadhaar Card,True
+IGNDPS-2023,IGNDPS-D5,Bank Account Passbook,True
+IGNOAPS-2023,IGNOAPS-D1,Age Proof (Birth Certificate/School Certificate),True
+IGNOAPS-2023,IGNOAPS-D2,BPL Card,True
+IGNOAPS-2023,IGNOAPS-D3,Aadhaar Card,True
+IGNOAPS-2023,IGNOAPS-D4,Bank Account Passbook,True
+IGNWPS-2023,IGNWPS-D1,Death Certificate of Husband,True
+IGNWPS-2023,IGNWPS-D2,BPL Card,True
+IGNWPS-2023,IGNWPS-D3,Aadhaar Card,True
+IGNWPS-2023,IGNWPS-D4,Bank Account Passbook,True
+JJM-2023,JJM-D1,Aadhaar Card,True
+JJM-2023,JJM-D2,Address Proof,True
+KCC-2023,KCC-D1,Land Records,True
+KCC-2023,KCC-D2,Aadhaar Card,True
+KCC-2023,KCC-D3,Bank Account Passbook,True
+MDM-2023,MDM-D1,Aadhaar Card,True
+MDM-2023,MDM-D2,School Enrolment Certificate,True
+MGNREGA-2023,MGNREGA-D1,Job Card,True
+MGNREGA-2023,MGNREGA-D2,Aadhaar Card,True
+MGNREGA-2023,MGNREGA-D3,Bank/Post Office Account Passbook,True
+MUDRA-2023,MUDRA-D1,Aadhaar Card,True
+MUDRA-2023,MUDRA-D2,Business Plan,True
+MUDRA-2023,MUDRA-D3,Bank Account Passbook,True
+NRLM-2023,NRLM-D1,Aadhaar Card,True
+NRLM-2023,NRLM-D2,BPL Card,True
+NRLM-2023,NRLM-D3,Bank Account Passbook,True
+NSP-PREMATRIC-2023,NSP-D1,Caste Certificate (SC/ST),True
+NSP-PREMATRIC-2023,NSP-D2,Income Certificate,True
+NSP-PREMATRIC-2023,NSP-D3,Previous Class Marksheet,True
+NSP-PREMATRIC-2023,NSP-D4,Bank Account Passbook,True
+PDS-NFSA-2023,PDS-D1,Ration Card,True
+PDS-NFSA-2023,PDS-D2,Aadhaar Card,True
+PDS-NFSA-2023,PDS-D3,Residence/Address Proof,True
+PMAYG-2023,PMAYG-D1,SECC 2011 Registration / Gram Sabha Approval,True
+PMAYG-2023,PMAYG-D2,Aadhaar Card,True
+PMAYG-2023,PMAYG-D3,Bank Account Passbook,True
+PMAYG-2023,PMAYG-D4,Job Card / Ration Card,False
+PMAYU-2023,PMAYU-D1,Aadhaar Card,True
+PMAYU-2023,PMAYU-D2,Income Certificate,True
+PMAYU-2023,PMAYU-D3,Bank Account Passbook,True
+PMAYU-2023,PMAYU-D4,Address Proof,True
+PMEGP-2023,PMEGP-D1,Aadhaar Card,True
+PMEGP-2023,PMEGP-D2,Project Report,True
+PMEGP-2023,PMEGP-D3,Bank Account Passbook,True
+PMFBY-2023,PMFBY-D1,Land Records,True
+PMFBY-2023,PMFBY-D2,Aadhaar Card,True
+PMFBY-2023,PMFBY-D3,Bank Account Passbook,True
+PMFBY-2023,PMFBY-D4,Sowing Certificate,True
+PMFME-2023,PMFME-D1,Aadhaar Card,True
+PMFME-2023,PMFME-D2,Project Report,True
+PMFME-2023,PMFME-D3,Bank Account Passbook,True
+PMJAY-2023,PMJAY-D1,Ayushman Card / SECC Eligibility Proof,True
+PMJAY-2023,PMJAY-D2,Aadhaar Card,True
+PMJAY-2023,PMJAY-D3,Ration Card,False
+PMJDY-2023,PMJDY-D1,Aadhaar Card,True
+PMJDY-2023,PMJDY-D2,Address Proof,True
+PMJDY-2023,PMJDY-D3,Passport Size Photograph,True
+PMJJBY-2023,PMJJBY-D1,Aadhaar Card,True
+PMJJBY-2023,PMJJBY-D2,Bank Account Passbook,True
+PMJJBY-2023,PMJJBY-D3,Consent cum Declaration Form,True
+PMKISAN-2023,PMKISAN-D1,Land Ownership Records (Khatauni/7-12 Extract),True
+PMKISAN-2023,PMKISAN-D2,Aadhaar Card,True
+PMKISAN-2023,PMKISAN-D3,Bank Account Passbook,True
+PMKMY-2023,PMKMY-D1,Aadhaar Card,True
+PMKMY-2023,PMKMY-D2,Bank Account Passbook,True
+PMKMY-2023,PMKMY-D3,Land Records,True
+PMKUSUM-2023,PMKUSUM-D1,Land Records,True
+PMKUSUM-2023,PMKUSUM-D2,Aadhaar Card,True
+PMKUSUM-2023,PMKUSUM-D3,Bank Account Passbook,True
+PMKUSUM-2023,PMKUSUM-D4,Electricity Bill,True
+PMMVY-2023,PMMVY-D1,Aadhaar Card,True
+PMMVY-2023,PMMVY-D2,Mother and Child Protection (MCP) Card,True
+PMMVY-2023,PMMVY-D3,Bank Account Passbook,True
+PMS-SC-2023,PMS-D1,Caste Certificate (SC),True
+PMS-SC-2023,PMS-D2,Income Certificate,True
+PMS-SC-2023,PMS-D3,Class 10 Marksheet,True
+PMS-SC-2023,PMS-D4,Fee Receipt / Admission Proof,True
+PMSBY-2023,PMSBY-D1,Aadhaar Card,True
+PMSBY-2023,PMSBY-D2,Bank Account Passbook,True
+PMSBY-2023,PMSBY-D3,Consent cum Declaration Form,True
+PMUY-2023,PMUY-D1,BPL Card,True
+PMUY-2023,PMUY-D2,Aadhaar Card,True
+PMUY-2023,PMUY-D3,Bank Account Passbook,True
+PMUY-2023,PMUY-D4,Address Proof,True
+PMVK-2023,PMVK-D1,Aadhaar Card,True
+PMVK-2023,PMVK-D2,Bank Account Passbook,True
+PMVK-2023,PMVK-D3,Proof of Trade or Profession,True
+SBMG-2023,SBMG-D1,Aadhaar Card,True
+SBMG-2023,SBMG-D2,BPL Card,True
+SBMG-2023,SBMG-D3,Bank Account Passbook,True
+SSY-2023,SSY-D1,Birth Certificate of Girl Child,True
+SSY-2023,SSY-D2,Aadhaar Card of Guardian,True
+SSY-2023,SSY-D3,Address Proof,True
+SUI-2023,SUI-D1,Aadhaar Card,True
+SUI-2023,SUI-D2,Business Plan,True
+SUI-2023,SUI-D3,Category Certificate,True
+SUI-2023,SUI-D4,Bank Account Passbook,True
+SVA-2023,SVA-D1,Aadhaar Card,True
+SVA-2023,SVA-D2,Letter of Recommendation from Urban Local Body,True
+SVA-2023,SVA-D3,Bank Account Passbook,True

@@ -1,0 +1,36 @@
+{
+  "scheme_id": "ICDS-2023",
+  "name": "Integrated Child Development Services",
+  "level": "central",
+  "state": "All India",
+  "category": "nutrition",
+  "summary": "An early childhood care and development programme delivered through Anganwadi centres, providing supplementary nutrition, immunisation, health check-ups, referral services and pre-school education to children below six years and to mothers.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "ICDS-C1",
+      "text": "The child must be 6 years of age or younger.",
+      "field": "age",
+      "operator": "lte",
+      "value": 6,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "ICDS-E1",
+      "text": "Eligible children and mothers receive supplementary nutrition and pre-school services free of cost at the Anganwadi centre; there is no cash benefit.",
+      "compute": { "type": "fixed_amount", "value": 0, "unit": "INR (in-kind nutrition and pre-school)" },
+      "clause_ids": ["ICDS-C1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "ICDS-D1", "name": "Aadhaar Card of Child", "mandatory": true },
+    { "doc_id": "ICDS-D2", "name": "Immunization Card", "mandatory": true },
+    { "doc_id": "ICDS-D3", "name": "Address Proof", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Anganwadi Worker", "deadline_days": 15, "description": "First grievance at the centre level." },
+    { "level": 2, "authority": "Child Development Project Officer (CDPO)", "deadline_days": 30, "description": "Escalation at block level." },
+    { "level": 3, "authority": "District Programme Officer", "deadline_days": 60, "description": "Final grievance at district level." }
+  ]
+}

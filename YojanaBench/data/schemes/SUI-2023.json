@@ -1,0 +1,47 @@
+{
+  "scheme_id": "SUI-2023",
+  "name": "Stand-Up India",
+  "level": "central",
+  "state": "All India",
+  "category": "entrepreneurship",
+  "summary": "A scheme that facilitates bank loans to Scheduled Caste, Scheduled Tribe and women entrepreneurs for setting up greenfield enterprises in manufacturing, services, trading and allied agricultural activities.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "SUI-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    },
+    {
+      "clause_id": "SUI-C2",
+      "text": "The applicant must be a woman or belong to a Scheduled Caste or Scheduled Tribe.",
+      "operator": "or",
+      "clauses": [
+        { "field": "gender", "operator": "eq", "value": "female" },
+        { "field": "category", "operator": "in", "value": ["SC", "ST"] }
+      ],
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "SUI-E1",
+      "text": "An eligible entrepreneur can avail a composite loan of between Rs. 10 lakh and Rs. 1 crore.",
+      "compute": { "type": "coverage", "value": 1000000, "unit": "INR" },
+      "clause_ids": ["SUI-C1", "SUI-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "SUI-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "SUI-D2", "name": "Business Plan", "mandatory": true },
+    { "doc_id": "SUI-D3", "name": "Category Certificate", "mandatory": true },
+    { "doc_id": "SUI-D4", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Bank Branch Manager", "deadline_days": 15, "description": "First grievance at the bank branch." },
+    { "level": 2, "authority": "Lead District Manager", "deadline_days": 45, "description": "Escalation at district level." },
+    { "level": 3, "authority": "Banking Ombudsman", "deadline_days": 90, "description": "Final grievance before the Banking Ombudsman." }
+  ]
+}

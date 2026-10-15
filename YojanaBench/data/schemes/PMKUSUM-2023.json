@@ -1,0 +1,37 @@
+{
+  "scheme_id": "PMKUSUM-2023",
+  "name": "Pradhan Mantri Kisan Urja Suraksha evam Utthaan Mahabhiyan",
+  "level": "central",
+  "state": "All India",
+  "category": "energy",
+  "summary": "A solar energy scheme that provides subsidised standalone solar pumps and solarisation of existing agriculture pumps to farmers, giving reliable irrigation and an additional source of income.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMKUSUM-C1",
+      "text": "The applicant must be a farmer.",
+      "field": "is_farmer",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMKUSUM-E1",
+      "text": "An eligible farmer receives a subsidy of up to Rs. 60000 towards the cost of a solar pump.",
+      "compute": { "type": "fixed_amount", "value": 60000, "unit": "INR" },
+      "clause_ids": ["PMKUSUM-C1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMKUSUM-D1", "name": "Land Records", "mandatory": true },
+    { "doc_id": "PMKUSUM-D2", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMKUSUM-D3", "name": "Bank Account Passbook", "mandatory": true },
+    { "doc_id": "PMKUSUM-D4", "name": "Electricity Bill", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "DISCOM Officer", "deadline_days": 30, "description": "First grievance with the power distribution company." },
+    { "level": 2, "authority": "State Nodal Agency", "deadline_days": 60, "description": "Escalation to the state renewable energy agency." },
+    { "level": 3, "authority": "Ministry of New and Renewable Energy", "deadline_days": 90, "description": "Final grievance at the Ministry." }
+  ]
+}

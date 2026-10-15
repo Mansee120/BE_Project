@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YojanaBench — Welfare-Scheme Audit</title>
-  <link rel="stylesheet" href="/static/styles.css?v=2" />
+  <link rel="stylesheet" href="/static/styles.css?v=3" />
 </head>
 <body>
   <!-- ============================ LOGIN GATE ============================ -->
@@ -64,8 +64,12 @@
         Appeal Routing
       </button>
       <button class="nav-item" data-page="notices">
+        <svg viewBox="0 0 24 24"><path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6V11a6 6 0 0 0-5-5.9V4a1 1 0 1 0-2 0v1.1A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+        Notices
+      </button>
+      <button class="nav-item" data-page="email">
         <svg viewBox="0 0 24 24"><path d="M2 5h20v14H2V5zm2 2v.4l8 4.6 8-4.6V7H4zm0 2.9V17h16V9.9l-8 4.6-8-4.6z"/></svg>
-        Notices &amp; Email
+        Email
       </button>
       <a class="nav-item" href="/grievance">
         <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm0 7.2L4.4 5.3 12 4l7.6 1.3L12 9.2zM2 17l10 5 10-5v-3l-10 5-10-5z"/></svg>
@@ -298,8 +302,8 @@
         </div>
       </section>
 
-      <!-- ----------------------- NOTICES / EMAIL ----------------------- -->
-      <section id="page-notices" class="page">
+      <!-- ----------------------- EMAIL ----------------------- -->
+      <section id="page-email" class="page">
         <div class="card">
           <div class="card-head">
             <h4>Email settings</h4>
@@ -344,8 +348,8 @@
         </div>
 
         <div class="card">
-          <div class="card-head"><h4>Compose &amp; send a notice / email</h4></div>
-          <p class="muted">Write to any citizen directly, or describe the notice and let
+          <div class="card-head"><h4>Compose &amp; send an email</h4></div>
+          <p class="muted">Write to any citizen directly, or describe the message and let
             the local AI (Ollama) draft it. Offline, the draft falls back to a clean
             template and the send lands in the outbox (dry-run) — set
             <code>YOJANA_SMTP_*</code> to deliver for real.</p>
@@ -394,22 +398,56 @@
           </div>
           <div id="mail-status" class="muted" style="margin-top:10px"></div>
         </div>
+      </section>
 
+      <!-- ----------------------- NOTICES ----------------------- -->
+      <section id="page-notices" class="page">
         <div class="card">
           <div class="card-head">
-            <h4>Email automation layer</h4>
+            <h4>Grounded citizen notices</h4>
             <span id="notify-layer-status" class="pill pill-muted">checking…</span>
           </div>
-          <p class="muted">Grounded citizen notices: every verdict can be turned into a
-            clause-cited email to the applicant, and rejected applicants get actionable,
-            multilingual advice. When no SMTP/IMAP credentials are set, notices are written
-            to the offline outbox (<code>runtime/outbox</code>) so the pipeline stays
-            zero-cost. Run an audit and press <b>Send notice</b> on the result to try it.</p>
+          <p class="muted">Every verdict can be turned into a clause-cited notice to the
+            applicant, and rejected applicants get actionable, multilingual advice. When no
+            SMTP/IMAP credentials are set, notices are written to the offline outbox
+            (<code>runtime/outbox</code>) so the pipeline stays zero-cost. Run an audit and
+            press <b>Send notice</b> on the result to try it.</p>
           <div class="field">
             <span>Closed-loop re-audit — read applicant replies from the inbox (IMAP)</span>
             <button class="btn btn-primary" id="btn-sync-replies">Sync inbox replies</button>
           </div>
           <div id="replies-body" class="report-body"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h4>Send a notice to an applicant</h4>
+            <span id="message-layer-status" class="pill pill-muted">checking…</span>
+          </div>
+          <p class="muted">Deliver the clause-cited notice straight to the applicant — as an
+            <b>email</b> or a short <b>message (SMS)</b>. Offline, both channels are written to a
+            local outbox (<code>runtime/outbox</code> / <code>runtime/sms_outbox</code>).</p>
+          <div class="field-grid">
+            <label class="field"><span>Scheme</span>
+              <select id="notice-scheme"></select></label>
+            <label class="field"><span>Applicant name</span>
+              <input type="text" id="notice-name" placeholder="e.g. Ramesh Kumar" /></label>
+            <label class="field"><span>Delivery channel</span>
+              <select id="notice-channel">
+                <option value="email">Email</option>
+                <option value="sms">Message (SMS)</option>
+              </select></label>
+            <label class="field" id="notice-email-field"><span>Email address</span>
+              <input type="email" id="notice-email" placeholder="applicant@gmail.com" /></label>
+            <label class="field" id="notice-phone-field" style="display:none"><span>Mobile number</span>
+              <input type="tel" id="notice-phone" placeholder="+919812345678" /></label>
+          </div>
+          <div class="notice-actions">
+            <label class="switch"><input type="checkbox" id="notice-notify-auth" />
+              cc scheme authority</label>
+            <button class="btn btn-primary" id="btn-notice-send">Send notice</button>
+          </div>
+          <div id="notice-send-status" class="muted" style="margin-top:10px"></div>
         </div>
 
         <div class="card">
@@ -448,6 +486,8 @@
       <label class="vb-lang" for="vb-lang">Language
         <select id="vb-lang" aria-label="Assistant language"></select>
       </label>
+      <button id="vb-read" class="vb-iconbtn" aria-label="Read the last reply aloud"
+              title="Read the last reply aloud">Read</button>
       <button id="vb-mute" class="vb-iconbtn" aria-label="Turn spoken replies off">Audio On</button>
       <button id="vb-close" class="vb-iconbtn" aria-label="Close assistant"
               title="Close">✕</button>
@@ -473,7 +513,7 @@
     <div class="vb-status" id="vb-status" aria-live="polite"></div>
   </div>
 
-  <script src="/static/app.js?v=3"></script>
-  <script src="/static/voicebot.js?v=3"></script>
+  <script src="/static/app.js?v=7"></script>
+  <script src="/static/voicebot.js?v=8"></script>
 </body>
 </html>

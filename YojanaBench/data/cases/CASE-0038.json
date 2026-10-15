@@ -1,0 +1,14 @@
+{
+  "case_id": "CASE-0038",
+  "scheme_id": "PMMVY-2023",
+  "label": "Mother aged 24 - should be ELIGIBLE at 5000 INR",
+  "applicant": {
+    "age": 24,
+    "gender": "female"
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Mother and Child Protection (MCP) Card",
+    "Bank Account Passbook"
+  ]
+}

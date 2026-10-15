@@ -12,7 +12,7 @@ from backend import config
 from backend import composer
 import backend.appeal_registry as registry
 from backend.agents import NotificationAgent
-from backend.notifications import MailClient, extract_email, match_documents
+from backend.notifications import MailClient, MessageClient, extract_email, match_documents
 from backend.pipeline import pipeline
 from backend.app import app
 
@@ -45,11 +45,15 @@ def offline(monkeypatch, tmp_path):
                         str(tmp_path / "appeal_registry.json"))
     monkeypatch.setattr(config, "EMAIL_CONFIG_PATH",
                         str(tmp_path / "email_config.json"))
+    monkeypatch.setattr(config, "SMS_OUTBOX_DIR", str(tmp_path / "sms_outbox"))
+    monkeypatch.setattr(config, "MESSAGE_LOG_PATH",
+                        str(tmp_path / "message_log.json"))
     # Force offline mode: no SMTP/IMAP credentials -> dry-run outbox.
     monkeypatch.setattr(config, "SMTP_HOST", "")
     monkeypatch.setattr(config, "SMTP_USER", "")
     monkeypatch.setattr(config, "IMAP_HOST", "")
     monkeypatch.setattr(config, "IMAP_USER", "")
+    monkeypatch.setattr(config, "SMS_GATEWAY_URL", "")
     return tmp_path
 
 
@@ -149,6 +153,45 @@ def test_notifications_status_endpoint():
     r = client.get("/api/notifications/status")
     assert r.status_code == 200
     assert r.json()["smtp"] in ("configured", "outbox (dry-run)")
+
+
+# ------------------------------- sms / message ------------------------------
+def test_dry_run_message_writes_outbox(offline):
+    out = MessageClient().send("+919812345678", "Your BPL card is pending.")
+    assert out["dry_run"] is True and out["sent"] is False
+    assert out["channel"] == "sms"
+    assert os.path.exists(out["outbox_path"])
+    assert os.path.exists(config.MESSAGE_LOG_PATH)
+
+
+def test_phone_validation():
+    assert MessageClient.valid_phone("+919812345678")
+    assert MessageClient.valid_phone("9812345678")
+    assert not MessageClient.valid_phone("not-a-phone")
+    assert not MessageClient.valid_phone(None)
+
+
+def test_notify_endpoint_sms_dry_run(offline):
+    payload = dict(INELIGIBLE, send=True, channel="sms", phone="+919812345678")
+    r = client.post("/api/notify", json=payload)
+    assert r.status_code == 200
+    delivery = r.json()["delivery"]
+    assert delivery["channel"] == "sms"
+    assert delivery["dry_run"] is True
+    assert os.path.exists(delivery["outbox_path"])
+
+
+def test_notify_endpoint_sms_rejects_bad_phone(offline):
+    payload = dict(INELIGIBLE, send=True, channel="sms", phone="123")
+    r = client.post("/api/notify", json=payload)
+    assert r.status_code == 200
+    assert r.json()["delivery"]["error"]
+
+
+def test_messages_status_endpoint():
+    r = client.get("/api/messages/status")
+    assert r.status_code == 200
+    assert r.json()["mode"] in ("live", "outbox (dry-run)")
 
 
 # ------------------------------- manual compose -----------------------------

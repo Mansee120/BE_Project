@@ -1274,7 +1274,237 @@
       "secondary_scheme_id": "IGNWPS-2023"
     },
     {
-      "id": "YB-IGNDPS-S001",
+      "id": "YB-APY-S001",
+      "scheme_id": "APY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Atal Pension Yojana? (Non-taxpaying worker aged 25)",
+      "reference_answer": "Eligible. Entitlement: 1000 INR/month. 1000 INR/month (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "APY-C1",
+        "APY-C2",
+        "APY-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 25,
+        "is_income_tax_payer": false
+      }
+    },
+    {
+      "id": "YB-APY-S002",
+      "scheme_id": "APY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Atal Pension Yojana? (Income tax payer aged 30)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "APY-C1",
+        "APY-C2",
+        "APY-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "is_income_tax_payer": true
+      }
+    },
+    {
+      "id": "YB-APY-E003",
+      "scheme_id": "APY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Atal Pension Yojana? (Non-taxpaying worker aged 25)",
+      "reference_answer": "Entitlement: 1000 INR/month.",
+      "verdict": "eligible",
+      "entitlement_value": 1000,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "APY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 25,
+        "is_income_tax_payer": false
+      }
+    },
+    {
+      "id": "YB-DDUGKY-S004",
+      "scheme_id": "DDUGKY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Deen Dayal Upadhyaya Grameen Kaushalya Yojana? (Rural youth aged 22)",
+      "reference_answer": "Eligible. Entitlement: 0 INR (in-kind skill training and placement). 0 INR (in-kind skill training and placement) (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "DDUGKY-C1",
+        "DDUGKY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 22,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-DDUGKY-S005",
+      "scheme_id": "DDUGKY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Deen Dayal Upadhyaya Grameen Kaushalya Yojana? (Urban youth aged 22)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "DDUGKY-C1",
+        "DDUGKY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 22,
+        "region": "urban"
+      }
+    },
+    {
+      "id": "YB-DDUGKY-E006",
+      "scheme_id": "DDUGKY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Deen Dayal Upadhyaya Grameen Kaushalya Yojana? (Rural youth aged 22)",
+      "reference_answer": "No monetary entitlement applies to this scheme.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "DDUGKY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 22,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-ESRAM-S007",
+      "scheme_id": "ESRAM-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for eShram (National Database of Unorganised Workers)? (Worker aged 30)",
+      "reference_answer": "Eligible. Entitlement: 0 INR (in-kind registration and benefits access). 0 INR (in-kind registration and benefits access) (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "ESRAM-C1",
+        "ESRAM-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30
+      }
+    },
+    {
+      "id": "YB-ESRAM-S008",
+      "scheme_id": "ESRAM-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for eShram (National Database of Unorganised Workers)? (Senior aged 62)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "ESRAM-C1",
+        "ESRAM-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 62
+      }
+    },
+    {
+      "id": "YB-ESRAM-E009",
+      "scheme_id": "ESRAM-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under eShram (National Database of Unorganised Workers)? (Worker aged 30)",
+      "reference_answer": "No monetary entitlement applies to this scheme.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "ESRAM-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30
+      }
+    },
+    {
+      "id": "YB-ICDS-S010",
+      "scheme_id": "ICDS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Integrated Child Development Services? (Toddler aged 3)",
+      "reference_answer": "Eligible. Entitlement: 0 INR (in-kind nutrition and pre-school). 0 INR (in-kind nutrition and pre-school) (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "ICDS-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 3
+      }
+    },
+    {
+      "id": "YB-ICDS-S011",
+      "scheme_id": "ICDS-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Integrated Child Development Services? (Child aged 8)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "ICDS-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 8
+      }
+    },
+    {
+      "id": "YB-ICDS-E012",
+      "scheme_id": "ICDS-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Integrated Child Development Services? (Toddler aged 3)",
+      "reference_answer": "No monetary entitlement applies to this scheme.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "ICDS-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 3
+      }
+    },
+    {
+      "id": "YB-IGNDPS-S013",
       "scheme_id": "IGNDPS-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Indira Gandhi National Disability Pension Scheme? (BPL applicant with 90% disability)",
@@ -1298,7 +1528,7 @@
       }
     },
     {
-      "id": "YB-IGNDPS-S002",
+      "id": "YB-IGNDPS-S014",
       "scheme_id": "IGNDPS-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Indira Gandhi National Disability Pension Scheme? (BPL applicant with 80% disability)",
@@ -1322,7 +1552,7 @@
       }
     },
     {
-      "id": "YB-IGNDPS-S003",
+      "id": "YB-IGNDPS-S015",
       "scheme_id": "IGNDPS-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Indira Gandhi National Disability Pension Scheme? (Applicant with 55% disability)",
@@ -1346,7 +1576,7 @@
       }
     },
     {
-      "id": "YB-IGNDPS-E004",
+      "id": "YB-IGNDPS-E016",
       "scheme_id": "IGNDPS-2023",
       "category": "entitlement",
       "question": "What benefit does the applicant receive under Indira Gandhi National Disability Pension Scheme? (BPL applicant with 90% disability)",
@@ -1367,7 +1597,7 @@
       }
     },
     {
-      "id": "YB-IGNOAPS-S005",
+      "id": "YB-IGNOAPS-S017",
       "scheme_id": "IGNOAPS-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Indira Gandhi National Old Age Pension Scheme? (BPL senior aged 71)",
@@ -1388,7 +1618,7 @@
       }
     },
     {
-      "id": "YB-IGNOAPS-S006",
+      "id": "YB-IGNOAPS-S018",
       "scheme_id": "IGNOAPS-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Indira Gandhi National Old Age Pension Scheme? (BPL senior aged 88)",
@@ -1409,7 +1639,7 @@
       }
     },
     {
-      "id": "YB-IGNOAPS-S007",
+      "id": "YB-IGNOAPS-S019",
       "scheme_id": "IGNOAPS-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Indira Gandhi National Old Age Pension Scheme? (Senior above the poverty line)",
@@ -1430,7 +1660,7 @@
       }
     },
     {
-      "id": "YB-IGNOAPS-E008",
+      "id": "YB-IGNOAPS-E020",
       "scheme_id": "IGNOAPS-2023",
       "category": "entitlement",
       "question": "What benefit does the applicant receive under Indira Gandhi National Old Age Pension Scheme? (BPL senior aged 71)",
@@ -1451,7 +1681,7 @@
       }
     },
     {
-      "id": "YB-IGNWPS-S009",
+      "id": "YB-IGNWPS-S021",
       "scheme_id": "IGNWPS-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Indira Gandhi National Widow Pension Scheme? (BPL widow aged 52)",
@@ -1475,7 +1705,7 @@
       }
     },
     {
-      "id": "YB-IGNWPS-S010",
+      "id": "YB-IGNWPS-S022",
       "scheme_id": "IGNWPS-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Indira Gandhi National Widow Pension Scheme? (BPL widow aged 85)",
@@ -1499,7 +1729,7 @@
       }
     },
     {
-      "id": "YB-IGNWPS-S011",
+      "id": "YB-IGNWPS-S023",
       "scheme_id": "IGNWPS-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Indira Gandhi National Widow Pension Scheme? (Married woman in a BPL home)",
@@ -1523,7 +1753,7 @@
       }
     },
     {
-      "id": "YB-IGNWPS-E012",
+      "id": "YB-IGNWPS-E024",
       "scheme_id": "IGNWPS-2023",
       "category": "entitlement",
       "question": "What benefit does the applicant receive under Indira Gandhi National Widow Pension Scheme? (BPL widow aged 52)",
@@ -1546,7 +1776,179 @@
       }
     },
     {
-      "id": "YB-MGNREGA-S013",
+      "id": "YB-JJM-S025",
+      "scheme_id": "JJM-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Jal Jeevan Mission? (Rural household)",
+      "reference_answer": "Eligible. Entitlement: 0 INR (in-kind tap connection). 0 INR (in-kind tap connection) (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "JJM-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-JJM-S026",
+      "scheme_id": "JJM-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Jal Jeevan Mission? (Urban household)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "JJM-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "region": "urban"
+      }
+    },
+    {
+      "id": "YB-JJM-E027",
+      "scheme_id": "JJM-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Jal Jeevan Mission? (Rural household)",
+      "reference_answer": "No monetary entitlement applies to this scheme.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "JJM-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-KCC-S028",
+      "scheme_id": "KCC-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Kisan Credit Card? (Farmer aged 40)",
+      "reference_answer": "Eligible. Entitlement: 300000 INR. 300000 INR (insurance coverage)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "KCC-C1",
+        "KCC-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "is_farmer": true
+      }
+    },
+    {
+      "id": "YB-KCC-S029",
+      "scheme_id": "KCC-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Kisan Credit Card? (Non-farmer aged 40)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "KCC-C1",
+        "KCC-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "is_farmer": false
+      }
+    },
+    {
+      "id": "YB-KCC-E030",
+      "scheme_id": "KCC-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Kisan Credit Card? (Farmer aged 40)",
+      "reference_answer": "Entitlement: 300000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 300000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "KCC-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "is_farmer": true
+      }
+    },
+    {
+      "id": "YB-MDM-S031",
+      "scheme_id": "MDM-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri POSHAN Shakti Nirman (Mid-Day Meal)? (Child aged 9)",
+      "reference_answer": "Eligible. Entitlement: 0 INR (in-kind cooked meal). 0 INR (in-kind cooked meal) (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MDM-C1",
+        "MDM-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 9
+      }
+    },
+    {
+      "id": "YB-MDM-S032",
+      "scheme_id": "MDM-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri POSHAN Shakti Nirman (Mid-Day Meal)? (Youth aged 16)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MDM-C1",
+        "MDM-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 16
+      }
+    },
+    {
+      "id": "YB-MDM-E033",
+      "scheme_id": "MDM-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri POSHAN Shakti Nirman (Mid-Day Meal)? (Child aged 9)",
+      "reference_answer": "No monetary entitlement applies to this scheme.",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MDM-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 9
+      }
+    },
+    {
+      "id": "YB-MGNREGA-S034",
       "scheme_id": "MGNREGA-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Mahatma Gandhi National Rural Employment Guarantee Act? (Rural adult seeking work)",
@@ -1567,7 +1969,7 @@
       }
     },
     {
-      "id": "YB-MGNREGA-S014",
+      "id": "YB-MGNREGA-S035",
       "scheme_id": "MGNREGA-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Mahatma Gandhi National Rural Employment Guarantee Act? (Rural adult aged 18)",
@@ -1588,7 +1990,7 @@
       }
     },
     {
-      "id": "YB-MGNREGA-S015",
+      "id": "YB-MGNREGA-S036",
       "scheme_id": "MGNREGA-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Mahatma Gandhi National Rural Employment Guarantee Act? (Urban adult resident)",
@@ -1609,7 +2011,7 @@
       }
     },
     {
-      "id": "YB-MGNREGA-E016",
+      "id": "YB-MGNREGA-E037",
       "scheme_id": "MGNREGA-2023",
       "category": "entitlement",
       "question": "What benefit does the applicant receive under Mahatma Gandhi National Rural Employment Guarantee Act? (Rural adult seeking work)",
@@ -1629,7 +2031,126 @@
       }
     },
     {
-      "id": "YB-NSP-S017",
+      "id": "YB-MUDRA-S038",
+      "scheme_id": "MUDRA-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri MUDRA Yojana? (Small enterprise with low income)",
+      "reference_answer": "Eligible. Entitlement: 50000 INR. 50000 INR (tiered entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MUDRA-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "annual_income": 80000
+      }
+    },
+    {
+      "id": "YB-MUDRA-S039",
+      "scheme_id": "MUDRA-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri MUDRA Yojana? (Larger enterprise)",
+      "reference_answer": "Eligible. Entitlement: 1000000 INR. 1000000 INR (tiered entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MUDRA-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "annual_income": 800000
+      }
+    },
+    {
+      "id": "YB-MUDRA-E040",
+      "scheme_id": "MUDRA-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri MUDRA Yojana? (Small enterprise with low income)",
+      "reference_answer": "Entitlement: 50000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 50000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "MUDRA-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "annual_income": 80000
+      }
+    },
+    {
+      "id": "YB-NRLM-S041",
+      "scheme_id": "NRLM-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Deendayal Antyodaya Yojana - National Rural Livelihoods Mission? (BPL rural household)",
+      "reference_answer": "Eligible. Entitlement: 15000 INR. 15000 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NRLM-C1",
+        "NRLM-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "region": "rural",
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-NRLM-S042",
+      "scheme_id": "NRLM-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Deendayal Antyodaya Yojana - National Rural Livelihoods Mission? (Urban household)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NRLM-C1",
+        "NRLM-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "region": "urban",
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-NRLM-E043",
+      "scheme_id": "NRLM-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Deendayal Antyodaya Yojana - National Rural Livelihoods Mission? (BPL rural household)",
+      "reference_answer": "Entitlement: 15000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 15000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "NRLM-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "region": "rural",
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-NSP-S044",
       "scheme_id": "NSP-PREMATRIC-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Pre-Matric Scholarship for SC/ST Students? (SC day-scholar in class 9)",
@@ -1653,7 +2174,7 @@
       }
     },
     {
-      "id": "YB-NSP-S018",
+      "id": "YB-NSP-S045",
       "scheme_id": "NSP-PREMATRIC-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Pre-Matric Scholarship for SC/ST Students? (ST hosteller in class 10)",
@@ -1677,7 +2198,7 @@
       }
     },
     {
-      "id": "YB-NSP-S019",
+      "id": "YB-NSP-S046",
       "scheme_id": "NSP-PREMATRIC-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Pre-Matric Scholarship for SC/ST Students? (General-category student)",
@@ -1700,7 +2221,7 @@
       }
     },
     {
-      "id": "YB-NSP-E020",
+      "id": "YB-NSP-E047",
       "scheme_id": "NSP-PREMATRIC-2023",
       "category": "entitlement",
       "question": "What benefit does the applicant receive under Pre-Matric Scholarship for SC/ST Students? (SC day-scholar in class 9)",
@@ -1723,7 +2244,7 @@
       }
     },
     {
-      "id": "YB-PDS-S021",
+      "id": "YB-PDS-S048",
       "scheme_id": "PDS-NFSA-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Public Distribution System (National Food Security Act, 2013)? (AAY rural household)",
@@ -1749,7 +2270,7 @@
       }
     },
     {
-      "id": "YB-PDS-S022",
+      "id": "YB-PDS-S049",
       "scheme_id": "PDS-NFSA-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Public Distribution System (National Food Security Act, 2013)? (Priority household (PHH) in a city)",
@@ -1775,7 +2296,7 @@
       }
     },
     {
-      "id": "YB-PDS-S023",
+      "id": "YB-PDS-S050",
       "scheme_id": "PDS-NFSA-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Public Distribution System (National Food Security Act, 2013)? (APL family of an income-tax payer)",
@@ -1801,7 +2322,7 @@
       }
     },
     {
-      "id": "YB-PDS-E024",
+      "id": "YB-PDS-E051",
       "scheme_id": "PDS-NFSA-2023",
       "category": "entitlement",
       "question": "What benefit does the applicant receive under Public Distribution System (National Food Security Act, 2013)? (AAY rural household)",
@@ -1826,7 +2347,7 @@
       }
     },
     {
-      "id": "YB-PMAYG-S025",
+      "id": "YB-PMAYG-S052",
       "scheme_id": "PMAYG-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)? (Houseless SECC-listed family)",
@@ -1851,7 +2372,7 @@
       }
     },
     {
-      "id": "YB-PMAYG-S026",
+      "id": "YB-PMAYG-S053",
       "scheme_id": "PMAYG-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)? (Kutcha-house SECC-listed family)",
@@ -1876,7 +2397,7 @@
       }
     },
     {
-      "id": "YB-PMAYG-S027",
+      "id": "YB-PMAYG-S054",
       "scheme_id": "PMAYG-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)? (Family already owning a pucca house)",
@@ -1901,7 +2422,7 @@
       }
     },
     {
-      "id": "YB-PMAYG-E028",
+      "id": "YB-PMAYG-E055",
       "scheme_id": "PMAYG-2023",
       "category": "entitlement",
       "question": "What benefit does the applicant receive under Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)? (Houseless SECC-listed family)",
@@ -1924,7 +2445,234 @@
       }
     },
     {
-      "id": "YB-PMJAY-S029",
+      "id": "YB-PMAYU-S056",
+      "scheme_id": "PMAYU-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Awas Yojana (Urban)? (Low income household without a pucca house)",
+      "reference_answer": "Eligible. Entitlement: 267000 INR. 267000 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYU-C1",
+        "PMAYU-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 38,
+        "annual_income": 250000,
+        "owns_pucca_house": false
+      }
+    },
+    {
+      "id": "YB-PMAYU-S057",
+      "scheme_id": "PMAYU-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Awas Yojana (Urban)? (Higher income household)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYU-C1",
+        "PMAYU-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "annual_income": 500000,
+        "owns_pucca_house": false
+      }
+    },
+    {
+      "id": "YB-PMAYU-E058",
+      "scheme_id": "PMAYU-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Awas Yojana (Urban)? (Low income household without a pucca house)",
+      "reference_answer": "Entitlement: 267000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 267000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMAYU-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 38,
+        "annual_income": 250000,
+        "owns_pucca_house": false
+      }
+    },
+    {
+      "id": "YB-PMEGP-S059",
+      "scheme_id": "PMEGP-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Prime Minister's Employment Generation Programme? (Adult applicant)",
+      "reference_answer": "Eligible. Entitlement: 1000000 INR. 1000000 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMEGP-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30
+      }
+    },
+    {
+      "id": "YB-PMEGP-S060",
+      "scheme_id": "PMEGP-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Prime Minister's Employment Generation Programme? (Minor applicant)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMEGP-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 15
+      }
+    },
+    {
+      "id": "YB-PMEGP-E061",
+      "scheme_id": "PMEGP-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Prime Minister's Employment Generation Programme? (Adult applicant)",
+      "reference_answer": "Entitlement: 1000000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 1000000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMEGP-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30
+      }
+    },
+    {
+      "id": "YB-PMFBY-S062",
+      "scheme_id": "PMFBY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Fasal Bima Yojana? (Farmer seeking crop cover)",
+      "reference_answer": "Eligible. Entitlement: 100000 INR. 100000 INR (insurance coverage)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMFBY-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 45,
+        "is_farmer": true
+      }
+    },
+    {
+      "id": "YB-PMFBY-S063",
+      "scheme_id": "PMFBY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Fasal Bima Yojana? (Non-farmer applicant)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMFBY-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 45,
+        "is_farmer": false
+      }
+    },
+    {
+      "id": "YB-PMFBY-E064",
+      "scheme_id": "PMFBY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Fasal Bima Yojana? (Farmer seeking crop cover)",
+      "reference_answer": "Entitlement: 100000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 100000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMFBY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 45,
+        "is_farmer": true
+      }
+    },
+    {
+      "id": "YB-PMFME-S065",
+      "scheme_id": "PMFME-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for PM Formalisation of Micro Food Processing Enterprises? (Adult entrepreneur)",
+      "reference_answer": "Eligible. Entitlement: 1000000 INR. 1000000 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMFME-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30
+      }
+    },
+    {
+      "id": "YB-PMFME-S066",
+      "scheme_id": "PMFME-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for PM Formalisation of Micro Food Processing Enterprises? (Minor applicant)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMFME-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 16
+      }
+    },
+    {
+      "id": "YB-PMFME-E067",
+      "scheme_id": "PMFME-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under PM Formalisation of Micro Food Processing Enterprises? (Adult entrepreneur)",
+      "reference_answer": "Entitlement: 1000000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 1000000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMFME-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30
+      }
+    },
+    {
+      "id": "YB-PMJAY-S068",
       "scheme_id": "PMJAY-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)? (BPL rural family)",
@@ -1947,7 +2695,7 @@
       }
     },
     {
-      "id": "YB-PMJAY-S030",
+      "id": "YB-PMJAY-S069",
       "scheme_id": "PMJAY-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)? (BPL urban family of six)",
@@ -1970,7 +2718,7 @@
       }
     },
     {
-      "id": "YB-PMJAY-S031",
+      "id": "YB-PMJAY-S070",
       "scheme_id": "PMJAY-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)? (APL urban family)",
@@ -1993,7 +2741,7 @@
       }
     },
     {
-      "id": "YB-PMJAY-E032",
+      "id": "YB-PMJAY-E071",
       "scheme_id": "PMJAY-2023",
       "category": "entitlement",
       "question": "What benefit does the applicant receive under Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)? (BPL rural family)",
@@ -2014,7 +2762,117 @@
       }
     },
     {
-      "id": "YB-PMKISAN-S033",
+      "id": "YB-PMJDY-S072",
+      "scheme_id": "PMJDY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Jan Dhan Yojana? (Adult aged 35)",
+      "reference_answer": "Eligible. Entitlement: 200000 INR. 200000 INR (insurance coverage)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJDY-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35
+      }
+    },
+    {
+      "id": "YB-PMJDY-S073",
+      "scheme_id": "PMJDY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Jan Dhan Yojana? (Child aged 8)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJDY-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 8
+      }
+    },
+    {
+      "id": "YB-PMJDY-E074",
+      "scheme_id": "PMJDY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Jan Dhan Yojana? (Adult aged 35)",
+      "reference_answer": "Entitlement: 200000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 200000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMJDY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35
+      }
+    },
+    {
+      "id": "YB-PMJJBY-S075",
+      "scheme_id": "PMJJBY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Jeevan Jyoti Bima Yojana? (Adult aged 30)",
+      "reference_answer": "Eligible. Entitlement: 200000 INR. 200000 INR (insurance coverage)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJJBY-C1",
+        "PMJJBY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30
+      }
+    },
+    {
+      "id": "YB-PMJJBY-S076",
+      "scheme_id": "PMJJBY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Jeevan Jyoti Bima Yojana? (Person aged 55)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJJBY-C1",
+        "PMJJBY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 55
+      }
+    },
+    {
+      "id": "YB-PMJJBY-E077",
+      "scheme_id": "PMJJBY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Jeevan Jyoti Bima Yojana? (Adult aged 30)",
+      "reference_answer": "Entitlement: 200000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 200000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMJJBY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30
+      }
+    },
+    {
+      "id": "YB-PMKISAN-S078",
       "scheme_id": "PMKISAN-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)? (Small farmer, not an income-tax payer)",
@@ -2038,7 +2896,7 @@
       }
     },
     {
-      "id": "YB-PMKISAN-S034",
+      "id": "YB-PMKISAN-S079",
       "scheme_id": "PMKISAN-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)? (Institutional landholder)",
@@ -2062,7 +2920,7 @@
       }
     },
     {
-      "id": "YB-PMKISAN-S035",
+      "id": "YB-PMKISAN-S080",
       "scheme_id": "PMKISAN-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)? (Farmer who pays income tax)",
@@ -2086,7 +2944,7 @@
       }
     },
     {
-      "id": "YB-PMKISAN-E036",
+      "id": "YB-PMKISAN-E081",
       "scheme_id": "PMKISAN-2023",
       "category": "entitlement",
       "question": "What benefit does the applicant receive under Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)? (Small farmer, not an income-tax payer)",
@@ -2108,7 +2966,182 @@
       }
     },
     {
-      "id": "YB-PMS-S037",
+      "id": "YB-PMKMY-S082",
+      "scheme_id": "PMKMY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Kisan Maandhan Yojana? (Young farmer aged 28)",
+      "reference_answer": "Eligible. Entitlement: 3000 INR/month. 3000 INR/month (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKMY-C1",
+        "PMKMY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 28,
+        "is_farmer": true
+      }
+    },
+    {
+      "id": "YB-PMKMY-S083",
+      "scheme_id": "PMKMY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Kisan Maandhan Yojana? (Older farmer aged 45)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKMY-C1",
+        "PMKMY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 45,
+        "is_farmer": true
+      }
+    },
+    {
+      "id": "YB-PMKMY-E084",
+      "scheme_id": "PMKMY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Kisan Maandhan Yojana? (Young farmer aged 28)",
+      "reference_answer": "Entitlement: 3000 INR/month.",
+      "verdict": "eligible",
+      "entitlement_value": 3000,
+      "entitlement_unit": "INR/month",
+      "evidence_clause_ids": [
+        "PMKMY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 28,
+        "is_farmer": true
+      }
+    },
+    {
+      "id": "YB-PMKUSUM-S085",
+      "scheme_id": "PMKUSUM-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Kisan Urja Suraksha evam Utthaan Mahabhiyan? (Farmer seeking solar pump)",
+      "reference_answer": "Eligible. Entitlement: 60000 INR. 60000 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKUSUM-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 50,
+        "is_farmer": true
+      }
+    },
+    {
+      "id": "YB-PMKUSUM-S086",
+      "scheme_id": "PMKUSUM-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Kisan Urja Suraksha evam Utthaan Mahabhiyan? (Non-farmer applicant)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKUSUM-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 50,
+        "is_farmer": false
+      }
+    },
+    {
+      "id": "YB-PMKUSUM-E087",
+      "scheme_id": "PMKUSUM-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Kisan Urja Suraksha evam Utthaan Mahabhiyan? (Farmer seeking solar pump)",
+      "reference_answer": "Entitlement: 60000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 60000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMKUSUM-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 50,
+        "is_farmer": true
+      }
+    },
+    {
+      "id": "YB-PMMVY-S088",
+      "scheme_id": "PMMVY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Matru Vandana Yojana? (Mother aged 24)",
+      "reference_answer": "Eligible. Entitlement: 5000 INR. 5000 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMMVY-C1",
+        "PMMVY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 24,
+        "gender": "female"
+      }
+    },
+    {
+      "id": "YB-PMMVY-S089",
+      "scheme_id": "PMMVY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Matru Vandana Yojana? (Woman aged 18)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMMVY-C1",
+        "PMMVY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 18,
+        "gender": "female"
+      }
+    },
+    {
+      "id": "YB-PMMVY-E090",
+      "scheme_id": "PMMVY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Matru Vandana Yojana? (Mother aged 24)",
+      "reference_answer": "Entitlement: 5000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 5000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMMVY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 24,
+        "gender": "female"
+      }
+    },
+    {
+      "id": "YB-PMS-S091",
       "scheme_id": "PMS-SC-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Post-Matric Scholarship for Scheduled Caste Students? (SC hosteller in a UG course)",
@@ -2132,7 +3165,7 @@
       }
     },
     {
-      "id": "YB-PMS-S038",
+      "id": "YB-PMS-S092",
       "scheme_id": "PMS-SC-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Post-Matric Scholarship for Scheduled Caste Students? (SC day-scholar in class 12)",
@@ -2156,7 +3189,7 @@
       }
     },
     {
-      "id": "YB-PMS-S039",
+      "id": "YB-PMS-S093",
       "scheme_id": "PMS-SC-2023",
       "category": "eligibility",
       "question": "Is the applicant eligible for Post-Matric Scholarship for Scheduled Caste Students? (SC applicant above the income ceiling)",
@@ -2180,7 +3213,7 @@
       }
     },
     {
-      "id": "YB-PMS-E040",
+      "id": "YB-PMS-E094",
       "scheme_id": "PMS-SC-2023",
       "category": "entitlement",
       "question": "What benefit does the applicant receive under Post-Matric Scholarship for Scheduled Caste Students? (SC hosteller in a UG course)",
@@ -2201,6 +3234,566 @@
         "annual_income": 150000,
         "hosteller": true
       }
+    },
+    {
+      "id": "YB-PMSBY-S095",
+      "scheme_id": "PMSBY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Suraksha Bima Yojana? (Adult aged 40)",
+      "reference_answer": "Eligible. Entitlement: 200000 INR. 200000 INR (insurance coverage)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMSBY-C1",
+        "PMSBY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40
+      }
+    },
+    {
+      "id": "YB-PMSBY-S096",
+      "scheme_id": "PMSBY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Suraksha Bima Yojana? (Senior aged 75)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMSBY-C1",
+        "PMSBY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 75
+      }
+    },
+    {
+      "id": "YB-PMSBY-E097",
+      "scheme_id": "PMSBY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Suraksha Bima Yojana? (Adult aged 40)",
+      "reference_answer": "Entitlement: 200000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 200000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMSBY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40
+      }
+    },
+    {
+      "id": "YB-PMUY-S098",
+      "scheme_id": "PMUY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Ujjwala Yojana? (Eligible BPL woman)",
+      "reference_answer": "Eligible. Entitlement: 1600 INR. 1600 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMUY-C1",
+        "PMUY-C2",
+        "PMUY-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 32,
+        "gender": "female",
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-PMUY-S099",
+      "scheme_id": "PMUY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Pradhan Mantri Ujjwala Yojana? (Man in a BPL household)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMUY-C1",
+        "PMUY-C2",
+        "PMUY-C3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40,
+        "gender": "male",
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-PMUY-E100",
+      "scheme_id": "PMUY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Pradhan Mantri Ujjwala Yojana? (Eligible BPL woman)",
+      "reference_answer": "Entitlement: 1600 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 1600,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMUY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 32,
+        "gender": "female",
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-PMVK-S101",
+      "scheme_id": "PMVK-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for PM Vishwakarma? (Adult artisan)",
+      "reference_answer": "Eligible. Entitlement: 15000 INR. 15000 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMVK-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40
+      }
+    },
+    {
+      "id": "YB-PMVK-S102",
+      "scheme_id": "PMVK-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for PM Vishwakarma? (Minor applicant)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMVK-C1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 16
+      }
+    },
+    {
+      "id": "YB-PMVK-E103",
+      "scheme_id": "PMVK-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under PM Vishwakarma? (Adult artisan)",
+      "reference_answer": "Entitlement: 15000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 15000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "PMVK-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 40
+      }
+    },
+    {
+      "id": "YB-SBMG-S104",
+      "scheme_id": "SBMG-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Swachh Bharat Mission (Gramin)? (BPL rural household)",
+      "reference_answer": "Eligible. Entitlement: 12000 INR. 12000 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SBMG-C1",
+        "SBMG-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "region": "rural",
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-SBMG-S105",
+      "scheme_id": "SBMG-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Swachh Bharat Mission (Gramin)? (Urban BPL household)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SBMG-C1",
+        "SBMG-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "region": "urban",
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-SBMG-E106",
+      "scheme_id": "SBMG-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Swachh Bharat Mission (Gramin)? (BPL rural household)",
+      "reference_answer": "Entitlement: 12000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 12000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "SBMG-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "region": "rural",
+        "bpl": true
+      }
+    },
+    {
+      "id": "YB-SSY-S107",
+      "scheme_id": "SSY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Sukanya Samriddhi Yojana? (Girl child aged 5)",
+      "reference_answer": "Eligible. Entitlement: 250 INR. 250 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SSY-C1",
+        "SSY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 5,
+        "gender": "female"
+      }
+    },
+    {
+      "id": "YB-SSY-S108",
+      "scheme_id": "SSY-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Sukanya Samriddhi Yojana? (Girl child aged 12)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SSY-C1",
+        "SSY-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 12,
+        "gender": "female"
+      }
+    },
+    {
+      "id": "YB-SSY-E109",
+      "scheme_id": "SSY-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Sukanya Samriddhi Yojana? (Girl child aged 5)",
+      "reference_answer": "Entitlement: 250 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 250,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "SSY-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 5,
+        "gender": "female"
+      }
+    },
+    {
+      "id": "YB-SUI-S110",
+      "scheme_id": "SUI-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Stand-Up India? (Woman entrepreneur)",
+      "reference_answer": "Eligible. Entitlement: 1000000 INR. 1000000 INR (insurance coverage)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SUI-C1",
+        "SUI-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "gender": "female",
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-SUI-S111",
+      "scheme_id": "SUI-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for Stand-Up India? (General category male applicant)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SUI-C1",
+        "SUI-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "gender": "male",
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-SUI-E112",
+      "scheme_id": "SUI-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under Stand-Up India? (Woman entrepreneur)",
+      "reference_answer": "Entitlement: 1000000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 1000000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "SUI-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 30,
+        "gender": "female",
+        "category": "General"
+      }
+    },
+    {
+      "id": "YB-SVA-S113",
+      "scheme_id": "SVA-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)? (Urban adult vendor)",
+      "reference_answer": "Eligible. Entitlement: 10000 INR. 10000 INR (fixed entitlement)",
+      "verdict": "eligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SVA-C1",
+        "SVA-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "region": "urban"
+      }
+    },
+    {
+      "id": "YB-SVA-S114",
+      "scheme_id": "SVA-2023",
+      "category": "eligibility",
+      "question": "Is the applicant eligible for PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)? (Rural adult vendor)",
+      "reference_answer": "Ineligible. One or more mandatory eligibility criteria are not satisfied.",
+      "verdict": "ineligible",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SVA-C1",
+        "SVA-C2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "region": "rural"
+      }
+    },
+    {
+      "id": "YB-SVA-E115",
+      "scheme_id": "SVA-2023",
+      "category": "entitlement",
+      "question": "What benefit does the applicant receive under PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)? (Urban adult vendor)",
+      "reference_answer": "Entitlement: 10000 INR.",
+      "verdict": "eligible",
+      "entitlement_value": 10000,
+      "entitlement_unit": "INR",
+      "evidence_clause_ids": [
+        "SVA-E1"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {
+        "age": 35,
+        "region": "urban"
+      }
+    },
+    {
+      "id": "YB-APY-D001",
+      "scheme_id": "APY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Atal Pension Yojana application?",
+      "reference_answer": "Required documents: Aadhaar Card, Bank Account Passbook, Mobile Number",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "APY-D1",
+        "APY-D2",
+        "APY-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-APY-A001",
+      "scheme_id": "APY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Atal Pension Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Bank Nodal Officer within 30 days; Level 2: PFRDA Grievance Redressal Cell within 60 days; Level 3: Pension Ombudsman within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "APY-APL1",
+        "APY-APL2",
+        "APY-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-DDUGKY-D001",
+      "scheme_id": "DDUGKY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Deen Dayal Upadhyaya Grameen Kaushalya Yojana application?",
+      "reference_answer": "Required documents: Aadhaar Card, Age Proof, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "DDUGKY-D1",
+        "DDUGKY-D2",
+        "DDUGKY-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-DDUGKY-A001",
+      "scheme_id": "DDUGKY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Deen Dayal Upadhyaya Grameen Kaushalya Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Block Programme Manager within 30 days; Level 2: District Programme Manager within 60 days; Level 3: State Programme Director within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "DDUGKY-APL1",
+        "DDUGKY-APL2",
+        "DDUGKY-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-ESRAM-D001",
+      "scheme_id": "ESRAM-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a eShram (National Database of Unorganised Workers) application?",
+      "reference_answer": "Required documents: Aadhaar Card, Bank Account Passbook, Mobile Number",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "ESRAM-D1",
+        "ESRAM-D2",
+        "ESRAM-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-ESRAM-A001",
+      "scheme_id": "ESRAM-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected eShram (National Database of Unorganised Workers) application?",
+      "reference_answer": "Appeal procedure: Level 1: eShram Helpdesk within 30 days; Level 2: State Labour Commissioner within 60 days; Level 3: Ministry of Labour and Employment within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "ESRAM-APL1",
+        "ESRAM-APL2",
+        "ESRAM-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-ICDS-D001",
+      "scheme_id": "ICDS-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Integrated Child Development Services application?",
+      "reference_answer": "Required documents: Aadhaar Card of Child, Immunization Card, Address Proof",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "ICDS-D1",
+        "ICDS-D2",
+        "ICDS-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-ICDS-A001",
+      "scheme_id": "ICDS-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Integrated Child Development Services application?",
+      "reference_answer": "Appeal procedure: Level 1: Anganwadi Worker within 15 days; Level 2: Child Development Project Officer (CDPO) within 30 days; Level 3: District Programme Officer within 60 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "ICDS-APL1",
+        "ICDS-APL2",
+        "ICDS-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
     },
     {
       "id": "YB-IGNDPS-D001",
@@ -2276,7 +3869,1051 @@
       "counterfactual_of": null,
       "edge_case": null,
       "applicant": {}
+    },
+    {
+      "id": "YB-IGNWPS-D001",
+      "scheme_id": "IGNWPS-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Indira Gandhi National Widow Pension Scheme application?",
+      "reference_answer": "Required documents: Death Certificate of Husband, BPL Card, Aadhaar Card, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNWPS-D1",
+        "IGNWPS-D2",
+        "IGNWPS-D3",
+        "IGNWPS-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-IGNWPS-A001",
+      "scheme_id": "IGNWPS-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Indira Gandhi National Widow Pension Scheme application?",
+      "reference_answer": "Appeal procedure: Level 1: Block Development Officer (BDO) within 30 days; Level 2: District Social Welfare Officer within 60 days; Level 3: State Social Welfare Commission within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "IGNWPS-APL1",
+        "IGNWPS-APL2",
+        "IGNWPS-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-JJM-D001",
+      "scheme_id": "JJM-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Jal Jeevan Mission application?",
+      "reference_answer": "Required documents: Aadhaar Card, Address Proof",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "JJM-D1",
+        "JJM-D2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-JJM-A001",
+      "scheme_id": "JJM-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Jal Jeevan Mission application?",
+      "reference_answer": "Appeal procedure: Level 1: Gram Panchayat within 15 days; Level 2: Block Development Officer (BDO) within 30 days; Level 3: District Water and Sanitation Mission within 60 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "JJM-APL1",
+        "JJM-APL2",
+        "JJM-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-KCC-D001",
+      "scheme_id": "KCC-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Kisan Credit Card application?",
+      "reference_answer": "Required documents: Land Records, Aadhaar Card, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "KCC-D1",
+        "KCC-D2",
+        "KCC-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-KCC-A001",
+      "scheme_id": "KCC-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Kisan Credit Card application?",
+      "reference_answer": "Appeal procedure: Level 1: Bank Branch Manager within 15 days; Level 2: Lead District Manager within 45 days; Level 3: Banking Ombudsman within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "KCC-APL1",
+        "KCC-APL2",
+        "KCC-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-MDM-D001",
+      "scheme_id": "MDM-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri POSHAN Shakti Nirman (Mid-Day Meal) application?",
+      "reference_answer": "Required documents: Aadhaar Card, School Enrolment Certificate",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MDM-D1",
+        "MDM-D2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-MDM-A001",
+      "scheme_id": "MDM-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri POSHAN Shakti Nirman (Mid-Day Meal) application?",
+      "reference_answer": "Appeal procedure: Level 1: School Headmaster within 15 days; Level 2: Block Education Officer within 30 days; Level 3: District Education Officer within 60 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MDM-APL1",
+        "MDM-APL2",
+        "MDM-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-MGNREGA-D001",
+      "scheme_id": "MGNREGA-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Mahatma Gandhi National Rural Employment Guarantee Act application?",
+      "reference_answer": "Required documents: Job Card, Aadhaar Card, Bank/Post Office Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MGNREGA-D1",
+        "MGNREGA-D2",
+        "MGNREGA-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-MGNREGA-A001",
+      "scheme_id": "MGNREGA-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Mahatma Gandhi National Rural Employment Guarantee Act application?",
+      "reference_answer": "Appeal procedure: Level 1: Gram Panchayat / Programme Officer within 15 days; Level 2: District Programme Coordinator within 30 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MGNREGA-APL1",
+        "MGNREGA-APL2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-MUDRA-D001",
+      "scheme_id": "MUDRA-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri MUDRA Yojana application?",
+      "reference_answer": "Required documents: Aadhaar Card, Business Plan, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MUDRA-D1",
+        "MUDRA-D2",
+        "MUDRA-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-MUDRA-A001",
+      "scheme_id": "MUDRA-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri MUDRA Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Bank Branch Manager within 15 days; Level 2: Zonal Head within 45 days; Level 3: Banking Ombudsman within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "MUDRA-APL1",
+        "MUDRA-APL2",
+        "MUDRA-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-NRLM-D001",
+      "scheme_id": "NRLM-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Deendayal Antyodaya Yojana - National Rural Livelihoods Mission application?",
+      "reference_answer": "Required documents: Aadhaar Card, BPL Card, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NRLM-D1",
+        "NRLM-D2",
+        "NRLM-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-NRLM-A001",
+      "scheme_id": "NRLM-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Deendayal Antyodaya Yojana - National Rural Livelihoods Mission application?",
+      "reference_answer": "Appeal procedure: Level 1: Block Mission Manager within 30 days; Level 2: District Mission Manager within 60 days; Level 3: State Rural Livelihoods Mission within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NRLM-APL1",
+        "NRLM-APL2",
+        "NRLM-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-NSP-D001",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pre-Matric Scholarship for SC/ST Students application?",
+      "reference_answer": "Required documents: Caste Certificate (SC/ST), Income Certificate, Previous Class Marksheet, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NSP-D1",
+        "NSP-D2",
+        "NSP-D3",
+        "NSP-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-NSP-A001",
+      "scheme_id": "NSP-PREMATRIC-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pre-Matric Scholarship for SC/ST Students application?",
+      "reference_answer": "Appeal procedure: Level 1: School Scholarship Nodal Officer within 15 days; Level 2: State Education Department (SC/ST Welfare) within 45 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "NSP-APL1",
+        "NSP-APL2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PDS-D001",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Public Distribution System (National Food Security Act, 2013) application?",
+      "reference_answer": "Required documents: Ration Card, Aadhaar Card, Residence/Address Proof",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PDS-D1",
+        "PDS-D2",
+        "PDS-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PDS-A001",
+      "scheme_id": "PDS-NFSA-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Public Distribution System (National Food Security Act, 2013) application?",
+      "reference_answer": "Appeal procedure: Level 1: District Supply Officer (DSO) within 30 days; Level 2: State Food Commission within 60 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PDS-APL1",
+        "PDS-APL2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMAYG-D001",
+      "scheme_id": "PMAYG-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Awaas Yojana - Gramin (PMAY-G) application?",
+      "reference_answer": "Required documents: SECC 2011 Registration / Gram Sabha Approval, Aadhaar Card, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYG-D1",
+        "PMAYG-D2",
+        "PMAYG-D3",
+        "PMAYG-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMAYG-A001",
+      "scheme_id": "PMAYG-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Awaas Yojana - Gramin (PMAY-G) application?",
+      "reference_answer": "Appeal procedure: Level 1: Gram Panchayat / Block Development Officer within 30 days; Level 2: District Rural Development Agency (DRDA) within 60 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYG-APL1",
+        "PMAYG-APL2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMAYU-D001",
+      "scheme_id": "PMAYU-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Awas Yojana (Urban) application?",
+      "reference_answer": "Required documents: Aadhaar Card, Income Certificate, Bank Account Passbook, Address Proof",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYU-D1",
+        "PMAYU-D2",
+        "PMAYU-D3",
+        "PMAYU-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMAYU-A001",
+      "scheme_id": "PMAYU-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Awas Yojana (Urban) application?",
+      "reference_answer": "Appeal procedure: Level 1: Municipal Commissioner within 30 days; Level 2: State Housing Board within 60 days; Level 3: Ministry of Housing and Urban Affairs within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMAYU-APL1",
+        "PMAYU-APL2",
+        "PMAYU-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMEGP-D001",
+      "scheme_id": "PMEGP-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Prime Minister's Employment Generation Programme application?",
+      "reference_answer": "Required documents: Aadhaar Card, Project Report, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMEGP-D1",
+        "PMEGP-D2",
+        "PMEGP-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMEGP-A001",
+      "scheme_id": "PMEGP-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Prime Minister's Employment Generation Programme application?",
+      "reference_answer": "Appeal procedure: Level 1: KVIC or KVIB District Officer within 30 days; Level 2: State Director (KVIC/KVIB) within 60 days; Level 3: Ministry of Micro, Small and Medium Enterprises within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMEGP-APL1",
+        "PMEGP-APL2",
+        "PMEGP-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMFBY-D001",
+      "scheme_id": "PMFBY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Fasal Bima Yojana application?",
+      "reference_answer": "Required documents: Land Records, Aadhaar Card, Bank Account Passbook, Sowing Certificate",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMFBY-D1",
+        "PMFBY-D2",
+        "PMFBY-D3",
+        "PMFBY-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMFBY-A001",
+      "scheme_id": "PMFBY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Fasal Bima Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Agriculture Officer within 30 days; Level 2: District Agriculture Officer within 60 days; Level 3: State Agriculture Commission within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMFBY-APL1",
+        "PMFBY-APL2",
+        "PMFBY-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMFME-D001",
+      "scheme_id": "PMFME-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a PM Formalisation of Micro Food Processing Enterprises application?",
+      "reference_answer": "Required documents: Aadhaar Card, Project Report, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMFME-D1",
+        "PMFME-D2",
+        "PMFME-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMFME-A001",
+      "scheme_id": "PMFME-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected PM Formalisation of Micro Food Processing Enterprises application?",
+      "reference_answer": "Appeal procedure: Level 1: District Food Processing Officer within 30 days; Level 2: State Nodal Agency within 60 days; Level 3: Ministry of Food Processing Industries within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMFME-APL1",
+        "PMFME-APL2",
+        "PMFME-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMJAY-D001",
+      "scheme_id": "PMJAY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY) application?",
+      "reference_answer": "Required documents: Ayushman Card / SECC Eligibility Proof, Aadhaar Card",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJAY-D1",
+        "PMJAY-D2",
+        "PMJAY-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMJAY-A001",
+      "scheme_id": "PMJAY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY) application?",
+      "reference_answer": "Appeal procedure: Level 1: Ayushman Mitra / Hospital Grievance Desk within 15 days; Level 2: State Health Agency (SHA) within 30 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJAY-APL1",
+        "PMJAY-APL2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMJDY-D001",
+      "scheme_id": "PMJDY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Jan Dhan Yojana application?",
+      "reference_answer": "Required documents: Aadhaar Card, Address Proof, Passport Size Photograph",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJDY-D1",
+        "PMJDY-D2",
+        "PMJDY-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMJDY-A001",
+      "scheme_id": "PMJDY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Jan Dhan Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Bank Branch Manager within 15 days; Level 2: Lead District Manager within 45 days; Level 3: Banking Ombudsman within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJDY-APL1",
+        "PMJDY-APL2",
+        "PMJDY-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMJJBY-D001",
+      "scheme_id": "PMJJBY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Jeevan Jyoti Bima Yojana application?",
+      "reference_answer": "Required documents: Aadhaar Card, Bank Account Passbook, Consent cum Declaration Form",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJJBY-D1",
+        "PMJJBY-D2",
+        "PMJJBY-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMJJBY-A001",
+      "scheme_id": "PMJJBY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Jeevan Jyoti Bima Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Bank Branch Manager within 15 days; Level 2: Insurance Ombudsman within 90 days; Level 3: Department of Financial Services within 120 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMJJBY-APL1",
+        "PMJJBY-APL2",
+        "PMJJBY-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMKISAN-D001",
+      "scheme_id": "PMKISAN-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) application?",
+      "reference_answer": "Required documents: Land Ownership Records (Khatauni/7-12 Extract), Aadhaar Card, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKISAN-D1",
+        "PMKISAN-D2",
+        "PMKISAN-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMKISAN-A001",
+      "scheme_id": "PMKISAN-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) application?",
+      "reference_answer": "Appeal procedure: Level 1: District Agriculture Officer within 30 days; Level 2: State Nodal Officer (PM-KISAN) within 60 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKISAN-APL1",
+        "PMKISAN-APL2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMKMY-D001",
+      "scheme_id": "PMKMY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Kisan Maandhan Yojana application?",
+      "reference_answer": "Required documents: Aadhaar Card, Bank Account Passbook, Land Records",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKMY-D1",
+        "PMKMY-D2",
+        "PMKMY-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMKMY-A001",
+      "scheme_id": "PMKMY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Kisan Maandhan Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Common Service Centre Nodal Officer within 30 days; Level 2: State Nodal Officer within 60 days; Level 3: Ministry of Agriculture and Farmers Welfare within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKMY-APL1",
+        "PMKMY-APL2",
+        "PMKMY-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMKUSUM-D001",
+      "scheme_id": "PMKUSUM-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Kisan Urja Suraksha evam Utthaan Mahabhiyan application?",
+      "reference_answer": "Required documents: Land Records, Aadhaar Card, Bank Account Passbook, Electricity Bill",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKUSUM-D1",
+        "PMKUSUM-D2",
+        "PMKUSUM-D3",
+        "PMKUSUM-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMKUSUM-A001",
+      "scheme_id": "PMKUSUM-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Kisan Urja Suraksha evam Utthaan Mahabhiyan application?",
+      "reference_answer": "Appeal procedure: Level 1: DISCOM Officer within 30 days; Level 2: State Nodal Agency within 60 days; Level 3: Ministry of New and Renewable Energy within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMKUSUM-APL1",
+        "PMKUSUM-APL2",
+        "PMKUSUM-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMMVY-D001",
+      "scheme_id": "PMMVY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Matru Vandana Yojana application?",
+      "reference_answer": "Required documents: Aadhaar Card, Mother and Child Protection (MCP) Card, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMMVY-D1",
+        "PMMVY-D2",
+        "PMMVY-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMMVY-A001",
+      "scheme_id": "PMMVY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Matru Vandana Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Child Development Project Officer (CDPO) within 30 days; Level 2: District Programme Officer within 60 days; Level 3: State Health and Family Welfare Authority within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMMVY-APL1",
+        "PMMVY-APL2",
+        "PMMVY-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMS-D001",
+      "scheme_id": "PMS-SC-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Post-Matric Scholarship for Scheduled Caste Students application?",
+      "reference_answer": "Required documents: Caste Certificate (SC), Income Certificate, Class 10 Marksheet, Fee Receipt / Admission Proof",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-D1",
+        "PMS-D2",
+        "PMS-D3",
+        "PMS-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMS-A001",
+      "scheme_id": "PMS-SC-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Post-Matric Scholarship for Scheduled Caste Students application?",
+      "reference_answer": "Appeal procedure: Level 1: Institute Scholarship Nodal Officer within 15 days; Level 2: State Scheduled Caste Development Department within 45 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMS-APL1",
+        "PMS-APL2"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMSBY-D001",
+      "scheme_id": "PMSBY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Suraksha Bima Yojana application?",
+      "reference_answer": "Required documents: Aadhaar Card, Bank Account Passbook, Consent cum Declaration Form",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMSBY-D1",
+        "PMSBY-D2",
+        "PMSBY-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMSBY-A001",
+      "scheme_id": "PMSBY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Suraksha Bima Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Bank Branch Manager within 15 days; Level 2: Scheme Nodal Officer (Bank) within 30 days; Level 3: Insurance Ombudsman within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMSBY-APL1",
+        "PMSBY-APL2",
+        "PMSBY-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMUY-D001",
+      "scheme_id": "PMUY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Pradhan Mantri Ujjwala Yojana application?",
+      "reference_answer": "Required documents: BPL Card, Aadhaar Card, Bank Account Passbook, Address Proof",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMUY-D1",
+        "PMUY-D2",
+        "PMUY-D3",
+        "PMUY-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMUY-A001",
+      "scheme_id": "PMUY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Pradhan Mantri Ujjwala Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Block Development Officer (BDO) within 30 days; Level 2: District Supply Officer within 60 days; Level 3: State Food Commission within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMUY-APL1",
+        "PMUY-APL2",
+        "PMUY-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMVK-D001",
+      "scheme_id": "PMVK-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a PM Vishwakarma application?",
+      "reference_answer": "Required documents: Aadhaar Card, Bank Account Passbook, Proof of Trade or Profession",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMVK-D1",
+        "PMVK-D2",
+        "PMVK-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-PMVK-A001",
+      "scheme_id": "PMVK-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected PM Vishwakarma application?",
+      "reference_answer": "Appeal procedure: Level 1: Gram Panchayat or MSME-DI Office within 30 days; Level 2: State Nodal Agency within 60 days; Level 3: Ministry of Micro, Small and Medium Enterprises within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "PMVK-APL1",
+        "PMVK-APL2",
+        "PMVK-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-SBMG-D001",
+      "scheme_id": "SBMG-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Swachh Bharat Mission (Gramin) application?",
+      "reference_answer": "Required documents: Aadhaar Card, BPL Card, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SBMG-D1",
+        "SBMG-D2",
+        "SBMG-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-SBMG-A001",
+      "scheme_id": "SBMG-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Swachh Bharat Mission (Gramin) application?",
+      "reference_answer": "Appeal procedure: Level 1: Gram Panchayat within 15 days; Level 2: Block Development Officer (BDO) within 30 days; Level 3: District Panchayat within 60 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SBMG-APL1",
+        "SBMG-APL2",
+        "SBMG-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-SSY-D001",
+      "scheme_id": "SSY-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Sukanya Samriddhi Yojana application?",
+      "reference_answer": "Required documents: Birth Certificate of Girl Child, Aadhaar Card of Guardian, Address Proof",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SSY-D1",
+        "SSY-D2",
+        "SSY-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-SSY-A001",
+      "scheme_id": "SSY-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Sukanya Samriddhi Yojana application?",
+      "reference_answer": "Appeal procedure: Level 1: Bank or Post Office Manager within 30 days; Level 2: District Savings Officer within 60 days; Level 3: Ministry of Finance (Savings Division) within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SSY-APL1",
+        "SSY-APL2",
+        "SSY-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-SUI-D001",
+      "scheme_id": "SUI-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a Stand-Up India application?",
+      "reference_answer": "Required documents: Aadhaar Card, Business Plan, Category Certificate, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SUI-D1",
+        "SUI-D2",
+        "SUI-D3",
+        "SUI-D4"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-SUI-A001",
+      "scheme_id": "SUI-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected Stand-Up India application?",
+      "reference_answer": "Appeal procedure: Level 1: Bank Branch Manager within 15 days; Level 2: Lead District Manager within 45 days; Level 3: Banking Ombudsman within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SUI-APL1",
+        "SUI-APL2",
+        "SUI-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-SVA-D001",
+      "scheme_id": "SVA-2023",
+      "category": "documents",
+      "question": "Which documents must accompany a PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) application?",
+      "reference_answer": "Required documents: Aadhaar Card, Letter of Recommendation from Urban Local Body, Bank Account Passbook",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SVA-D1",
+        "SVA-D2",
+        "SVA-D3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
+    },
+    {
+      "id": "YB-SVA-A001",
+      "scheme_id": "SVA-2023",
+      "category": "appeal",
+      "question": "What is the appeal procedure for a rejected PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) application?",
+      "reference_answer": "Appeal procedure: Level 1: Urban Local Body Nodal Officer within 30 days; Level 2: Municipal Commissioner within 60 days; Level 3: Ministry of Housing and Urban Affairs within 90 days",
+      "verdict": "informational",
+      "entitlement_value": null,
+      "entitlement_unit": null,
+      "evidence_clause_ids": [
+        "SVA-APL1",
+        "SVA-APL2",
+        "SVA-APL3"
+      ],
+      "counterfactual_of": null,
+      "edge_case": null,
+      "applicant": {}
     }
   ],
-  "num_items": 100
+  "num_items": 241
 }

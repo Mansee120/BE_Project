@@ -1,0 +1,14 @@
+{
+  "case_id": "CASE-0060",
+  "scheme_id": "DDUGKY-2023",
+  "label": "Rural youth aged 22 - should be ELIGIBLE",
+  "applicant": {
+    "age": 22,
+    "region": "rural"
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Age Proof",
+    "Bank Account Passbook"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "case_id": "CASE-0041",
+  "scheme_id": "PMFBY-2023",
+  "label": "Non-farmer applicant - should be INELIGIBLE",
+  "applicant": {
+    "age": 45,
+    "is_farmer": false
+  },
+  "submitted_documents": [
+    "Land Records",
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Sowing Certificate"
+  ]
+}

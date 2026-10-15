@@ -1,0 +1,44 @@
+{
+  "scheme_id": "MUDRA-2023",
+  "name": "Pradhan Mantri MUDRA Yojana",
+  "level": "central",
+  "state": "All India",
+  "category": "credit",
+  "summary": "A scheme that provides collateral-free loans to non-farm micro and small enterprises through banks, NBFCs and microfinance institutions under the Shishu, Kishore and Tarun categories.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "MUDRA-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "MUDRA-E1",
+      "text": "Loan limits are tiered: Shishu up to Rs. 50000, Kishore up to Rs. 5 lakh and Tarun up to Rs. 10 lakh, based on the applicant's annual income.",
+      "compute": {
+        "type": "tiered",
+        "unit": "INR",
+        "tiers": [
+          { "when": { "field": "annual_income", "operator": "lte", "value": 100000 }, "value": 50000, "unit": "INR" },
+          { "when": { "field": "annual_income", "operator": "lte", "value": 500000 }, "value": 500000, "unit": "INR" },
+          { "when": null, "value": 1000000, "unit": "INR" }
+        ]
+      },
+      "clause_ids": ["MUDRA-C1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "MUDRA-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "MUDRA-D2", "name": "Business Plan", "mandatory": true },
+    { "doc_id": "MUDRA-D3", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Bank Branch Manager", "deadline_days": 15, "description": "First grievance at the bank branch." },
+    { "level": 2, "authority": "Zonal Head", "deadline_days": 45, "description": "Escalation to the zonal office." },
+    { "level": 3, "authority": "Banking Ombudsman", "deadline_days": 90, "description": "Final grievance before the Banking Ombudsman." }
+  ]
+}

@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Sukanya Samriddhi Yojana
+SCHEME ID: SSY-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: SAVINGS
+==============================================================================
+
+1. OBJECTIVE
+   A small savings scheme for a girl child below 10 years of age, offering an attractive fixed interest rate and a tax-free maturity amount that can be used for her education or marriage.
+
+2. ELIGIBILITY CRITERIA
+   [SSY-C1] (MANDATORY) The account must be opened for a girl child.
+   [SSY-C2] (MANDATORY) The girl child must be below 10 years of age at the time of opening the account.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [SSY-E1] A minimum deposit of Rs. 250 per year earns the notified rate of interest and the maturity proceeds are fully tax-free.
+
+4. DOCUMENTS REQUIRED
+   [SSY-D1] (MANDATORY) Birth Certificate of Girl Child
+   [SSY-D2] (MANDATORY) Aadhaar Card of Guardian
+   [SSY-D3] (MANDATORY) Address Proof
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [SSY-APL1] Level 1: Bank or Post Office Manager - within 30 days. First grievance at the account office.
+   [SSY-APL2] Level 2: District Savings Officer - within 60 days. Escalation at district level.
+   [SSY-APL3] Level 3: Ministry of Finance (Savings Division) - within 90 days. Final grievance at the Ministry.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

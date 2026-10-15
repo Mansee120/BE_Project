@@ -1,0 +1,15 @@
+{
+  "case_id": "CASE-0040",
+  "scheme_id": "PMFBY-2023",
+  "label": "Farmer seeking crop cover - should be ELIGIBLE at 100000 INR",
+  "applicant": {
+    "age": 45,
+    "is_farmer": true
+  },
+  "submitted_documents": [
+    "Land Records",
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Sowing Certificate"
+  ]
+}

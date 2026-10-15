@@ -1,0 +1,15 @@
+{
+  "case_id": "CASE-0044",
+  "scheme_id": "PMKUSUM-2023",
+  "label": "Farmer seeking solar pump - should be ELIGIBLE at 60000 INR",
+  "applicant": {
+    "age": 50,
+    "is_farmer": true
+  },
+  "submitted_documents": [
+    "Land Records",
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Electricity Bill"
+  ]
+}

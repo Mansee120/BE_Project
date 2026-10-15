@@ -1,0 +1,16 @@
+{
+  "case_id": "CASE-0030",
+  "scheme_id": "PMUY-2023",
+  "label": "Male applicant from a BPL home - should be INELIGIBLE",
+  "applicant": {
+    "age": 40,
+    "gender": "male",
+    "bpl": true
+  },
+  "submitted_documents": [
+    "BPL Card",
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Address Proof"
+  ]
+}

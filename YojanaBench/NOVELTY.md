@@ -21,7 +21,7 @@ lives in the code**. Useful for the report / viva.
 |---|---|
 | 10 structured scheme schemas (conditions + formulas) | `data/schemes/*.json` |
 | Guideline documents with clause IDs | `data/guidelines/*.txt`, built by `scripts/build_guidelines.py` |
-| 100 QA pairs (eligibility/entitlement/documents/appeal) | `data/qa/qa_benchmark.json` |
+| 241 QA pairs (eligibility/entitlement/documents/appeal) | `data/qa/qa_benchmark.json` |
 | Verdict ground truth `eligible / ineligible / needs_info` | `qa_benchmark.json` → `verdict` field |
 | Counterfactuals & edge cases (boundary age/income/disability, missing docs, category swaps, overlapping schemes) | `qa_benchmark.json` → `edge_case`, `counterfactual_of` |
 

@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri Jeevan Jyoti Bima Yojana
+SCHEME ID: PMJJBY-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: INSURANCE
+==============================================================================
+
+1. OBJECTIVE
+   A life insurance scheme offering cover of Rs. 2 lakh for death due to any reason, available to bank account holders in the age group of 18 to 50 years for a nominal annual premium.
+
+2. ELIGIBILITY CRITERIA
+   [PMJJBY-C1] (MANDATORY) The applicant must be 18 years of age or older.
+   [PMJJBY-C2] (MANDATORY) The applicant must be 50 years of age or younger at the time of enrolment.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMJJBY-E1] The nominee receives a life cover of Rs. 2 lakh on the death of the insured due to any reason.
+
+4. DOCUMENTS REQUIRED
+   [PMJJBY-D1] (MANDATORY) Aadhaar Card
+   [PMJJBY-D2] (MANDATORY) Bank Account Passbook
+   [PMJJBY-D3] (MANDATORY) Consent cum Declaration Form
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMJJBY-APL1] Level 1: Bank Branch Manager - within 15 days. First grievance at the bank branch.
+   [PMJJBY-APL2] Level 2: Insurance Ombudsman - within 90 days. Grievance before the Insurance Ombudsman.
+   [PMJJBY-APL3] Level 3: Department of Financial Services - within 120 days. Final escalation to the Department of Financial Services.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

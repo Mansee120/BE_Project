@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri Matru Vandana Yojana
+SCHEME ID: PMMVY-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: MATERNITY
+==============================================================================
+
+1. OBJECTIVE
+   A maternity benefit scheme that provides a cash benefit of Rs. 5000 to pregnant and lactating mothers for their first living child, to partly compensate for wage loss and to promote health-seeking behaviour.
+
+2. ELIGIBILITY CRITERIA
+   [PMMVY-C1] (MANDATORY) The applicant must be 19 years of age or older.
+   [PMMVY-C2] (MANDATORY) The applicant must be a woman.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMMVY-E1] An eligible mother receives a cash benefit of Rs. 5000 for the first living child.
+
+4. DOCUMENTS REQUIRED
+   [PMMVY-D1] (MANDATORY) Aadhaar Card
+   [PMMVY-D2] (MANDATORY) Mother and Child Protection (MCP) Card
+   [PMMVY-D3] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMMVY-APL1] Level 1: Child Development Project Officer (CDPO) - within 30 days. First appeal at the block level.
+   [PMMVY-APL2] Level 2: District Programme Officer - within 60 days. Second appeal at district level.
+   [PMMVY-APL3] Level 3: State Health and Family Welfare Authority - within 90 days. Final appeal at state level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

@@ -384,6 +384,8 @@ details.scheme-det li { margin: 4px 0; }
   cursor: pointer;
 }
 .vb-iconbtn:hover { background: rgba(255,255,255,.22); }
+.vb-iconbtn:disabled { opacity: .45; cursor: not-allowed; }
+.vb-iconbtn:disabled:hover { background: rgba(255,255,255,.12); }
 
 .vb-messages {
   flex: 1;

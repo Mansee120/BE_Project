@@ -1,0 +1,44 @@
+{
+  "scheme_id": "SSY-2023",
+  "name": "Sukanya Samriddhi Yojana",
+  "level": "central",
+  "state": "All India",
+  "category": "savings",
+  "summary": "A small savings scheme for a girl child below 10 years of age, offering an attractive fixed interest rate and a tax-free maturity amount that can be used for her education or marriage.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "SSY-C1",
+      "text": "The account must be opened for a girl child.",
+      "field": "gender",
+      "operator": "eq",
+      "value": "female",
+      "mandatory": true
+    },
+    {
+      "clause_id": "SSY-C2",
+      "text": "The girl child must be below 10 years of age at the time of opening the account.",
+      "field": "age",
+      "operator": "lte",
+      "value": 10,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "SSY-E1",
+      "text": "A minimum deposit of Rs. 250 per year earns the notified rate of interest and the maturity proceeds are fully tax-free.",
+      "compute": { "type": "fixed_amount", "value": 250, "unit": "INR", "per_period": "year" },
+      "clause_ids": ["SSY-C1", "SSY-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "SSY-D1", "name": "Birth Certificate of Girl Child", "mandatory": true },
+    { "doc_id": "SSY-D2", "name": "Aadhaar Card of Guardian", "mandatory": true },
+    { "doc_id": "SSY-D3", "name": "Address Proof", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Bank or Post Office Manager", "deadline_days": 30, "description": "First grievance at the account office." },
+    { "level": 2, "authority": "District Savings Officer", "deadline_days": 60, "description": "Escalation at district level." },
+    { "level": 3, "authority": "Ministry of Finance (Savings Division)", "deadline_days": 90, "description": "Final grievance at the Ministry." }
+  ]
+}

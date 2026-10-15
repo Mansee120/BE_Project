@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0057",
+  "scheme_id": "ESRAM-2023",
+  "label": "Worker aged 30 - should be ELIGIBLE",
+  "applicant": {
+    "age": 30
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Mobile Number"
+  ]
+}

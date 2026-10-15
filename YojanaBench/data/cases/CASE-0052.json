@@ -1,0 +1,14 @@
+{
+  "case_id": "CASE-0052",
+  "scheme_id": "MUDRA-2023",
+  "label": "Small enterprise with low income - should be ELIGIBLE at 50000 INR",
+  "applicant": {
+    "age": 35,
+    "annual_income": 80000
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Business Plan",
+    "Bank Account Passbook"
+  ]
+}

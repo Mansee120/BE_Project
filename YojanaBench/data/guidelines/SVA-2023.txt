@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)
+SCHEME ID: SVA-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: LIVELIHOOD
+==============================================================================
+
+1. OBJECTIVE
+   A micro-credit scheme that provides collateral-free working capital loans to urban street vendors to help them resume their livelihoods, with interest subsidy and digital cashback on repayments.
+
+2. ELIGIBILITY CRITERIA
+   [SVA-C1] (MANDATORY) The applicant must be 18 years of age or older.
+   [SVA-C2] (MANDATORY) The applicant must be an urban street vendor.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [SVA-E1] An eligible street vendor receives a first working capital loan of Rs. 10000.
+
+4. DOCUMENTS REQUIRED
+   [SVA-D1] (MANDATORY) Aadhaar Card
+   [SVA-D2] (MANDATORY) Letter of Recommendation from Urban Local Body
+   [SVA-D3] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [SVA-APL1] Level 1: Urban Local Body Nodal Officer - within 30 days. First grievance at the urban local body.
+   [SVA-APL2] Level 2: Municipal Commissioner - within 60 days. Escalation at the municipal level.
+   [SVA-APL3] Level 3: Ministry of Housing and Urban Affairs - within 90 days. Final grievance at the Ministry.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

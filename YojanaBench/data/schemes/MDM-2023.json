@@ -1,0 +1,43 @@
+{
+  "scheme_id": "MDM-2023",
+  "name": "Pradhan Mantri POSHAN Shakti Nirman (Mid-Day Meal)",
+  "level": "central",
+  "state": "All India",
+  "category": "nutrition",
+  "summary": "A school nutrition programme that provides hot cooked meals to children studying in classes one to eight in government and government-aided schools, improving enrolment, attendance and nutrition.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "MDM-C1",
+      "text": "The child must be 6 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 6,
+      "mandatory": true
+    },
+    {
+      "clause_id": "MDM-C2",
+      "text": "The child must be 14 years of age or younger.",
+      "field": "age",
+      "operator": "lte",
+      "value": 14,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "MDM-E1",
+      "text": "Each eligible child receives a free hot cooked meal on every school day; there is no cash benefit.",
+      "compute": { "type": "fixed_amount", "value": 0, "unit": "INR (in-kind cooked meal)" },
+      "clause_ids": ["MDM-C1", "MDM-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "MDM-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "MDM-D2", "name": "School Enrolment Certificate", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "School Headmaster", "deadline_days": 15, "description": "First grievance at the school level." },
+    { "level": 2, "authority": "Block Education Officer", "deadline_days": 30, "description": "Escalation at block level." },
+    { "level": 3, "authority": "District Education Officer", "deadline_days": 60, "description": "Final grievance at district level." }
+  ]
+}

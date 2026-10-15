@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0032",
+  "scheme_id": "PMSBY-2023",
+  "label": "Senior aged 75 - should be INELIGIBLE",
+  "applicant": {
+    "age": 75
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Consent cum Declaration Form"
+  ]
+}

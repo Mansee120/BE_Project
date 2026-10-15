@@ -1,0 +1,14 @@
+{
+  "case_id": "CASE-0037",
+  "scheme_id": "SSY-2023",
+  "label": "Girl child aged 5 - should be ELIGIBLE at 250 INR",
+  "applicant": {
+    "age": 5,
+    "gender": "female"
+  },
+  "submitted_documents": [
+    "Birth Certificate of Girl Child",
+    "Aadhaar Card of Guardian",
+    "Address Proof"
+  ]
+}

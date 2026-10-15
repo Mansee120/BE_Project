@@ -1,0 +1,14 @@
+{
+  "case_id": "CASE-0050",
+  "scheme_id": "SVA-2023",
+  "label": "Urban adult vendor - should be ELIGIBLE at 10000 INR",
+  "applicant": {
+    "age": 35,
+    "region": "urban"
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Letter of Recommendation from Urban Local Body",
+    "Bank Account Passbook"
+  ]
+}

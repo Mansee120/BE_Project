@@ -1,5 +1,6 @@
 """HTTP-level tests for the FastAPI backend."""
 import json
+import os
 
 from fastapi.testclient import TestClient
 
@@ -14,6 +15,11 @@ def _expected_qa_count():
         return len(json.load(f).get("items", []))
 
 
+def _expected_scheme_count():
+    return len([f for f in os.listdir(config.SCHEMES_DIR)
+                if f.endswith(".json")])
+
+
 def test_health():
     r = client.get("/api/health")
     assert r.status_code == 200
@@ -23,13 +29,13 @@ def test_health():
 def test_stats():
     r = client.get("/api/stats")
     body = r.json()
-    assert body["schemes"] == 10
+    assert body["schemes"] == _expected_scheme_count()
     assert body["qa_pairs"] == _expected_qa_count()
 
 
 def test_schemes_listing_and_detail():
     listing = client.get("/api/schemes").json()["schemes"]
-    assert len(listing) == 10
+    assert len(listing) == _expected_scheme_count()
     detail = client.get("/api/schemes/IGNOAPS-2023").json()
     assert detail["scheme_id"] == "IGNOAPS-2023"
 
@@ -78,7 +84,7 @@ def test_report_endpoint():
     assert r.status_code == 200
     body = r.json()
     assert len(body["overall_metrics"]) == 11
-    assert len(body["per_scheme_accuracy"]) == 10
+    assert len(body["per_scheme_accuracy"]) == _expected_scheme_count()
     assert len(body["ablation_comparison"]) == 4
     assert len(body["item_results"]) == _expected_qa_count()
 
@@ -100,7 +106,7 @@ def test_assistant_status():
     assert r.status_code == 200
     body = r.json()
     assert body["ok"] is True
-    assert body["schemes"] == 10
+    assert body["schemes"] == _expected_scheme_count()
 
 
 def test_assistant_english_amount():

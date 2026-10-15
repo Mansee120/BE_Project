@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Deendayal Antyodaya Yojana - National Rural Livelihoods Mission
+SCHEME ID: NRLM-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: LIVELIHOOD
+==============================================================================
+
+1. OBJECTIVE
+   A livelihoods mission that organises rural poor households, especially women, into self-help groups and provides capital, credit and skill support to raise household incomes.
+
+2. ELIGIBILITY CRITERIA
+   [NRLM-C1] (MANDATORY) The applicant must live in a rural area.
+   [NRLM-C2] (MANDATORY) The applicant must belong to a Below Poverty Line (BPL) household.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [NRLM-E1] Members organised into self-help groups receive a revolving fund of about Rs. 15000 per group along with bank credit and interest subvention.
+
+4. DOCUMENTS REQUIRED
+   [NRLM-D1] (MANDATORY) Aadhaar Card
+   [NRLM-D2] (MANDATORY) BPL Card
+   [NRLM-D3] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [NRLM-APL1] Level 1: Block Mission Manager - within 30 days. First grievance at the block level.
+   [NRLM-APL2] Level 2: District Mission Manager - within 60 days. Escalation at district level.
+   [NRLM-APL3] Level 3: State Rural Livelihoods Mission - within 90 days. Final grievance at state level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

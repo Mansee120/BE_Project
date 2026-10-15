@@ -1,0 +1,44 @@
+{
+  "scheme_id": "NRLM-2023",
+  "name": "Deendayal Antyodaya Yojana - National Rural Livelihoods Mission",
+  "level": "central",
+  "state": "All India",
+  "category": "livelihood",
+  "summary": "A livelihoods mission that organises rural poor households, especially women, into self-help groups and provides capital, credit and skill support to raise household incomes.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "NRLM-C1",
+      "text": "The applicant must live in a rural area.",
+      "field": "region",
+      "operator": "eq",
+      "value": "rural",
+      "mandatory": true
+    },
+    {
+      "clause_id": "NRLM-C2",
+      "text": "The applicant must belong to a Below Poverty Line (BPL) household.",
+      "field": "bpl",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "NRLM-E1",
+      "text": "Members organised into self-help groups receive a revolving fund of about Rs. 15000 per group along with bank credit and interest subvention.",
+      "compute": { "type": "fixed_amount", "value": 15000, "unit": "INR" },
+      "clause_ids": ["NRLM-C1", "NRLM-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "NRLM-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "NRLM-D2", "name": "BPL Card", "mandatory": true },
+    { "doc_id": "NRLM-D3", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Block Mission Manager", "deadline_days": 30, "description": "First grievance at the block level." },
+    { "level": 2, "authority": "District Mission Manager", "deadline_days": 60, "description": "Escalation at district level." },
+    { "level": 3, "authority": "State Rural Livelihoods Mission", "deadline_days": 90, "description": "Final grievance at state level." }
+  ]
+}

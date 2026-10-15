@@ -1,0 +1,31 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Stand-Up India
+SCHEME ID: SUI-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: ENTREPRENEURSHIP
+==============================================================================
+
+1. OBJECTIVE
+   A scheme that facilitates bank loans to Scheduled Caste, Scheduled Tribe and women entrepreneurs for setting up greenfield enterprises in manufacturing, services, trading and allied agricultural activities.
+
+2. ELIGIBILITY CRITERIA
+   [SUI-C1] (MANDATORY) The applicant must be 18 years of age or older.
+   [SUI-C2] (MANDATORY) The applicant must be a woman or belong to a Scheduled Caste or Scheduled Tribe.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [SUI-E1] An eligible entrepreneur can avail a composite loan of between Rs. 10 lakh and Rs. 1 crore.
+
+4. DOCUMENTS REQUIRED
+   [SUI-D1] (MANDATORY) Aadhaar Card
+   [SUI-D2] (MANDATORY) Business Plan
+   [SUI-D3] (MANDATORY) Category Certificate
+   [SUI-D4] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [SUI-APL1] Level 1: Bank Branch Manager - within 15 days. First grievance at the bank branch.
+   [SUI-APL2] Level 2: Lead District Manager - within 45 days. Escalation at district level.
+   [SUI-APL3] Level 3: Banking Ombudsman - within 90 days. Final grievance before the Banking Ombudsman.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

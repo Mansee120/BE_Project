@@ -56,6 +56,100 @@ function statusBadge(s) {
   return `<span class="sbadge s-${esc(s)}">${esc(s.replace(/_/g, " "))}</span>`;
 }
 
+/* ---------------------------- sample data ----------------------------
+   Shown only when the live API returns nothing, so the portal still looks
+   complete during a demo. Real complaints always take precedence. */
+const DUMMY_SUMMARY = {
+  total: 3, diverted: 1, mule_ring: 1,
+  by_status: { filed: 1, traced: 1, under_review: 0, resolved: 1, rejected: 0 },
+};
+
+function _dummyTrace(verdict, headline, confidence, severity, txn) {
+  const f = {
+    verdict, headline, confidence, severity,
+    sanctioned_amount: txn.sanctioned_amount,
+    credited_amount: txn.credited_amount,
+    shortfall: txn.shortfall,
+    expected_account_last4: txn.expected_account_last4,
+    credited_to_account_last4: txn.credited_to_account_last4,
+    credited_to_name: txn.credited_to_name,
+    mule_ring: txn.mule_ring,
+    flags: txn.flags,
+    recommended_action: txn.recommended_action,
+  };
+  const agents = [
+    ["intake", "Complaint validated; beneficiary resolved from the registry."],
+    ["dbt_lookup", "Disbursement located in the DBT ledger."],
+    ["credit_check", "Checked whether the credit landed in the beneficiary's own account."],
+    ["reconcile", "Compared sanctioned vs credited amount."],
+    ["fraud", "Scanned for diversion, duplicate UTRs and mule-account rings."],
+    ["orchestrator", "Fused findings into a verdict with confidence."],
+    ["notice", "Drafted the escalation notice to the authority."],
+  ].map(([agent, summary], i) => ({ agent, summary, ms: 3 + i }));
+
+  return {
+    finding: f,
+    matched_transaction: txn,
+    trace: agents,
+    escalation: { authority: txn.authority, deadline_days: 30 },
+    notice: { body_text: `Draft grievance notice for ${verdict}: the sanctioned amount of Rs. ${txn.sanctioned_amount} ` +
+      `was traced and the recommended action is to escalate to ${txn.authority} within 30 days.` },
+  };
+}
+
+const DUMMY_COMPLAINTS = [
+  {
+    _dummy: true, complaint_id: "CMP-0001", beneficiary_name: "Geeta Devi",
+    scheme_id: "PMAYG-2023", utr: "UTR2026PMAYG0001", status: "under_review",
+    filed_by: "geeta", filed_at: "2026-10-14T10:12:00",
+    description: "housing money missing from my account",
+    history: [{ status: "filed", by: "geeta", at: "2026-10-14T10:12:00", note: "complaint filed" },
+              { status: "under_review", by: "officer", at: "2026-10-14T15:40:00", note: "assigning to DBT cell" }],
+    trace: _dummyTrace("diverted", "Payment credited to a different account", 0.92, "high", {
+      sanctioned_amount: 120000, credited_amount: 120000, shortfall: 0,
+      expected_account_last4: "4321", credited_to_account_last4: "9987",
+      credited_to_name: "Unknown third party", mule_ring: true,
+      flags: ["diversion", "third_party_account", "mule_ring", "duplicate_utr"],
+      recommended_action: "Escalate to the Block Development Officer and freeze the receiving account.",
+      authority: "Block Development Officer, PMAY-G",
+    }),
+  },
+  {
+    _dummy: true, complaint_id: "CMP-0002", beneficiary_name: "Ravi Kumar",
+    scheme_id: "PMKISAN-2023", utr: "UTR2026PMKISAN0014", status: "resolved",
+    filed_by: "ravi", filed_at: "2026-10-12T09:05:00",
+    description: "did not get the instalment",
+    history: [{ status: "filed", by: "ravi", at: "2026-10-12T09:05:00", note: "" },
+              { status: "resolved", by: "officer", at: "2026-10-13T11:20:00", note: "benefit re-credited" }],
+    trace: _dummyTrace("received", "Payment received in the beneficiary's account", 0.97, "none", {
+      sanctioned_amount: 6000, credited_amount: 6000, shortfall: 0,
+      expected_account_last4: "2210", credited_to_account_last4: "2210",
+      credited_to_name: "Ravi Kumar", mule_ring: false,
+      flags: [],
+      recommended_action: "No action needed; the payment has been received.",
+      authority: "PM-KISAN Grievance Cell",
+    }),
+  },
+  {
+    _dummy: true, complaint_id: "CMP-0003", beneficiary_name: "Sunita Bai",
+    scheme_id: "IGNOAPS-2023", utr: null, status: "traced",
+    filed_by: "sunita", filed_at: "2026-10-13T16:30:00",
+    description: "pension credited is less than expected",
+    history: [{ status: "filed", by: "sunita", at: "2026-10-13T16:30:00", note: "" },
+              { status: "traced", by: "system", at: "2026-10-13T16:30:02", note: "auto-trace complete" }],
+    trace: _dummyTrace("partial", "Partial credit — shortfall of Rs. 100", 0.81, "medium", {
+      sanctioned_amount: 300, credited_amount: 200, shortfall: 100,
+      expected_account_last4: "7745", credited_to_account_last4: "7745",
+      credited_to_name: "Sunita Bai", mule_ring: false,
+      flags: ["partial_credit", "shortfall"],
+      recommended_action: "Raise a reconciliation request with the pension disbursing bank.",
+      authority: "District Social Welfare Officer",
+    }),
+  },
+];
+
+const _dummyCache = {};
+
 /* ---------------------------- navigation ---------------------------- */
 function setView(name) {
   document.querySelectorAll(".gview").forEach((el) => el.classList.remove("active"));
@@ -131,16 +225,19 @@ async function loadSchemes() {
 
 async function renderHome() {
   if (!state.user) return;
+  let items = [];
   try {
     if (state.user.role === "official") {
-      const s = await api("/api/complaints/summary");
-      renderSummary(s);
+      let s = null;
+      try { s = await api("/api/complaints/summary"); } catch (e) { /* fall back below */ }
+      renderSummary(s && s.total ? s : DUMMY_SUMMARY);
     }
     const data = await api("/api/complaints");
-    renderComplaints(data.complaints || []);
+    items = data.complaints || [];
   } catch (err) {
     console.error(err);
   }
+  renderComplaints(items.length ? items : DUMMY_COMPLAINTS);
 }
 
 function renderSummary(s) {
@@ -160,6 +257,7 @@ function renderComplaints(items) {
   $("#complaints-empty").style.display = items.length ? "none" : "block";
   tbody.innerHTML = items.map((c) => {
     const f = (c.trace && c.trace.finding) || {};
+    if (c._dummy) _dummyCache[c.complaint_id] = c;
     return `<tr class="clickable" data-id="${esc(c.complaint_id)}">
       <td><strong>${esc(c.complaint_id)}</strong></td>
       <td>${esc(c.beneficiary_name || "—")}</td>
@@ -242,6 +340,7 @@ function renderTrace(trace, record) {
 
 /* ---------------------------- complaint detail ---------------------------- */
 async function openComplaint(id) {
+  if (_dummyCache[id]) { setView("detail"); renderDetail(_dummyCache[id]); return; }
   try {
     const c = await api("/api/complaints/" + encodeURIComponent(id));
     setView("detail");

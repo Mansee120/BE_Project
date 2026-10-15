@@ -1,0 +1,30 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Kisan Credit Card
+SCHEME ID: KCC-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: CREDIT
+==============================================================================
+
+1. OBJECTIVE
+   A credit scheme that gives farmers timely and hassle-free access to institutional credit through a Kisan Credit Card, covering crop cultivation, allied activities and consumption needs.
+
+2. ELIGIBILITY CRITERIA
+   [KCC-C1] (MANDATORY) The applicant must be 18 years of age or older.
+   [KCC-C2] (MANDATORY) The applicant must be a farmer.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [KCC-E1] An eligible farmer is sanctioned a credit limit of up to Rs. 3 lakh at a concessional interest rate.
+
+4. DOCUMENTS REQUIRED
+   [KCC-D1] (MANDATORY) Land Records
+   [KCC-D2] (MANDATORY) Aadhaar Card
+   [KCC-D3] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [KCC-APL1] Level 1: Bank Branch Manager - within 15 days. First grievance at the bank branch.
+   [KCC-APL2] Level 2: Lead District Manager - within 45 days. Escalation at district level.
+   [KCC-APL3] Level 3: Banking Ombudsman - within 90 days. Final grievance before the Banking Ombudsman.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

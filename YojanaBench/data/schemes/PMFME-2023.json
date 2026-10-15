@@ -1,0 +1,36 @@
+{
+  "scheme_id": "PMFME-2023",
+  "name": "PM Formalisation of Micro Food Processing Enterprises",
+  "level": "central",
+  "state": "All India",
+  "category": "food",
+  "summary": "A scheme that provides credit-linked subsidy, branding and marketing support to micro food processing enterprises to help them formalise, upgrade technology and grow.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMFME-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMFME-E1",
+      "text": "An eligible micro enterprise receives a credit-linked subsidy of 35 percent of the project cost, up to a maximum of Rs. 10 lakh.",
+      "compute": { "type": "fixed_amount", "value": 1000000, "unit": "INR" },
+      "clause_ids": ["PMFME-C1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMFME-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMFME-D2", "name": "Project Report", "mandatory": true },
+    { "doc_id": "PMFME-D3", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "District Food Processing Officer", "deadline_days": 30, "description": "First grievance at the district level." },
+    { "level": 2, "authority": "State Nodal Agency", "deadline_days": 60, "description": "Escalation at state level." },
+    { "level": 3, "authority": "Ministry of Food Processing Industries", "deadline_days": 90, "description": "Final grievance at the Ministry." }
+  ]
+}

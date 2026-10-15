@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0039",
+  "scheme_id": "PMJDY-2023",
+  "label": "Adult aged 35 - should be ELIGIBLE at 200000 INR",
+  "applicant": {
+    "age": 35
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Address Proof",
+    "Passport Size Photograph"
+  ]
+}

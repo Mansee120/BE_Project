@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0056",
+  "scheme_id": "PMVK-2023",
+  "label": "Adult artisan - should be ELIGIBLE at 15000 INR",
+  "applicant": {
+    "age": 40
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Bank Account Passbook",
+    "Proof of Trade or Profession"
+  ]
+}

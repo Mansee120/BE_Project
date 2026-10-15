@@ -1,0 +1,14 @@
+{
+  "case_id": "CASE-0042",
+  "scheme_id": "KCC-2023",
+  "label": "Farmer aged 40 - should be ELIGIBLE at 300000 INR",
+  "applicant": {
+    "age": 40,
+    "is_farmer": true
+  },
+  "submitted_documents": [
+    "Land Records",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

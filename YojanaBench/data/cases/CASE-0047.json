@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-0047",
+  "scheme_id": "JJM-2023",
+  "label": "Rural household - should be ELIGIBLE",
+  "applicant": {
+    "age": 30,
+    "region": "rural"
+  },
+  "submitted_documents": [
+    "Aadhaar Card",
+    "Address Proof"
+  ]
+}

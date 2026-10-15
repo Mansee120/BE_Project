@@ -1,5 +1,6 @@
 """Unit tests for the rule engine, retriever, corpus and intake agent."""
 import json
+import os
 
 from backend import config
 from backend.condition_eval import evaluate, evaluate_all
@@ -9,6 +10,11 @@ from backend.agents import CorpusAgent, IntakeAgent
 def _expected_qa_count():
     with open(config.QA_BENCHMARK_PATH, "r", encoding="utf-8") as f:
         return len(json.load(f).get("items", []))
+
+
+def _expected_scheme_count():
+    return len([f for f in os.listdir(config.SCHEMES_DIR)
+                if f.endswith(".json")])
 
 
 # ----------------------------- condition engine -----------------------------
@@ -52,7 +58,7 @@ def test_evaluate_all_summary():
 # --------------------------------- corpus -----------------------------------
 def test_corpus_loads_all_schemes():
     corpus = CorpusAgent()
-    assert len(corpus.schemes) == 10
+    assert len(corpus.schemes) == _expected_scheme_count()
     assert corpus.stats["clauses"] > 0
     assert corpus.stats["qa_pairs"] == _expected_qa_count()
 

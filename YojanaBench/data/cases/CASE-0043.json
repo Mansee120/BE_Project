@@ -1,0 +1,14 @@
+{
+  "case_id": "CASE-0043",
+  "scheme_id": "KCC-2023",
+  "label": "Non-farmer aged 40 - should be INELIGIBLE",
+  "applicant": {
+    "age": 40,
+    "is_farmer": false
+  },
+  "submitted_documents": [
+    "Land Records",
+    "Aadhaar Card",
+    "Bank Account Passbook"
+  ]
+}

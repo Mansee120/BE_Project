@@ -1,0 +1,28 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Jal Jeevan Mission
+SCHEME ID: JJM-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: WATER
+==============================================================================
+
+1. OBJECTIVE
+   A mission to provide every rural household with a functional household tap connection supplying adequate and safe drinking water in usable quantity on a regular basis.
+
+2. ELIGIBILITY CRITERIA
+   [JJM-C1] (MANDATORY) The applicant must live in a rural area.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [JJM-E1] Every eligible rural household receives an in-kind functional household tap water connection; there is no cash benefit.
+
+4. DOCUMENTS REQUIRED
+   [JJM-D1] (MANDATORY) Aadhaar Card
+   [JJM-D2] (MANDATORY) Address Proof
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [JJM-APL1] Level 1: Gram Panchayat - within 15 days. First grievance at the village level.
+   [JJM-APL2] Level 2: Block Development Officer (BDO) - within 30 days. Escalation at block level.
+   [JJM-APL3] Level 3: District Water and Sanitation Mission - within 60 days. Final grievance at district level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

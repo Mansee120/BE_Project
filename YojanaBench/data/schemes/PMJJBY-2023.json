@@ -1,0 +1,44 @@
+{
+  "scheme_id": "PMJJBY-2023",
+  "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana",
+  "level": "central",
+  "state": "All India",
+  "category": "insurance",
+  "summary": "A life insurance scheme offering cover of Rs. 2 lakh for death due to any reason, available to bank account holders in the age group of 18 to 50 years for a nominal annual premium.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMJJBY-C1",
+      "text": "The applicant must be 18 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 18,
+      "mandatory": true
+    },
+    {
+      "clause_id": "PMJJBY-C2",
+      "text": "The applicant must be 50 years of age or younger at the time of enrolment.",
+      "field": "age",
+      "operator": "lte",
+      "value": 50,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMJJBY-E1",
+      "text": "The nominee receives a life cover of Rs. 2 lakh on the death of the insured due to any reason.",
+      "compute": { "type": "coverage", "value": 200000, "unit": "INR" },
+      "clause_ids": ["PMJJBY-C1", "PMJJBY-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMJJBY-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMJJBY-D2", "name": "Bank Account Passbook", "mandatory": true },
+    { "doc_id": "PMJJBY-D3", "name": "Consent cum Declaration Form", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Bank Branch Manager", "deadline_days": 15, "description": "First grievance at the bank branch." },
+    { "level": 2, "authority": "Insurance Ombudsman", "deadline_days": 90, "description": "Grievance before the Insurance Ombudsman." },
+    { "level": 3, "authority": "Department of Financial Services", "deadline_days": 120, "description": "Final escalation to the Department of Financial Services." }
+  ]
+}

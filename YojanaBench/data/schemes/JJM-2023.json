@@ -1,0 +1,35 @@
+{
+  "scheme_id": "JJM-2023",
+  "name": "Jal Jeevan Mission",
+  "level": "central",
+  "state": "All India",
+  "category": "water",
+  "summary": "A mission to provide every rural household with a functional household tap connection supplying adequate and safe drinking water in usable quantity on a regular basis.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "JJM-C1",
+      "text": "The applicant must live in a rural area.",
+      "field": "region",
+      "operator": "eq",
+      "value": "rural",
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "JJM-E1",
+      "text": "Every eligible rural household receives an in-kind functional household tap water connection; there is no cash benefit.",
+      "compute": { "type": "fixed_amount", "value": 0, "unit": "INR (in-kind tap connection)" },
+      "clause_ids": ["JJM-C1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "JJM-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "JJM-D2", "name": "Address Proof", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Gram Panchayat", "deadline_days": 15, "description": "First grievance at the village level." },
+    { "level": 2, "authority": "Block Development Officer (BDO)", "deadline_days": 30, "description": "Escalation at block level." },
+    { "level": 3, "authority": "District Water and Sanitation Mission", "deadline_days": 60, "description": "Final grievance at district level." }
+  ]
+}

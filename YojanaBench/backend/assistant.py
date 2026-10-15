@@ -57,6 +57,50 @@ _SCHEME_ALIASES = {
                            "प्री मैट्रिक", "प्रमैट्रिक छात्रवृत्ति"],
     "PMS-SC-2023": ["post matric", "postmatric", "pms", "sc fellowship",
                     "scholarship for sc", "पोस्ट मैट्रिक", "पोस्टमैट्रिक"],
+    "PMUY-2023": ["pmuy", "ujjwala", "ujwala", "lpg connection",
+                  "gas connection", "उज्ज्वला", "गैस कनेक्शन"],
+    "PMSBY-2023": ["pmsby", "suraksha bima", "accident insurance",
+                   "दुर्घटना बीमा", "सुरक्षा बीमा"],
+    "PMJJBY-2023": ["pmjjby", "jeevan jyoti", "life insurance",
+                    "जीवन ज्योति", "जीवन बीमा"],
+    "APY-2023": ["apy", "atal pension", "अटल पेंशन"],
+    "SSY-2023": ["ssy", "sukanya", "sukanya samriddhi", "सुकन्या",
+                 "सुकन्या समृद्धि"],
+    "PMMVY-2023": ["pmmvy", "matru vandana", "maternity benefit",
+                   "मातृ वंदना", "मातृत्व लाभ"],
+    "PMJDY-2023": ["pmjdy", "jan dhan", "jan dhan yojana",
+                   "bank account scheme", "जन धन"],
+    "PMFBY-2023": ["pmfby", "fasal bima", "crop insurance", "फसल बीमा"],
+    "KCC-2023": ["kcc", "kisan credit card", "kisan credit",
+                 "किसान क्रेडिट कार्ड"],
+    "PMKUSUM-2023": ["pmkusum", "kusum", "solar pump", "solar pump scheme",
+                     "सौर पंप"],
+    "PMAYU-2023": ["pmayu", "awas urban", "pmay urban", "urban housing",
+                   "शहरी आवास"],
+    "SBMG-2023": ["sbmg", "swachh bharat", "swachh bharat mission",
+                  "toilet scheme", "स्वच्छ भारत", "शौचालय"],
+    "JJM-2023": ["jjm", "jal jeevan", "jal jeevan mission", "tap water",
+                 "जल जीवन"],
+    "MDM-2023": ["mdm", "mid day meal", "midday meal", "poshan",
+                 "मध्याह्न भोजन"],
+    "ICDS-2023": ["icds", "anganwadi", "child development", "आंगनवाड़ी"],
+    "SVA-2023": ["svanidhi", "pm svanidhi", "street vendor", "स्वनिधि",
+                 "रेहड़ी पटरी"],
+    "PMEGP-2023": ["pmegp", "employment generation",
+                   "micro enterprise loan", "रोजगार सृजन"],
+    "MUDRA-2023": ["mudra", "mudra loan", "shishu loan", "मुद्रा"],
+    "SUI-2023": ["stand up india", "standup india", "stand-up india",
+                 "स्टैंड अप इंडिया"],
+    "PMVK-2023": ["vishwakarma", "pm vishwakarma", "artisan scheme",
+                  "विश्वकर्मा"],
+    "ESRAM-2023": ["eshram", "e shram", "unorganised worker", "ई श्रम"],
+    "PMKMY-2023": ["pmkmy", "kisan maandhan", "farmer pension",
+                   "किसान मानधन"],
+    "DDUGKY-2023": ["ddugky", "grameen kaushalya", "skill training rural",
+                    "कौशल विकास"],
+    "NRLM-2023": ["nrlm", "aajeevika", "self help group", "shg", "आजीविका"],
+    "PMFME-2023": ["pmfme", "food processing", "micro food processing",
+                   "खाद्य प्रसंस्करण"],
 }
 
 # Question order used by the verbal audit. "gender" is always asked for the
@@ -127,12 +171,18 @@ def _mytag(code):
     defaults = {
         "en": "IN", "hi": "IN", "kn": "IN", "ta": "IN", "te": "IN",
         "ml": "IN", "mr": "IN", "gu": "IN", "pa": "IN", "bn": "IN",
-        "as": "IN", "or": "IN", "bho": "IN", "sa": "IN",
+        "as": "IN", "or": "IN", "bho": "IN", "sa": "IN", "kok": "IN",
+        "mai": "IN", "ks": "IN", "mni": "IN", "doi": "IN", "sat": "IN",
+        "raj": "IN",
         "ne": "NP", "ur": "PK", "sd": "PK", "si": "LK", "fa": "IR",
-        "ar": "SA", "my": "MM", "zh": "CN", "ja": "JP", "ko": "KR",
-        "de": "DE", "fr": "FR", "es": "ES", "pt": "BR", "ru": "RU",
-        "it": "IT", "nl": "NL", "tr": "TR", "th": "TH", "vi": "VN",
-        "id": "ID", "tl": "PH", "pl": "PL", "sv": "SE", "ms": "MY",
+        "ar": "SA", "he": "IL", "my": "MM", "zh": "CN", "ja": "JP",
+        "ko": "KR", "de": "DE", "fr": "FR", "es": "ES", "pt": "BR",
+        "ru": "RU", "it": "IT", "nl": "NL", "tr": "TR", "th": "TH",
+        "vi": "VN", "id": "ID", "tl": "PH", "pl": "PL", "sv": "SE",
+        "ms": "MY", "no": "NO", "da": "DK", "fi": "FI", "cs": "CZ",
+        "el": "GR", "hu": "HU", "ro": "RO", "uk": "UA", "sr": "RS",
+        "bg": "BG", "ka": "GE", "sw": "KE", "ha": "NG", "yo": "NG",
+        "am": "ET", "km": "KH",
     }
     return f"{base}-{defaults.get(base, 'IN')}"
 
@@ -365,6 +415,15 @@ class Assistant:
 
     def status(self):
         return {"ok": True, "schemes": len(self.schemes)}
+
+    def welcome(self, lang="en"):
+        """A short self-introduction, localised into ``lang``.
+
+        Used by the voice widget when it opens and whenever the user picks a
+        different language, so the assistant always greets in that language.
+        """
+        reply, _ = self._answer("greet", None)
+        return {"reply": self._localise(reply, lang), "lang": lang}
 
     # -- entry ----------------------------------------------------------------
     def handle(self, message, lang="en", session_id=None):

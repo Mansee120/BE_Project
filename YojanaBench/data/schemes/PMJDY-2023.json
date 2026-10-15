@@ -1,0 +1,36 @@
+{
+  "scheme_id": "PMJDY-2023",
+  "name": "Pradhan Mantri Jan Dhan Yojana",
+  "level": "central",
+  "state": "All India",
+  "category": "banking",
+  "summary": "A financial inclusion mission that provides every household with a basic zero-balance savings bank account, a RuPay debit card, an overdraft facility and accident insurance cover.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "PMJDY-C1",
+      "text": "The applicant must be 10 years of age or older.",
+      "field": "age",
+      "operator": "gte",
+      "value": 10,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "PMJDY-E1",
+      "text": "Account holders receive an accident insurance cover of Rs. 2 lakh on the RuPay debit card.",
+      "compute": { "type": "coverage", "value": 200000, "unit": "INR" },
+      "clause_ids": ["PMJDY-C1"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "PMJDY-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "PMJDY-D2", "name": "Address Proof", "mandatory": true },
+    { "doc_id": "PMJDY-D3", "name": "Passport Size Photograph", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Bank Branch Manager", "deadline_days": 15, "description": "First grievance at the bank branch." },
+    { "level": 2, "authority": "Lead District Manager", "deadline_days": 45, "description": "Escalation at district level." },
+    { "level": 3, "authority": "Banking Ombudsman", "deadline_days": 90, "description": "Final grievance before the Banking Ombudsman." }
+  ]
+}

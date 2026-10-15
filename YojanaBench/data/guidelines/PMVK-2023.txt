@@ -1,0 +1,29 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: PM Vishwakarma
+SCHEME ID: PMVK-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: LIVELIHOOD
+==============================================================================
+
+1. OBJECTIVE
+   A scheme that supports traditional artisans and craftspeople with skill training, modern toolkits, collateral-free credit and market linkages to improve the quality and reach of their products and services.
+
+2. ELIGIBILITY CRITERIA
+   [PMVK-C1] (MANDATORY) The applicant must be 18 years of age or older.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMVK-E1] An eligible artisan receives a toolkit incentive of Rs. 15000 along with skill training.
+
+4. DOCUMENTS REQUIRED
+   [PMVK-D1] (MANDATORY) Aadhaar Card
+   [PMVK-D2] (MANDATORY) Bank Account Passbook
+   [PMVK-D3] (MANDATORY) Proof of Trade or Profession
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMVK-APL1] Level 1: Gram Panchayat or MSME-DI Office - within 30 days. First grievance at the local office.
+   [PMVK-APL2] Level 2: State Nodal Agency - within 60 days. Escalation at state level.
+   [PMVK-APL3] Level 3: Ministry of Micro, Small and Medium Enterprises - within 90 days. Final grievance at the Ministry.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

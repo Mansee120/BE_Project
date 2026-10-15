@@ -1,0 +1,32 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri Ujjwala Yojana
+SCHEME ID: PMUY-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: ENERGY
+==============================================================================
+
+1. OBJECTIVE
+   Provides a free LPG cooking gas connection, with the first refill and a stove, to adult women from Below Poverty Line (BPL) households so that clean cooking fuel replaces firewood and other unhealthy fuels.
+
+2. ELIGIBILITY CRITERIA
+   [PMUY-C1] (MANDATORY) The applicant must be 18 years of age or older.
+   [PMUY-C2] (MANDATORY) The applicant must be a woman.
+   [PMUY-C3] (MANDATORY) The applicant must belong to a Below Poverty Line (BPL) household.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [PMUY-E1] An eligible woman receives a free LPG connection worth about Rs. 1600, including the security deposit, first refill and a stove.
+
+4. DOCUMENTS REQUIRED
+   [PMUY-D1] (MANDATORY) BPL Card
+   [PMUY-D2] (MANDATORY) Aadhaar Card
+   [PMUY-D3] (MANDATORY) Bank Account Passbook
+   [PMUY-D4] (MANDATORY) Address Proof
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [PMUY-APL1] Level 1: Block Development Officer (BDO) - within 30 days. First appeal at block level.
+   [PMUY-APL2] Level 2: District Supply Officer - within 60 days. Second appeal at district level.
+   [PMUY-APL3] Level 3: State Food Commission - within 90 days. Final appeal at state level.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT

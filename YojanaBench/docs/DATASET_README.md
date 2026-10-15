@@ -7,14 +7,14 @@ This folder is self-contained and can be published/shipped independently of the 
 
 ```
 data/
-+-- schemes/          10 structured SchemeSchema JSON files (conditions + formulas)
++-- schemes/          35 structured SchemeSchema JSON files (conditions + formulas)
 +-- guidelines/       Rendered guideline "documents" (stand-ins for official PDFs)
 +-- cases/            Sample case applications for the audit demo
 +-- beneficiaries.json Synthetic beneficiary registry (B-0001..B-0012)
 +-- dbt/
 +|   +-- transactions.json  Mock DBT transaction ledger (money-trace ground truth)
 +-- qa/
-+|   +-- qa_benchmark.json   100 QA pairs (eligibility / entitlement / documents / appeal)
++|   +-- qa_benchmark.json   241 QA pairs (eligibility / entitlement / documents / appeal)
 +-- meta/
     +-- leaderboard.json    Public leaderboard entries
 ```
@@ -27,7 +27,7 @@ scripts/gen_cases.py          regenerate the synthetic demo cases
 scripts/gen_qa.py             regenerate the synthetic QA pairs
 ```
 
-## Scheme corpus (10 schemes)
+## Scheme corpus (35 schemes)
 
 | Scheme ID | Name | Category | Level |
 |---|---|---|---|
@@ -41,6 +41,31 @@ scripts/gen_qa.py             regenerate the synthetic QA pairs
 | PMJAY-2023 | Ayushman Bharat health cover | health | central |
 | PMAYG-2023 | PMAY-Gramin housing | housing | central |
 | NSP-PREMATRIC-2023 | Pre-Matric Scholarship (SC/ST) | scholarship | central |
+| PMUY-2023 | PM Ujjwala Yojana (LPG connection) | energy | central |
+| PMSBY-2023 | PM Suraksha Bima Yojana | insurance | central |
+| PMJJBY-2023 | PM Jeevan Jyoti Bima Yojana | insurance | central |
+| APY-2023 | Atal Pension Yojana | pension | central |
+| SSY-2023 | Sukanya Samriddhi Yojana | savings | central |
+| PMMVY-2023 | PM Matru Vandana Yojana | maternity | central |
+| PMJDY-2023 | PM Jan Dhan Yojana | banking | central |
+| PMFBY-2023 | PM Fasal Bima Yojana | agriculture | central |
+| KCC-2023 | Kisan Credit Card | credit | central |
+| PMKUSUM-2023 | PM-KUSUM solar pumps | energy | central |
+| PMAYU-2023 | PMAY-Urban housing | housing | central |
+| SBMG-2023 | Swachh Bharat Mission (Gramin) | sanitation | central |
+| JJM-2023 | Jal Jeevan Mission | water | central |
+| MDM-2023 | PM POSHAN (Mid-Day Meal) | nutrition | central |
+| ICDS-2023 | Integrated Child Development Services | nutrition | central |
+| SVA-2023 | PM SVANidhi (street vendors) | livelihood | central |
+| PMEGP-2023 | PM Employment Generation Programme | employment | central |
+| MUDRA-2023 | PM MUDRA Yojana | credit | central |
+| SUI-2023 | Stand-Up India | entrepreneurship | central |
+| PMVK-2023 | PM Vishwakarma | livelihood | central |
+| ESRAM-2023 | eShram (unorganised workers) | labour | central |
+| PMKMY-2023 | PM Kisan Maandhan Yojana | pension | central |
+| DDUGKY-2023 | Deen Dayal Upadhyaya Grameen Kaushalya Yojana | skill | central |
+| NRLM-2023 | DAY-NRLM (rural livelihoods) | livelihood | central |
+| PMFME-2023 | PM Formalisation of Micro Food Processing Enterprises | food | central |
 
 ## QA benchmark schema
 

@@ -1,0 +1,44 @@
+{
+  "scheme_id": "SBMG-2023",
+  "name": "Swachh Bharat Mission (Gramin)",
+  "level": "central",
+  "state": "All India",
+  "category": "sanitation",
+  "summary": "A rural sanitation mission that provides a financial incentive to Below Poverty Line households in villages to construct and use an individual household toilet.",
+  "eligibility_clauses": [
+    {
+      "clause_id": "SBMG-C1",
+      "text": "The applicant must live in a rural area.",
+      "field": "region",
+      "operator": "eq",
+      "value": "rural",
+      "mandatory": true
+    },
+    {
+      "clause_id": "SBMG-C2",
+      "text": "The applicant must belong to a Below Poverty Line (BPL) household.",
+      "field": "bpl",
+      "operator": "eq",
+      "value": true,
+      "mandatory": true
+    }
+  ],
+  "entitlement_rules": [
+    {
+      "rule_id": "SBMG-E1",
+      "text": "An eligible household receives an incentive of Rs. 12000 for constructing a toilet.",
+      "compute": { "type": "fixed_amount", "value": 12000, "unit": "INR" },
+      "clause_ids": ["SBMG-C1", "SBMG-C2"]
+    }
+  ],
+  "required_documents": [
+    { "doc_id": "SBMG-D1", "name": "Aadhaar Card", "mandatory": true },
+    { "doc_id": "SBMG-D2", "name": "BPL Card", "mandatory": true },
+    { "doc_id": "SBMG-D3", "name": "Bank Account Passbook", "mandatory": true }
+  ],
+  "appeal_hierarchy": [
+    { "level": 1, "authority": "Gram Panchayat", "deadline_days": 15, "description": "First grievance at the village level." },
+    { "level": 2, "authority": "Block Development Officer (BDO)", "deadline_days": 30, "description": "Escalation at block level." },
+    { "level": 3, "authority": "District Panchayat", "deadline_days": 60, "description": "Final grievance at district level." }
+  ]
+}

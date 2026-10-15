@@ -63,21 +63,30 @@ NOTIFICATION_LOG_PATH = os.path.join(RUNTIME_DIR, "notification_log.json")
 APPEAL_REGISTRY_PATH = os.path.join(RUNTIME_DIR, "appeal_registry.json")
 EMAIL_CONFIG_PATH = os.path.join(RUNTIME_DIR, "email_config.json")
 
+# --- SMS / message channel (offline outbox by default) -----------------------
+# Same design rule as email: with no gateway URL configured every "send" is
+# written to runtime/sms_outbox as a .txt file and reported as a dry run.
+SMS_OUTBOX_DIR = os.path.join(RUNTIME_DIR, "sms_outbox")
+MESSAGE_LOG_PATH = os.path.join(RUNTIME_DIR, "message_log.json")
+SMS_SENDER_ID = os.environ.get("YOJANA_SMS_SENDER", "YOJANABENCH")
+# Optional live gateway (MSG91 / Fast2SMS / Twilio-style JSON webhook).
+SMS_GATEWAY_URL = os.environ.get("YOJANA_SMS_GATEWAY_URL", "")
+
 # --- Grievance / money-trace persistence -------------------------------------
 USERS_PATH = os.path.join(RUNTIME_DIR, "users.json")
 COMPLAINTS_PATH = os.path.join(RUNTIME_DIR, "complaints.json")
 
-SMTP_HOST = os.environ.get("YOJANA_SMTP_HOST", "s13429.bom1.stableserver.net")
+SMTP_HOST = os.environ.get("YOJANA_SMTP_HOST", "")
 SMTP_PORT = int(os.environ.get("YOJANA_SMTP_PORT", "465"))
-SMTP_USER = os.environ.get("YOJANA_SMTP_USER", "pradeep@orbitavanyatech.com")
-SMTP_PASSWORD = os.environ.get("YOJANA_SMTP_PASSWORD", "Prad@2026")
+SMTP_USER = os.environ.get("YOJANA_SMTP_USER", "")
+SMTP_PASSWORD = os.environ.get("YOJANA_SMTP_PASSWORD", "")
 SMTP_FROM_NAME = os.environ.get("YOJANA_SMTP_FROM_NAME", "YojanaBench")
 SMTP_USE_SSL = os.environ.get("YOJANA_SMTP_SSL", "true").lower() not in ("0", "false", "no")
 
-IMAP_HOST = os.environ.get("YOJANA_IMAP_HOST", "s13429.bom1.stableserver.net")
+IMAP_HOST = os.environ.get("YOJANA_IMAP_HOST", "")
 IMAP_PORT = int(os.environ.get("YOJANA_IMAP_PORT", "993"))
-IMAP_USER = os.environ.get("YOJANA_IMAP_USER", "pradeep@orbitavanyatech.com")
-IMAP_PASSWORD = os.environ.get("YOJANA_IMAP_PASSWORD", "Prad@2026")
+IMAP_USER = os.environ.get("YOJANA_IMAP_USER", "")
+IMAP_PASSWORD = os.environ.get("YOJANA_IMAP_PASSWORD", "")
 
 # scheme_id -> government/authority email that receives verdict digests.
 # Resolution order: scheme schema "authority_email" -> this map -> default below.

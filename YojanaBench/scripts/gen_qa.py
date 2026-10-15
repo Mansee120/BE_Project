@@ -20,7 +20,7 @@ from backend import config  # noqa: E402
 
 # Number of hand-authored items at the top of the file that we must not touch.
 N_HAND = 56
-TARGET = 100
+TARGET = 300
 
 
 def clause_ids(scheme, kind):
@@ -116,6 +116,113 @@ PROFILES = {
          "education_level": "12", "annual_income": 200000, "hosteller": False}),
         ("SC applicant above the income ceiling", {"age": 21, "category": "SC",
          "education_level": "PG", "annual_income": 400000, "hosteller": False}),
+    ],
+    "PMUY-2023": [
+        ("Eligible BPL woman", {"age": 32, "gender": "female", "bpl": True}),
+        ("Man in a BPL household", {"age": 40, "gender": "male", "bpl": True}),
+    ],
+    "PMSBY-2023": [
+        ("Adult aged 40", {"age": 40}),
+        ("Senior aged 75", {"age": 75}),
+    ],
+    "PMJJBY-2023": [
+        ("Adult aged 30", {"age": 30}),
+        ("Person aged 55", {"age": 55}),
+    ],
+    "APY-2023": [
+        ("Non-taxpaying worker aged 25", {"age": 25,
+         "is_income_tax_payer": False}),
+        ("Income tax payer aged 30", {"age": 30, "is_income_tax_payer": True}),
+    ],
+    "SSY-2023": [
+        ("Girl child aged 5", {"age": 5, "gender": "female"}),
+        ("Girl child aged 12", {"age": 12, "gender": "female"}),
+    ],
+    "PMMVY-2023": [
+        ("Mother aged 24", {"age": 24, "gender": "female"}),
+        ("Woman aged 18", {"age": 18, "gender": "female"}),
+    ],
+    "PMJDY-2023": [
+        ("Adult aged 35", {"age": 35}),
+        ("Child aged 8", {"age": 8}),
+    ],
+    "PMFBY-2023": [
+        ("Farmer seeking crop cover", {"age": 45, "is_farmer": True}),
+        ("Non-farmer applicant", {"age": 45, "is_farmer": False}),
+    ],
+    "KCC-2023": [
+        ("Farmer aged 40", {"age": 40, "is_farmer": True}),
+        ("Non-farmer aged 40", {"age": 40, "is_farmer": False}),
+    ],
+    "PMKUSUM-2023": [
+        ("Farmer seeking solar pump", {"age": 50, "is_farmer": True}),
+        ("Non-farmer applicant", {"age": 50, "is_farmer": False}),
+    ],
+    "PMAYU-2023": [
+        ("Low income household without a pucca house",
+         {"age": 38, "annual_income": 250000, "owns_pucca_house": False}),
+        ("Higher income household",
+         {"age": 40, "annual_income": 500000, "owns_pucca_house": False}),
+    ],
+    "SBMG-2023": [
+        ("BPL rural household", {"age": 35, "region": "rural", "bpl": True}),
+        ("Urban BPL household", {"age": 35, "region": "urban", "bpl": True}),
+    ],
+    "JJM-2023": [
+        ("Rural household", {"age": 30, "region": "rural"}),
+        ("Urban household", {"age": 30, "region": "urban"}),
+    ],
+    "MDM-2023": [
+        ("Child aged 9", {"age": 9}),
+        ("Youth aged 16", {"age": 16}),
+    ],
+    "ICDS-2023": [
+        ("Toddler aged 3", {"age": 3}),
+        ("Child aged 8", {"age": 8}),
+    ],
+    "SVA-2023": [
+        ("Urban adult vendor", {"age": 35, "region": "urban"}),
+        ("Rural adult vendor", {"age": 35, "region": "rural"}),
+    ],
+    "PMEGP-2023": [
+        ("Adult applicant", {"age": 30}),
+        ("Minor applicant", {"age": 15}),
+    ],
+    "MUDRA-2023": [
+        ("Small enterprise with low income",
+         {"age": 35, "annual_income": 80000}),
+        ("Larger enterprise",
+         {"age": 35, "annual_income": 800000}),
+    ],
+    "SUI-2023": [
+        ("Woman entrepreneur", {"age": 30, "gender": "female",
+         "category": "General"}),
+        ("General category male applicant", {"age": 30, "gender": "male",
+         "category": "General"}),
+    ],
+    "PMVK-2023": [
+        ("Adult artisan", {"age": 40}),
+        ("Minor applicant", {"age": 16}),
+    ],
+    "ESRAM-2023": [
+        ("Worker aged 30", {"age": 30}),
+        ("Senior aged 62", {"age": 62}),
+    ],
+    "PMKMY-2023": [
+        ("Young farmer aged 28", {"age": 28, "is_farmer": True}),
+        ("Older farmer aged 45", {"age": 45, "is_farmer": True}),
+    ],
+    "DDUGKY-2023": [
+        ("Rural youth aged 22", {"age": 22, "region": "rural"}),
+        ("Urban youth aged 22", {"age": 22, "region": "urban"}),
+    ],
+    "NRLM-2023": [
+        ("BPL rural household", {"age": 35, "region": "rural", "bpl": True}),
+        ("Urban household", {"age": 35, "region": "urban", "bpl": True}),
+    ],
+    "PMFME-2023": [
+        ("Adult entrepreneur", {"age": 30}),
+        ("Minor applicant", {"age": 16}),
     ],
 }
 

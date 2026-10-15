@@ -20,6 +20,234 @@
     "Verification", "Orchestrator", "Evaluation", "Appeal",
   ];
 
+  // Sample data shown on load so the dashboard looks complete while explaining
+  // the project offline. Clicking any "Run / Generate / Load" button replaces
+  // this preview with live results from the backend.
+  const DUMMY = {
+    stats: {
+      schemes: 35,
+      guideline_documents: 35,
+      clauses: 325,
+      estimated_pages: 29.2,
+      qa_pairs: 241,
+      qa_edge_cases: 29,
+    },
+    metrics: {
+      verdict_accuracy: 1.0,
+      answer_accuracy: 0.20,
+      token_f1: 0.26,
+      exact_match: 0.0,
+      entitlement_error_abs: 0.0,
+      document_f1: 1.0,
+      calibration_ece: 0.05,
+      edge_case_accuracy: 1.0,
+      base_case_accuracy: 1.0,
+      count: 241,
+      category_breakdown: {
+        eligibility: { count: 111, verdict_accuracy: 1.0, em: 0.02, f1: 0.29 },
+        entitlement: { count: 53, verdict_accuracy: 1.0, em: 0.0, f1: 0.24 },
+        documents: { count: 39, verdict_accuracy: null, em: 0.0, f1: 0.31 },
+        appeal: { count: 38, verdict_accuracy: null, em: 0.0, f1: 0.21 },
+      },
+    },
+    rows: [
+      { id: "YB-IGNOAPS-0001", category: "eligibility",
+        question: "Is a 68-year-old BPL widow eligible for IGNOAPS?",
+        reference_answer: "Eligible: age >= 60 and BPL household.",
+        predicted_answer: "Eligible: age >= 60 and BPL household.",
+        edge_case: "", ground_verdict: "eligible", predicted_verdict: "eligible", em: 1, f1: 0.94 },
+      { id: "YB-IGNDPS-0002", category: "eligibility",
+        question: "Is a person with 45% disability eligible for IGNDPS?",
+        reference_answer: "Eligible: severe disability (>= 40%) and age >= 18.",
+        predicted_answer: "Eligible: severe disability (>= 40%) and age >= 18.",
+        edge_case: "boundary disability", ground_verdict: "eligible", predicted_verdict: "eligible", em: 1, f1: 0.88 },
+      { id: "YB-PMKISAN-0003", category: "eligibility",
+        question: "Is an income-tax payer farmer eligible for PM-KISAN?",
+        reference_answer: "Ineligible: income-tax payers and institutional landholders are excluded.",
+        predicted_answer: "Ineligible: income-tax payers and institutional landholders are excluded.",
+        edge_case: "exclusion", ground_verdict: "ineligible", predicted_verdict: "ineligible", em: 1, f1: 0.9 },
+      { id: "YB-PDS-0004", category: "eligibility",
+        question: "Can an APL household get priority rations under NFSA?",
+        reference_answer: "Ineligible: priority households must hold PHH/AAY cards.",
+        predicted_answer: "Ineligible: priority households must hold PHH/AAY cards.",
+        edge_case: "", ground_verdict: "ineligible", predicted_verdict: "ineligible", em: 1, f1: 0.82 },
+      { id: "YB-IGNOAPS-0005", category: "eligibility",
+        question: "Is a 55-year-old without disability eligible for IGNOAPS?",
+        reference_answer: "Ineligible: below the age-60 threshold.",
+        predicted_answer: "Ineligible: below the age-60 threshold.",
+        edge_case: "near-boundary age", ground_verdict: "ineligible", predicted_verdict: "ineligible", em: 1, f1: 0.86 },
+      { id: "YB-PMAYG-0006", category: "eligibility",
+        question: "Is a kutcha-house rural household eligible for PMAY-G?",
+        reference_answer: "Eligible: houseless or kutcha house, rural, SECC-listed.",
+        predicted_answer: "Eligible: houseless or kutcha house, rural, SECC-listed.",
+        edge_case: "", ground_verdict: "eligible", predicted_verdict: "eligible", em: 1, f1: 0.91 },
+      { id: "YB-IGNOAPS-0007", category: "entitlement",
+        question: "What monthly pension does an eligible IGNOAPS beneficiary aged 75 receive?",
+        reference_answer: "Rs. 300 per month (central share), enhanced for 80+.",
+        predicted_answer: "Rs. 300 per month (central share), enhanced for 80+.",
+        edge_case: "", ground_verdict: "eligible", predicted_verdict: "eligible", em: 1, f1: 0.72 },
+      { id: "YB-IGNWPS-0008", category: "entitlement",
+        question: "What monthly pension does an eligible IGNWPS widow receive?",
+        reference_answer: "Rs. 300 per month (central share).",
+        predicted_answer: "Rs. 300 per month (central share).",
+        edge_case: "", ground_verdict: "eligible", predicted_verdict: "eligible", em: 1, f1: 0.75 },
+      { id: "YB-MGNREGA-0009", category: "entitlement",
+        question: "How many days of guaranteed wage employment does MGNREGA provide?",
+        reference_answer: "100 days per household per financial year.",
+        predicted_answer: "100 days per household per financial year.",
+        edge_case: "", ground_verdict: "eligible", predicted_verdict: "eligible", em: 1, f1: 0.8 },
+      { id: "YB-NSP-0010", category: "entitlement",
+        question: "What is the pre-matric scholarship entitlement for a class 9 hosteller?",
+        reference_answer: "Monthly maintenance allowance plus books/ad-hoc grant per guidelines.",
+        predicted_answer: "Monthly maintenance allowance plus books/ad-hoc grant per guidelines.",
+        edge_case: "", ground_verdict: "eligible", predicted_verdict: "eligible", em: 0, f1: 0.68 },
+      { id: "YB-IGNDPS-0011", category: "documents",
+        question: "Which document is mandatory to claim IGNDPS?",
+        reference_answer: "Disability certificate of at least 40 percent.",
+        predicted_answer: "Disability certificate of at least 40 percent.",
+        edge_case: "", ground_verdict: "needs_info", predicted_verdict: "needs_info", em: 1, f1: 0.77 },
+      { id: "YB-PMAYG-0012", category: "documents",
+        question: "What proof is required to establish a PMAY-G applicant is houseless?",
+        reference_answer: "SECC/housing deprivation proof and Aadhaar.",
+        predicted_answer: "SECC/housing deprivation proof and Aadhaar.",
+        edge_case: "missing doc", ground_verdict: "needs_info", predicted_verdict: "needs_info", em: 1, f1: 0.7 },
+      { id: "YB-PDS-0013", category: "appeal",
+        question: "How does a rejected NFSA applicant appeal?",
+        reference_answer: "Approach the District Grievance Redressal Officer within 30 days.",
+        predicted_answer: "Approach the District Grievance Redressal Officer within 30 days.",
+        edge_case: "", ground_verdict: "ineligible", predicted_verdict: "ineligible", em: 0, f1: 0.61 },
+      { id: "YB-PMJAY-0014", category: "appeal",
+        question: "Where does a PM-JAY rejection get escalated?",
+        reference_answer: "State Health Agency grievance cell, then Ayushman Bharat helpline.",
+        predicted_answer: "State Health Agency grievance cell, then Ayushman Bharat helpline.",
+        edge_case: "", ground_verdict: "ineligible", predicted_verdict: "ineligible", em: 0, f1: 0.64 },
+    ],
+    report: {
+      overall_metrics: [
+        { metric: "Items scored", value: 100 },
+        { metric: "Verdict accuracy (primary)", value: 1.0 },
+        { metric: "Answer accuracy (F1 >= 0.5)", value: 0.2 },
+        { metric: "Token F1", value: 0.26 },
+        { metric: "Exact Match", value: 0.0 },
+        { metric: "Entitlement error (abs)", value: 0.0 },
+        { metric: "Entitlement error (rel)", value: 0.0 },
+        { metric: "Document F1", value: 1.0 },
+        { metric: "Calibration ECE", value: 0.05 },
+        { metric: "Edge-case accuracy", value: 1.0 },
+        { metric: "Base-case accuracy", value: 1.0 },
+      ],
+      per_scheme_accuracy: [
+        { scheme_id: "IGNOAPS-2023", items: 12, verdict_accuracy: 1.0, mean_token_f1: 0.29, mean_confidence: 0.92 },
+        { scheme_id: "IGNDPS-2023", items: 11, verdict_accuracy: 1.0, mean_token_f1: 0.27, mean_confidence: 0.9 },
+        { scheme_id: "IGNWPS-2023", items: 10, verdict_accuracy: 1.0, mean_token_f1: 0.28, mean_confidence: 0.91 },
+        { scheme_id: "MGNREGA-2023", items: 9, verdict_accuracy: 1.0, mean_token_f1: 0.26, mean_confidence: 0.89 },
+        { scheme_id: "NSP-PREMATRIC-2023", items: 11, verdict_accuracy: 1.0, mean_token_f1: 0.24, mean_confidence: 0.88 },
+        { scheme_id: "PDS-NFSA-2023", items: 10, verdict_accuracy: 1.0, mean_token_f1: 0.25, mean_confidence: 0.9 },
+        { scheme_id: "PMAYG-2023", items: 10, verdict_accuracy: 1.0, mean_token_f1: 0.27, mean_confidence: 0.89 },
+        { scheme_id: "PMJAY-2023", items: 9, verdict_accuracy: 1.0, mean_token_f1: 0.23, mean_confidence: 0.87 },
+        { scheme_id: "PMKISAN-2023", items: 10, verdict_accuracy: 1.0, mean_token_f1: 0.26, mean_confidence: 0.9 },
+        { scheme_id: "PMS-SC-2023", items: 8, verdict_accuracy: 1.0, mean_token_f1: 0.28, mean_confidence: 0.91 },
+      ],
+      edge_vs_base: [
+        { group: "edge_case", items: 54, verdict_accuracy: 1.0, mean_token_f1: 0.25 },
+        { group: "base", items: 46, verdict_accuracy: 1.0, mean_token_f1: 0.27 },
+      ],
+      ablation_comparison: [
+        { variant: "full", count: 100, verdict_accuracy: 1.0, verdict_accuracy_delta: 0.0, entitlement_error_abs: 0.0, token_f1: 0.26 },
+        { variant: "no_verification", count: 100, verdict_accuracy: 0.939, verdict_accuracy_delta: -6.1, entitlement_error_abs: 0.0, token_f1: 0.25 },
+        { variant: "llm_math", count: 100, verdict_accuracy: 1.0, verdict_accuracy_delta: 0.0, entitlement_error_abs: 1799.4, token_f1: 0.26 },
+        { variant: "no_counterfactuals", count: 46, verdict_accuracy: 1.0, verdict_accuracy_delta: 0.0, entitlement_error_abs: 0.0, token_f1: 0.27 },
+      ],
+    },
+    leaderboard: {
+      entries: [
+        { name: "YojanaBench (built-in)", note: "built-in deterministic pipeline", date: "2026-10-10",
+          metrics: { verdict_accuracy: 1.0, answer_accuracy: 0.1964, token_f1: 0.2634, entitlement_error_abs: 0.0, document_f1: 1.0, calibration_ece: 0.0463 } },
+        { name: "Baseline: always eligible", note: "trivial baseline", date: "2026-10-10",
+          metrics: { verdict_accuracy: 0.6122, answer_accuracy: 0.0, token_f1: 0.0, entitlement_error_abs: null, document_f1: 0.0, calibration_ece: 0.0 } },
+        { name: "Baseline: always ineligible", note: "trivial baseline", date: "2026-10-10",
+          metrics: { verdict_accuracy: 0.3265, answer_accuracy: 0.0, token_f1: 0.0, entitlement_error_abs: null, document_f1: 0.0, calibration_ece: 0.0 } },
+      ],
+    },
+    ablation: {
+      comparison: [
+        { variant: "full", label: "Full pipeline (all agents)", count: 100, verdict_accuracy: 1.0, verdict_accuracy_delta: 0.0, entitlement_error_abs: 0.0, token_f1: 0.26, calibration_ece: 0.046 },
+        { variant: "no_verification", label: "Ablation: no Verification", count: 100, verdict_accuracy: 0.939, verdict_accuracy_delta: -6.1, entitlement_error_abs: 0.0, token_f1: 0.25, calibration_ece: 0.061 },
+        { variant: "llm_math", label: "Ablation: LLM-only maths", count: 100, verdict_accuracy: 1.0, verdict_accuracy_delta: 0.0, entitlement_error_abs: 1799.4, token_f1: 0.26, calibration_ece: 0.052 },
+        { variant: "no_counterfactuals", label: "Ablation: no counterfactuals", count: 46, verdict_accuracy: 1.0, verdict_accuracy_delta: 0.0, entitlement_error_abs: 0.0, token_f1: 0.27, calibration_ece: 0.043 },
+      ],
+    },
+    audit: {
+      case: { case_id: "CASE-0008", scheme_id: "PMAYG-2023",
+              scheme_name: "Pradhan Mantri Awaas Yojana - Gramin" },
+      verdict: {
+        decision: "needs_info",
+        human_approval_required: true,
+        confidence: 0.62,
+        agents_agree: true,
+        explanation: "The applicant satisfies the rural and housing-deprivation clauses, but the audit cannot be completed: two mandatory documents are missing. The Verification agent disagreed with a full clearance, so the Orchestrator raised the human-approval gate and returned NEEDS_INFO.",
+        computed_entitlement: 120000,
+        entitlement_unit: "Rs.",
+        entitlement_formula: "unit assistance = Rs. 120000 per eligible household",
+        missing_documents: ["MGNREGA Job Card", "Bank account details"],
+        evidence_clause_ids: ["PMAYG-EL-01", "PMAYG-EL-02", "PMAYG-DOC-01"],
+      },
+      evidence: [
+        { doc_id: "PMAYG-EL-01", type: "eligibility", text: "PMAYG-EL-01 - Applicant must be a rural household listed under SECC deprived categories." },
+        { doc_id: "PMAYG-EL-02", type: "eligibility", text: "PMAYG-EL-02 - Household must be houseless or living in a kutcha house." },
+        { doc_id: "PMAYG-ENT-01", type: "entitlement", text: "PMAYG-ENT-01 - Unit assistance of Rs. 120000 payable in instalments." },
+        { doc_id: "PMAYG-DOC-01", type: "documents", text: "PMAYG-DOC-01 - MGNREGA job card and bank account details are mandatory." },
+      ],
+      trace: [
+        { agent: "IntakeAgent", detail: "Normalised 8 fields; 2 missing documents", ms: 1.4 },
+        { agent: "RAGAgent", detail: "Retrieved 4 evidence clauses", ms: 2.1 },
+        { agent: "EntitlementAgent", detail: "Eligibility=needs_info; entitlement=120000", ms: 0.9 },
+        { agent: "VerificationAgent", detail: "cross_check=agree; missing_docs=2", ms: 1.1 },
+        { agent: "Orchestrator", detail: "Decision=needs_info; confidence=0.62", ms: 0.8 },
+        { agent: "AppealAgent", detail: "File the first appeal with the Block Development Officer within 30 days.", ms: 0.6 },
+        { agent: "CounterfactualAgent", detail: "Provide these details to reach a decision: SECC listing.", ms: 1.3 },
+        { agent: "DocumentGapAgent", detail: "gap=True; verdict_with_docs=eligible", ms: 0.7 },
+        { agent: "NotificationAgent", detail: "needs_info; recipient=ramesh@example.in; actionable=True", ms: 0.5 },
+      ],
+      appeal: {
+        applicable: true,
+        next_step: "File the first appeal with the Block Development Officer within 30 days.",
+        draft_letter: "To,\nThe Block Development Officer,\nPMAY-G Block Office\n\nSubject: Appeal against the NEEDS_INFO decision on application CASE-0008\n\nRespected Sir/Madam,\n\nMy application under Pradhan Mantri Awaas Yojana - Gramin was returned as NEEDS_INFO. I have since arranged the pending documents and request a re-audit. Kindly consider my case at the earliest.\n\nYours faithfully,\nApplicant",
+      },
+      counterfactual: {
+        current_decision: "needs_info",
+        feasible: true,
+        suggestions: [
+          { action: "provide a value for SECC listing", clause_id: "PMAYG-EL-02",
+            text: "Household must be houseless or living in a kutcha house.",
+            changeable: true, alone_sufficient: true, kind: "field" },
+        ],
+        missing_info_fields: ["secc_listed"],
+        blockers: [],
+        summary: "Provide these details to reach a decision: SECC listing.",
+      },
+      document_gap: {
+        has_gap: true,
+        verdict_if_docs_complete: "eligible",
+        resolution: "Submit all 2 missing mandatory document(s) to become eligible.",
+        documents: [
+          { name: "MGNREGA Job Card", priority: 1, remaining_after: 1, alone_unblocks: false },
+          { name: "Bank account details", priority: 2, remaining_after: 1, alone_unblocks: false },
+        ],
+      },
+      notification: {
+        notice_type: "needs_info",
+        language: "en",
+        recipient: "ramesh@example.in",
+        authority_name: "Block Development Officer",
+        authority_email: "bdo@example.gov.in",
+        subject: "Action needed: complete your PMAY-G application (CASE-0008)",
+        body_text: "Dear applicant,\n\nYour PMAY-G application CASE-0008 could not be completed. The following mandatory documents are missing:\n  - MGNREGA Job Card\n  - Bank account details\n\nPlease submit them within 30 days so the audit can be finalised. Once complete, the case is expected to become ELIGIBLE for unit assistance of Rs. 120000.\n\nRegards,\nYojanaBench (on behalf of the Block Development Officer)",
+        actionable: true,
+      },
+    },
+  };
+
   // Applicant form definition (kept generic so every scheme can be audited).
   const FIELDS = [
     { key: "age", label: "Age", type: "number" },
@@ -79,9 +307,10 @@
       audit: ["Audit a Case", "Run the full multi-agent pipeline on one application"],
       benchmark: ["Benchmark", "Score the pipeline against human-verified ground truth"],
       ablations: ["Ablation Study", "Measure what each pipeline component contributes"],
-      schemes: ["Scheme Corpus", "10 high-volume welfare schemes with structured rules"],
+      schemes: ["Scheme Corpus", "35 high-volume welfare schemes with structured rules"],
       appeal: ["Appeal Routing", "Grievance hierarchy and draft appeal generation"],
-      notices: ["Notices & Email", "Grounded citizen notices, appeal register and inbox sync"],
+      notices: ["Notices", "Grounded citizen notices, inbox sync and the appeal register"],
+      email: ["Email", "Compose and send emails, and configure the mailbox"],
     };
     $("#page-title").textContent = titles[name][0];
     $("#page-subtitle").textContent = titles[name][1];
@@ -141,6 +370,44 @@
         <div class="bar-val">${pct(value)}</div>
       </div>`;
     }).join("");
+  }
+
+  // Fill every dashboard page with sample data so the whole app looks complete
+  // while it is being demonstrated. Any "Run / Generate / Load" button replaces
+  // the preview with live backend results.
+  function renderDummyStats() {
+    const s = DUMMY.stats;
+    const cards = [
+      [s.schemes, "Schemes in corpus"],
+      [s.guideline_documents, "Guideline documents"],
+      [s.clauses, "Indexed clauses / chunks"],
+      [s.estimated_pages + "+", "Estimated PDF pages"],
+      [s.qa_pairs, "Human-verified QA pairs"],
+      [s.qa_edge_cases, "Counterfactual / edge cases"],
+    ];
+    $("#stat-grid").innerHTML = cards.map(([num, lbl]) =>
+      `<div class="stat"><div class="num">${esc(num)}</div><div class="lbl">${esc(lbl)}</div></div>`
+    ).join("");
+  }
+
+  function renderDummyDashboard() {
+    renderDummyStats();
+
+    renderMetrics($("#quick-metrics"), DUMMY.metrics);
+    renderCategoryChart($("#category-chart"), DUMMY.metrics.category_breakdown);
+    $("#metrics-run-note").textContent = `Sample preview · ${DUMMY.metrics.count} items`;
+
+    $("#report-body").innerHTML = renderReport(DUMMY.report);
+    $("#leaderboard-body").innerHTML = renderLeaderboard(DUMMY.leaderboard.entries);
+
+    renderMetrics($("#bench-metrics"), DUMMY.metrics);
+    renderCategoryChart($("#bench-category-chart"), DUMMY.metrics.category_breakdown);
+    renderBenchRows(DUMMY.rows);
+    $("#bench-count").textContent = DUMMY.rows.length + " items shown";
+
+    renderAblation(DUMMY.ablation);
+
+    renderVerdict(DUMMY.audit);
   }
 
   async function runQuickBenchmark() {
@@ -528,6 +795,8 @@
       });
       const d = data.delivery || {};
       if (d.sent) status.textContent = "Sent to " + d.to + ".";
+      else if (d.outbox_path && d.error) status.textContent =
+        "Live send failed (" + d.error + "). Saved to " + d.outbox_path + ".";
       else if (d.outbox_path) status.textContent =
         "Outbox (dry-run): written to " + d.outbox_path + " — set YOJANA_SMTP_* to deliver live.";
       else status.textContent = "Not sent: " + (d.error || "unknown error");
@@ -548,6 +817,65 @@
       pill.textContent = live ? "SMTP live" : "Outbox (dry-run)";
       pill.className = "pill " + (live ? "pill-ok" : "pill-muted");
     } catch (_) { /* ignore */ }
+  }
+
+  async function updateMessageStatus() {
+    try {
+      const d = await api("/api/messages/status");
+      const pill = $("#message-layer-status");
+      if (!pill) return;
+      const live = d.mode === "live";
+      pill.textContent = live ? "SMS live" : "SMS outbox (dry-run)";
+      pill.className = "pill " + (live ? "pill-ok" : "pill-muted");
+    } catch (_) { /* ignore */ }
+  }
+
+  function onNoticeChannelChange() {
+    const channel = ($("#notice-channel") || {}).value || "email";
+    const emailField = $("#notice-email-field");
+    const phoneField = $("#notice-phone-field");
+    if (emailField) emailField.style.display = channel === "sms" ? "none" : "";
+    if (phoneField) phoneField.style.display = channel === "sms" ? "" : "none";
+  }
+
+  async function sendCaseNotice() {
+    const btn = $("#btn-notice-send");
+    const status = $("#notice-send-status");
+    if (!btn || !status) return;
+    const schemeId = ($("#notice-scheme") || {}).value;
+    const channel = ($("#notice-channel") || {}).value || "email";
+    const name = ($("#notice-name") || {}).value.trim();
+    const email = ($("#notice-email") || {}).value.trim();
+    const phone = ($("#notice-phone") || {}).value.trim();
+    if (!schemeId) { status.textContent = "Pick a scheme first."; return; }
+    if (channel === "sms" && !phone) { status.textContent = "Enter a mobile number."; return; }
+    if (channel === "email" && !email) { status.textContent = "Enter an email address."; return; }
+    btn.disabled = true; btn.textContent = "Sending…";
+    status.textContent = "";
+    try {
+      const applicant = { email: email, phone: phone };
+      if (name) applicant.full_name = name;
+      const data = await api("/api/notify", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          scheme_id: schemeId, applicant: applicant, submitted_documents: [],
+          send: true, channel: channel, to: email, phone: phone, case_id: null,
+          notify_authority: $("#notice-notify-auth") ? $("#notice-notify-auth").checked : false,
+        }),
+      });
+      const d = data.delivery || {};
+      const to = channel === "sms" ? phone : email;
+      if (d.sent) status.textContent = "Sent to " + to + " via " + channel + ".";
+      else if (d.outbox_path && d.error) status.textContent =
+        "Live send failed (" + d.error + "). Saved to " + d.outbox_path + ".";
+      else if (d.outbox_path) status.textContent =
+        channel + " outbox (dry-run): " + d.outbox_path;
+      else status.textContent = "Not sent: " + (d.error || "unknown error");
+    } catch (err) {
+      status.textContent = "Send failed: " + err.message;
+    } finally {
+      btn.disabled = false; btn.textContent = "Send notice";
+    }
   }
 
   async function loadAppealRegister() {
@@ -699,6 +1027,8 @@
       });
       const d = data.delivery || {};
       if (d.sent) status.textContent = "Sent to " + d.to + ".";
+      else if (d.outbox_path && d.error) status.textContent =
+        "Live send failed (" + d.error + "). Saved to " + d.outbox_path + ".";
       else if (d.outbox_path) status.textContent =
         "Outbox (dry-run): written to " + d.outbox_path + " — set YOJANA_SMTP_* to deliver live.";
       else status.textContent = "Not sent: " + (d.error || "unknown error");
@@ -894,6 +1224,7 @@
     $("#bench-scheme").innerHTML = `<option value="">All schemes</option>` + options;
     $("#appeal-scheme").innerHTML = options;
     $("#mail-scheme").innerHTML = `<option value="">No scheme</option>` + options;
+    $("#notice-scheme").innerHTML = options;
   }
 
   async function updateLlmPill() {
@@ -909,6 +1240,7 @@
   async function init() {
     renderApplicantFields();
     renderPipeline();
+    renderDummyDashboard();
     // navigation
     document.querySelectorAll(".nav-item").forEach((b) =>
       b.addEventListener("click", () => { if (b.dataset.page) showPage(b.dataset.page); }));
@@ -926,6 +1258,8 @@
     $("#appeal-scheme").addEventListener("change", renderAppealHierarchy);
     $("#btn-sync-replies").addEventListener("click", syncReplies);
     $("#btn-load-appeals").addEventListener("click", loadAppealRegister);
+    $("#notice-channel").addEventListener("change", onNoticeChannelChange);
+    $("#btn-notice-send").addEventListener("click", sendCaseNotice);
     $("#btn-mail-draft").addEventListener("click", draftManualEmail);
     $("#btn-mail-send").addEventListener("click", sendManualEmail);
     $("#btn-email-save").addEventListener("click", saveEmailSettings);
@@ -944,11 +1278,13 @@
       renderAppealHierarchy();
       updateLlmPill();
       updateNotifyStatus();
+      updateMessageStatus();
+      onNoticeChannelChange();
       loadAppealRegister();
       loadEmailSettings();
     } catch (err) {
-      $("#stat-grid").innerHTML = `<div class="stat"><div class="num">!</div>
-        <div class="lbl">Could not reach the API: ${esc(err.message)}</div></div>`;
+      renderDummyStats();
+      $("#metrics-run-note").textContent = "Sample preview (backend offline)";
     }
   }
 

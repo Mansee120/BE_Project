@@ -1,0 +1,21 @@
+﻿utr,scheme_id,beneficiary_id,beneficiary_name,aadhaar_last4,sanctioned_amount,credited_amount,bank_name,expected_account_last4,credited_to_account_last4,credited_to_name,credit_date,channel,batch_id,status,remarks
+UTR2026PMK0001,PMKISAN-2023,B-0001,Ravi Kumar,4821,2000,2000,State Bank of India,1122,1122,Ravi Kumar,2026-03-12,DBT,PMK-2026-Q1-A,credited,Full instalment credited to the beneficiary account.
+UTR2026PMK0002,PMKISAN-2023,B-0001,Ravi Kumar,4821,2000,2000,State Bank of India,1122,1122,Ravi Kumar,2026-07-05,DBT,PMK-2026-Q2-A,credited,Second instalment credited.
+UTR2026IGNOAPS0001,IGNOAPS-2023,B-0002,Sita Devi,3390,200,0,Punjab National Bank,2087,,,2026-04-01,DBT,NSAP-APR-2026,not_credited,Sanction order issued but no corresponding bank credit advice found.
+UTR2026MGN0001,MGNREGA-2023,B-0003,Mohan Lal,7712,8000,5000,Bank of Baroda,5540,5540,Mohan Lal,2026-02-20,NACH,MGNREGA-FY26-W1,partial,Wage list approved for 8000 but only 5000 credited.
+UTR2026PMAYG0001,PMAYG-2023,B-0004,Geeta Kumari,1890,120000,120000,Bank of India,6611,9999,Agent XYZ Enterprises,2026-01-18,DBT,PMAYG-INSTL-1,diverted,Funds flagged to a third-party account unrelated to the beneficiary.
+UTR2026PMK0003,PMKISAN-2023,B-0005,Ramesh Yadav,2234,2000,2000,State Bank of India,7788,7788,Ramesh Yadav,2026-03-12,DBT,PMK-2026-Q1-A,credited,Full instalment credited.
+UTR2026IGNOAPS0002,IGNOAPS-2023,B-0006,Shanti Bai,5566,200,200,Punjab National Bank,3344,3344,Shanti Bai,2026-04-01,DBT,NSAP-APR-2026,credited,Pension credited on time.
+UTR2026PMJAY0001,PMJAY-2023,B-0006,Shanti Bai,5566,500000,500000,Punjab National Bank,3344,3344,Shanti Bai,2026-01-01,DBT,PMJAY-COVER-2026,credited,"Annual health-cover entitlement available (notional, not cash)."
+UTR2026NSP0001,NSP-PREMATRIC-2023,B-0007,Pooja Sharma,9901,7000,7000,Bank of Maharashtra,9012,9012,Pooja Sharma,2026-02-10,DBT,NSP-PREMATRIC-2026,credited,Scholarship credited to the student account.
+UTR2026PMS0001,PMS-SC-2023,B-0008,Neha Kumari,4455,13500,13500,UCO Bank,2299,9999,Agent XYZ Enterprises,2026-02-15,DBT,PMS-2026-UG,diverted,Scholarship amount debited to an unrelated collection account.
+UTR2026IGNWPS0001,IGNWPS-2023,B-0009,Kanta Bai,6677,300,300,State Bank of India,5566,5566,Kanta Bai,2026-04-01,DBT,NSAP-APR-2026,credited,Widow pension credited.
+UTR2026IGNDPS0001,IGNDPS-2023,B-0010,Raju Prasad,1223,300,0,Allahabad Bank,4410,,,2026-04-01,DBT,NSAP-APR-2026,not_credited,Disability pension not reflected in the beneficiary passbook.
+UTR2026PMAYG0002,PMAYG-2023,B-0011,Laxmi Devi,8080,120000,120000,Punjab National Bank,7712,4444,Laxmi Devi,2026-01-18,DBT,PMAYG-INSTL-1,diverted,Credited to a different account number held under a similar name (identity misuse).
+UTR2026MGN0002,MGNREGA-2023,B-0012,Deepak Verma,3434,22100,22100,Bank of Baroda,8899,8899,Deepak Verma,2026-03-30,NACH,MGNREGA-FY26-W2,credited,Full wage payment credited.
+UTR2026IGNOAPS0003,IGNOAPS-2023,B-0002,Sita Devi,3390,200,200,Punjab National Bank,2087,9999,Agent XYZ Enterprises,2026-05-01,DBT,NSAP-MAY-2026,diverted,Current-month pension routed to a mule account.
+UTR2026IGNDPS0002,IGNDPS-2023,B-0010,Raju Prasad,1223,300,300,Allahabad Bank,4410,9999,Agent XYZ Enterprises,2026-05-01,DBT,NSAP-MAY-2026,diverted,Disability pension siphoned to a third-party account.
+UTR2026PMS0002,PMS-SC-2023,B-0008,Neha Kumari,4455,7500,3000,UCO Bank,2299,2299,Neha Kumari,2026-06-15,DBT,PMS-2026-UG-2,partial,Only part of the maintenance allowance credited.
+UTR2026MGN0003,MGNREGA-2023,B-0003,Mohan Lal,7712,6000,6000,Bank of Baroda,5540,5540,Mohan Lal,2026-06-30,NACH,MGNREGA-FY26-W3,credited,Wages credited in full.
+UTR2026NSP0002,NSP-PREMATRIC-2023,B-0007,Pooja Sharma,9901,3500,0,Bank of Maharashtra,9012,,,2026-07-01,DBT,NSP-PREMATRIC-2026-2,failed,Bank returned the credit (account dormant); amount reverted to the scheme.
+UTR2026PMK0004,PMKISAN-2023,B-0005,Ramesh Yadav,2234,2000,0,State Bank of India,7788,,,2026-07-05,DBT,PMK-2026-Q2-A,not_credited,Second instalment shown as paid but absent from the passbook.

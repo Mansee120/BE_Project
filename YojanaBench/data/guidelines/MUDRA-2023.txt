@@ -1,0 +1,29 @@
+==============================================================================
+GOVERNMENT GUIDELINE DOCUMENT
+SCHEME: Pradhan Mantri MUDRA Yojana
+SCHEME ID: MUDRA-2023
+LEVEL: CENTRAL   |   STATE: All India
+CATEGORY: CREDIT
+==============================================================================
+
+1. OBJECTIVE
+   A scheme that provides collateral-free loans to non-farm micro and small enterprises through banks, NBFCs and microfinance institutions under the Shishu, Kishore and Tarun categories.
+
+2. ELIGIBILITY CRITERIA
+   [MUDRA-C1] (MANDATORY) The applicant must be 18 years of age or older.
+
+3. ENTITLEMENT / BENEFIT RULES
+   [MUDRA-E1] Loan limits are tiered: Shishu up to Rs. 50000, Kishore up to Rs. 5 lakh and Tarun up to Rs. 10 lakh, based on the applicant's annual income.
+
+4. DOCUMENTS REQUIRED
+   [MUDRA-D1] (MANDATORY) Aadhaar Card
+   [MUDRA-D2] (MANDATORY) Business Plan
+   [MUDRA-D3] (MANDATORY) Bank Account Passbook
+
+5. APPLICATION & GRIEVANCE / APPEAL HIERARCHY
+   [MUDRA-APL1] Level 1: Bank Branch Manager - within 15 days. First grievance at the bank branch.
+   [MUDRA-APL2] Level 2: Zonal Head - within 45 days. Escalation to the zonal office.
+   [MUDRA-APL3] Level 3: Banking Ombudsman - within 90 days. Final grievance before the Banking Ombudsman.
+
+==============================================================================
+END OF GUIDELINE DOCUMENT
