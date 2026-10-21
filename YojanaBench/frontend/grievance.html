@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YojanaBench — Grievance &amp; Money-Trace</title>
-  <link rel="stylesheet" href="/static/styles.css?v=2" />
+  <script>(function () { try { var t = localStorage.getItem("yb_theme") || "light"; document.documentElement.setAttribute("data-theme", t); } catch (e) { document.documentElement.setAttribute("data-theme", "light"); } })();</script>
+  <link rel="stylesheet" href="/static/styles.css?v=7" />
 </head>
 <body>
   <!-- ============================ SIDEBAR ============================ -->
@@ -46,6 +47,11 @@
       </div>
       <div class="topbar-actions">
         <span id="role-pill" class="pill pill-muted">Guest</span>
+        <button class="btn btn-ghost theme-toggle" id="btn-theme" type="button"
+                title="Toggle theme" aria-pressed="false" aria-label="Toggle dark mode">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
       </div>
     </header>
 
@@ -128,6 +134,7 @@
     </div>
   </main>
 
+  <script src="/static/theme.js?v=1"></script>
   <script src="/static/grievance.js?v=2"></script>
 </body>
 </html>

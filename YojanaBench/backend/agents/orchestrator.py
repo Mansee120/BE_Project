@@ -40,6 +40,10 @@ class Orchestrator:
                 lines.append(f"  - Unverified criterion [{c['clause_id']}]: {c['text']}")
             if not verification["cross_check_agree"]:
                 lines.append("  - Agent disagreement requires human review.")
+        integrity = verification.get("integrity_flags") or []
+        for item in integrity:
+            lines.append(f"  - Document-integrity alert ({item['severity']}): "
+                         f"{item['detail']}")
         return "\n".join(lines)
 
     def _llm_explanation(self, case, decision, eligibility, entitlement):
@@ -110,6 +114,11 @@ class Orchestrator:
         entitlement = entitlement_result.get("entitlement")
         answer = self._compose_answer(decision, entitlement, verification)
 
+        # Fake / tampered-document detection: any high-severity integrity flag
+        # forces officer review even when the rule verdict itself is clean.
+        severe_integrity = [f for f in (verification.get("integrity_flags") or [])
+                            if f.get("severity") == "high"]
+
         return {
             "decision": decision,
             "explanation": explanation,
@@ -119,8 +128,13 @@ class Orchestrator:
             "entitlement_formula": entitlement["formula"] if entitlement else None,
             "confidence": confidence,
             "missing_documents": verification["missing_documents"],
+            "document_integrity": {
+                "flags": verification.get("integrity_flags") or [],
+                "suspected_forgery": bool(severe_integrity),
+            },
             "human_approval_required": (confidence < config.CONFIDENCE_THRESHOLD
-                                        or not verification["cross_check_agree"]),
+                                        or not verification["cross_check_agree"]
+                                        or bool(severe_integrity)),
             "agents_agree": verification["cross_check_agree"],
             "answer": answer,
         }

@@ -12,6 +12,8 @@
 
   const $ = (s) => document.querySelector(s);
 
+  // Candidate languages. The dropdown keeps ONLY the ones this browser has a
+  // voice installed for (see availableLangs), so each option can be spoken.
   const LANGS = [
     { code: "en-IN", label: "English (India)" },
     { code: "en-US", label: "English (US)" },
@@ -103,6 +105,7 @@
   let muteBtn = null;
   let readBtn = null;
   let inputEl = null;
+  let interviewBtn = null;
 
   let recognition = null;
   let listening = false;
@@ -115,6 +118,11 @@
   let lastReply = "";
 
   const AUTO_START_MS = 5000;
+  const WELCOME_MR =
+    "नमस्कार! योजना बेंच मध्ये आपले स्वागत आहे. मी आज आपली मदत करेन. " +
+    "बोलण्यासाठी खालील मायक्रोफोनचे बटण दाबून धरा आणि नंतर सोडा, " +
+    "किंवा आपला प्रश्न टाइप करा. मी कोणत्याही योजनेबद्दल, आवश्यक कागदपत्रे, " +
+    "मिळणारी रक्कम आणि संपूर्ण पात्रता तपासणीबद्दल सांगू शकते.";
   const WELCOME_HI =
     "नमस्ते! योजना बेंच में आपका स्वागत है। मैं आपकी आज मदद करूँगी। " +
     "बोलने के लिए नीचे माइक्रोफ़ोन का बटन दबाकर रखें और फिर छोड़ दें, " +
@@ -131,9 +139,11 @@
   const savedLang = localStorage.getItem("vb_lang") || "hi-IN";
 
   // A greeting in the selected language, fetched from the backend so it is
-  // spoken in that language (falls back to the built-in English/Hindi text).
+  // spoken in that language (falls back to the built-in Marathi/Hindi/English).
   async function fetchWelcome() {
-    const fallback = currentLang().toLowerCase().startsWith("hi") ? WELCOME_HI : WELCOME_EN;
+    const base = currentLang().toLowerCase().split("-")[0];
+    const fallback = base === "mr" ? WELCOME_MR
+      : base === "hi" ? WELCOME_HI : WELCOME_EN;
     try {
       const resp = await fetch("/api/assistant/welcome?lang=" +
         encodeURIComponent(currentLang()));
@@ -155,19 +165,20 @@
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
-  function availableLangs(voices) {
-    const have = LANGS.filter((l) => matchingVoice(voices, l.code));
-    return have.length ? have : [{ code: "en-IN", label: "English (India)" }];
-  }
-
   function pickDefault(list) {
     if (list.some((l) => l.code === savedLang)) return savedLang;
     const hi = list.find((l) => l.code.toLowerCase().startsWith("hi"));
     return (hi || list[0]).code;
   }
 
-  // List ONLY the languages this device can actually speak, so whatever the
-  // user selects is guaranteed to be spoken in that language.
+  // Keep ONLY the languages the browser actually has a voice installed for, so
+  // every option in the dropdown can really be spoken back. Called again when
+  // the (asynchronously loaded) voice list changes.
+  function availableLangs(voices) {
+    const have = LANGS.filter((l) => matchingVoice(voices, l.code));
+    return have.length ? have : [{ code: "en-IN", label: "English (India)" }];
+  }
+
   function buildLangOptions(voices) {
     const list = availableLangs(voices || allVoices());
     const selected = pickDefault(list);
@@ -175,7 +186,7 @@
       `<option value="${l.code}"${l.code === selected ? " selected" : ""}>${esc(l.label)}</option>`
     ).join("");
     langSel.value = selected;
-    langSel.title = list.length + " language(s) with a voice on this device";
+    langSel.title = list.length + " language(s) with a voice installed in this browser";
   }
 
   // ------------------------------------------------------------------ TTS
@@ -479,6 +490,7 @@
     muteBtn = $("#vb-mute");
     readBtn = $("#vb-read");
     inputEl = $("#vb-input");
+    interviewBtn = $("#vb-interview");
 
     buildLangOptions(allVoices());
 
@@ -508,6 +520,15 @@
       if (e.key === "Enter") sendMessage(inputEl.value);
     });
 
+    // Quick-start option: the assistant interviews the person, asking their
+    // details one by one, then reads the eligibility verdict aloud.
+    if (interviewBtn) {
+      interviewBtn.addEventListener("click", () => {
+        userEngaged = true;
+        sendMessage("interview me");
+      });
+    }
+
     langSel.addEventListener("change", () => {
       localStorage.setItem("vb_lang", langSel.value);
       if (listening) stopListenNow();
@@ -528,12 +549,10 @@
       updateMuteLabel();
     });
 
-    // Warm the voice list, then re-filter the language dropdown to whatever
-    // voices this browser actually reports (they load asynchronously).
+    // Rebuild the dropdown once the browser reports its installed voices (the
+    // list loads asynchronously and can change on a "voiceschanged" event).
     if (window.speechSynthesis) {
-      ensureVoices().then((voices) => {
-        if (voices && voices.length) buildLangOptions(voices);
-      });
+      ensureVoices().then((voices) => buildLangOptions(voices));
       try {
         speechSynthesis.addEventListener("voiceschanged",
           () => buildLangOptions(allVoices()));

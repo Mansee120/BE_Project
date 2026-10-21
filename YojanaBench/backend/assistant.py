@@ -564,6 +564,14 @@ class Assistant:
                          "my cases", "written cases", "audit cases",
                          "list the cases", "केस दिखाओ", "केस सूची"]):
             return "list_cases", None
+        if _has_any(en, ["interview me", "ask me questions",
+                         "ask me a few questions", "ask me my details",
+                         "ask me some questions", "start the interview",
+                         "start an interview", "begin the interview",
+                         "interview", "guide me through the questions",
+                         "सवाल पूछो", "मुझसे सवाल", "इंटरव्यू लो",
+                         "इंटरव्यू"]):
+            return "start_audit", scheme_id
         if _has_any(en, ["check if i am eligible", "am i eligible",
                          "can i get", "which scheme", "what scheme",
                          "run audit", "apply for", "verify my eligibility",
@@ -607,16 +615,17 @@ class Assistant:
             return (["Here is what I can do. I can explain any scheme - who "
                      "is eligible, what documents are required, and exactly "
                      "how much money or benefit you will get. I can also run "
-                     "a full voice audit for you: I will ask your details one "
-                     "by one, then tell you the verdict out loud.",
+                     "a full voice audit for you: say interview me and I will "
+                     "ask your details one by one, like an interview, then "
+                     "tell you the verdict out loud.",
                      "I can also do the paperwork for you. Say write the "
                      "audit case and I will run the audit, compose the notice, "
                      "work out the appeal and save the case file. Then I can "
                      "send the notice and file the appeal. You can also say "
                      "list cases to hear everything I have written.",
-                     "Try saying: tell me about old age pension. Or say: how "
-                     "much amount under PM Kisan. Or say: write the audit case "
-                     "for old age pension."], {})
+                     "Try saying: interview me. Or say: tell me about old age "
+                     "pension. Or say: how much amount under PM Kisan. Or say: "
+                     "write the audit case for old age pension."], {})
         if intent == "list_schemes":
             names = [s["name"].split(" (")[0] for s in self.schemes]
             return ([f"There are {len(self.schemes)} schemes in this "

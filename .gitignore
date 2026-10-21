@@ -6,6 +6,9 @@ YojanaBench/tools/
 # Video build scratch space (headless Chrome profiles / caches)
 YojanaBench/docs/video/work/
 
+# Editor local history
+.history/
+
 # OS / editor noise
 .DS_Store
 Thumbs.db

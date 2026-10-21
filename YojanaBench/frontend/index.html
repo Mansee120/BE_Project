@@ -4,28 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YojanaBench — Welfare-Scheme Audit</title>
-  <link rel="stylesheet" href="/static/styles.css?v=3" />
+  <script>(function () { try { var t = localStorage.getItem("yb_theme") || "light"; document.documentElement.setAttribute("data-theme", t); } catch (e) { document.documentElement.setAttribute("data-theme", "light"); } })();</script>
+  <link rel="stylesheet" href="/static/styles.css?v=7" />
 </head>
 <body>
   <!-- ============================ LOGIN GATE ============================ -->
   <div id="auth-gate" class="auth-gate">
+    <div class="auth-bg" aria-hidden="true">
+      <span class="auth-orb o1"></span>
+      <span class="auth-orb o2"></span>
+      <span class="auth-orb o3"></span>
+      <span class="auth-orb o4"></span>
+      <span class="auth-grid"></span>
+      <span class="auth-sheen"></span>
+    </div>
+    <button class="btn theme-toggle theme-toggle-float" id="gate-theme" type="button"
+            title="Toggle theme" aria-pressed="false" aria-label="Toggle dark mode">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
     <div class="auth-card">
-      <div class="brand-mark">YB</div>
-      <h1>YojanaBench</h1>
-      <p class="muted-line">Sign in to open the dashboard. Beneficiaries and officials share one login.</p>
-      <label class="field"><span>Username</span>
-        <input id="gate-user" type="text" autocomplete="username" placeholder="e.g. officer" /></label>
-      <label class="field"><span>Password</span>
-        <input id="gate-pass" type="password" autocomplete="current-password" placeholder="••••••" /></label>
-      <button class="btn btn-primary btn-block" id="gate-login">Sign in</button>
-      <p id="gate-error" class="form-error"></p>
-      <div class="demo-hint">
-        <strong>Demo accounts</strong>
-        <span>Official: <code>officer / officer123</code> · <code>admin / admin123</code></span>
-        <span>Beneficiary: <code>geeta / geeta123</code> · <code>ravi / ravi123</code></span>
-      </div>
-      <p class="muted-line" style="margin-top:14px">Tracing a missing payment? Use the
-        <a href="/grievance">Grievance &amp; Money-Trace</a> portal.</p>
+      <aside class="auth-hero">
+        <div class="brand-mark">YB</div>
+        <h1>YojanaBench</h1>
+        <p class="auth-tagline">An open, auditable benchmark for government
+          welfare-scheme reasoning — eligibility, entitlement and money-trace.</p>
+        <ul class="auth-points">
+          <li><span class="auth-dot"></span> 35 welfare schemes, rule-grounded</li>
+          <li><span class="auth-dot"></span> 11-agent audit pipeline with evidence</li>
+          <li><span class="auth-dot"></span> Multilingual voice assistant</li>
+        </ul>
+        <p class="auth-foot">Deterministic · offline-first · zero-cost</p>
+      </aside>
+
+      <section class="auth-form">
+        <h2>Sign in</h2>
+        <p class="muted-line">Beneficiaries and officials share one login.</p>
+        <label class="field"><span>Username</span>
+          <input id="gate-user" type="text" autocomplete="username" placeholder="e.g. officer" /></label>
+        <label class="field"><span>Password</span>
+          <input id="gate-pass" type="password" autocomplete="current-password" placeholder="••••••" /></label>
+        <button class="btn btn-primary btn-block" id="gate-login">Sign in</button>
+        <p id="gate-error" class="form-error"></p>
+        <div class="demo-hint">
+          <strong>Demo accounts</strong>
+          <span>Official: <code>officer / officer123</code> · <code>admin / admin123</code></span>
+          <span>Beneficiary: <code>geeta / geeta123</code> · <code>ravi / ravi123</code></span>
+        </div>
+        <p class="muted-line auth-griev">Tracing a missing payment? Use the
+          <a href="/grievance">Grievance &amp; Money-Trace</a> portal.</p>
+      </section>
     </div>
   </div>
 
@@ -54,6 +82,10 @@
       <button class="nav-item" data-page="ablations">
         <svg viewBox="0 0 24 24"><path d="M3 20h18v-2H3v2zM5 11h3v6H5v-6zm5.5-6h3v12h-3V5zM16 8h3v9h-3V8z"/></svg>
         Ablations
+      </button>
+      <button class="nav-item" data-page="sandbox">
+        <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm0 2.2 6 2.25V11c0 3.9-2.5 7.6-6 8.8-3.5-1.2-6-4.9-6-8.8V6.45l6-2.25zM9 12l2 2 4-4-1.4-1.4L11 11.2l-.6-.6L9 12z"/></svg>
+        Policy Sandbox
       </button>
       <button class="nav-item" data-page="schemes">
         <svg viewBox="0 0 24 24"><path d="M4 4h16v4H4V4zm0 6h16v4H4v-4zm0 6h10v4H4v-4z"/></svg>
@@ -92,6 +124,11 @@
       <div class="topbar-actions">
         <span id="llm-pill" class="pill pill-muted">LLM: checking…</span>
         <span id="dash-user" class="pill pill-muted">Not signed in</span>
+        <button class="btn btn-ghost theme-toggle" id="btn-theme" type="button"
+                title="Toggle theme" aria-pressed="false" aria-label="Toggle dark mode">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
         <button class="btn btn-ghost" id="btn-dash-logout" style="display:none">Sign out</button>
         <button class="btn btn-ghost" id="btn-refresh">Refresh</button>
       </div>
@@ -278,6 +315,63 @@
         <div class="card">
           <div class="card-head"><h4>Verdict accuracy by variant</h4></div>
           <div id="ablation-chart" class="bars"></div>
+        </div>
+      </section>
+
+      <!-- ----------------------- POLICY SANDBOX ----------------------- -->
+      <section id="page-sandbox" class="page">
+        <div class="card">
+          <div class="card-head"><h4>Policy what-if simulator</h4></div>
+          <p class="muted">Two simulators over the same cohort, both re-using the
+            <b>exact production rule engine, entitlement maths and fake-document
+            checks</b> — nothing is deployed until you decide.</p>
+          <div class="filter-row">
+            <select id="sandbox-scheme"></select>
+            <select id="sandbox-mode">
+              <option value="rule">Change a rule threshold</option>
+              <option value="document">Tamper with a document (fake / omitted)</option>
+            </select>
+          </div>
+          <div class="filter-row" id="sandbox-rule-controls">
+            <select id="sandbox-field"><option value="">Choose a rule field…</option></select>
+            <input id="sandbox-value" type="text" placeholder="New threshold value" />
+            <button class="btn btn-primary" id="btn-run-sandbox">Simulate</button>
+          </div>
+          <div class="filter-row" id="sandbox-doc-controls" style="display:none">
+            <select id="sandbox-document"><option value="">Choose a document…</option></select>
+            <select id="sandbox-action">
+              <option value="omit">Omitted (claimed but never submitted)</option>
+              <option value="forge">Forged (doctored content)</option>
+            </select>
+            <button class="btn btn-primary" id="btn-run-sandbox-doc">Simulate fraud</button>
+          </div>
+          <p class="muted" id="sandbox-rules" style="margin-top:10px"></p>
+        </div>
+
+        <div class="card" id="sandbox-result" style="display:none">
+          <div class="card-head">
+            <h4>Impact on the cohort</h4>
+            <span class="muted" id="sandbox-meta">—</span>
+          </div>
+          <div id="sandbox-metrics" class="metric-grid"></div>
+        </div>
+
+        <div class="card" id="sandbox-flips-card" style="display:none">
+          <div class="card-head">
+            <h4>Applicants affected</h4>
+            <span class="muted" id="sandbox-count">—</span>
+          </div>
+          <div class="table-wrap">
+            <table class="results-table">
+              <thead id="sandbox-thead">
+                <tr>
+                  <th>ID</th><th>Case</th><th>Verdict before</th><th>Verdict after</th>
+                  <th>₹ before</th><th>₹ after</th>
+                </tr>
+              </thead>
+              <tbody id="sandbox-rows"></tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -495,6 +589,19 @@
 
     <div class="vb-messages" id="vb-messages" role="log" aria-live="polite"></div>
 
+    <div class="vb-interview-row">
+      <button id="vb-interview" class="vb-interview" type="button"
+              aria-label="Start the guided interview: the assistant asks you your details one by one and checks your eligibility">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zM12 14.5A3.5 3.5 0 0 0 15.5 11V5.5a3.5 3.5 0 0 0-7 0V11A3.5 3.5 0 0 0 12 14.5zM17 11a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/>
+        </svg>
+        <span class="vb-interview-text">
+          <strong>Interview me</strong>
+          <small>The assistant asks you questions one by one</small>
+        </span>
+      </button>
+    </div>
+
     <div class="vb-chips" id="vb-chips" aria-label="Suggested questions"></div>
 
     <div class="vb-footer">
@@ -513,7 +620,8 @@
     <div class="vb-status" id="vb-status" aria-live="polite"></div>
   </div>
 
+  <script src="/static/theme.js?v=1"></script>
   <script src="/static/app.js?v=7"></script>
-  <script src="/static/voicebot.js?v=8"></script>
+  <script src="/static/voicebot.js?v=12"></script>
 </body>
 </html>

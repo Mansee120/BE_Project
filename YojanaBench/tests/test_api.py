@@ -144,6 +144,32 @@ def test_assistant_audit_session():
     assert body["data"]["verdict"] == "eligible"
 
 
+def test_assistant_interview_me_starts_qa_flow():
+    sid = "t-interview-1"
+    r = client.post("/api/assistant", json={
+        "message": "interview me", "lang": "en", "session_id": sid})
+    assert r.status_code == 200
+    body = r.json()
+    assert body["intent"] == "start_audit"
+    assert body["data"]["flow"] == "pending"
+    assert "scheme" in body["reply"].lower()
+
+    r = client.post("/api/assistant", json={
+        "message": "old age pension", "lang": "en", "session_id": sid})
+    body = r.json()
+    assert r.json()["data"]["flow"] == "audit"
+    assert body["data"]["scheme_id"] == "IGNOAPS-2023"
+    assert "question" in body["reply"].lower()
+
+    for answer in ("65", "female", "yes"):
+        r = client.post("/api/assistant", json={
+            "message": answer, "lang": "en", "session_id": sid})
+        assert r.status_code == 200
+    body = r.json()
+    assert body["data"]["flow"] == "audit_done"
+    assert body["data"]["verdict"] == "eligible"
+
+
 def test_assistant_unknown_has_reply():
     r = client.post("/api/assistant", json={
         "message": "zzqq", "lang": "en", "session_id": "t-en-3"})

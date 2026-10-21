@@ -102,6 +102,7 @@ class Pipeline:
                 "cross_check_agree": True,
                 "documents_ok": True,
                 "missing_documents": [],
+                "integrity_flags": [],
                 "flags": [],
                 "disabled": True,
             }

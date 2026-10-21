@@ -307,6 +307,7 @@
       audit: ["Audit a Case", "Run the full multi-agent pipeline on one application"],
       benchmark: ["Benchmark", "Score the pipeline against human-verified ground truth"],
       ablations: ["Ablation Study", "Measure what each pipeline component contributes"],
+      sandbox: ["Policy Sandbox", "What-if simulator: change a rule threshold, see the cohort-wide impact"],
       schemes: ["Scheme Corpus", "35 high-volume welfare schemes with structured rules"],
       appeal: ["Appeal Routing", "Grievance hierarchy and draft appeal generation"],
       notices: ["Notices", "Grounded citizen notices, inbox sync and the appeal register"],
@@ -689,6 +690,15 @@
     if (v.missing_documents && v.missing_documents.length) {
       html += `<div class="section-label">Missing documents (${v.missing_documents.length})</div>
         <div class="flags">${v.missing_documents.map((d) => `<div class="flag red">${esc(d)}</div>`).join("")}</div>`;
+    }
+
+    // Fake / tampered-document alerts
+    const integ = (result.verification && result.verification.integrity_flags) || [];
+    if (integ.length) {
+      html += `<div class="section-label">Document-integrity alerts (${integ.length})</div>
+        <div class="flags">${integ.map((f) =>
+          `<div class="flag ${f.severity === "high" ? "red" : ""}">
+            <b>${esc(f.severity.toUpperCase())}</b> — ${esc(f.detail)}</div>`).join("")}</div>`;
     }
 
     // Evidence
@@ -1163,6 +1173,191 @@
     }).join("");
   }
 
+  // ============================== POLICY SANDBOX ===========================
+  async function loadSandboxFields() {
+    const sid = $("#sandbox-scheme").value;
+    const fieldSel = $("#sandbox-field");
+    const docSel = $("#sandbox-document");
+    const rulesBox = $("#sandbox-rules");
+    if (!sid) {
+      fieldSel.innerHTML = `<option value="">Choose a scheme first…</option>`;
+      if (fieldSel === null) { /* noop */ }
+      return;
+    }
+    renderSandboxDocuments(sid);
+    try {
+      const data = await api("/api/sandbox/fields?scheme_id=" + encodeURIComponent(sid));
+      if (!data.fields.length) {
+        fieldSel.innerHTML = `<option value="">No patchable rules</option>`;
+        $("#sandbox-rules").textContent = "This scheme has no comparison rules the sandbox can change.";
+        return;
+      }
+      fieldSel.innerHTML = data.fields.map((f) =>
+        `<option value="${esc(f.field)}" data-current="${esc(f.current_value)}"
+                 data-numeric="${f.is_numeric}">${esc(f.field)} (now: ${esc(f.current_value)})</option>`
+      ).join("");
+      const first = data.fields[0];
+      $("#sandbox-rules").textContent = "Rules mentioning " + first.field + ": " +
+        first.thresholds.map((t) => t.operator + " " + t.value).join(", ");
+      $("#sandbox-value").value = first.current_value;
+    } catch (err) {
+      fieldSel.innerHTML = `<option value="">Error loading fields</option>`;
+      $("#sandbox-rules").textContent = "Error: " + err.message;
+    }
+  }
+
+  function renderSandboxDocuments(sid) {
+    const full = state.fullSchemes[sid] || {};
+    const docs = full.required_documents || [];
+    const docSel = $("#sandbox-document");
+    if (!docs.length) {
+      docSel.innerHTML = `<option value="">No documents on file</option>`;
+      return;
+    }
+    docSel.innerHTML = docs.map((d) =>
+      `<option value="${esc(d.name)}">${esc(d.name)}${d.mandatory ? "" : " (optional)"}</option>`
+    ).join("");
+  }
+
+  function onSandboxModeChange() {
+    const mode = $("#sandbox-mode").value;
+    $("#sandbox-rule-controls").style.display = mode === "rule" ? "" : "none";
+    $("#sandbox-doc-controls").style.display = mode === "document" ? "" : "none";
+    $("#sandbox-rules").textContent = mode === "document"
+      ? "Simulate a fake or omitted document across the whole cohort and see how many cases the integrity checker catches."
+      : "";
+    if (mode === "rule") onSandboxFieldChange();
+  }
+
+  function onSandboxFieldChange() {
+    const opt = $("#sandbox-field").selectedOptions[0];
+    if (!opt || !opt.value) return;
+    $("#sandbox-value").value = opt.dataset.current;
+    $("#sandbox-rules").textContent = "Change the threshold and press Simulate. " +
+      "Current value: " + opt.dataset.current;
+  }
+
+  async function runSandbox() {
+    const btn = $("#btn-run-sandbox");
+    const sid = $("#sandbox-scheme").value;
+    const field = $("#sandbox-field").value;
+    const raw = $("#sandbox-value").value;
+    if (!sid || !field || raw === "") {
+      $("#sandbox-rules").textContent = "Pick a scheme, a rule field and enter a new value.";
+      return;
+    }
+    const numeric = $("#sandbox-field").selectedOptions[0].dataset.numeric === "true";
+    const new_value = numeric ? Number(raw) : raw;
+    btn.disabled = true; btn.textContent = "Simulating…";
+    try {
+      const data = await api("/api/sandbox/simulate", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: "rule", scheme_id: sid, field, new_value }),
+      });
+      renderSandbox(data);
+    } catch (err) {
+      $("#sandbox-rules").textContent = "Error: " + err.message;
+    } finally {
+      btn.disabled = false; btn.textContent = "Simulate";
+    }
+  }
+
+  async function runSandboxDoc() {
+    const btn = $("#btn-run-sandbox-doc");
+    const sid = $("#sandbox-scheme").value;
+    const document = $("#sandbox-document").value;
+    const action = $("#sandbox-action").value;
+    if (!sid || !document) {
+      $("#sandbox-rules").textContent = "Pick a scheme and a document to tamper with.";
+      return;
+    }
+    btn.disabled = true; btn.textContent = "Simulating…";
+    try {
+      const data = await api("/api/sandbox/simulate", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: "document", scheme_id: sid, document, action }),
+      });
+      renderSandbox(data);
+    } catch (err) {
+      $("#sandbox-rules").textContent = "Error: " + err.message;
+    } finally {
+      btn.disabled = false; btn.textContent = "Simulate fraud";
+    }
+  }
+
+  function renderSandbox(d) {
+    $("#sandbox-result").style.display = "";
+    $("#sandbox-flips-card").style.display = "";
+    if (d.mode === "document") return renderSandboxDocument(d);
+    $("#sandbox-meta").textContent =
+      d.scheme_id + " · rule " + d.field + " → " + d.new_value + " · cohort " + d.cohort_size;
+    const deltaCls = d.budget_delta > 0 ? "warn" : (d.budget_delta < 0 ? "good" : "");
+    const sign = d.budget_delta > 0 ? "+" : "";
+    const pctPart = d.budget_delta_pct == null ? "" : " (" + sign + d.budget_delta_pct + "%)";
+    $("#sandbox-metrics").innerHTML = [
+      `<div class="metric"><div class="m-val">${d.cohort_size}</div><div class="m-lbl">Applicants simulated</div></div>`,
+      `<div class="metric"><div class="m-val good">+${d.newly_eligible}</div><div class="m-lbl">Newly eligible</div></div>`,
+      `<div class="metric"><div class="m-val warn">−${d.newly_ineligible}</div><div class="m-lbl">Newly ineligible</div></div>`,
+      `<div class="metric"><div class="m-val">₹${d.before.budget_total.toLocaleString("en-IN")} → ₹${d.after.budget_total.toLocaleString("en-IN")}</div><div class="m-lbl">Cohort payout</div></div>`,
+      `<div class="metric"><div class="m-val ${deltaCls}">${sign}₹${d.budget_delta.toLocaleString("en-IN")}${pctPart}</div><div class="m-lbl">Budget impact</div></div>`,
+    ].join("");
+    $("#sandbox-count").textContent = d.affected_count + " of " + d.cohort_size + " changed";
+    $("#sandbox-thead").innerHTML = `<tr>
+      <th>ID</th><th>Case</th><th>Verdict before</th><th>Verdict after</th>
+      <th>₹ before</th><th>₹ after</th></tr>`;
+    const flipHtml = Object.keys(d.flips).length
+      ? Object.entries(d.flips).map(([k, v]) => v + "× " + k).join(" · ")
+      : "No verdict flips — entitlement amounts may still differ.";
+    $("#sandbox-rows").innerHTML = (d.affected.length
+      ? d.affected.map((r) => `<tr>
+          <td><strong>${esc(r.item_id)}</strong></td>
+          <td>${esc(r.label)}</td>
+          <td><span class="pred-tag pred-${esc(r.before)}">${esc(r.before)}</span></td>
+          <td><span class="pred-tag pred-${esc(r.after)}">${esc(r.after)}</span></td>
+          <td>₹${esc(r.entitlement_before)}</td>
+          <td>₹${esc(r.entitlement_after)}</td>
+        </tr>`).join("")
+      : `<tr><td colspan="6" class="muted center">No applicant is affected by this change.</td></tr>`)
+      + `<tr><td colspan="6" class="muted"><b>Transitions:</b> ${esc(flipHtml)}</td></tr>`;
+  }
+
+  function renderSandboxDocument(d) {
+    const actionLabel = d.action === "omit" ? "omitted" : "forged";
+    $("#sandbox-meta").textContent =
+      d.scheme_id + " · " + d.document + " " + actionLabel + " · cohort " + d.cohort_size;
+    const deltaCls = d.budget_delta > 0 ? "warn" : (d.budget_delta < 0 ? "good" : "");
+    const sign = d.budget_delta > 0 ? "+" : "";
+    $("#sandbox-metrics").innerHTML = [
+      `<div class="metric"><div class="m-val">${d.cohort_size}</div><div class="m-lbl">Applicants simulated</div></div>`,
+      `<div class="metric"><div class="m-val good">${d.before.flagged ?? 0} → ${d.after.flagged}</div><div class="m-lbl">Cases flagged</div></div>`,
+      `<div class="metric"><div class="m-val ${d.affected_count ? "warn" : "good"}">${d.affected_count}</div><div class="m-lbl">Fraud caught</div></div>`,
+      `<div class="metric"><div class="m-val good">+${d.newly_eligible}</div><div class="m-lbl">Newly eligible</div></div>`,
+      `<div class="metric"><div class="m-val ${deltaCls}">${sign}₹${d.budget_delta.toLocaleString("en-IN")}</div><div class="m-lbl">Budget impact</div></div>`,
+    ].join("");
+    const detectedHtml = Object.keys(d.flags_detected).length
+      ? Object.entries(d.flags_detected).map(([k, v]) => v + "× " + k).join(" · ")
+      : "none";
+    $("#sandbox-rules").textContent = (d.strategy ? d.strategy + ". " : "")
+      + (d.affected_count
+        ? "Integrity checks caught: " + detectedHtml
+        : "No cohort member is caught by this tamper — the documents are internally consistent.");
+    $("#sandbox-count").textContent = d.affected_count + " of " + d.cohort_size + " caught";
+    $("#sandbox-thead").innerHTML = `<tr>
+      <th>ID</th><th>Case</th><th>Verdict before</th><th>Verdict after</th>
+      <th>Fraud checks triggered</th></tr>`;
+    const detailRows = d.affected.length
+      ? d.affected.map((r) => `<tr>
+          <td><strong>${esc(r.item_id)}</strong></td>
+          <td>${esc(r.label)}</td>
+          <td><span class="pred-tag pred-${esc(r.before)}">${esc(r.before)}</span></td>
+          <td><span class="pred-tag pred-${esc(r.after)}">${esc(r.after)}</span></td>
+          <td>${r.new_flags.map((c) => `<span class="fact">${esc(c)}</span>`).join(" ") || "—"}</td>
+        </tr>`).join("")
+      : `<tr><td colspan="5" class="muted center">No case is caught by this tamper.</td></tr>`;
+    $("#sandbox-rows").innerHTML = detailRows
+      + `<tr><td colspan="5" class="muted"><b>Checks triggered:</b> ${esc(detectedHtml)}</td></tr>`;
+  }
+
   // ============================== SCHEMES ==================================
   function renderSchemeGrid() {
     const grid = $("#scheme-grid");
@@ -1225,6 +1420,7 @@
     $("#appeal-scheme").innerHTML = options;
     $("#mail-scheme").innerHTML = `<option value="">No scheme</option>` + options;
     $("#notice-scheme").innerHTML = options;
+    $("#sandbox-scheme").innerHTML = options;
   }
 
   async function updateLlmPill() {
@@ -1255,6 +1451,11 @@
     });
     $("#btn-run-benchmark").addEventListener("click", runBenchmarkPage);
     $("#btn-run-ablation").addEventListener("click", runAblation);
+    $("#sandbox-scheme").addEventListener("change", loadSandboxFields);
+    $("#sandbox-mode").addEventListener("change", onSandboxModeChange);
+    $("#sandbox-field").addEventListener("change", onSandboxFieldChange);
+    $("#btn-run-sandbox").addEventListener("click", runSandbox);
+    $("#btn-run-sandbox-doc").addEventListener("click", runSandboxDoc);
     $("#appeal-scheme").addEventListener("change", renderAppealHierarchy);
     $("#btn-sync-replies").addEventListener("click", syncReplies);
     $("#btn-load-appeals").addEventListener("click", loadAppealRegister);
@@ -1273,6 +1474,7 @@
       fillSchemeSelects();
       await loadFullSchemes();
       renderSchemeGrid();
+      await loadSandboxFields();
       await loadSampleCases();
       onSchemeChange();
       renderAppealHierarchy();

@@ -7,8 +7,13 @@ It re-derives the eligibility decision from the raw clauses using its own logic
 (so it is a genuine second opinion, not a copy of the entitlement agent), checks
 the document checklist, and reports whether the two agents agree. A disagreement
 forces the Orchestrator to raise the human-approval gate.
+
+It also runs the document-integrity checker (fake/tampered-document detection:
+impossible values, cross-field contradictions, claims without backing evidence).
+High-severity integrity flags raise the human-approval gate in the Orchestrator.
 """
 from ..condition_eval import evaluate
+from ..document_integrity import check_integrity
 
 
 class VerificationAgent:
@@ -39,6 +44,13 @@ class VerificationAgent:
         missing_docs = case.get("missing_documents", [])
         docs_ok = len(missing_docs) == 0
 
+        integrity = check_integrity(
+            applicant, scheme,
+            submitted_documents=case.get("submitted_documents"),
+            documents_assumed_complete=case.get("documents_assumed_complete", True),
+            include_missing=False,  # intake already reports missing documents
+        )
+
         flags = []
         if not docs_ok:
             flags.append(f"Missing mandatory documents: {', '.join(missing_docs)}")
@@ -47,6 +59,8 @@ class VerificationAgent:
                 f"Cross-check disagreement: entitlement agent says '{primary}', "
                 f"verification agent says '{independent}'"
             )
+        for item in integrity:
+            flags.append(f"[{item['severity']}] {item['detail']}")
 
         return {
             "independent_decision": independent,
@@ -54,5 +68,6 @@ class VerificationAgent:
             "cross_check_agree": agree,
             "documents_ok": docs_ok,
             "missing_documents": missing_docs,
+            "integrity_flags": integrity,
             "flags": flags,
         }

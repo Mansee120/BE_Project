@@ -24,6 +24,7 @@ from . import complaints as complaints_mod
 from . import dbt
 from .notifications import mail, sms
 from .pipeline import pipeline
+from .policy_sandbox import sandbox as policy_sandbox
 from .ablation import AblationRunner
 from .report import build_report
 from .leaderboard import ranked
@@ -62,6 +63,15 @@ class BenchmarkRequest(BaseModel):
 
 class AblationRequest(BaseModel):
     use_llm: bool = False
+
+
+class SandboxSimulateRequest(BaseModel):
+    mode: str = Field("rule", description="'rule' = change a threshold, 'document' = tamper with a document")
+    scheme_id: str = Field(..., description="Target scheme id, e.g. IGNOAPS-2023")
+    field: Optional[str] = Field(None, description="Rule mode: applicant field whose threshold to change, e.g. age")
+    new_value: Optional[object] = Field(None, description="Rule mode: proposed replacement value")
+    document: Optional[str] = Field(None, description="Document mode: required document to tamper with")
+    action: Optional[str] = Field(None, description="Document mode: 'omit' (never submitted) or 'forge' (doctored content)")
 
 
 class NotifyRequest(BaseModel):
@@ -246,6 +256,37 @@ def run_benchmark(req: BenchmarkRequest):
 def run_ablation(req: AblationRequest):
     """Run the baselines/ablations experiment and return the comparison."""
     return AblationRunner().run(use_llm=req.use_llm)
+
+
+@app.get("/api/sandbox/fields")
+def sandbox_fields(scheme_id: str):
+    """List rule-patchable fields (with current thresholds) for the sandbox."""
+    try:
+        return policy_sandbox.fields(scheme_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+
+
+@app.post("/api/sandbox/simulate")
+def sandbox_simulate(req: SandboxSimulateRequest):
+    """What-if simulator.
+
+    mode='rule'     -> re-run eligibility + entitlement with one rule threshold
+                       replaced; returns verdict flips and budget impact.
+    mode='document' -> tamper with one document (omit or forge it) and see how
+                       many fake-document cases the integrity checker catches.
+    """
+    try:
+        if req.mode == "document":
+            if not req.document or not req.action:
+                raise ValueError("document mode requires 'document' and 'action'.")
+            return policy_sandbox.simulate_document(
+                req.scheme_id, req.document, req.action)
+        if not req.field or req.new_value is None:
+            raise ValueError("rule mode requires 'field' and 'new_value'.")
+        return policy_sandbox.simulate(req.scheme_id, req.field, req.new_value)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
 
 
 @app.get("/api/report")
